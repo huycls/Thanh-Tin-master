@@ -31,6 +31,8 @@
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
+     "eslint": "^7.9.0",
+    "eslint-plugin-react": "^7.21.2",
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
@@ -38,8 +40,7 @@
     "@babel/core": "^7.13.10",
     "@babel/node": "^7.13.10",
     "@babel/preset-env": "^7.13.10",
-    "eslint": "^7.9.0",
-    "eslint-plugin-react": "^7.21.2",
+   
     "nodemon": "^2.0.7"
   },
   "engines": {
