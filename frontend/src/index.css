@@ -570,6 +570,9 @@ img.large {
 
 .footer-title{
   margin-bottom: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
 }
 
 .other-social{
