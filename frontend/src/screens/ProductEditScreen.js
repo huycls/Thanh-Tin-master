@@ -43,7 +43,7 @@ export default function ProductEditScreen(props) {
       setImage(product.image);
       setCategory(product.category);
       setParameter(product.parameter);
-      setVideo(product.parameter);
+      setVideo(product.video);
       setCatalog(product.catalog);
       setCountInStock(product.countInStock);
       setBrand(product.brand);
