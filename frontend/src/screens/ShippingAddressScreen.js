@@ -43,7 +43,7 @@ export default function ShippingAddressScreen(props) {
           phonenumber,
         })
       );
-      props.history.push('/payment');
+      props.history.push('/placeorder');
     }
   };
   
