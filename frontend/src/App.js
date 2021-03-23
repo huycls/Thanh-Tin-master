@@ -32,7 +32,6 @@ import NewsScreen from './screens/NewsScreen';
 import NewsScreen1 from './screens/NewsScreen1';
 import NewsScreen2 from './screens/NewsScreen2';
 import NewsScreen3 from './screens/NewsScreen3';
-import $ from 'jquery';
 
 function App() {
   const categories1 = ["THIẾT BỊ NGÀNH GIẤY",
