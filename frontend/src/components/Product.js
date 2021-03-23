@@ -14,9 +14,12 @@ export default function Product(props) {
           <h2>{product.name}</h2>
         </Link>
         <div className="row">
-          <div className="price">{product.price} VNĐ</div>
-          
+          <div className="product-model">Model: {product.description}</div>
+          <div className="product-brand">Hãng sản xuất: {product.brand}</div>
         </div>
+        <Link className="details-btn" to={`/product/${product._id}`}>
+          Chi tiết
+        </Link>
       </div>
     </div>
   );
