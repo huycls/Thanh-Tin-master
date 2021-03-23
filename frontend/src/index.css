@@ -219,7 +219,7 @@ img.large {
 /* Card */
 .card {
   width: 22rem;
-  height: auto;
+  height: 30rem;
   border: 0.1rem #c0c0c0 solid;
   background-color: #f8f8f8;
   border-radius: 0.5rem;
@@ -249,8 +249,10 @@ img.large {
 }
 
 .card-body {
-  max-height: 100%;
+  position: relative;
+  max-height: 35rem;
   padding: 1rem;
+  padding-bottom: 2rem!important;
   font-weight: 14px;
 }
 .card-body > * {
@@ -263,6 +265,9 @@ img.large {
   color: #fff;
   border: 1px solid #00A349;
   border-radius: 3px;
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
 }
 
 .card .details-btn:hover{
@@ -333,7 +338,13 @@ img.large {
 .form label {
   margin: 1rem 0;
 }
+
 /* Dropdown */
+
+#category{
+  text-transform: uppercase;
+}
+
 .dropdown {
   display: inline-block;
   position: relative;
@@ -650,6 +661,10 @@ img.large {
 /*Footer*/
 
 .footer{
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  display: flex;
   background-color: #007a37!important;
   color: #ffffff;
   padding-top: 30px;
@@ -657,7 +672,25 @@ img.large {
 
 
 .footer-child{
-  margin-bottom: 20px;
+  margin: 1rem;
+  width: 300px;
+}
+
+.contact-info{
+  height: 33rem;
+}
+
+.sale-dept{
+  height: 12rem;
+}
+
+.tech-dept{
+  height: 12rem;
+}
+
+.contact-media{
+  height: 33rem;
+  padding: 0;
 }
 
 .footer h5{
@@ -709,6 +742,8 @@ img.large {
 
 
 .copyright{
+  position: absolute;
+  bottom: 0;
   text-align: center;
   font-weight: bold;
 }
