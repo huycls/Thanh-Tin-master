@@ -40,10 +40,16 @@ footer {
 }
 /* Common */
 h1 {
+  padding-left: 5px;
+  margin-top: 10px;
   font-size: 1.8rem;
   padding: 1rem 0;
+  color: #fff;
+  font-weight: bold;
+  background-color: #00A349;
 }
 h2 {
+ 
   font-size: 1.6rem;
   padding: 1rem 0;
 }
@@ -199,13 +205,26 @@ img.large {
 
 /* Card */
 .card {
-  width: 20rem;
+  width: 22rem;
   height: auto;
   border: 0.1rem #c0c0c0 solid;
   background-color: #f8f8f8;
   border-radius: 0.5rem;
   margin: 1rem;
+  overflow: hidden;
 }
+
+.card img{
+  margin: 0 auto;
+  width: 22rem;
+  height: 15rem;
+  transition: 0.3s all ease;
+}
+
+.card img:hover{
+  transform: scale(0.9);
+}
+
 .card-body {
   max-height: 40%;
   padding: 1rem;
@@ -464,10 +483,15 @@ img.large {
 }
 
 .dropdownmenu-content a {
+  width: 50%;
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+}
+
+.dropdownmenu-content li{
+  width: 50%;
 }
 
 /* Change color of dropdown links on hover */
@@ -545,6 +569,41 @@ img.large {
   color:#a02020;
 }
 
+.collect-email{
+  width: 100%;
+  padding: 30px 0;
+  margin: 20px 0;
+  background-color: #00A349;
+  color: #fff;
+  border-radius: 5px;
+  display: grid;
+  place-items: center;
+}
+
+.collect-email form{
+  width: 40%;
+}
+
+.collect-email input{
+  width: 85%;
+  border: none;
+  outline: none;
+}
+
+.collect-email button{
+  margin-left: 2%;
+  width: 13%;
+  border: none;
+  outline: none;
+  color: #00A349;
+}
+
+.logo-marquee{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
 /*Footer*/
 
 .footer{
@@ -569,10 +628,9 @@ img.large {
 }
 
 .footer-title{
-  margin-bottom: 20px;
   text-transform: uppercase;
-  text-align: center;
   font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .other-social{
@@ -659,6 +717,10 @@ img.large {
 
   .products-box{
     width:100%;
+  }
+
+  .product-banner{
+   color: #00A349!important;
   }
 
   .sidebar{
