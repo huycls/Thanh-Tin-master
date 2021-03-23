@@ -12,6 +12,9 @@ export default function ProductEditScreen(props) {
   const [price, setPrice] = useState('');
   const [image, setImage] = useState('');
   const [category, setCategory] = useState('');
+  const [parameter, setParameter] = useState('');
+  const [video, setVideo] = useState('');
+  const [catalog, setCatalog] = useState('');
   const [countInStock, setCountInStock] = useState('');
   const [brand, setBrand] = useState('');
   const [description, setDescription] = useState('');
@@ -39,6 +42,9 @@ export default function ProductEditScreen(props) {
       setPrice(product.price);
       setImage(product.image);
       setCategory(product.category);
+      setParameter(product.parameter);
+      setVideo(product.parameter);
+      setCatalog(product.catalog);
       setCountInStock(product.countInStock);
       setBrand(product.brand);
       setDescription(product.description);
@@ -54,6 +60,9 @@ export default function ProductEditScreen(props) {
         price,
         image,
         category,
+        parameter,
+        video,
+        catalog,
         brand,
         countInStock,
         description,
@@ -173,15 +182,47 @@ export default function ProductEditScreen(props) {
               ></input>
             </div>
             <div>
-              <label htmlFor="description">Mô tả</label>
-              <textarea
+              <label htmlFor="description">Model</label>
+              <input
                 id="description"
-                rows="3"
                 type="text"
-                placeholder="Enter description"
+                placeholder="Enter Model"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
+              ></input>
+            </div>
+        
+            <div>
+              <label htmlFor="parameter">Thông số kỹ thuật</label>
+              <textarea
+                id="parameter"
+                rows="10"
+                type="text"
+                placeholder="Enter parameter"
+                value={parameter}
+                onChange={(e) => setParameter(e.target.value)}
               ></textarea>
+            </div>
+            <div>
+               <laber htmlFor="video">Link Video</laber>
+               <input
+                id="video"
+                type="text"
+                placeholder="Enter Link video"
+                value={video}
+                onChange={(e) => setVideo(e.target.value)}
+               ></input> 
+            </div>
+            
+            <div>
+               <laber htmlFor="catalog">Link catalog</laber>
+               <input
+                id="catalog"
+                type="text"
+                placeholder="Enter Link catalog"
+                value={catalog}
+                onChange={(e) => setCatalog(e.target.value)}
+               ></input> 
             </div>
             <div>
               <label></label>
