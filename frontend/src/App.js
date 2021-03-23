@@ -32,6 +32,7 @@ import NewsScreen from './screens/NewsScreen';
 import NewsScreen1 from './screens/NewsScreen1';
 import NewsScreen2 from './screens/NewsScreen2';
 import NewsScreen3 from './screens/NewsScreen3';
+import $ from 'jquery';
 
 function App() {
   const categories1 = ["THIẾT BỊ NGÀNH GIẤY",
@@ -97,7 +98,7 @@ function App() {
         <header className="navbar">
         <div className="upper-nav">
             <div className="hotline">Hotline: 0988 816 815 </div>
-            <Link to="mailto:sales@thanhtin-tech.com">
+            <Link  to="mailto:sales@thanhtin-tech.com">
               Email: sales@thanhtin-tech.com
             </Link>
             <div className="lang">
@@ -349,11 +350,7 @@ function App() {
           </div>
         </main>
         <div className="footer">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-9">
-                <div className="row">
-                  <div className="col-md-4 col-sm-6 footer-child">
+                  <div className="contact-info footer-child">
                     <h4 className="footer-title">thông tin liên hệ</h4>
                     <h5>công ty tnhh thiết bị và hóa chất thành tín</h5>
                     <div className="vphcm ">
@@ -365,19 +362,17 @@ function App() {
                       <p><strong>MST: </strong><span>0311941553 -001</span></p><p><strong>Email: </strong><span>hanoi@thanhtin-tech.com</span></p>
                     </div>
                   </div>
-                  <div className="col-md-4 col-sm-6 footer-child">
+                  <div className="sale-dept footer-child">
                     <h4 className="footer-title">phòng kinh doanh </h4>
                     <p><strong>HCM: </strong><span>sales@thanhtin-tech.com </span></p>
                     <p><strong>Hà Nội: </strong><span>hanoi@thanhtin-tech.com </span></p>
                   </div>
-                  <div className="col-md-4 col-sm-6 footer-child">
+                  <div className="tech-dept footer-child">
                     <h4 className="footer-title">phòng kỹ thuật</h4>
                     <p><strong>HCM: </strong><span>service@thanhtin-tech.com </span></p>
                     <p><strong>Hà Nội: </strong><span>service@thanhtin-tech.com </span></p>
                   </div>
-                </div>
-              </div>
-              <div className="col-md-3 col-sm-6 footer-child">
+                  <div className="contact-media footer-child">
                 <div className="fb-page" data-href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" data-tabs="timeline" data-width="300" data-height="200" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147">Công ty TNHH Thiết Bị Và Hoá Chất  Thành Tín</a></blockquote></div>
                 <div className="other-social">
                   <Link to="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" target="_blank"><i className="fab fa-facebook"></i></Link>
@@ -386,12 +381,11 @@ function App() {
                   <Link to="#"><i className="fab fa-pinterest"></i></Link>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="copyright">
+              <div className="copyright">
             <div>COPYRIGHT &copy; 2021 CÔNG TY TNHH THIẾT BỊ VÀ HÓA CHẤT THÀNH TÍN</div>
+          </div>  
           </div>
-        </div>    
+            
       </div>
     </BrowserRouter>
   );
