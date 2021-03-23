@@ -99,36 +99,28 @@ export default function HomeScreen() {
                 Sỹ)
               </p>
             </Link>
-            <Link to="#">
+            <Link to="news1">
               <p>
-                <i className="fas fa-chevron-right"></i>Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit.
+                <i className="fas fa-chevron-right"></i>THÔNG BÁO THAY ĐỔI TÊN GIAO DỊCH
               </p>
             </Link>
-            <Link to="#">
+            <Link to="news2">
               <p>
-                <i className="fas fa-chevron-right"></i>Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit.
+                <i className="fas fa-chevron-right"></i>ANALYTICA VIETNAM 2013 TRIỂN LÃM QUỐC TẾ LẦN THỨ 3 VỀ CÔNG NGHỆ THÍ NGHIỆM, PHÂN TÍCH, CÔNG NGHỆ SINH HỌC VÀ CHẨN ĐOÁN
               </p>
             </Link>
-            <Link to="#">
+            <Link to="news3">
               <p>
-                <i className="fas fa-chevron-right"></i>Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit.
+                <i className="fas fa-chevron-right"></i>TUYỂN NHÂN VIÊN KINH DOANH
               </p>
             </Link>
-            <Link to="#">
-              <p>
-                <i className="fas fa-chevron-right"></i>Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit.
-              </p>
-            </Link>
+            
           </div>
         </div>
       </div>
       <div className="lower-content">
-        <div className="product-">
-          <h2>Tất cả sản phẩm</h2>
+        <div className="product-box">      
+          <h1 className="product-banner">Tất cả sản phẩm</h1>
           {loading ? (
             <LoadingBox></LoadingBox>
           ) : error ? (
@@ -136,7 +128,7 @@ export default function HomeScreen() {
           ) : (
             <div>
               {products.length === 0 && <MessageBox>No Product Found</MessageBox>}
-              <div className="row center">
+              <div className="rowe center">
                 {products.map((product) => (
                   <Product key={product._id} product={product}></Product>
                 ))}
