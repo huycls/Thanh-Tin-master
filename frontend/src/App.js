@@ -29,8 +29,26 @@ import LoadingBox from './components/LoadingBox';
 import MessageBox from './components/MessageBox';
 import MapScreen from './screens/MapScreen';
 import NewsScreen from './screens/NewsScreen';
+import NewsScreen1 from './screens/NewsScreen1';
+import NewsScreen2 from './screens/NewsScreen2';
+import NewsScreen3 from './screens/NewsScreen3';
 
 function App() {
+  const categories1 = ["THIẾT BỊ NGÀNH GIẤY",
+    "THIẾT BỊ NGÀNH BAO BÌ GIẤY",
+    "THIẾT BỊ NGÀNH BAO BÌ NHỰA",
+    "THIẾT BỊ NGÀNH CAO SU - NHỰA",
+    "THIẾT BỊ THỬ NGHIỆM THÉP",
+    "THIẾT BỊ NGÀNH SƠN - XI MẠ",
+    "THIẾT BỊ NGÀNH VẬT LIỆU XÂY DỰNG",
+    "THIẾT BỊ NGÀNH THỰC PHẨM",
+    "THIẾT BỊ NGÀNH DƯỢC PHẨM",
+    "THIẾT BỊ NGÀNH Y TẾ - SINH HỌC",
+    "THIẾT BỊ NGÀNH NƯỚC VÀ MÔI TRƯỜNG",
+    "THIẾT BỊ ĐO ONLINE (KHÍ THẢI - NƯỚC THẢI - NƯỚC CẤP)",
+    "HỆ THỐNG QUAN TRẮC NƯỚC THẢI - KHÍ THẢI TỰ ĐỘNG",
+    "THIẾT BỊ CƠ BẢN PHÒNG THÍ NGHIỆM"];
+    
   const cart = useSelector((state) => state.cart);
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const { cartItems } = cart;
@@ -40,6 +58,7 @@ function App() {
   const signoutHandler = () => {
     dispatch(signout());
   };
+
 
   const productCategoryList = useSelector((state) => state.productCategoryList);
   const {
@@ -55,6 +74,7 @@ function App() {
       document.getElementById("myDropdown").classList.toggle("show");
     }
 
+     
     // Close the dropdown menu if the user clicks outside of it
     window.onclick = function(event) {
         if (!event.target.matches('.dropbtn')) {
@@ -68,6 +88,8 @@ function App() {
         }
         }
     }
+    
+
   return (
     <BrowserRouter>
       <div className="grid-container">
@@ -75,7 +97,9 @@ function App() {
         <header className="navbar">
         <div className="upper-nav">
             <div className="hotline">Hotline: 0988 816 815 </div>
-            <Link href="mailto:sales@thanhtin-tech.com">Email: sales@thanhtin-tech.com</Link>
+            <Link to="mailto:sales@thanhtin-tech.com">
+              Email: sales@thanhtin-tech.com
+            </Link>
             <div className="lang">
               <button>
                 <img src="./images/vnese.png" alt="vietnamese" />
@@ -167,33 +191,32 @@ function App() {
         </header> 
         <main>
           <div className="dropdownmenu">
-            <button onClick={dropdownmenu} class="dropbtn">
-              <i class="fas fa-bars"></i>Danh mục sản phẩm
+            <button onClick={dropdownmenu} className="dropbtn">
+              <i className="fas fa-bars"></i>Danh mục sản phẩm
             </button>
             <div id="myDropdown" className="dropdownmenu-content">
               <div className="dropdown-large row">
                 <div className="row">
-                {loadingCategories ? (
-                  <LoadingBox></LoadingBox>
-                ) : errorCategories ? (
-                  <MessageBox variant="danger">{errorCategories}</MessageBox>
-                ) : (
-                  categories.map((c) => (
-                    <li key={c}>
+                {categories1.map(category => (
+                    <li key={category}>
                       <Link
-                        to={`/search/category/${c}`}
+                        to={`/search/category/${category}`}
                         onClick={() => setSidebarIsOpen(false)}
                       >
-                        {c}
+                        {category}
                       </Link>
                     </li>
                   ))
-                )}
+                }
+              
                 </div>               
               </div>
             </div>
           </div>
           <Route path="/news" component={NewsScreen}></Route>
+          <Route path="/news1" component={NewsScreen1}></Route>
+          <Route path="/news2" component={NewsScreen2}></Route>
+          <Route path="/news3" component={NewsScreen3}></Route>
           <Route path="/seller/:id" component={SellerScreen}></Route>
           <Route path="/cart/:id?" component={CartScreen}></Route>
           <Route path="/product/:id" component={ProductScreen} exact></Route>
@@ -264,13 +287,73 @@ function App() {
           ></SellerRoute>
 
           <Route path="/" component={HomeScreen} exact></Route>
+          <div className="collect-email">
+            <p>Đăng ký email để nhận tin sản phẩm mới nhất</p>
+            <form id="form"  method="GET" action="https://script.google.com/macros/s/AKfycbyTSr30R7jPcxOqEYFOuxNOjvKeKWCmBqN2tnnRYTrXPnOElveM/exec">
+              <input id="email" type="email" name="email_user" />
+              <button type="submit" id="submit-form" placeholder="Email">Gửi</button>
+            </form>
+          </div>
+          <div className="logo-marquee">
+            
+              <img
+                src="./images/alp.png"
+                width="120"
+                height="80"
+                alt="Natural"
+              />
+              <img
+                src="./images/consort.png"
+                width="120"
+                height="80"
+                alt="Natural"
+              />
+              <img
+                src="./images/emco.png"
+                width="120"
+                height="80"
+                alt="Natural"
+              />
+             
+              <img
+                src="./images/kruss.png"
+                width="120"
+                height="80"
+                alt="Natural"
+              />
+              <img
+                src="./images/nabertherm.png"
+                width="120"
+                height="80"
+                alt="Natural"
+              />
+              <img
+                src="./images/gfl.png"
+                width="120"
+                height="80"
+                alt="Natural"
+              />
+              <img
+                src="./images/pta.png"
+                width="120"
+                height="80"
+                alt="Natural"
+              />
+              <img
+                src="./images/pnshar.png"
+                width="120"
+                height="80"
+                alt="Natural"
+              />
+              
+          </div>
         </main>
         <div className="footer">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-9">
-                <div class="row">
-                  <div class="col-md-4 col-sm-6 footer-child">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-9">
+                <div className="row">
+                  <div className="col-md-4 col-sm-6 footer-child">
                     <h4 className="footer-title">thông tin liên hệ</h4>
                     <h5>công ty tnhh thiết bị và hóa chất thành tín</h5>
                     <div className="vphcm ">
@@ -282,22 +365,22 @@ function App() {
                       <p><strong>MST: </strong><span>0311941553 -001</span></p><p><strong>Email: </strong><span>hanoi@thanhtin-tech.com</span></p>
                     </div>
                   </div>
-                  <div class="col-md-4 col-sm-6 footer-child">
+                  <div className="col-md-4 col-sm-6 footer-child">
                     <h4 className="footer-title">phòng kinh doanh </h4>
                     <p><strong>HCM: </strong><span>sales@thanhtin-tech.com </span></p>
                     <p><strong>Hà Nội: </strong><span>hanoi@thanhtin-tech.com </span></p>
                   </div>
-                  <div class="col-md-4 col-sm-6 footer-child">
+                  <div className="col-md-4 col-sm-6 footer-child">
                     <h4 className="footer-title">phòng kỹ thuật</h4>
                     <p><strong>HCM: </strong><span>service@thanhtin-tech.com </span></p>
                     <p><strong>Hà Nội: </strong><span>service@thanhtin-tech.com </span></p>
                   </div>
                 </div>
               </div>
-              <div class="col-md-3 col-sm-6 footer-child">
-                <div class="fb-page" data-href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" data-tabs="timeline" data-width="300" data-height="200" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147">Công ty TNHH Thiết Bị Và Hoá Chất  Thành Tín</a></blockquote></div>
+              <div className="col-md-3 col-sm-6 footer-child">
+                <div className="fb-page" data-href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" data-tabs="timeline" data-width="300" data-height="200" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147">Công ty TNHH Thiết Bị Và Hoá Chất  Thành Tín</a></blockquote></div>
                 <div className="other-social">
-                  <Link to="#"><i className="fab fa-facebook"></i></Link>
+                  <Link to="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" target="_blank"><i className="fab fa-facebook"></i></Link>
                   <Link to="#"><i className="fab fa-twitter"></i></Link>
                   <Link to="#"><i className="fab fa-youtube"></i></Link>
                   <Link to="#"><i className="fab fa-pinterest"></i></Link>
