@@ -219,7 +219,7 @@ img.large {
 /* Card */
 .card {
   width: 22rem;
-  height: 35rem;
+  height: 40rem;
   border: 0.1rem #c0c0c0 solid;
   background-color: #f8f8f8;
   border-radius: 0.5rem;
@@ -250,7 +250,7 @@ img.large {
 
 .card-body {
   position: relative;
-  max-height: 35rem;
+  height: 35rem;
   padding: 1rem;
   padding-bottom: 2rem!important;
   font-weight: 14px;
