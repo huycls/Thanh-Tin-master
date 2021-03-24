@@ -33,10 +33,10 @@ export default function PlaceOrderScreen(props) {
   }, [dispatch, order, props.history, success]);
   return (
     <div>
-      <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
-      <div className="row top">
-        <div className="col-2">
-          <ul>
+      <CheckoutSteps step1 step2></CheckoutSteps>
+      <div className="row top placeorder-step">
+        <div className="col-2 row">
+          <ul className="rowe>
             <li>
               <div className="card card-body">
                 <h2>Thông tin khách hàng</h2>
@@ -60,10 +60,10 @@ export default function PlaceOrderScreen(props) {
                           <img
                             src={item.image}
                             alt={item.name}
-                            className="small"
+                            
                           ></img>
                         </div>
-                        <div className="min-30">
+                        <div">
                           <Link to={`/product/${item.product}`}>
                             {item.name}
                           </Link>
@@ -121,7 +121,7 @@ export default function PlaceOrderScreen(props) {
                   className="primary block"
                   disabled={cart.cartItems.length === 0}
                 >
-                  Place Order
+                  Xác nhận
                 </button>
               </li>
               {loading && <LoadingBox></LoadingBox>}
