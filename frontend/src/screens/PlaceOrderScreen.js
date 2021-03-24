@@ -63,7 +63,7 @@ export default function PlaceOrderScreen(props) {
                             
                           ></img>
                         </div>
-                        <div">
+                        <div>
                           <Link to={`/product/${item.product}`}>
                             {item.name}
                           </Link>
