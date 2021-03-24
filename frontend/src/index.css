@@ -111,9 +111,6 @@ header i{
 }
 
 .upper-nav{
-  position: absolute;
-  left: 0;
-  top:0;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -162,7 +159,9 @@ a.brand img{
   margin-left: 0.2rem;
 }
 
-
+.navbar{
+  padding:0;
+}
 
 .rowe {
   display: flex;
@@ -205,7 +204,7 @@ img {
   border-radius: 0.5rem;
 }
 img.small {
-  max-width: 5rem;
+  max-width: 10rem;
   width: 100%;
 }
 img.medium {
@@ -278,6 +277,19 @@ img.large {
 .cart-card{
   width: 35rem !important;
   display: flex;
+}
+
+.placeorder-step .card{
+  height: 40rem;
+  flex-wrap: nowrap;
+  overflow-y: auto;
+  
+}
+
+.orderscreen-detail .card{
+  height: 40rem;
+  flex-wrap: nowrap;
+  overflow-y: auto;
 }
 
 .productcard-body{
@@ -682,10 +694,12 @@ img.large {
 
 .sale-dept{
   height: 12rem;
+  text-align: center;
 }
 
 .tech-dept{
   height: 12rem;
+  text-align: center;
 }
 
 .contact-media{
