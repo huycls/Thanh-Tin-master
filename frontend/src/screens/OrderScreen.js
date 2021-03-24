@@ -78,9 +78,9 @@ export default function OrderScreen(props) {
   ) : (
     <div>
       <h1>Order {order._id}</h1>
-      <div className="row top">
-        <div className="col-2">
-          <ul>
+      <div className="row top orderscreen-detail">
+        <div className="col-2 row">
+          <ul className="rowe">
             <li>
               <div className="card card-body">
                 <h2>Shippring</h2>
@@ -126,10 +126,10 @@ export default function OrderScreen(props) {
                           <img
                             src={item.image}
                             alt={item.name}
-                            className="small"
+                            
                           ></img>
                         </div>
-                        <div className="min-30">
+                        <div>
                           <Link to={`/product/${item.product}`}>
                             {item.name}
                           </Link>
