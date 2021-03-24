@@ -36,7 +36,7 @@ export default function PlaceOrderScreen(props) {
       <CheckoutSteps step1 step2></CheckoutSteps>
       <div className="row top placeorder-step">
         <div className="col-2 row">
-          <ul className="rowe>
+          <ul className="rowe">
             <li>
               <div className="card card-body">
                 <h2>Thông tin khách hàng</h2>
