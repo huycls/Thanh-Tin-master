@@ -351,7 +351,8 @@ function App() {
         <div className="footer">
                   <div className="contact-info footer-child">
                     <h4 className="footer-title">thông tin liên hệ</h4>
-                    <h5>công ty tnhh thiết bị và hóa chất thành tín</h5>
+                    <h5>công ty tnhh thiết bị và hóa chất</h5>
+                    <h5>thành tín</h5>
                     <div className="vphcm ">
                       <strong>VP HCM:</strong><span> 78 Đường số 1A, Khu Phố 4, P.Bình Hưng Hòa B, Quận Bình Tân, Tp.HCM</span>
                       <p><strong>Điện thoại:</strong> <span> (028) 36 360 901 </span></p><p><strong>Fax:</strong> <span>(028) 36 360 902</span></p>
