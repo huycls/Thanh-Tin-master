@@ -3,8 +3,7 @@ import expressAsyncHandler from 'express-async-handler';
 import bcrypt from 'bcryptjs';
 import data from '../data.js';
 import User from '../models/userModel.js';
-import { generateToken, isAdmin, isAuth } from '../utils.js';
-
+import {  isAdmin,generateToken, isAuth } from '../utils.js'; 
 const userRouter = express.Router();
 
 userRouter.get(
@@ -17,14 +16,29 @@ userRouter.get(
   })
 );
 
-userRouter.get(
-  '/data',
-  expressAsyncHandler(async (req, res) => {
-    // await User.remove({});
-    const createdUsers = await User.insertMany(data.users);
-    res.send({ createdUsers });
-  })
-);
+ userRouter.get(
+   '/data',
+   expressAsyncHandler(async (req, res) => {
+      await User.remove({});
+     const createdUsers = await User.insertMany(data.users);
+     res.send({ createdUsers });
+   })
+ );
+
+// userRouter.get("/api/users/createadmin", async(req,res)=>{
+//   try{
+//     const user = new User({
+//       name: 'thanh tin',
+//       email: 'thanhtinadmin@gmail.com',
+//       password: '999999',
+//       isAdmin: true
+//     });
+//   const newUser = await user.save();
+//   res.send(user);
+//   } catch (error){
+//     res.send({message: 'Invalid email or password'});
+//   }     
+// });
 
 userRouter.post(
   '/signin',
@@ -148,7 +162,7 @@ userRouter.put(
       user.email = req.body.email || user.email;
       user.isSeller = Boolean(req.body.isSeller);
       user.isAdmin = Boolean(req.body.isAdmin);
-      // user.isAdmin = req.body.isAdmin || user.isAdmin;
+       user.isAdmin = req.body.isAdmin || user.isAdmin;
       const updatedUser = await user.save();
       res.send({ message: 'User Updated', user: updatedUser });
     } else {
