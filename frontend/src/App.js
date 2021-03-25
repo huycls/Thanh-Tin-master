@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Link, Route } from 'react-router-dom';
 import { signout } from './actions/userActions';
@@ -6,10 +6,10 @@ import AdminRoute from './components/AdminRoute';
 import PrivateRoute from './components/PrivateRoute';
 import CartScreen from './screens/CartScreen';
 import HomeScreen from './screens/HomeScreen';
-import OrderHistoryScreen from './screens/OrderHistoryScreen';
-import OrderScreen from './screens/OrderScreen';
-import PaymentMethodScreen from './screens/PaymentMethodScreen';
-import PlaceOrderScreen from './screens/PlaceOrderScreen';
+// import OrderHistoryScreen from './screens/OrderHistoryScreen';
+// import OrderScreen from './screens/OrderScreen';
+// import PaymentMethodScreen from './screens/PaymentMethodScreen';
+// import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import ProductListScreen from './screens/ProductListScreen';
 import ProductScreen from './screens/ProductScreen';
 import ProfileScreen from './screens/ProfileScreen';
@@ -17,21 +17,20 @@ import RegisterScreen from './screens/RegisterScreen';
 import ShippingAddressScreen from './screens/ShippingAddressScreen';
 import SigninScreen from './screens/SigninScreen';
 import ProductEditScreen from './screens/ProductEditScreen';
-import OrderListScreen from './screens/OrderListScreen';
+// import OrderListScreen from './screens/OrderListScreen';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
 import SellerRoute from './components/SellerRoute';
 import SellerScreen from './screens/SellerScreen';
 import SearchBox from './components/SearchBox';
 import SearchScreen from './screens/SearchScreen';
-import { listProductCategories } from './actions/productActions';
-import LoadingBox from './components/LoadingBox';
-import MessageBox from './components/MessageBox';
 import MapScreen from './screens/MapScreen';
 import NewsScreen from './screens/NewsScreen';
 import NewsScreen1 from './screens/NewsScreen1';
 import NewsScreen2 from './screens/NewsScreen2';
 import NewsScreen3 from './screens/NewsScreen3';
+
+
 
 function App() {
   const categories1 = ["THIẾT BỊ NGÀNH GIẤY",
@@ -60,15 +59,8 @@ function App() {
   };
 
 
-  const productCategoryList = useSelector((state) => state.productCategoryList);
-  const {
-    loading: loadingCategories,
-    error: errorCategories,
-    categories,
-  } = productCategoryList;
-  useEffect(() => {
-    dispatch(listProductCategories());
-  }, [dispatch]);
+   const productCategoryList = useSelector((state) => state.productCategoryList);
+  
 
   function dropdownmenu() {
       document.getElementById("myDropdown").classList.toggle("show");
@@ -88,12 +80,9 @@ function App() {
         }
         }
     }
-    
-
   return (
     <BrowserRouter>
-      <div className="grid-container">
-      
+      <div className="grid-container">      
         <header className="navbar">
         <div className="upper-nav">
             <div className="hotline">Hotline: 0988 816 815 </div>
@@ -207,8 +196,7 @@ function App() {
                       </Link>
                     </li>
                   ))
-                }
-              
+                }              
                 </div>               
               </div>
             </div>
@@ -228,10 +216,10 @@ function App() {
           <Route path="/signin" component={SigninScreen}></Route>
           <Route path="/register" component={RegisterScreen}></Route>
           <Route path="/shipping" component={ShippingAddressScreen}></Route>
-          <Route path="/payment" component={PaymentMethodScreen}></Route>
-          <Route path="/placeorder" component={PlaceOrderScreen}></Route>
-          <Route path="/order/:id" component={OrderScreen}></Route>
-          <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
+          {/* <Route path="/payment" component={PaymentMethodScreen}></Route>
+          <Route path="/placeorder" component={PlaceOrderScreen}></Route> */}
+          {/* <Route path="/order/:id" component={OrderScreen}></Route> */}
+          {/* <Route path="/orderhistory" component={OrderHistoryScreen}></Route> */}
           <Route
             path="/search/name/:name?"
             component={SearchScreen}
@@ -267,11 +255,11 @@ function App() {
             component={ProductListScreen}
             exact
           ></AdminRoute>
-          <AdminRoute
+          {/* <AdminRoute
             path="/orderlist"
             component={OrderListScreen}
             exact
-          ></AdminRoute>
+          ></AdminRoute> */}
           <AdminRoute path="/userlist" component={UserListScreen}></AdminRoute>
           <AdminRoute
             path="/user/:id/edit"
@@ -281,11 +269,10 @@ function App() {
             path="/productlist/seller"
             component={ProductListScreen}
           ></SellerRoute>
-          <SellerRoute
+          {/* <SellerRoute
             path="/orderlist/seller"
             component={OrderListScreen}
-          ></SellerRoute>
-
+          ></SellerRoute> */}
           <Route path="/" component={HomeScreen} exact></Route>
           <div className="collect-email">
             <p>Đăng ký email để nhận tin sản phẩm mới nhất</p>
@@ -294,8 +281,7 @@ function App() {
               <button type="submit" id="submit-form" placeholder="Email">Gửi</button>
             </form>
           </div>
-          <div className="logo-marquee">
-            
+          <div className="logo-marquee">            
               <img
                 src="./images/alp.png"
                 width="120"
@@ -344,15 +330,13 @@ function App() {
                 width="120"
                 height="80"
                 alt="Natural"
-              />
-              
+              />        
           </div>
         </main>
         <div className="footer">
                   <div className="contact-info footer-child">
                     <h4 className="footer-title">thông tin liên hệ</h4>
-                    <h5>công ty tnhh thiết bị và hóa chất</h5>
-                    <h5>thành tín</h5>
+                    <h5>công ty tnhh thiết bị và hóa chất thành tín</h5>
                     <div className="vphcm ">
                       <strong>VP HCM:</strong><span> 78 Đường số 1A, Khu Phố 4, P.Bình Hưng Hòa B, Quận Bình Tân, Tp.HCM</span>
                       <p><strong>Điện thoại:</strong> <span> (028) 36 360 901 </span></p><p><strong>Fax:</strong> <span>(028) 36 360 902</span></p>
@@ -373,9 +357,9 @@ function App() {
                     <p><strong>Hà Nội: </strong><span>service@thanhtin-tech.com </span></p>
                   </div>
                   <div className="contact-media footer-child">
-                <div className="fb-page" data-href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" data-tabs="timeline" data-width="300" data-height="200" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147">Công ty TNHH Thiết Bị Và Hoá Chất  Thành Tín</a></blockquote></div>
+                <div className="fb-page" data-href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" data-tabs="timeline" data-width="300" data-height="200" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" className="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147">Công ty TNHH Thiết Bị Và Hoá Chất  Thành Tín</a></blockquote></div>
                 <div className="other-social">
-                  <Link to="#"><i className="fab fa-linkedin"></i></i></Link>
+                  <Link to="#"><i className="fab fa-linkedin"></i></Link>
                   <Link to="#"><i className="fab fa-twitter"></i></Link>
                   <Link to="#"><i className="fab fa-youtube"></i></Link>
                   <Link to="#"><i className="fab fa-pinterest"></i></Link>
@@ -385,7 +369,7 @@ function App() {
             <div>COPYRIGHT &copy; 2021 CÔNG TY TNHH THIẾT BỊ VÀ HÓA CHẤT THÀNH TÍN</div>
           </div>  
           </div>
-            
+           
       </div>
     </BrowserRouter>
   );
