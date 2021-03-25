@@ -1,20 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { saveShippingAddress } from '../actions/cartActions';
-import CheckoutSteps from '../components/CheckoutSteps';
+import { CART_EMPTY } from '../constants/cartConstants';
 
 export default function ShippingAddressScreen(props) {
-  const userSignin = useSelector((state) => state.userSignin);
-
-
+ 
   const cart = useSelector((state) => state.cart);
   const { shippingAddress } = cart;
-  const [lat, setLat] = useState(shippingAddress.lat);
-  const [lng, setLng] = useState(shippingAddress.lng);
-  const userAddressMap = useSelector((state) => state.userAddressMap);
-  const { address: addressMap } = userAddressMap;
-
-  
   const [fullName, setFullName] = useState(shippingAddress.fullName);
   const [company, setCompany] = useState(shippingAddress.company);
   const [address, setAddress] = useState(shippingAddress.address);
@@ -22,41 +13,39 @@ export default function ShippingAddressScreen(props) {
   const [email, setEmail] = useState(shippingAddress.email);
   const [phonenumber, setPhonenumber] = useState(shippingAddress.phonenumber);
   const dispatch = useDispatch();
-  const submitHandler = (e) => {
-    e.preventDefault();
-    const newLat = addressMap ? addressMap.lat : lat;
-    const newLng = addressMap ? addressMap.lng : lng;
-    if (addressMap) {
-      setLat(addressMap.lat);
-      setLng(addressMap.lng);
-    }
-    let moveOn = true;
-    
-    if (moveOn) {
-      dispatch(
-        saveShippingAddress({
-          fullName,
-          company,
-          address,
-          city,
-          email,
-          phonenumber,
-        })
-      );
-      props.history.push('/placeorder');
-    }
-  };
+
+
+    const submitHandler = (e) => {
+      e.preventDefault();
+      const templateId = 'template_wboxegd';
+      sendOrders(templateId, {full_name: fullName, company: company, address: address, city: city, email: email, phonenumber: phonenumber, product: cart.cartItems.map(item => item.name)})
+      dispatch({ type: CART_EMPTY });
+      localStorage.removeItem('cartItems');   
+   };
+
+   const sendOrders = (templateId, variables) =>{
+     window.emailjs.send(
+       'service_8sszg3c', templateId,
+       variables
+       ).then( res =>{
+         alert('Your request successfully sent!');
+         const inputs = document.querySelectorAll('input');
+          inputs.forEach(input => input.value = ''); 
+       })
+       .catch(err => console.error("Your request has been failed, please try later", err))
+     
+   }
   
   return (
     <div>
-      <CheckoutSteps step1 step2></CheckoutSteps>
-      <form className="form" onSubmit={submitHandler}>
+      <form className="form">
         <div>
           <h1>Thông tin khách hàng</h1>
         </div>
         <div>
           <label htmlFor="fullName">Tên đầy đủ</label>
           <input
+            name="Ten_khach_hang"
             type="text"
             id="fullName"
             placeholder=" "
@@ -68,6 +57,7 @@ export default function ShippingAddressScreen(props) {
         <div>
           <label htmlFor="address">Tên công ty</label>
           <input
+            name="Cong_ty"
             type="text"
             id="company"
             placeholder=" "
@@ -79,6 +69,7 @@ export default function ShippingAddressScreen(props) {
         <div>
           <label htmlFor="address">Địa chỉ</label>
           <input
+            name="Dia_chi"
             type="text"
             id="address"
             placeholder=""
@@ -90,6 +81,7 @@ export default function ShippingAddressScreen(props) {
         <div>
           <label htmlFor="city">Tỉnh/Thành phố</label>
           <input
+            name="Thanh_pho"
             type="text"
             id="city"
             placeholder="Enter city"
@@ -101,6 +93,7 @@ export default function ShippingAddressScreen(props) {
         <div>
           <label htmlFor="email">Email</label>
           <input
+            name="Email"
             type="text"
             id="email"
             placeholder=""
@@ -112,6 +105,7 @@ export default function ShippingAddressScreen(props) {
         <div>
           <label htmlFor="phonenumber">Điện thoại</label>
           <input
+            name="SDT"
             type="text"
             id="phonenumber"
             placeholder=""
@@ -120,11 +114,19 @@ export default function ShippingAddressScreen(props) {
             required
           ></input>
         </div>
-        
+        <div>
+          <ul>
+            {cart.cartItems.map(item => (
+              <li key={item.product}>
+                {item.name}
+              </li>
+            ))}
+          </ul>
+        </div>
         <div>
           <label />
-          <button className="primary" type="submit">
-            Tiếp tục
+          <button className="primary" id="submit-btn" type="submit" onClick={submitHandler}>
+            Xác nhận
           </button>
         </div>
       </form>
