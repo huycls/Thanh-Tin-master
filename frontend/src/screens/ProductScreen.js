@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { createReview, detailsProduct } from '../actions/productActions';
+import {  detailsProduct } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import Rating from '../components/Rating';
-import { PRODUCT_REVIEW_CREATE_RESET } from '../constants/productConstants';
+import Product from '../components/Product';
+import { listProducts } from '../actions/productActions';
+// import { PRODUCT_REVIEW_CREATE_RESET } from '../constants/productConstants';
 
 export default function ProductScreen(props) {
   const dispatch = useDispatch();
@@ -13,41 +14,46 @@ export default function ProductScreen(props) {
   const [qty, setQty] = useState(1);
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
-  const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
+  const productList = useSelector((state) => state.productList);
+  const { products } = productList;
+  // const userSignin = useSelector((state) => state.userSignin);
+  // const { userInfo } = userSignin;
 
   const productReviewCreate = useSelector((state) => state.productReviewCreate);
   const {
-    loading: loadingReviewCreate,
-    error: errorReviewCreate,
+    
     success: successReviewCreate,
   } = productReviewCreate;
 
-  const [rating, setRating] = useState(0);
-  const [comment, setComment] = useState('');
+  // const [rating, setRating] = useState(0);
+  // const [comment, setComment] = useState('');
 
   useEffect(() => {
-    if (successReviewCreate) {
-      window.alert('Review Submitted Successfully');
-      setRating('');
-      setComment('');
-      dispatch({ type: PRODUCT_REVIEW_CREATE_RESET });
-    }
+    // if (successReviewCreate) {
+    //   window.alert('Review Submitted Successfully');
+    //   setRating('');
+    //   setComment('');
+    //   dispatch({ type: PRODUCT_REVIEW_CREATE_RESET });
+    // }
     dispatch(detailsProduct(productId));
   }, [dispatch, productId, successReviewCreate]);
   const addToCartHandler = () => {
     props.history.push(`/cart/${productId}?qty=${qty}`);
   };
-  const submitHandler = (e) => {
-    e.preventDefault();
-    if (comment && rating) {
-      dispatch(
-        createReview(productId, { rating, comment, name: userInfo.name })
-      );
-    } else {
-      alert('Please enter comment and rating');
-    }
-  };
+  // const submitHandler = (e) => {
+  //   e.preventDefault();
+  //   if (comment && rating) {
+  //     dispatch(
+  //       createReview(productId, { rating, comment, name: userInfo.name })
+  //     );
+  //   } else {
+  //     alert('Please enter comment and rating');
+  //   }
+  // };
+  useEffect(() => {
+    dispatch(listProducts({}));
+    // dispatch(listTopSellers());
+   }, [dispatch]);
   return (
     <div>
       {loading ? (
@@ -137,23 +143,24 @@ export default function ProductScreen(props) {
             </div>
           </div>
           <div>
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Thông số kỹ thuật</button>
+            <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li className="nav-item" role="presentation">
+              <button className="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Thông số kỹ thuật</button>
             </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Video</button>
+            <li className="nav-item" role="presentation">
+              <button className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Video</button>
             </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Download catalog</button>
+            <li className="nav-item" role="presentation">
+              <button className="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Download catalog</button>
             </li>
           </ul>
-          <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">{product.parameter}</div>
-            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">{product.video}</div>
-            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">{product.catalog}</div>
+          <div className="tab-content" id="pills-tabContent">
+            <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">{product.parameter}</div>
+            <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">{product.video}</div>
+            <div className="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">{product.catalog}</div>
           </div>
           </div>
+           
         </div>
       )}
      
