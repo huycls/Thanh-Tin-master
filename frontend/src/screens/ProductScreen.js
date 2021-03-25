@@ -156,8 +156,8 @@ export default function ProductScreen(props) {
           </ul>
           <div className="tab-content" id="pills-tabContent">
             <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">{product.parameter}</div>
-            <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">{product.video}</div>
-            <div className="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">{product.catalog}</div>
+            <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><Link to={product.video}>Video</Link></div>
+            <div className="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"><Link to={product.catalog}>Download catalog</Link></div>
           </div>
           </div>
            
