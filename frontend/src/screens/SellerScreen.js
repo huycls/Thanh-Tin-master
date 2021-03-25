@@ -5,7 +5,7 @@ import { detailsUser } from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import Product from '../components/Product';
-import Rating from '../components/Rating';
+// import Rating from '../components/Rating';
 
 export default function SellerScreen(props) {
   const sellerId = props.match.params.id;
@@ -47,12 +47,12 @@ export default function SellerScreen(props) {
                 </div>
               </div>
             </li>
-            <li>
+            {/* <li>
               <Rating
                 rating={user.seller.rating}
                 numReviews={user.seller.numReviews}
               ></Rating>
-            </li>
+            </li> */}
             <li>
               <a href={`mailto:${user.email}`}>Contact Seller</a>
             </li>
