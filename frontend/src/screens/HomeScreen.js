@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
+// import { Carousel } from 'react-responsive-carousel';
 import Product from '../components/Product';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { useDispatch, useSelector } from 'react-redux';
 import { listProducts } from '../actions/productActions';
-import { listTopSellers } from '../actions/userActions';
+// import { listTopSellers } from '../actions/userActions';
 import { Link } from 'react-router-dom';
 
 export default function HomeScreen() {
@@ -14,17 +14,17 @@ export default function HomeScreen() {
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
 
-  const userTopSellersList = useSelector((state) => state.userTopSellersList);
-  const {
-    loading: loadingSellers,
-    error: errorSellers,
-    users: sellers,
-  } = userTopSellersList;
+  // const userTopSellersList = useSelector((state) => state.userTopSellersList);
+  // const {
+  //   loading: loadingSellers,
+  //   error: errorSellers,
+  //   users: sellers,
+  // } = userTopSellersList;
 
-  useEffect(() => {
+   useEffect(() => {
     dispatch(listProducts({}));
-    dispatch(listTopSellers());
-  }, [dispatch]);
+    // dispatch(listTopSellers());
+   }, [dispatch]);
   return (
     <div>
       <div className="upper-content">
@@ -128,13 +128,101 @@ export default function HomeScreen() {
           ) : (
             <div>
               {products.length === 0 && <MessageBox>No Product Found</MessageBox>}
-              <div className="rowe center">
+              <div className="rowe">
                 {products.map((product) => (
                   <Product key={product._id} product={product}></Product>
                 ))}
               </div>
             </div>
           )}
+        </div>
+        <div className="sidebar">
+            <div className="sidebar-title">
+              <Link to="/solution">Giải pháp công nghệ tự động</Link>
+            </div>
+            <div className="sidebar-content">
+              <Link to="/solution" className="content-img">
+                <img
+                  src="./images/sidebar-img.png"
+                  alt="giai-phap-cong-nghe-tu-dong"
+                />
+                <div className="caption">
+                  <h5> Lorem ipsum dolor sit amet.</h5>
+                  <p>15-1-2020, 4:51 pm</p>
+                </div>
+              </Link>
+            </div>
+            <div className="sub-content">
+              <Link to="/nproduct">
+                <img
+                  src="./images/thumb_DM4A300.jpg"
+                  alt="thiet-bi-phong-thi-nghiem"
+                />
+                <span>
+                  {" "}
+                  Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet,
+                  consectetur adipiscing elit. Maecenas eu nulla malesuada,
+                  vehicula eros ac
+                </span>
+              </Link>
+            </div>
+            <div className="sub-content">
+              <Link to="/nproduct">
+                <img
+                  src="./images/thumb_DM4A300.jpg"
+                  alt="thiet-bi-phong-thi-nghiem"
+                />
+                <span>
+                  {" "}
+                  Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet,
+                  consectetur adipiscing elit. Maecenas eu nulla malesuada,
+                  vehicula eros ac
+                </span>
+              </Link>
+            </div>
+            <div className="sidebar-title">
+              <Link to="/solution">Giải pháp công nghệ tự động</Link>
+            </div>
+            <div className="sidebar-content">
+              <Link to="/solution" className="content-img">
+                <img
+                  src="./images/sidebar-img.png"
+                  alt="giai-phap-cong-nghe-tu-dong"
+                />
+                <div className="caption">
+                  <h5> Lorem ipsum dolor sit amet.</h5>
+                  <p>15-1-2020, 4:51 pm</p>
+                </div>
+              </Link>
+            </div>
+            <div className="sub-content">
+              <Link to="/nproduct">
+                <img
+                  src="./images/thumb_DM4A300.jpg"
+                  alt="thiet-bi-phong-thi-nghiem"
+                />
+                <span>
+                  {" "}
+                  Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet,
+                  consectetur adipiscing elit. Maecenas eu nulla malesuada,
+                  vehicula eros ac
+                </span>
+              </Link>
+            </div>
+            <div className="sub-content">
+              <Link to="/nproduct">
+                <img
+                  src="./images/thumb_DM4A300.jpg"
+                  alt="thiet-bi-phong-thi-nghiem"
+                />
+                <span>
+                  {" "}
+                  Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet,
+                  consectetur adipiscing elit. Maecenas eu nulla malesuada,
+                  vehicula eros ac
+                </span>
+              </Link>
+            </div>
         </div>
       </div>  
     </div>
