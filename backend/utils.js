@@ -1,21 +1,21 @@
 import jwt from 'jsonwebtoken';
 import mg from 'mailgun-js';
 
-export const generateToken = (user) => {
-  return jwt.sign(
-    {
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      isAdmin: user.isAdmin,
-      isSeller: user.isSeller,
-    },
-    process.env.JWT_SECRET || 'somethingsecret',
-    {
-      expiresIn: '30d',
-    }
-  );
-};
+ export const generateToken = (user) => {
+   return jwt.sign(
+     {
+       _id: user._id,
+       name: user.name,
+       email: user.email,
+       isAdmin: user.isAdmin,
+       isSeller: user.isSeller,
+     },
+     process.env.JWT_SECRET || 'somethingsecret',
+     {
+       expiresIn: '30d',
+     }
+   );
+ };
 
 export const isAuth = (req, res, next) => {
   const authorization = req.headers.authorization;
@@ -74,8 +74,8 @@ export const payOrderEmailTemplate = (order) => {
   <table>
   <thead>
   <tr>
-  <td><strong>Product</strong></td>
-  <td><strong>Quantity</strong></td>
+  <td><strong>Sản phẩm</strong></td>
+  <td><strong>Số lượng</strong></td>
   <td><strong align="right">Price</strong></td>
   </thead>
   <tbody>
@@ -93,33 +93,26 @@ export const payOrderEmailTemplate = (order) => {
   </tbody>
   <tfoot>
   <tr>
-  <td colspan="2">Items Price:</td>
+  <td colspan="2">Giá sản phẩm:</td>
   <td align="right"> $${order.itemsPrice.toFixed(2)}</td>
   </tr>
   <tr>
-  <td colspan="2">Tax Price:</td>
+  <td colspan="2">Thuế:</td>
   <td align="right"> $${order.taxPrice.toFixed(2)}</td>
-  </tr>
-  <tr>
-  <td colspan="2">Shipping Price:</td>
-  <td align="right"> $${order.shippingPrice.toFixed(2)}</td>
   </tr>
   <tr>
   <td colspan="2"><strong>Total Price:</strong></td>
   <td align="right"><strong> $${order.totalPrice.toFixed(2)}</strong></td>
   </tr>
-  <tr>
-  <td colspan="2">Payment Method:</td>
-  <td align="right">${order.paymentMethod}</td>
-  </tr>
   </table>
-  <h2>Shipping address</h2>
+  <h2>Địa chỉ</h2>
   <p>
   ${order.shippingAddress.fullName},<br/>
+  ${order.shippingAddress.company},<br/>
   ${order.shippingAddress.address},<br/>
   ${order.shippingAddress.city},<br/>
-  ${order.shippingAddress.country},<br/>
-  ${order.shippingAddress.postalCode}<br/>
+  ${order.shippingAddress.email},<br/>
+  ${order.shippingAddress.phonenumber}<br/>
   </p>
   <hr/>
   <p>
