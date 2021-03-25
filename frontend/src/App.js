@@ -351,13 +351,13 @@ function App() {
                   </div>
                   <div className="sale-dept footer-child">
                     <h4 className="footer-title">phòng kinh doanh </h4>
-                    <p><strong>HCM: </strong><span>sales@thanhtin-tech.com </span></p>
-                    <p><strong>Hà Nội: </strong><span>hanoi@thanhtin-tech.com </span></p>
+                    <p><strong>HCM: </strong><span><Link to="mailto:sales@thanhtin-tech.com">Email: sales@thanhtin-tech.com </Link></span></p>
+                    <p><strong>Hà Nội: </strong><span><Link to="mailto:hanoi@thanhtin-tech.com">Email: hanoi@thanhtin-tech.com </Link></span></p>
                   </div>
                   <div className="tech-dept footer-child">
                     <h4 className="footer-title">phòng kỹ thuật</h4>
-                    <p><strong>HCM: </strong><span>service@thanhtin-tech.com </span></p>
-                    <p><strong>Hà Nội: </strong><span>service@thanhtin-tech.com </span></p>
+                    <p><strong>HCM: </strong><span><Link to="mailto:service@thanhtin-tech.com">Email: service@thanhtin-tech.com </Link></span></p>
+                    <p><strong>Hà Nội: </strong><span><Link to="mailto:service@thanhtin-tech.com">Email: service@thanhtin-tech.com </Link></span></p>
                   </div>
                   <div className="contact-media footer-child">
                 <div className="fb-page" data-href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" data-tabs="timeline" data-width="300" data-height="200" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" className="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147">Công ty TNHH Thiết Bị Và Hoá Chất  Thành Tín</a></blockquote></div>
