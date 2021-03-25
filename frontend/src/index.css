@@ -43,9 +43,8 @@ footer {
   margin-top: 10px;
   font-size: 1.8rem;
   padding: 1rem ;
-  color: #fff;
   font-weight: bold;
-  background-color: #00A349;
+  color: #00A349;
 }
 h2 {
  
@@ -212,6 +211,20 @@ img.medium {
 }
 img.large {
   width:250px;
+}
+
+.image-product{
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.detail-product{
+  padding-left: 3rem;
+}
+
+.detail-page .col{
+  height: 30rem !important;
 }
 
 /* Card */
@@ -626,6 +639,30 @@ img.large {
   margin: 0;
 }
 
+.news-content{
+  margin-top: 20px;
+}
+
+.newspage{
+  padding: 2rem 4rem;
+}
+.news-image{
+  max-width: 40rem;
+  float: right;
+margin: 10px;
+}
+
+.newsproduct-image img{
+  width: 20rem;
+  height: 20rem;
+}
+
+.newsproduct-image{
+  max-width: 40rem;
+  float: right;
+margin: 30px;
+}
+
 .nav-link.active{
   background-color: #00A349!important;
 }
@@ -761,6 +798,65 @@ img.large {
   font-weight: bold;
 }
 
+  .lower-content{
+    display: flex;
+  }
+
+  .sidebar{
+    margin-top: 10px;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar-title{
+    background-color:  #00A349;
+    font-weight: bold;
+  }
+  
+  .sidebar-title a{
+    text-decoration: none;
+    color: #fff!important;
+    padding: 10px 10px!important;
+    position: relative;
+  }
+  
+  .sidebar-title a:hover{
+    text-decoration: underline;
+  }
+  
+  .sidebar-content a{
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .sidebar-content a:hover{
+    text-decoration: underline;
+  }
+  
+  .content-img img{
+    width: 100%;
+  }
+  
+  .sub-content{
+    margin-bottom: 20px;
+    border-bottom: 1px solid #c0c0c0;
+  }
+  
+  .sub-content a{
+    text-decoration: none;
+    color: #000;
+  }
+  .sub-content img{
+    width: 20%;
+    float: left;
+    margin: 0 10px;
+  }
+  
+  .sub-content p{
+    width: 80%;
+  }
+
 
 /*Responsive*/
 
@@ -808,17 +904,16 @@ img.large {
   }
 
   .products-box{
-    width:100%;
+    width:73%;
   }
 
-  .product-banner{
-   color: #00A349!important;
+ 
+
+
+  .productscreen-card{
+    max-height: 30rem !important;
   }
 
-  .sidebar{
-    max-width: 60%;
-    margin: 0 auto;
-  }
 
 }
 
