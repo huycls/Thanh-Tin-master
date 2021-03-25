@@ -3,7 +3,7 @@ import expressAsyncHandler from 'express-async-handler';
 import Order from '../models/orderModel.js';
 import {
   isAdmin,
-  isAuth,
+   isAuth,
   isSellerOrAdmin,
   mailgun,
   payOrderEmailTemplate,
@@ -12,12 +12,11 @@ import {
 const orderRouter = express.Router();
 orderRouter.get(
   '/',
-  isAuth,
+   isAuth,
   isSellerOrAdmin,
   expressAsyncHandler(async (req, res) => {
     const seller = req.query.seller || '';
     const sellerFilter = seller ? { seller } : {};
-
     const orders = await Order.find({ ...sellerFilter }).populate(
       'user',
       'name'
@@ -27,7 +26,7 @@ orderRouter.get(
 );
 orderRouter.get(
   '/mine',
-  isAuth,
+   isAuth,
   expressAsyncHandler(async (req, res) => {
     const orders = await Order.find({ user: req.user._id });
     res.send(orders);
@@ -36,7 +35,7 @@ orderRouter.get(
 
 orderRouter.post(
   '/',
-  isAuth,
+   isAuth,
   expressAsyncHandler(async (req, res) => {
     if (req.body.orderItems.length === 0) {
       res.status(400).send({ message: 'Cart is empty' });
@@ -50,7 +49,7 @@ orderRouter.post(
         shippingPrice: req.body.shippingPrice,
         taxPrice: req.body.taxPrice,
         totalPrice: req.body.totalPrice,
-        user: req.user._id,
+         user: req.user._id,
       });
       const createdOrder = await order.save();
       res
@@ -59,10 +58,9 @@ orderRouter.post(
     }
   })
 );
-
 orderRouter.get(
   '/:id',
-  isAuth,
+   isAuth,
   expressAsyncHandler(async (req, res) => {
     const order = await Order.findById(req.params.id);
     if (order) {
@@ -75,7 +73,7 @@ orderRouter.get(
 
 orderRouter.put(
   '/:id/pay',
-  isAuth,
+   isAuth,
   expressAsyncHandler(async (req, res) => {
     const order = await Order.findById(req.params.id).populate(
       'user',
@@ -117,7 +115,7 @@ orderRouter.put(
 
 orderRouter.delete(
   '/:id',
-  isAuth,
+   isAuth,
   isAdmin,
   expressAsyncHandler(async (req, res) => {
     const order = await Order.findById(req.params.id);
@@ -132,14 +130,13 @@ orderRouter.delete(
 
 orderRouter.put(
   '/:id/deliver',
-  isAuth,
+   isAuth,
   isAdmin,
   expressAsyncHandler(async (req, res) => {
     const order = await Order.findById(req.params.id);
     if (order) {
       order.isDelivered = true;
       order.deliveredAt = Date.now();
-
       const updatedOrder = await order.save();
       res.send({ message: 'Order Delivered', order: updatedOrder });
     } else {
