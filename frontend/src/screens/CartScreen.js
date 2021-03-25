@@ -27,8 +27,8 @@ export default function CartScreen(props) {
     props.history.push('/shipping');
   };
   return (
-    <div className="row top">
-      <div className="col-2">
+    <div className="row top cart-screen">
+      <div className="col-2 cartscreen-cart">
         <h1>Giỏ hàng</h1>
         {error && <MessageBox variant="danger">{error}</MessageBox>}
         {cartItems.length === 0 ? (
