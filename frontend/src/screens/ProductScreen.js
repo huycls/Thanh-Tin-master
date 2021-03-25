@@ -63,23 +63,23 @@ export default function ProductScreen(props) {
       ) : (
         <div>
           <Link to="/">Trở lại</Link>
-          <div className="row top">
-            <div className="col-2 col">
+          <div className="rowe top detail-page">
+            <div className="col-1 col image-product">
               <img
                 className="large"
                 src={product.image}
                 alt={product.name}
               ></img>
             </div>
-            <div className="col-1 col">
+            <div className="col-1 col detail-product">
               <ul>
                 <li>
                   <h1>{product.name}</h1>
                 </li>              
                 <li>Giá : {product.price} VNĐ</li>
                 <li>
-                  Model:
-                  <p>{product.description}</p>
+                  
+                  <p>Model: {product.description}</p>
                 </li>
                 <li>
                   <p className="contact-sale">Liên hệ <strong>Email: sales@thanhtin-tech.com</strong></p>
@@ -90,7 +90,7 @@ export default function ProductScreen(props) {
               <div className="card productcard-body productscreen-card">
                 <ul>              
                   <li>
-                    <div className="row">
+                    <div className="rowe">
                       <div>Giá</div>
                       <div className="price">{product.price} VNĐ</div>
                     </div>
@@ -110,7 +110,7 @@ export default function ProductScreen(props) {
                   {product.countInStock > 0 && (
                     <>
                       <li>
-                        <div className="row">
+                        <div className="rowe">
                           <div>Số lượng</div>
                           <div>
                             <select
@@ -156,8 +156,8 @@ export default function ProductScreen(props) {
           </ul>
           <div className="tab-content" id="pills-tabContent">
             <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">{product.parameter}</div>
-            <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><Link to={product.video}>Video</Link></div>
-            <div className="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"><Link to={product.catalog}>Download catalog</Link></div>
+            <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><Link to={product.video}>Link</Link></div>
+            <div className="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">{product.catalog}</div>
           </div>
           </div>
            
