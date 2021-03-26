@@ -125,7 +125,7 @@ productRouter.post(
       seller: req.user._id,
       image: '/images/3.jpg',
       price: 0,
-      category: 'sample category',
+      category: 'THIẾT BỊ NGÀNH GIẤY',
       brand: 'sample brand',
       countInStock: 0,
       rating: 0,
