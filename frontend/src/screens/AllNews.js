@@ -14,20 +14,20 @@ function Allnews(){
             <div className="tab-content tab-news" id="v-pills-tabContent">
                 <div className="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                     <div className="news-component">
-                        <Link className="newscomponent-title">Công ty Thành Tín là nhà phân phối chính thức cho dòng cân HE/TLE/HE của hãng METTLER TOLEDO (Thụy Sỹ)</Link>
-                        <Link className="to-news">Xem chi tiết</Link>
+                        <Link to="/news" className="newscomponent-title">Công ty Thành Tín là nhà phân phối chính thức cho dòng cân HE/TLE/HE của hãng METTLER TOLEDO (Thụy Sỹ)</Link>
+                        <Link to="/news" className="to-news">Xem chi tiết</Link>
                     </div>
                     <div className="news-component">
-                        <Link className="newscomponent-title">THÔNG BÁO THAY ĐỔI TÊN GIAO DỊCH</Link>
-                        <Link className="to-news">Xem chi tiết</Link>
+                        <Link to="/news1" className="newscomponent-title">THÔNG BÁO THAY ĐỔI TÊN GIAO DỊCH</Link>
+                        <Link to="/news1" className="to-news">Xem chi tiết</Link>
                     </div>
                     <div className="news-component">
-                        <Link className="newscomponent-title">ANALYTICA VIETNAM 2013 TRIỂN LÃM QUỐC TẾ LẦN THỨ 3 VỀ CÔNG NGHỆ THÍ NGHIỆM, PHÂN TÍCH, CÔNG NGHỆ SINH HỌC VÀ CHẨN ĐOÁN</Link>
-                        <Link className="to-news">Xem chi tiết</Link>
+                        <Link to="/news2" className="newscomponent-title">ANALYTICA VIETNAM 2013 TRIỂN LÃM QUỐC TẾ LẦN THỨ 3 VỀ CÔNG NGHỆ THÍ NGHIỆM, PHÂN TÍCH, CÔNG NGHỆ SINH HỌC VÀ CHẨN ĐOÁN</Link>
+                        <Link to="/news2" className="to-news">Xem chi tiết</Link>
                     </div>
                     <div className="news-component">
-                        <Link className="newscomponent-title">TUYỂN NHÂN VIÊN KINH DOANH</Link>
-                        <Link className="to-news">Xem chi tiết</Link>
+                        <Link to="/news3" className="newscomponent-title">TUYỂN NHÂN VIÊN KINH DOANH</Link>
+                        <Link to="/news3" className="to-news">Xem chi tiết</Link>
                     </div>
                 </div>
                 <div className="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
