@@ -1,10 +1,11 @@
 import React from 'react';
 
 function IntroScreen(){
-    return <div className="newspage intro-page">
+    return <div className="intro-page">
+        
+        <div className="intro-content">
         <h1><img className="intro-image" src="../images/logofavico.jpg"></img> Giới thiệu</h1>
         <small>15-1-2020, 4:51 pm</small>
-        <div className="news-content">
             <p><span><strong className="company-name">công ty tnhh thiết bị và hóa chất thành tín</strong> hoạt động trong lĩnh vực tư vấn, cung cấp các giải pháp, thiết bị phòng thí nghiệm, thiết bị công nghiệp, hóa chất, vật tư chủ yếu trong các lĩnh vực sau:</span></p>
             <ul>
                 <li><i className="fas fa-chevron-right"></i> Giải pháp phòng thí nghiệm ngành thực phẩm - nước giải khát, thức ăn chăn nuôi, thủy sả</li>
@@ -27,18 +28,20 @@ function IntroScreen(){
            </ul>
            <p> Chúng tôi mong muốn được thiết lập mối quan hệ với tất cả các đơn vị trong và ngoài nước trên tinh thần hợp tác vì sự phồn vinh của xã hội và đôi bên cùng có lợi.</p>
         </div>
+        <div className="introinfo-field">
         <div className="intro-info">
-            <strong className="company-name">CÔNG TY TNNH THIẾT BỊ VÀ HÓA CHẤT THÀNH TÍN</strong>
+            <strong className="company-name">Thông tin liên hệ</strong>
             <p><strong className="office-name">VPHCM : </strong>78 Đường Số 1A, Khu Phố 4, P. Bình Hưng Hòa B, Quận Bình Tân, Tp.HCM</p>
             <p><strong>Điện thoại:</strong>(028) 36 360 901</p>
             <p><span><strong>Fax: </strong>(028) 36 360 902  <strong>MST: </strong>0311941553</span></p>
-            <p><strong>Phòng kinh doanh: </strong>sales@thanhtin-tech.com   </p>
-            <p><strong>Phòng kỹ thuật: </strong>service@thanhtin-tech.com</p>
+            <p><strong>Phòng kinh doanh: </strong><a href="mailto:sales@thanhtin-tech.com">sales@thanhtin-tech.com</a>   </p>
+            <p><strong>Phòng kỹ thuật: </strong><a href="mailto:service@thanhtin-tech.com">service@thanhtin-tech.com</a></p>
         </div>
         <div className="intro-info">
             <p><strong className="office-name">Ha Noi Office (ADANA Complex) : </strong>Lô 3, khu A1-A2-A3, đường Cầu Thanh Trì, Phường Cự Khối, Quận Long Biên, Hà Nội</p>
-            <p><strong>Phòng kinh doanh: </strong>hanoi@thanhtin-tech.com   </p>
-            <p><strong>Phòng kỹ thuật: </strong>service@thanhtin-tech.com</p>
+            <p><strong>Phòng kinh doanh: </strong><a href="mailto:hanoi@thanhtin-tech.com">hanoi@thanhtin-tech.com</a></p>
+            <p><strong>Phòng kỹ thuật: </strong><a href="mailto:service@thanhtin-tech.com">service@thanhtin-tech.com</a></p>
+        </div>
         </div>
     </div>
 }
