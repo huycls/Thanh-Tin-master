@@ -320,6 +320,11 @@ img.large {
   display: flex;
 }
 
+.cart-img img{
+  width: 10rem;
+  height: 10rem;
+}
+
 .placeorder-step .card{
   height: 40rem;
   flex-wrap: nowrap;
@@ -807,6 +812,25 @@ margin: 30px;
 
 /*Intro page*/
 
+.intro-page{
+  padding: 1rem 8rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.intro-content{
+  width: 60%;
+}
+
+.intro-info{
+  width: 100%;
+}
+
+.introinfo-field{
+  width: 30%;
+  padding-top: 3rem;
+}
+
 .intro-page h1{
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#002400+0,005700+17,008a00+33,52b152+67,83c783+83,b4ddb4+100 */
   background: #002400; /* Old browsers */
@@ -814,7 +838,7 @@ margin: 30px;
   background: -webkit-linear-gradient(left, #fff,  #007a37 17%,#00A349 33%,#83c783 83%,#b4ddb4 100%, #fff); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to right, #fff,  #007a37 17%,#00A349 33%,#83c783 83%,#b4ddb4 100%, #fff); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#002400', endColorstr='#b4ddb4',GradientType=1 ); /* IE6-9 */
-  width: 50%;
+  width: 100%;
   color: #fff;
   padding-left: 2rem;
   display: flex;
@@ -895,6 +919,10 @@ margin: 30px;
   justify-content: space-around;
 }
 
+marquee img{
+  margin: 0 2rem;
+}
+
 /*Footer*/
 
 .footer{
@@ -927,6 +955,8 @@ margin: 30px;
 .contact-info a:hover{
   color: #f08000;
 }
+
+
 
 .sale-dept{
   height: 10rem;
@@ -1098,12 +1128,20 @@ margin: 30px;
 @media screen and (max-width: 1150px){
   .cart-screen{
     display: flex;
-    flex-direction: column;
+    padding: 0 1rem;
   }
 
   .cartscreen-cart{
-    width: 100%;
+    width: 50%;
     height: 50%;
+  }
+
+  .cart-card{
+    width:15rem!important;
+    height:15rem!important;
+  }
+  .col-1{
+    flex: 1 1 15rem;
   }
   
 }
@@ -1135,6 +1173,19 @@ margin: 30px;
 }
 
 @media screen and (max-width: 800px){
+  .intro-page{
+    flex-direction: column;
+  }
+
+  .intro-content{
+    width: 100%;
+  }
+  
+  
+  .introinfo-field{
+    width: 100%;
+    padding-top: 3rem;
+  }
 
   .lower-nav{
     justify-content: space-around;   
@@ -1155,6 +1206,7 @@ margin: 30px;
     bottom: -2rem;
     left: 20rem;
     z-index: 1;
+
   }
 
   .search-bar.show{
@@ -1168,6 +1220,7 @@ margin: 30px;
     width: 5rem!important;
     margin:0;
     outline: none!important;
+    border: none!important;
   }
 
   .column{
