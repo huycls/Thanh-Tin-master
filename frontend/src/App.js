@@ -31,6 +31,8 @@ import NewsScreen2 from './screens/NewsScreen2';
 import NewsScreen3 from './screens/NewsScreen3';
 import SolutionScreen from './screens/SolutionScreen';
 import NewsProduct from './screens/NewsProduct';
+import IntroScreen from './screens/IntroScreen';
+import Allnews from './screens/AllNews';
 
 
 function App() {
@@ -210,6 +212,8 @@ function App() {
               </div>
             </div>
           </div>
+          <Route path="/allnews" component={Allnews}></Route>
+          <Route path="/intro" component={IntroScreen}></Route>
           <Route path="/nproduct" component={NewsProduct}></Route>
           <Route path="/solution" component={SolutionScreen}></Route>
           <Route path="/news" component={NewsScreen}></Route>
@@ -349,8 +353,8 @@ function App() {
         <div className="footer">
               <div className="contact-info footer-child">
                 <h4 className="footer-title">thông tin liên hệ</h4>
-                <h5>công ty tnhh thiết bị và hóa chất thành tín</h5>
-          
+                <h1>công ty tnhh thiết bị và hóa chất thành tín</h1>
+                <h4><i class="fas fa-chevron-right"></i><Link to="/intro">Giới thiệu công ty</Link></h4>
                 <div className="vphcm ">
                   <strong>VP HCM:</strong><span> 78 Đường số 1A, Khu Phố 4, P.Bình Hưng Hòa B, Quận Bình Tân, Tp.HCM</span>
                   <p><strong>Điện thoại:</strong> <span> (028) 36 360 901 </span></p><p><strong>Fax:</strong> <span>(028) 36 360 902</span></p>
