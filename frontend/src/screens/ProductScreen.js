@@ -90,7 +90,7 @@ export default function ProductScreen(props) {
               <div className="card productcard-body productscreen-card">
                 <ul>              
                   <li>
-                    <div className="rowe">
+                    <div className="row">
                       <div>Giá</div>
                       <div className="price">{product.price} VNĐ</div>
                     </div>
@@ -110,7 +110,7 @@ export default function ProductScreen(props) {
                   {product.countInStock > 0 && (
                     <>
                       <li>
-                        <div className="rowe">
+                        <div className="row">
                           <div>Số lượng</div>
                           <div>
                             <select
