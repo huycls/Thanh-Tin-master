@@ -153,13 +153,18 @@ export default function ProductEditScreen(props) {
             </div>
             <div>
               <label htmlFor="category">Category</label>
-              <input
+              {/* <input
                 id="category"
                 type="text"
                 placeholder="Enter category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-              ></input>
+              ></input> */}
+              <select id="category" className="form-select" value={category} onChange={(e) => setCategory(e.target.value)} aria-label="Default select example">
+                <option selected value="THIẾT BỊ NGÀNH GIẤY">THIẾT BỊ NGÀNH GIẤY</option>
+                <option value="THIẾT BỊ NGÀNH BAO BÌ GIẤY">THIẾT BỊ NGÀNH BAO BÌ GIẤY</option>
+                <option value="THIẾT BỊ NGÀNH BAO BÌ NHỰA">THIẾT BỊ NGÀNH BAO BÌ NHỰA</option>
+              </select>
             </div>
             <div>
               <label htmlFor="brand">Hãng sản xuất</label>
