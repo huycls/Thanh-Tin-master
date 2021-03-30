@@ -7,6 +7,7 @@ import { ORDER_CREATE_RESET } from '../constants/orderConstants';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
+
 export default function PlaceOrderScreen(props) {
   const cart = useSelector((state) => state.cart);
   if (!cart.paymentMethod) {
@@ -34,9 +35,9 @@ export default function PlaceOrderScreen(props) {
   return (
     <div>
       <CheckoutSteps step1 step2></CheckoutSteps>
-      <div className="row top">
-        <div className="col-2">
-          <ul>
+      <div className="top row placeorder-step">
+        <div className="col-2 row">
+          <ul className="rowe">
             <li>
               <div className="card card-body">
                 <h2>Thông tin khách hàng</h2>
@@ -63,7 +64,7 @@ export default function PlaceOrderScreen(props) {
                             className="small"
                           ></img>
                         </div>
-                        <div className="min-30">
+                        <div>
                           <Link to={`/product/${item.product}`}>
                             {item.name}
                           </Link>

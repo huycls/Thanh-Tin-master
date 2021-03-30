@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/amazona', {
+mongoose.connect(process.env.MONGODB_URL || 'mongodb+srv://hoanghuycls:Huynguyen289970@cluster0.gnj5i.mongodb.net/test', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,

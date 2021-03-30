@@ -14,6 +14,10 @@ productRouter.get(
     const page = Number(req.query.pageNumber) || 1;
     const name = req.query.name || '';
     const category = req.query.category || '';
+    const brand = req.query.brand || '';
+    const parameter = req.query.parameter || '';
+    const video = req.query.video || '';
+    const catalog = req.query.catalog || '';
     const seller = req.query.seller || '';
     const order = req.query.order || '';
     const min =
@@ -28,6 +32,10 @@ productRouter.get(
     const nameFilter = name ? { name: { $regex: name, $options: 'i' } } : {};
     const sellerFilter = seller ? { seller } : {};
     const categoryFilter = category ? { category } : {};
+    const brandFilter = brand ? { brand } : {};
+    const parameterFilter = parameter ? { parameter } : {};
+    const videoFilter = video ? { video } : {};
+    const catalogFilter = catalog ? { catalog } : {};
     const priceFilter = min && max ? { price: { $gte: min, $lte: max } } : {};
     const ratingFilter = rating ? { rating: { $gte: rating } } : {};
     const sortOrder =
@@ -42,6 +50,10 @@ productRouter.get(
       ...sellerFilter,
       ...nameFilter,
       ...categoryFilter,
+      ...brandFilter,
+      ...parameterFilter,
+      ...videoFilter,
+      ...catalogFilter,
       ...priceFilter,
       ...ratingFilter,
     });
@@ -49,6 +61,10 @@ productRouter.get(
       ...sellerFilter,
       ...nameFilter,
       ...categoryFilter,
+      ...brandFilter,
+      ...parameterFilter,
+      ...videoFilter,
+      ...catalogFilter,
       ...priceFilter,
       ...ratingFilter,
     })
@@ -67,6 +83,15 @@ productRouter.get(
     res.send(categories);
   })
 );
+
+productRouter.get(
+  '/brands',
+  expressAsyncHandler(async (req, res) => {
+    const brands = await Product.find().distinct('brand');
+    res.send(brands);
+  })
+);
+
 
 productRouter.get(
   '/seed',
@@ -113,12 +138,15 @@ productRouter.post(
       seller: req.user._id,
       image: '/images/3.jpg',
       price: 0,
-      category: 'sample category',
+      category: 'THIẾT BỊ NGÀNH GIẤY',
       brand: 'sample brand',
       countInStock: 0,
       rating: 0,
       numReviews: 0,
-      description: 'sample description',
+      description: 'sample model',
+      parameter: 'sample parameter',
+      video: 'sameple link',
+      catalog: 'sample catalog',
     });
     const createdProduct = await product.save();
     res.send({ message: 'Product Created', product: createdProduct });
@@ -136,6 +164,9 @@ productRouter.put(
       product.price = req.body.price;
       product.image = req.body.image;
       product.category = req.body.category;
+      product.parameter = req.body.parameter;
+      product.video = req.body.video;
+      product.catalog = req.body.catalog;
       product.brand = req.body.brand;
       product.countInStock = req.body.countInStock;
       product.description = req.body.description;

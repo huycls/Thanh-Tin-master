@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="./images/logofavico.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -21,10 +21,50 @@
     <title>Thanh Tin Tech</title>
     <script src="https://kit.fontawesome.com/3f40b51c52.js" crossorigin="anonymous"></script>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v10.0" nonce="YkV0Dr1Z"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function(){
+          emailjs.init("user_bK5t73KBwErNROVYcVPrD"); // Obtain your user ID at the dashboard https://dashboard.emailjs.com/integration
+      })();
+    </script>
+    <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3WZZT1VKGB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3WZZT1VKGB');
+    </script>
+       
+     <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+       
   </head>
   <body>
     
     <div id="root"></div>
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+
+    <!-- <script type="text/javascript">
+      function divide() {
+          var txt;
+          txt = document.getElementById('parameter').value;
+          var text = txt.split(".");
+          var str = text.join('.</br>');
+          document.write(str);
+      }
+  </script> -->
+
+  <script>
+    ScrollOut({
+  /* options */
+      targets: "#scrolltotop",
+      offset: 30
+  },
+             );
     
+  </script>
   </body>
 </html>

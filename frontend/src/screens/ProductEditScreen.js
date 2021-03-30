@@ -5,6 +5,8 @@ import { detailsProduct, updateProduct } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { PRODUCT_UPDATE_RESET } from '../constants/productConstants';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 export default function ProductEditScreen(props) {
   const productId = props.match.params.id;
@@ -12,6 +14,9 @@ export default function ProductEditScreen(props) {
   const [price, setPrice] = useState('');
   const [image, setImage] = useState('');
   const [category, setCategory] = useState('');
+  const [parameter, setParameter] = useState('');
+  const [video, setVideo] = useState('');
+  const [catalog, setCatalog] = useState('');
   const [countInStock, setCountInStock] = useState('');
   const [brand, setBrand] = useState('');
   const [description, setDescription] = useState('');
@@ -39,6 +44,9 @@ export default function ProductEditScreen(props) {
       setPrice(product.price);
       setImage(product.image);
       setCategory(product.category);
+      setParameter(product.parameter);
+      setVideo(product.video);
+      setCatalog(product.catalog);
       setCountInStock(product.countInStock);
       setBrand(product.brand);
       setDescription(product.description);
@@ -54,6 +62,9 @@ export default function ProductEditScreen(props) {
         price,
         image,
         category,
+        parameter,
+        video,
+        catalog,
         brand,
         countInStock,
         description,
@@ -84,7 +95,7 @@ export default function ProductEditScreen(props) {
       setLoadingUpload(false);
     }
   };
-
+  
   return (
     <div>
       <form className="form" onSubmit={submitHandler}>
@@ -144,23 +155,42 @@ export default function ProductEditScreen(props) {
             </div>
             <div>
               <label htmlFor="category">Category</label>
-              <input
+              {/* <input
                 id="category"
                 type="text"
                 placeholder="Enter category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-              ></input>
+              ></input> */}
+              <select id="category" className="form-select" value={category} onChange={(e) => setCategory(e.target.value)} aria-label="Default select example">
+                <option defaultValue="THIẾT BỊ NGÀNH GIẤY">THIẾT BỊ NGÀNH GIẤY</option>
+                <option value="THIẾT BỊ NGÀNH BAO BÌ GIẤY">THIẾT BỊ NGÀNH BAO BÌ GIẤY</option>
+                <option value="THIẾT BỊ NGÀNH BAO BÌ NHỰA">THIẾT BỊ NGÀNH BAO BÌ NHỰA</option>
+                <option value="THIẾT BỊ NGÀNH CAO SU - NHỰA">THIẾT BỊ NGÀNH CAO SU - NHỰA</option>
+                <option value="THIẾT BỊ THỬ NGHIỆM THÉP">THIẾT BỊ THỬ NGHIỆM THÉP</option>
+                <option value="THIẾT BỊ NGÀNH SƠN - XI MẠ">THIẾT BỊ NGÀNH SƠN - XI MẠ</option>
+                <option value="THIẾT BỊ NGÀNH VẬT LIỆU XÂY DỰNG">THIẾT BỊ NGÀNH BAO BÌ NHỰA</option>
+                <option value="THIẾT BỊ NGÀNH THỰC PHẨM">THIẾT BỊ NGÀNH THỰC PHẨM</option>
+                <option value="THIẾT BỊ NGÀNH DƯỢC PHẨM">THIẾT BỊ NGÀNH DƯỢC PHẨM</option>
+                <option value="THIẾT BỊ NGÀNH Y TẾ - SINH HỌC">THIẾT BỊ NGÀNH Y TẾ - SINH HỌC</option>
+                <option value="THIẾT BỊ NGÀNH NƯỚC VÀ MÔI TRƯỜNG">THIẾT BỊ NGÀNH NƯỚC VÀ MÔI TRƯỜNG</option>
+                <option value="THIẾT BỊ ĐO ONLINE (KHÍ THẢI - NƯỚC THẢI - NƯỚC CẤP)">THIẾT BỊ ĐO ONLINE (KHÍ THẢI - NƯỚC THẢI - NƯỚC CẤP)</option>
+                <option value="HỆ THỐNG QUAN TRẮC NƯỚC THẢI - KHÍ THẢI TỰ ĐỘNG">HỆ THỐNG QUAN TRẮC NƯỚC THẢI - KHÍ THẢI TỰ ĐỘNG</option>
+                <option value="THIẾT BỊ CƠ BẢN PHÒNG THÍ NGHIỆM">THIẾT BỊ CƠ BẢN PHÒNG THÍ NGHIỆM</option>
+              </select>
             </div>
             <div>
               <label htmlFor="brand">Hãng sản xuất</label>
-              <input
-                id="brand"
-                type="text"
-                placeholder="Enter brand"
-                value={brand}
-                onChange={(e) => setBrand(e.target.value)}
-              ></input>
+              <select id="brandcategory" className="form-select" value={brand} onChange={(e) => setBrand(e.target.value)} aria-label="Default select example">
+                <option defaultValue="ALP - NHẬT BẢN">ALP - NHẬT BẢN</option>
+                <option value="EMCO - GERMANY">EMCO - GERMANY</option>
+                <option value="CONSORT">CONSORT</option>
+                <option value="DOSER - ĐỨC">DOSER - ĐỨC</option>
+                <option value="PNSHAR">PNSHAR</option>
+                <option value="GRUSS - GERMANY">GRUSS - GERMANY</option>
+                <option value="PTA - CHÂU ÂU">PTA - CHÂU ÂU</option>
+                <option value="COMETECH - ĐÀI LOAN">COMETECH - ĐÀI LOAN</option>
+              </select>
             </div>
             <div>
               <label htmlFor="countInStock">Số lượng</label>
@@ -173,15 +203,71 @@ export default function ProductEditScreen(props) {
               ></input>
             </div>
             <div>
-              <label htmlFor="description">Mô tả</label>
-              <textarea
+              <label htmlFor="description">Model</label>
+              <input
                 id="description"
-                rows="3"
                 type="text"
-                placeholder="Enter description"
+                placeholder="Enter Model"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-              ></textarea>
+              ></input>
+            </div>
+        
+            <div>
+              <label htmlFor="parameter">Thông số kỹ thuật</label>
+                
+              <textarea
+                id="parameter"
+                name="editor1"
+                rows="10"
+                type="text"
+                placeholder="Enter parameter"
+                value={parameter}
+                onChange={(e) => setParameter(e.target.value)}
+              >
+              </textarea> 
+              {/* <CKEditor
+                    id="parameter"
+                    editor={ ClassicEditor }
+                    data={parameter}
+                    onReady={ editor => {
+                        // You can store the "editor" and use when it is needed.
+                        console.log( 'Editor is ready to use!', editor );
+                    } }
+                    onChange={ ( event, editor ) => {
+                        const data = editor.getData();
+                        console.log( { event, editor, data } );
+                        setParameter(data);
+                    } }
+                    onBlur={ ( event, editor ) => {
+                        console.log( 'Blur.', editor );
+                    } }
+                    onFocus={ ( event, editor ) => {
+                        console.log( 'Focus.', editor );
+                    } }
+                /> */}
+            </div>
+          
+            <div>
+               <label htmlFor="video">Link Video</label>
+               <input
+                id="video"
+                type="text"
+                placeholder="Enter Link video"
+                value={video}
+                onChange={(e) => setVideo(e.target.value)}
+               ></input> 
+            </div>
+            
+            <div>
+               <label htmlFor="catalog">Link catalog</label>
+               <input
+                id="catalog"
+                type="text"
+                placeholder="Enter Link catalog"
+                value={catalog}
+                onChange={(e) => setCatalog(e.target.value)}
+               ></input> 
             </div>
             <div>
               <label></label>
@@ -192,6 +278,7 @@ export default function ProductEditScreen(props) {
           </>
         )}
       </form>
+      
     </div>
   );
 }

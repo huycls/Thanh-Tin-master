@@ -27,8 +27,8 @@ export default function CartScreen(props) {
     props.history.push('/shipping');
   };
   return (
-    <div className="row top">
-      <div className="col-2">
+    <div className="row top cart-screen">
+      <div className="col-2 cartscreen-cart">
         <h1>Giỏ hàng</h1>
         {error && <MessageBox variant="danger">{error}</MessageBox>}
         {cartItems.length === 0 ? (
@@ -39,15 +39,15 @@ export default function CartScreen(props) {
           <ul>
             {cartItems.map((item) => (
               <li key={item.product}>
-                <div className="rowe">
+                <div className="cart-img rowe">
                   <div>
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="small"
+                      
                     ></img>
                   </div>
-                  <div className="min-30">
+                  <div className="min-10">
                     <Link to={`/product/${item.product}`}>{item.name}</Link>
                   </div>
                   <div>

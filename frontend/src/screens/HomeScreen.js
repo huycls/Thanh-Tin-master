@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
+// import { Carousel } from 'react-responsive-carousel';
 import Product from '../components/Product';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { useDispatch, useSelector } from 'react-redux';
 import { listProducts } from '../actions/productActions';
-import { listTopSellers } from '../actions/userActions';
+// import { listTopSellers } from '../actions/userActions';
 import { Link } from 'react-router-dom';
 
 export default function HomeScreen() {
@@ -14,83 +14,47 @@ export default function HomeScreen() {
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
 
-  const userTopSellersList = useSelector((state) => state.userTopSellersList);
-  const {
-    loading: loadingSellers,
-    error: errorSellers,
-    users: sellers,
-  } = userTopSellersList;
+  // const userTopSellersList = useSelector((state) => state.userTopSellersList);
+  // const {
+  //   loading: loadingSellers,
+  //   error: errorSellers,
+  //   users: sellers,
+  // } = userTopSellersList;
 
-  useEffect(() => {
+   useEffect(() => {
     dispatch(listProducts({}));
-    dispatch(listTopSellers());
-  }, [dispatch]);
+    // dispatch(listTopSellers());
+   }, [dispatch]);
   return (
     <div>
       <div className="upper-content">
-        <div
-          id="carouselExampleIndicators"
-          className="carousel slide"
-          data-bs-ride="carousel"
-        >
-          <div className="carousel-indicators">
-            <button
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="0"
-              className="active"
-              aria-current="true"
-              aria-label="Slide 1"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="1"
-              aria-label="Slide 2"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="2"
-              aria-label="Slide 3"
-            ></button>
-          </div>
+        <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-inner">
-            <div className="carousel-item active">
-              <img
-                src="./images/giaiphap-slide.jpg"
-                className="d-block w-100"
-                alt="..."
-              />
-            </div>
-            <div className="carousel-item">
+            <div className="carousel-item active" data-bs-interval="2000">
               <img src="./images/3.jpg" className="d-block w-100" alt="..." />
             </div>
-            <div className="carousel-item">
+            <div className="carousel-item" data-bs-interval="2000">
               <img src="./images/4.jpg" className="d-block w-100" alt="..." />
             </div>
+            <div className="carousel-item">
+              <img src="./images/thiet-bi-ptn.jpg" className="d-block w-100" alt="..." />
+            </div>
           </div>
-          <button
-            className="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="prev"
-          >
+          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
             <span className="carousel-control-prev-icon" aria-hidden="true"></span>
             <span className="visually-hidden">Previous</span>
           </button>
-          <button
-            className="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="next"
-          >
+          <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
             <span className="carousel-control-next-icon" aria-hidden="true"></span>
             <span className="visually-hidden">Next</span>
           </button>
         </div>
         <div className="news">
-          <div className="news-title">Tin mới</div>
+          <div className="news-title"><i className="fas fa-chevron-right"></i> <Link to="/intro">Giới thiệu</Link></div>
+          <div className="news-content">
+            <strong><i className="fas fa-chevron-right"></i>CÔNG TY TNHH THIẾT BỊ VÀ HÓA CHẤT THÀNH TÍN</strong> hoạt động trong lĩnh vực tư vấn, cung cấp các giải pháp, thiết bị phòng thí nghiệm, thiết bị công nghiệp, hóa chất, vật tư...
+          </div>
+          <div className="news-title"><i className="fas fa-chevron-right"></i> <Link to="/allnews">Tin mới</Link></div>
           <div className="news-content">
             <Link to="/news">
               <p>
@@ -101,7 +65,7 @@ export default function HomeScreen() {
             </Link>
             <Link to="news1">
               <p>
-                <i className="fas fa-chevron-right"></i>THÔNG BÁO THAY ĐỔI TÊN GIAO DỊCH
+                <i className="fas fa-chevron-right"></i>Thông báo thay đổi tên giao dịch
               </p>
             </Link>
             <Link to="news2">
@@ -111,7 +75,7 @@ export default function HomeScreen() {
             </Link>
             <Link to="news3">
               <p>
-                <i className="fas fa-chevron-right"></i>TUYỂN NHÂN VIÊN KINH DOANH
+                <i className="fas fa-chevron-right"></i>Tuyển nhân viên kinh doanh
               </p>
             </Link>
             
@@ -119,9 +83,8 @@ export default function HomeScreen() {
         </div>
       </div>
       <div className="lower-content">
-        <div className="product-box">
-                  
-          <h2>Tất cả sản phẩm</h2>
+        <div className="product-box">      
+          <h1 className="product-banner">Tất cả sản phẩm</h1>
           {loading ? (
             <LoadingBox></LoadingBox>
           ) : error ? (
@@ -129,13 +92,59 @@ export default function HomeScreen() {
           ) : (
             <div>
               {products.length === 0 && <MessageBox>No Product Found</MessageBox>}
-              <div className="rowe center">
+              <div className="rowe">
                 {products.map((product) => (
                   <Product key={product._id} product={product}></Product>
                 ))}
               </div>
             </div>
           )}
+        </div>
+        <div className="sidebar">
+            <div className="sidebar-title">
+              <Link to="/solution">Giải pháp công nghệ tự động</Link>
+            </div>
+            <div className="sidebar-content">
+              <Link to="/solution" className="content-img">
+                <img
+                  src="./images/sidebar-img.png"
+                  alt="giai-phap-cong-nghe-tu-dong"
+                />
+                <div className="caption">
+                  <h5> Lorem ipsum dolor sit amet.</h5>
+                  <p>15-1-2020, 4:51 pm</p>
+                </div>
+              </Link>
+            </div>
+            <div className="sub-content">
+              <Link to="/nproduct">
+                <img
+                  src="./images/thumb_DM4A300.jpg"
+                  alt="thiet-bi-phong-thi-nghiem"
+                />
+                <span>
+                  {" "}
+                  Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet,
+                  consectetur adipiscing elit. Maecenas eu nulla malesuada,
+                  vehicula eros ac
+                </span>
+              </Link>
+            </div>
+            <div className="sub-content">
+              <Link to="/nproduct">
+                <img
+                  src="./images/thumb_DM4A300.jpg"
+                  alt="thiet-bi-phong-thi-nghiem"
+                />
+                <span>
+                  {" "}
+                  Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet,
+                  consectetur adipiscing elit. Maecenas eu nulla malesuada,
+                  vehicula eros ac
+                </span>
+              </Link>
+            </div>
+           
         </div>
       </div>  
     </div>
