@@ -4,9 +4,8 @@ import { Link } from 'react-router-dom';
 import {  detailsProduct } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-// import Product from '../components/Product';
+import Product from '../components/Product';
 import { listProducts } from '../actions/productActions';
-import { CKEditor} from '@ckeditor/ckeditor5-react';
 // import { PRODUCT_REVIEW_CREATE_RESET } from '../constants/productConstants';
 
 export default function ProductScreen(props) {
@@ -55,8 +54,6 @@ export default function ProductScreen(props) {
     dispatch(listProducts({}));
     // dispatch(listTopSellers());
    }, [dispatch]);
-
-   
   return (
     <div>
       {loading ? (
@@ -65,7 +62,7 @@ export default function ProductScreen(props) {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <div>
-          <Link to="/">Trở lại</Link>
+          <a href="javascript:history.back()">Trở lại</a>
           <div className="rowe top detail-page">
             <div className="col-1 col image-product">
               <img
@@ -85,12 +82,14 @@ export default function ProductScreen(props) {
                   <h1>{product.name}</h1>
                 </li>              
                 <li>Giá : {product.price} VNĐ</li>
-                <li>
-                  
-                  <p>Model: {product.description}</p>
+                <li> 
+                  <p>Model: {product.model}</p>
+                </li>
+                <li> 
+                  <p>Mô tả: {product.description}</p>
                 </li>
                 <li>
-                  <p className="contact-sale">Liên hệ <strong>Email: sales@thanhtin-tech.com</strong></p>
+                  <p className="contact-sale"> <strong> Liên hệ Email: <a href="mailto:sales@thanhtin-tech.com">sales@thanhtin-tech.com</a></strong></p>
                 </li>
               </ul>
             </div>
@@ -150,27 +149,42 @@ export default function ProductScreen(props) {
               </div>
             </div>
           </div>
-          <div>
+          <div className="lower-detailpage">
             <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
-            <li className="nav-item" role="presentation">
-              <button className="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Thông số kỹ thuật</button>
-            </li>
-            <li className="nav-item" role="presentation">
-              <button className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Video</button>
-            </li>
-            <li className="nav-item" role="presentation">
-              <button className="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Download catalog</button>
-            </li>
-          </ul>
-          <div className="tab-content" id="pills-tabContent">
-            <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-              {product.parameter}
+              <li className="nav-item" role="presentation">
+                <button className="nav-link active" id="pills-parameter-tab" data-bs-toggle="pill" data-bs-target="#pills-parameter" type="button" role="tab" aria-controls="pills-parameter" aria-selected="true">Thông số kỹ thuật</button>
+              </li>
+              <li className="nav-item" role="presentation">
+                <button className="nav-link" id="pills-video-tab" data-bs-toggle="pill" data-bs-target="#pills-video" type="button" role="tab" aria-controls="pills-video" aria-selected="false">Video</button>
+              </li>
+              <li className="nav-item" role="presentation">
+                <button className="nav-link" id="pills-characteristic-tab" data-bs-toggle="pill" data-bs-target="#pills-characteristic" type="button" role="tab" aria-controls="pills-characteristic" aria-selected="false">Đặc tính nổi bật</button>
+              </li>
+              <li className="nav-item" role="presentation">
+                <button className="nav-link" id="pills-application-tab" data-bs-toggle="pill" data-bs-target="#pills-application" type="button" role="tab" aria-controls="pills-application" aria-selected="false">Ứng dụng</button>
+              </li>
+              <li className="nav-item" role="presentation">
+                <button className="nav-link" id="pills-accessories-tab" data-bs-toggle="pill" data-bs-target="#pills-accessories" type="button" role="tab" aria-controls="pills-accessories" aria-selected="false">Phụ kiện</button>
+              </li>
+              <li className="nav-item" role="presentation">
+                <button className="nav-link" id="pills-download-tab" data-bs-toggle="pill" data-bs-target="#pills-download" type="button" role="tab" aria-controls="pills-download" aria-selected="false">Download</button>
+              </li>
+            </ul>
+            <div className="tab-content" id="pills-tabContent">
+              <div className="tab-pane fade show active" id="pills-parameter" role="tabpanel" aria-labelledby="pills-parameter-tab">
+                {product.parameter}
+              </div>
+              <div className="tab-pane fade" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab"><a href="./images/sidebar-img.jpg" download>Link</a></div>
+              <div className="tab-pane fade" id="pills-characteristic" role="tabpanel" aria-labelledby="pills-characteristic-tab">Đặc tính</div>
+              <div className="tab-pane fade" id="pills-application" role="tabpanel" aria-labelledby="pills-application-tab">Ứng dụng</div>
+              <div className="tab-pane fade" id="pills-accessories" role="tabpanel" aria-labelledby="pills-accessories-tab">Phụ kiện</div>
+              <div className="tab-pane fade" id="pills-download" role="tabpanel" aria-labelledby="pills-download-tab"><a href="./images/sidebar-img.jpg" download>Download</a></div>
+            
             </div>
-            <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><Link to="#">Link</Link></div>
-            <div className="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"><a href="./images/sidebar-img.jpg" download>Download</a></div>
           </div>
-          </div>
-           
+          <div className="recommend-product">
+            {}                           
+          </div>                        
         </div>
       )}
      

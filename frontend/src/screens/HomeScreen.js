@@ -26,7 +26,7 @@ export default function HomeScreen() {
     // dispatch(listTopSellers());
    }, [dispatch]);
   return (
-    <div>
+    <div className="rowe">
       <div className="upper-content">
         <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-inner">
@@ -49,7 +49,26 @@ export default function HomeScreen() {
             <span className="visually-hidden">Next</span>
           </button>
         </div>
-        <div className="news">
+        <div className="product-box">      
+          <h1 className="product-banner">Tất cả sản phẩm</h1>
+          {loading ? (
+            <LoadingBox></LoadingBox>
+          ) : error ? (
+            <MessageBox variant="danger">{error}</MessageBox>
+          ) : (
+            <div>
+              {products.length === 0 && <MessageBox>No Product Found</MessageBox>}
+              <div className="rowe">
+                {products.map((product) => (
+                  <Product key={product._id} product={product}></Product>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="sidebar">
+      <div className="news">
           <div className="news-title"><i className="fas fa-chevron-right"></i> <Link to="/intro">Giới thiệu</Link></div>
           <div className="news-content">
             <strong><i className="fas fa-chevron-right"></i>CÔNG TY TNHH THIẾT BỊ VÀ HÓA CHẤT THÀNH TÍN</strong> hoạt động trong lĩnh vực tư vấn, cung cấp các giải pháp, thiết bị phòng thí nghiệm, thiết bị công nghiệp, hóa chất, vật tư...
@@ -77,76 +96,54 @@ export default function HomeScreen() {
               <p>
                 <i className="fas fa-chevron-right"></i>Tuyển nhân viên kinh doanh
               </p>
-            </Link>
-            
+            </Link>        
           </div>
         </div>
+        <div className="sidebar-title">
+          <Link to="/solution">Giải pháp công nghệ tự động</Link>
+        </div>
+        <div className="sidebar-content">
+          <Link to="/solution" className="content-img">
+            <img
+              src="./images/sidebar-img.png"
+              alt="giai-phap-cong-nghe-tu-dong"
+            />
+            <div className="caption">
+              <h5> Lorem ipsum dolor sit amet.</h5>
+              <p>15-1-2020, 4:51 pm</p>
+            </div>
+          </Link>
+        </div>
+        <div className="sub-content">
+          <Link to="/nproduct">
+            <img
+              src="./images/thumb_DM4A300.jpg"
+              alt="thiet-bi-phong-thi-nghiem"
+            />
+            <span>
+              {" "}
+              Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit. Maecenas eu nulla malesuada,
+              vehicula eros ac
+            </span>
+          </Link>
+        </div>
+        <div className="sub-content">
+          <Link to="/nproduct">
+            <img
+              src="./images/thumb_DM4A300.jpg"
+              alt="thiet-bi-phong-thi-nghiem"
+            />
+            <span>
+              {" "}
+              Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit. Maecenas eu nulla malesuada,
+              vehicula eros ac
+            </span>
+          </Link>
+        </div>
+   
       </div>
-      <div className="lower-content">
-        <div className="product-box">      
-          <h1 className="product-banner">Tất cả sản phẩm</h1>
-          {loading ? (
-            <LoadingBox></LoadingBox>
-          ) : error ? (
-            <MessageBox variant="danger">{error}</MessageBox>
-          ) : (
-            <div>
-              {products.length === 0 && <MessageBox>No Product Found</MessageBox>}
-              <div className="rowe">
-                {products.map((product) => (
-                  <Product key={product._id} product={product}></Product>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-        <div className="sidebar">
-            <div className="sidebar-title">
-              <Link to="/solution">Giải pháp công nghệ tự động</Link>
-            </div>
-            <div className="sidebar-content">
-              <Link to="/solution" className="content-img">
-                <img
-                  src="./images/sidebar-img.png"
-                  alt="giai-phap-cong-nghe-tu-dong"
-                />
-                <div className="caption">
-                  <h5> Lorem ipsum dolor sit amet.</h5>
-                  <p>15-1-2020, 4:51 pm</p>
-                </div>
-              </Link>
-            </div>
-            <div className="sub-content">
-              <Link to="/nproduct">
-                <img
-                  src="./images/thumb_DM4A300.jpg"
-                  alt="thiet-bi-phong-thi-nghiem"
-                />
-                <span>
-                  {" "}
-                  Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit. Maecenas eu nulla malesuada,
-                  vehicula eros ac
-                </span>
-              </Link>
-            </div>
-            <div className="sub-content">
-              <Link to="/nproduct">
-                <img
-                  src="./images/thumb_DM4A300.jpg"
-                  alt="thiet-bi-phong-thi-nghiem"
-                />
-                <span>
-                  {" "}
-                  Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit. Maecenas eu nulla malesuada,
-                  vehicula eros ac
-                </span>
-              </Link>
-            </div>
-           
-        </div>
-      </div>  
     </div>
   );
 }

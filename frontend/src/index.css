@@ -4,6 +4,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
+  word-wrap: break-word;
   margin: 0;
   height: 100vh;
   font-size: 1.4rem;
@@ -33,7 +34,7 @@ header {
 
 main {
   grid-area: main;
-  padding: 1rem;
+  padding: 1rem 5rem;
 }
 footer {
   grid-area: footer;
@@ -165,6 +166,7 @@ a.brand img{
 
 .navbar{
   padding:0;
+  margin-top:2.5rem;
 }
 
 .lower-nav{
@@ -195,7 +197,7 @@ a.brand img{
 }
 
 .col-1 {
-  flex: 1 1 30rem;
+  flex: 1 1 25rem;
 }
 .col-2 {
   flex: 2 1 50rem;
@@ -209,6 +211,15 @@ a.brand img{
 .p-1 {
   padding: 1rem;
 }
+
+/*Home page*/
+
+.upper-content{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
 
 /* Image */
 img {
@@ -240,23 +251,32 @@ img.large {
   text-transform: uppercase;
 }
 
+.detail-page{
+  padding: 0 5rem;
+}
+
 .detail-page .col{
   height: 30rem !important;
 }
 
+.lower-detailpage{
+  padding: 0 7rem;
+}
+
 /* Card */
 .card {
-  width: 22rem;
-  height: 32rem;
+  width: 20rem;
+  height: 35rem;
   border: 0.1rem #c0c0c0 solid;
   background-color: #f8f8f8;
   border-radius: 0.5rem;
-  margin: 1rem;
   overflow: hidden;
+  margin-bottom: 1rem;
 }
 
 .card img{
   margin: 0 auto;
+  margin-bottom: 0.5rem;
   width: 22rem;
   height: 15rem;
   transition: 0.3s all ease;
@@ -267,6 +287,7 @@ img.large {
 }
 
 .card h2{
+  margin: 0;
   padding: 0!important;
   font-weight: bold;
   color: #000;
@@ -279,8 +300,7 @@ img.large {
 .card-body {
   position: relative;
   height: auto;
-  padding: 1rem;
-  padding-bottom: 2rem!important;
+  padding: 2rem 1rem;
   font-weight: 14px;
 }
 .card-body > * {
@@ -295,7 +315,6 @@ img.large {
   border-radius: 3px;
   position: absolute;
   left: 1rem;
-  bottom: 1rem;
 }
 
 .product-card{
@@ -524,11 +543,15 @@ img.large {
 .tab-pane{
   font-weight: 300!important;
   white-space: pre-wrap;
-  padding: 1rem 3rem;
+  padding: 0;
 }
 
 .nav-pills{
   border-bottom: .1rem solid #c0c0c0;
+}
+
+.nav-item:hover{
+  background-color: #f0f0f0;
 }
 
 #parameter{
@@ -597,7 +620,7 @@ img.large {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin: 20px 0;
+  margin: 1rem 0;
   border: 0.1rem solid #00A349;
 }
 
@@ -606,7 +629,6 @@ img.large {
   width: 100%;
   background-color: #007a37;
   color: white;
-  padding: 16px 30px;
   font-size: 16px;
   border: none;
   cursor: pointer;
@@ -697,14 +719,10 @@ img.large {
 }
 
 
-/*Upper Content*/
-.upper-content{
-  display: flex;
-}
+
 /*Slideshow*/
 .carousel{
-  width: 75%!important;
-  height: 100%;
+  width: 100%!important;
 }
 
 .carousel button{
@@ -723,7 +741,7 @@ img.large {
 
 /*Tin tuc*/
 .news{
-  width: 24%;
+  width: 100%;
   margin-left: 1%;
 }
 
@@ -753,7 +771,8 @@ img.large {
   margin-right: 5px;
 }
 
-.news-content a{
+.news-content {
+  padding-left: 2rem;
   text-decoration: none;
   color: #000;
 }
@@ -764,15 +783,40 @@ img.large {
 
 .news-content p{
   margin: 0;
+  padding-left: 1rem;
+  color: #000;
+}
+
+.news-content p:hover{
+  color: #e67e22;
 }
 
 .news-content{
   margin-top: 20px;
 }
 
+/*News page*/
 .newspage{
   padding: 2rem 4rem;
+  display: flex;
 }
+
+.news-sidebar{
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+}
+.news-sidebar a{
+  margin-bottom: 1rem;
+}
+
+.toallnews{
+  background-color: #00A349;
+  color:#fff;
+  padding: 0.6rem 1rem;
+  border-radius: .3rem;
+}
+
 .news-image{
   max-width: 40rem;
   float: right;
@@ -787,7 +831,7 @@ margin: 10px;
 .newsproduct-image{
   max-width: 40rem;
   float: right;
-margin: 30px;
+  margin: 30px;
 }
 
 /*All news page*/
@@ -795,51 +839,112 @@ margin: 30px;
 .nav-news{
   width: 20%;
   border: .1rem solid #c0c0c0;
+  border-radius: .2rem;
+  overflow: hidden;
 }
 
 .nav-news h3{
   text-align: center;
-  color:#f08000;
-  font-weight: bold;
+  background-color:#f08000;
+  color:#fff;
+  border: none;
+  padding: .8rem 0;
+
 }
 
 .tab-news{
   width: 80%;
-  padding: 1rem 3rem;
 }
 
 .news-component{
+  overflow: hidden;
   border: .1rem solid #c0c0c0;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   height: 15rem;
   margin-bottom: 2rem;
   padding: 0.8rem 1.6rem;
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#d2ebf9+0,feffff+100 */
-  background: #d2ebf9; /* Old browsers */
-  background: -moz-linear-gradient(left,  #d2ebf9 0%, #feffff 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left,  #d2ebf9 0%,#feffff 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right,  #d2ebf9 0%,#feffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ebf9', endColorstr='#feffff',GradientType=1 ); /* IE6-9 */
+ 
   border-radius: .3rem;
 }
 
 .newscomponent-title{
-  width: 70%;
+  width: 100%;
+  font-weight: bold;
 }
 
-.to-news{
-  padding: 0.5rem;
-  color: #f08000;
-  background-color: #fff;
-  height: 3rem;
-  border: .1rem solid #f08000;
+.newscomponent-content{
+  display: flex;
+  justify-content: space-between;
 }
 
-.to-news:hover{
+.newscomponent-image{
+  width: 20rem;
+  height: 100%;
+}
+
+.newscomponent-image img{
+  width: 100%;
+  height: auto;
+}
+
+.news-nav-link{
+  border-bottom: .1rem solid #f0f0f0!important;
+
+}
+.news-nav-link:hover{
+  color:#00A349;
+}
+
+.newscomponent-detail{
+  
+}
+
+/*Search page*/
+
+.search-screen h3{
+  background-color: #007a37;
   color: #fff;
-  background-color: #f08000;
+  padding: 0.5rem;
+  border-radius: .2rem;
+  margin: 0;
 }
+
+.search-screen ul{
+  border: .1rem solid #f0f0f0;
+}
+
+.search-screen ul li{
+  border-bottom: .1rem solid #f0f0f0;
+  margin:0;
+}
+
+.search-screen li a{
+  width: 100%!important;
+  padding: 0.8rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #000;
+}
+
+.search-screen li a:hover{
+  color: #00A349;
+}
+
+.subcategory{
+  width: 25%;
+}
+
+.search-box{
+  width: 75%;
+}
+
+.search-result{
+  padding: 1rem 0;
+  font-weight: bold;
+}
+
 
 /*Intro page*/
 
@@ -986,7 +1091,22 @@ marquee img{
   color: #f08000;
 }
 
+.counter-footer{
+  display: flex;
+  justify-content: center;
+  width: 10rem;
+  height: 20rem;
+  align-items: center;
+}
 
+.counter-footer img{
+  width: 10rem;
+  height: 8rem;
+}
+
+.dept{
+  height: 20rem;
+}
 
 .sale-dept{
   height: 10rem;
@@ -1070,17 +1190,20 @@ marquee img{
     display: flex;
   }
   .product-box{
-    width: 75%;
+    width: 100%;
   }
+
+  /*Sidebar*/
+
   .sidebar{
     margin-top: 10px;
-    width: 25%;
+    width: 30%;
     display: flex;
     flex-direction: column;
   }
   
   .sidebar-title{
-    background-color:  #00A349;
+    background-color: #007A37;
     font-weight: bold;
   }
   
@@ -1164,9 +1287,7 @@ marquee img{
     width:15rem!important;
     height:15rem!important;
   }
-  /* .col-1{
-    flex: 1 1 15rem;
-  } */
+  
   
 }
 
@@ -1178,12 +1299,6 @@ marquee img{
   .lower-content{
     flex-direction: column;
     align-items: center;
-  }
-  .product-box{
-    width: 100%!important;
-  }
-  .sidebar{
-    width: 70%!important;
   }
   .search-bar{
     width: 30%;
@@ -1197,6 +1312,15 @@ marquee img{
 }
 
 @media screen and (max-width: 800px){
+
+  .sidebar{
+    width: 100%!important;
+  }
+
+  .upper-content{
+    width: 100%!important;
+  }
+
   .intro-page{
     flex-direction: column;
   }
@@ -1252,18 +1376,6 @@ marquee img{
     height: auto;
   }
 
-  .upper-content{
-    flex-direction: column;
-  }
-
-  .carousel{
-    width: 100%!important;
-  }
-
-  .news{
-    width: 100%;
-    margin-left: 0;
-  }
 
   .detail-page .card{
     width: 95%;

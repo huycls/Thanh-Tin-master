@@ -15,6 +15,8 @@ productRouter.get(
     const name = req.query.name || '';
     const category = req.query.category || '';
     const brand = req.query.brand || '';
+    const description = req.query.description || '';
+    const model = req.query.model || '';
     const parameter = req.query.parameter || '';
     const video = req.query.video || '';
     const catalog = req.query.catalog || '';
@@ -33,9 +35,11 @@ productRouter.get(
     const sellerFilter = seller ? { seller } : {};
     const categoryFilter = category ? { category } : {};
     const brandFilter = brand ? { brand } : {};
+    const modelFilter = model ? { model } : {};
     const parameterFilter = parameter ? { parameter } : {};
     const videoFilter = video ? { video } : {};
     const catalogFilter = catalog ? { catalog } : {};
+    const descriptionFilter = description ? {description} : {};
     const priceFilter = min && max ? { price: { $gte: min, $lte: max } } : {};
     const ratingFilter = rating ? { rating: { $gte: rating } } : {};
     const sortOrder =
@@ -52,6 +56,8 @@ productRouter.get(
       ...categoryFilter,
       ...brandFilter,
       ...parameterFilter,
+      ...descriptionFilter,
+      ...modelFilter,
       ...videoFilter,
       ...catalogFilter,
       ...priceFilter,
@@ -62,6 +68,8 @@ productRouter.get(
       ...nameFilter,
       ...categoryFilter,
       ...brandFilter,
+      ...descriptionFilter,
+      ...modelFilter,
       ...parameterFilter,
       ...videoFilter,
       ...catalogFilter,
@@ -143,7 +151,8 @@ productRouter.post(
       countInStock: 0,
       rating: 0,
       numReviews: 0,
-      description: 'sample model',
+      description: 'sample description',
+      model: 'sample model',
       parameter: 'sample parameter',
       video: 'sameple link',
       catalog: 'sample catalog',
@@ -164,6 +173,7 @@ productRouter.put(
       product.price = req.body.price;
       product.image = req.body.image;
       product.category = req.body.category;
+      product.model = req.body.model;
       product.parameter = req.body.parameter;
       product.video = req.body.video;
       product.catalog = req.body.catalog;

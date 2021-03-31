@@ -69,14 +69,14 @@ export default function SearchScreen(props) {
       'COMETECH - ĐÀI LOAN'
     ];
   return (
-    <div>
+    <div className="search-screen">
       <div className="rowe">
         {loading ? (
           <LoadingBox></LoadingBox>
         ) : error ? (
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
-          <div>{products.length} Kết quả tìm kiếm</div>
+          <div className="search-result">{products.length} Kết quả tìm kiếm</div>
         )}
         {/* <div>
           Sort by{' '}
@@ -92,10 +92,9 @@ export default function SearchScreen(props) {
           </select>
         </div> */}
       </div>
-      <div className="rowe top">
-        <div className="col-1">
+      <div className="row top">
+        <div className="subcategory">
           <h3>Hãng sản xuất</h3>
-          <div>
             {/* {loadingBrands ? (
               <LoadingBox></LoadingBox>
             ) : errorBrands ? (
@@ -107,7 +106,7 @@ export default function SearchScreen(props) {
                     className={'all' === brand ? 'active' : ''}
                     to={getFilterUrl({ brand: 'all' })}
                   >
-                    Bất kỳ
+                    Tất cả
                   </Link>
                 </li>
                 {brands.map((c) => (
@@ -116,13 +115,11 @@ export default function SearchScreen(props) {
                       className={c === brand ? 'active' : ''}
                       to={getFilterUrl({ brand: c })}
                     >
-                      {c}
+                      {c} <i class="fas fa-chevron-right"></i>
                     </Link>
                   </li>
                 ))}
-              </ul>
-            
-          </div>
+              </ul>   
          <div className="application">
             <h3>Ứng dụng</h3>
             <ul>
@@ -139,7 +136,7 @@ export default function SearchScreen(props) {
           </div> 
           
         </div>
-        <div className="col-3">
+        <div className="search-box">
           {loading ? (
             <LoadingBox></LoadingBox>
           ) : error ? (
@@ -149,7 +146,7 @@ export default function SearchScreen(props) {
               {products.length === 0 && (
                 <MessageBox>No Product Found</MessageBox>
               )}
-              <div className="rowe center">
+              <div className="rowe">
                 {products.map((product) => (
                   <Product key={product._id} product={product}></Product>
                 ))}

@@ -5,7 +5,6 @@ import { detailsProduct, updateProduct } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { PRODUCT_UPDATE_RESET } from '../constants/productConstants';
-import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 export default function ProductEditScreen(props) {
@@ -20,6 +19,7 @@ export default function ProductEditScreen(props) {
   const [countInStock, setCountInStock] = useState('');
   const [brand, setBrand] = useState('');
   const [description, setDescription] = useState('');
+  const [model, setModel] = useState('');
 
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
@@ -50,6 +50,7 @@ export default function ProductEditScreen(props) {
       setCountInStock(product.countInStock);
       setBrand(product.brand);
       setDescription(product.description);
+      setModel(product.model);
     }
   }, [product, dispatch, productId, successUpdate, props.history]);
   const submitHandler = (e) => {
@@ -63,6 +64,7 @@ export default function ProductEditScreen(props) {
         image,
         category,
         parameter,
+        model,
         video,
         catalog,
         brand,
@@ -95,6 +97,14 @@ export default function ProductEditScreen(props) {
       setLoadingUpload(false);
     }
   };
+  // ClassicEditor
+  //   .create( document.querySelector( '#parameter' ) )
+  //   .then( editor => {
+  //       console.log( editor );
+  //   } )
+  //   .catch( error => {
+  //       console.error( error );
+  //   } );
   
   return (
     <div>
@@ -203,11 +213,21 @@ export default function ProductEditScreen(props) {
               ></input>
             </div>
             <div>
-              <label htmlFor="description">Model</label>
+              <label htmlFor="model">Model:</label>
+              <input
+                id="model"
+                type="text"
+                placeholder="Enter Model"
+                value={model}
+                onChange = {(e) => setModel(e.target.value)}
+              ></input>
+            </div>
+            <div>
+              <label htmlFor="description">Mô tả:</label>
               <input
                 id="description"
                 type="text"
-                placeholder="Enter Model"
+                placeholder="Enter Description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               ></input>
@@ -215,8 +235,7 @@ export default function ProductEditScreen(props) {
         
             <div>
               <label htmlFor="parameter">Thông số kỹ thuật</label>
-                
-              <textarea
+                <textarea
                 id="parameter"
                 name="editor1"
                 rows="10"
@@ -224,28 +243,8 @@ export default function ProductEditScreen(props) {
                 placeholder="Enter parameter"
                 value={parameter}
                 onChange={(e) => setParameter(e.target.value)}
-              >
-              </textarea> 
-              {/* <CKEditor
-                    id="parameter"
-                    editor={ ClassicEditor }
-                    data={parameter}
-                    onReady={ editor => {
-                        // You can store the "editor" and use when it is needed.
-                        console.log( 'Editor is ready to use!', editor );
-                    } }
-                    onChange={ ( event, editor ) => {
-                        const data = editor.getData();
-                        console.log( { event, editor, data } );
-                        setParameter(data);
-                    } }
-                    onBlur={ ( event, editor ) => {
-                        console.log( 'Blur.', editor );
-                    } }
-                    onFocus={ ( event, editor ) => {
-                        console.log( 'Focus.', editor );
-                    } }
-                /> */}
+              > </textarea>  
+             
             </div>
           
             <div>

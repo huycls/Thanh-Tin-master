@@ -443,13 +443,13 @@ function App() {
                   <p><strong>MST: </strong><span>0311941553 -001</span></p><p><strong>Email: </strong><span><a href="mailto:hanoi@thanhtin-tech.com">hanoi@thanhtin-tech.com</a></span></p>
                 </div>
               </div>
-              <div className=" footer-child">
+              <div className=" footer-child dept">
                 <div className="sale-dept">
                   <h4 className="footer-title">phòng kinh doanh </h4>
                   <p><strong>HCM: </strong><span><a href="mailto:sales@thanhtin-tech.com">sales@thanhtin-tech.com</a> </span></p>
                   <p><strong>Hà Nội: </strong><span><a href="mailto:hanoi@thanhtin-tech.com">hanoi@thanhtin-tech.com</a> </span></p>
                 </div>
-                <div className="tech-dept">
+                <div className="tech-dept ">
                   <h4 className="footer-title">phòng kỹ thuật</h4>
                   <p><strong>HCM: </strong><span><a href="mailto:service@thanhtin-tech.com">service@thanhtin-tech.com</a> </span></p>
                   <p><strong>Hà Nội: </strong><span><a href="mailto:service@thanhtin-tech.com">service@thanhtin-tech.com</a> </span></p>
@@ -457,21 +457,24 @@ function App() {
               </div>
               
               <div className="contact-media footer-child">
-            <div className="fb-page" data-href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" data-tabs="timeline" data-width="300" data-height="200" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" className="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147">Công ty TNHH Thiết Bị Và Hoá Chất  Thành Tín</a></blockquote></div>
-            <div className="other-social">
-              <Link to="#"><i className="fab fa-linkedin"></i></Link>
-              <Link to="#"><i className="fab fa-twitter"></i></Link>
-              <Link to="#"><i className="fab fa-youtube"></i></Link>
-              <Link to="#"><i className="fab fa-pinterest"></i></Link>
-            </div>
-          </div>
-          <div className="copyright">
-        <div>COPYRIGHT &copy; 2021 CÔNG TY TNHH THIẾT BỊ VÀ HÓA CHẤT THÀNH TÍN</div>
-      </div>  
-      </div>
-        
+                <div className="fb-page" data-href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" data-tabs="timeline" data-width="300" data-height="200" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" className="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147">Công ty TNHH Thiết Bị Và Hoá Chất  Thành Tín</a></blockquote></div>
+                <div className="other-social">
+                  <Link to="#"><i className="fab fa-linkedin"></i></Link>
+                  <Link to="#"><i className="fab fa-twitter"></i></Link>
+                  <Link to="#"><i className="fab fa-youtube"></i></Link>
+                  <Link to="#"><i className="fab fa-pinterest"></i></Link>
+                </div>
+              </div>
+              <div className="footer-child counter-footer">             
+                <img src="https://www.freevisitorcounters.com/en/counter/render/812336/t/0" border="0" class="counterimg" />
+              </div>
+              <div className="copyright">
+            <div>COPYRIGHT &copy; 2021 CÔNG TY TNHH THIẾT BỊ VÀ HÓA CHẤT THÀNH TÍN</div>
+          </div>  
+        </div>  
       </div>
     </BrowserRouter>
+    
   );
 }
 
