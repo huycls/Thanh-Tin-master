@@ -1405,9 +1405,6 @@ margin: 10px;
   .sidebar{
     width: 100%!important;
   }
-  
-  
-
 
   .upper-content{
     width: 100%!important;
@@ -1415,6 +1412,7 @@ margin: 10px;
 
   .intro-page{
     flex-direction: column;
+    padding: 0 0;
   }
 
   .intro-content{
