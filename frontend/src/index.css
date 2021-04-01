@@ -1242,6 +1242,7 @@ margin: 10px;
   
   .sidebar-content iframe{
     margin-top: 1rem;
+    max-width: 100%;
   }
   
 

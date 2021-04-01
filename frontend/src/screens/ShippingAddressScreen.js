@@ -46,7 +46,7 @@ export default function ShippingAddressScreen(props) {
   
   return (
     <div>
-      <form className="form" id="form">
+      <form className="form" id="form" onSubmit={submitHandler}>
         <div>
           <h1>Thông tin khách hàng</h1>
         </div>
@@ -58,8 +58,8 @@ export default function ShippingAddressScreen(props) {
             id="fullName"
             placeholder=" "
             value={fullName}
-            onChange={(e) => setFullName(e.target.value)}
             required
+            onChange={(e) => setFullName(e.target.value)}
           ></input>
         </div>
         <div>
@@ -70,8 +70,8 @@ export default function ShippingAddressScreen(props) {
             id="company"
             placeholder=" "
             value={company}
-            onChange={(e) => setCompany(e.target.value)}
             required
+            onChange={(e) => setCompany(e.target.value)}
           ></input>
         </div>
         <div>
@@ -82,8 +82,8 @@ export default function ShippingAddressScreen(props) {
             id="address"
             placeholder=""
             value={address}
-            onChange={(e) => setAddress(e.target.value)}
             required
+            onChange={(e) => setAddress(e.target.value)}
           ></input>
         </div>
         <div>
@@ -94,46 +94,46 @@ export default function ShippingAddressScreen(props) {
             id="city"
             placeholder="Enter city"
             value={city}
-            onChange={(e) => setCity(e.target.value)}
             required
+            onChange={(e) => setCity(e.target.value)}
           ></input>
         </div>
         <div>
           <label htmlFor="email">Email</label>
           <input
             name="Email"
-            type="text"
+            type="email"
             id="email"
             placeholder=""
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
             required
+            onChange={(e) => setEmail(e.target.value)} 
           ></input>
         </div>
         <div>
           <label htmlFor="phonenumber">Điện thoại</label>
           <input
             name="SDT"
-            type="text"
+            type="tel"
             id="phonenumber"
             placeholder=""
             value={phonenumber}
-            onChange={(e) => setPhonenumber(e.target.value)}
             required
+            onChange={(e) => setPhonenumber(e.target.value)}
           ></input>
         </div>
         <div>
           <ul>
             {cart.cartItems.map(item => (
               <li key={item.product}>
-                {item.name}
+               <strong>Sản phẩm đang chọn:</strong> {item.name}
               </li>
             ))}
           </ul>
         </div>
         <div>
           <label />
-          <button className="primary" id="submit-btn" type="submit" onClick={submitHandler}>
+          <button className="primary" id="submit-btn" type="submit">
             Xác nhận
           </button>
         </div>
