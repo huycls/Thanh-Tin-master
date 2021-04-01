@@ -4,7 +4,7 @@ function IntroScreen(){
     return <div className="intro-page">
         
         <div className="intro-content">
-        <h1><img className="intro-image" src="../images/logofavico.jpg"></img> Giới thiệu</h1>
+        <h1><img className="intro-image" src="../images/logofavico.jpg" alt="intro"></img> Giới thiệu</h1>
         <small>15-1-2020, 4:51 pm</small>
             <p><span><strong className="company-name">công ty tnhh thiết bị và hóa chất thành tín</strong> hoạt động trong lĩnh vực tư vấn, cung cấp các giải pháp, thiết bị phòng thí nghiệm, thiết bị công nghiệp, hóa chất, vật tư chủ yếu trong các lĩnh vực sau:</span></p>
             <ul>

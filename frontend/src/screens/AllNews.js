@@ -16,35 +16,35 @@ function Allnews(){
                     <div className="news-component">
                         <Link to="/news" className="newscomponent-title">Công ty Thành Tín là nhà phân phối chính thức cho dòng cân HE/TLE/HE của hãng METTLER TOLEDO (Thụy Sỹ)</Link>
                         <div className="newscomponent-content">
-                            <Link className="newscomponent-image">
-                                <img src="./images/logo.png" alt="news-image" />
+                            <Link className="newscomponent-image" to="/news">
+                                <img src="./images/logo.png" alt="news-bla" />
                             </Link>
                             <p className="newscomponent-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros eget mauris gravida ornare. Vestibulum consectetur, ante vel consectetur ornare, sapien sem laoreet urna, ac rhoncus enim ligula vitae odio.</p>
                         </div>
                     </div>
                     <div className="news-component">
-                        <Link className="newscomponent-title">Thông báo thay đổi tên giao dịch</Link>
+                        <Link className="newscomponent-title" to="/news1">Thông báo thay đổi tên giao dịch</Link>
                         <div className="newscomponent-content">
                             <Link className="newscomponent-image">
-                                <img src="./images/logo.png" alt="news-image" />
+                                <img src="./images/logo.png" alt="news-bla" />
                             </Link>
                             <p className="newscomponent-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros eget mauris gravida ornare. Vestibulum consectetur, ante vel consectetur ornare, sapien sem laoreet urna, ac rhoncus enim ligula vitae odio.</p>
                         </div>
                     </div>
                     <div className="news-component">
-                        <Link className="newscomponent-title">ANALYTICA VIETNAM 2013 TRIỂN LÃM QUỐC TẾ LẦN THỨ 3 VỀ CÔNG NGHỆ THÍ NGHIỆM, PHÂN TÍCH, CÔNG NGHỆ SINH HỌC VÀ CHẨN ĐOÁN</Link>
+                        <Link className="newscomponent-title" to="/news2">ANALYTICA VIETNAM 2013 TRIỂN LÃM QUỐC TẾ LẦN THỨ 3 VỀ CÔNG NGHỆ THÍ NGHIỆM, PHÂN TÍCH, CÔNG NGHỆ SINH HỌC VÀ CHẨN ĐOÁN</Link>
                         <div className="newscomponent-content">
-                            <Link className="newscomponent-image">
-                                <img src="./images/logo.png" alt="news-image" />
+                            <Link className="newscomponent-image" to="/news2">
+                                <img src="./images/logo.png" alt="news-bla" />
                             </Link>
                             <p className="newscomponent-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros eget mauris gravida ornare. Vestibulum consectetur, ante vel consectetur ornare, sapien sem laoreet urna, ac rhoncus enim ligula vitae odio.</p>
                         </div>
                     </div>
                     <div className="news-component">
-                        <Link className="newscomponent-title">TUYỂN NHÂN VIÊN KINH DOANH</Link>
+                        <Link className="newscomponent-title" to="/news3">TUYỂN NHÂN VIÊN KINH DOANH</Link>
                         <div className="newscomponent-content">
-                            <Link className="newscomponent-image">
-                                <img src="./images/logo.png" alt="news-image" />
+                            <Link className="newscomponent-image" to="/news3">
+                                <img src="./images/logo.png" alt="news-bla" />
                             </Link>
                             <p className="newscomponent-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros eget mauris gravida ornare. Vestibulum consectetur, ante vel consectetur ornare, sapien sem laoreet urna, ac rhoncus enim ligula vitae odio.</p>
                         </div>
@@ -55,7 +55,7 @@ function Allnews(){
                         <Link className="newscomponent-title">Giải pháp</Link>
                         <div className="newscomponent-content">
                             <Link className="newscomponent-image">
-                                <img src="./images/logo.png" alt="news-image" />
+                                <img src="./images/logo.png" alt="news-bla" />
                             </Link>
                             <p className="newscomponent-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros eget mauris gravida ornare. Vestibulum consectetur, ante vel consectetur ornare, sapien sem laoreet urna, ac rhoncus enim ligula vitae odio.</p>
                         </div>
@@ -64,7 +64,7 @@ function Allnews(){
                         <Link className="newscomponent-title">Thông báo thay đổi tên giao dịch</Link>
                         <div className="newscomponent-content">
                             <Link className="newscomponent-image">
-                                <img src="./images/logo.png" alt="news-image" />
+                                <img src="./images/logo.png" alt="news-bla" />
                             </Link>
                             <p className="newscomponent-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros eget mauris gravida ornare. Vestibulum consectetur, ante vel consectetur ornare, sapien sem laoreet urna, ac rhoncus enim ligula vitae odio.</p>
                         </div>
@@ -72,8 +72,8 @@ function Allnews(){
                     <div className="news-component">
                         <Link className="newscomponent-title">ANALYTICA VIETNAM 2013 TRIỂN LÃM QUỐC TẾ LẦN THỨ 3 VỀ CÔNG NGHỆ THÍ NGHIỆM, PHÂN TÍCH, CÔNG NGHỆ SINH HỌC VÀ CHẨN ĐOÁN</Link>
                         <div className="newscomponent-content">
-                            <Link className="newscomponent-image">
-                                <img src="./images/logo.png" alt="news-image" />
+                            <Link className="newscomponent-image" to="/news2">
+                                <img src="./images/logo.png" alt="news-bla" />
                             </Link>
                             <p className="newscomponent-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros eget mauris gravida ornare. Vestibulum consectetur, ante vel consectetur ornare, sapien sem laoreet urna, ac rhoncus enim ligula vitae odio.</p>
                         </div>
@@ -82,7 +82,7 @@ function Allnews(){
                         <Link className="newscomponent-title">TUYỂN NHÂN VIÊN KINH DOANH</Link>
                         <div className="newscomponent-content">
                             <Link className="newscomponent-image">
-                                <img src="./images/logo.png" alt="news-image" />
+                                <img src="./images/logo.png" alt="news-bla" />
                             </Link>
                             <p className="newscomponent-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros eget mauris gravida ornare. Vestibulum consectetur, ante vel consectetur ornare, sapien sem laoreet urna, ac rhoncus enim ligula vitae odio.</p>
                         </div>
@@ -93,7 +93,7 @@ function Allnews(){
                         <Link className="newscomponent-title">Ứng dụng</Link>
                         <div className="newscomponent-content">
                             <Link className="newscomponent-image">
-                                <img src="./images/logo.png" alt="news-image" />
+                                <img src="./images/logo.png" alt="news-bla" />
                             </Link>
                             <p className="newscomponent-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros eget mauris gravida ornare. Vestibulum consectetur, ante vel consectetur ornare, sapien sem laoreet urna, ac rhoncus enim ligula vitae odio.</p>
                         </div>
@@ -102,7 +102,7 @@ function Allnews(){
                         <Link className="newscomponent-title">Thông báo thay đổi tên giao dịch</Link>
                         <div className="newscomponent-content">
                             <Link className="newscomponent-image">
-                                <img src="./images/logo.png" alt="news-image" />
+                                <img src="./images/logo.png" alt="news-bla" />
                             </Link>
                             <p className="newscomponent-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros eget mauris gravida ornare. Vestibulum consectetur, ante vel consectetur ornare, sapien sem laoreet urna, ac rhoncus enim ligula vitae odio.</p>
                         </div>
@@ -111,7 +111,7 @@ function Allnews(){
                         <Link className="newscomponent-title">ANALYTICA VIETNAM 2013 TRIỂN LÃM QUỐC TẾ LẦN THỨ 3 VỀ CÔNG NGHỆ THÍ NGHIỆM, PHÂN TÍCH, CÔNG NGHỆ SINH HỌC VÀ CHẨN ĐOÁN</Link>
                         <div className="newscomponent-content">
                             <Link className="newscomponent-image">
-                                <img src="./images/logo.png" alt="news-image" />
+                                <img src="./images/logo.png" alt="news-bla" />
                             </Link>
                             <p className="newscomponent-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros eget mauris gravida ornare. Vestibulum consectetur, ante vel consectetur ornare, sapien sem laoreet urna, ac rhoncus enim ligula vitae odio.</p>
                         </div>
@@ -120,7 +120,7 @@ function Allnews(){
                         <Link className="newscomponent-title">TUYỂN NHÂN VIÊN KINH DOANH</Link>
                         <div className="newscomponent-content">
                             <Link className="newscomponent-image">
-                                <img src="./images/logo.png" alt="news-image" />
+                                <img src="./images/logo.png" alt="news-bla" />
                             </Link>
                             <p className="newscomponent-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros eget mauris gravida ornare. Vestibulum consectetur, ante vel consectetur ornare, sapien sem laoreet urna, ac rhoncus enim ligula vitae odio.</p>
                         </div>

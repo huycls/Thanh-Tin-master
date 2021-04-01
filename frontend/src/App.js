@@ -139,6 +139,9 @@ function App() {
               ></Route>
             </div>
             <button className="small-searchbar" onClick={dropSearchbar}><i className="fa fa-search"></i></button>
+            
+              
+            
             <div>
               <Link to="/cart">
                 <i className="fas fa-shopping-basket"></i>
@@ -146,6 +149,7 @@ function App() {
                   <span className="badge">{cartItems.length}</span>
                 )}
               </Link>
+              <Link to="/intro">Giới thiệu</Link>
               {userInfo ? (
                 <div className="dropdown">
                   <Link to="#">
@@ -332,101 +336,103 @@ function App() {
               <button type="submit" id="submit-form" placeholder="Email">Gửi</button>
             </form>
           </div>
-          <div className="logo-marquee">  
-          <marquee behavior="scroll" direction="left">          
-              <img
-                src="./images/alp.png"
-                width="120"
-                height="80"
-                alt="Natural"
-              />
-              <img
-                src="./images/consort.png"
-                width="120"
-                height="80"
-                alt="Natural"
-              />
-              <img
-                src="./images/emco.png"
-                width="120"
-                height="80"
-                alt="Natural"
-              />
-             
-              <img
-                src="./images/kruss.png"
-                width="120"
-                height="80"
-                alt="Natural"
-              />
-              <img
-                src="./images/nabertherm.png"
-                width="120"
-                height="80"
-                alt="Natural"
-              />
-              <img
-                src="./images/gfl.png"
-                width="120"
-                height="80"
-                alt="Natural"
-              />
-              <img
-                src="./images/pta.png"
-                width="120"
-                height="80"
-                alt="Natural"
-              />
-              <img
-                src="./images/pnshar.png"
-                width="120"
-                height="80"
-                alt="Natural"
-              />
-              <img
-                src="./images/consort.png"
-                width="120"
-                height="80"
-                alt="Natural"
-              />
-              <img
-                src="./images/emco.png"
-                width="120"
-                height="80"
-                alt="Natural"
-              />
-             
-              <img
-                src="./images/kruss.png"
-                width="120"
-                height="80"
-                alt="Natural"
-              />
-              <img
-                src="./images/nabertherm.png"
-                width="120"
-                height="80"
-                alt="Natural"
-              />
-              <img
-                src="./images/gfl.png"
-                width="120"
-                height="80"
-                alt="Natural"
-              />
-              <img
-                src="./images/pta.png"
-                width="120"
-                height="80"
-                alt="Natural"
-              />
-              <img
-                src="./images/pnshar.png"
-                width="120"
-                height="80"
-                alt="Natural"
-              /> 
-            </marquee>       
+          <div className="marquee">
+            <div className="marquee--inner">
+              <span>          
+                <img
+                  src="./images/alp.png"
+                  width="120"
+                  height="80"
+                  alt="Natural"
+                />
+                <img
+                  src="./images/consort.png"
+                  width="120"
+                  height="80"
+                  alt="Natural"
+                />
+                <img
+                  src="./images/emco.png"
+                  width="120"
+                  height="80"
+                  alt="Natural"
+                />
+              
+                <img
+                  src="./images/kruss.png"
+                  width="120"
+                  height="80"
+                  alt="Natural"
+                />
+                <img
+                  src="./images/nabertherm.png"
+                  width="120"
+                  height="80"
+                  alt="Natural"
+                />
+                <img
+                  src="./images/gfl.png"
+                  width="120"
+                  height="80"
+                  alt="Natural"
+                />
+                <img
+                  src="./images/pta.png"
+                  width="120"
+                  height="80"
+                  alt="Natural"
+                />
+                <img
+                  src="./images/pnshar.png"
+                  width="120"
+                  height="80"
+                  alt="Natural"
+                />
+                <img
+                  src="./images/consort.png"
+                  width="120"
+                  height="80"
+                  alt="Natural"
+                />
+                <img
+                  src="./images/emco.png"
+                  width="120"
+                  height="80"
+                  alt="Natural"
+                />
+              
+                <img
+                  src="./images/kruss.png"
+                  width="120"
+                  height="80"
+                  alt="Natural"
+                />
+                <img
+                  src="./images/nabertherm.png"
+                  width="120"
+                  height="80"
+                  alt="Natural"
+                />
+                <img
+                  src="./images/gfl.png"
+                  width="120"
+                  height="80"
+                  alt="Natural"
+                />
+                <img
+                  src="./images/pta.png"
+                  width="120"
+                  height="80"
+                  alt="Natural"
+                />
+                <img
+                  src="./images/pnshar.png"
+                  width="120"
+                  height="80"
+                  alt="Natural"
+                />
+              </span>
+            </div>       
           </div>
         </main>
         <div className="footer">
@@ -459,14 +465,14 @@ function App() {
               <div className="contact-media footer-child">
                 <div className="fb-page" data-href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" data-tabs="timeline" data-width="300" data-height="200" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" className="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147">Công ty TNHH Thiết Bị Và Hoá Chất  Thành Tín</a></blockquote></div>
                 <div className="other-social">
-                  <Link to="#"><i className="fab fa-linkedin"></i></Link>
-                  <Link to="#"><i className="fab fa-twitter"></i></Link>
-                  <Link to="#"><i className="fab fa-youtube"></i></Link>
-                  <Link to="#"><i className="fab fa-pinterest"></i></Link>
+                  <a href="https://www.linkedin.com/in/thanh-tin-tech-co-ltd-43979a205/"><i className="fab fa-aedin"></i></a>
+                  <a href="#"><i className="fab fa-twitter"></i></a>
+                  <a href="https://www.youtube.com/channel/UCWvi8FoZbVU-PMQHDsYC5pQ"><i className="fab fa-youtube"></i></a>
+                  <a href="#"><i className="fab fa-pinterest"></i></a>
                 </div>
               </div>
               <div className="footer-child counter-footer">             
-                <img src="https://www.freevisitorcounters.com/en/counter/render/812336/t/0" border="0" class="counterimg" />
+                <img src="https://www.freevisitorcounters.com/en/counter/render/812336/t/0" border="0" className="counterimg" />
               </div>
               <div className="copyright">
             <div>COPYRIGHT &copy; 2021 CÔNG TY TNHH THIẾT BỊ VÀ HÓA CHẤT THÀNH TÍN</div>

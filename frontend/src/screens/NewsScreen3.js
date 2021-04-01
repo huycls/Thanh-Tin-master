@@ -1,10 +1,15 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 function NewsScreen3(props){
     return <div className="newspage">
-        <h1>TUYỂN NHÂN VIÊN KINH DOANH</h1>
-        <small>15:11 16-1-2014</small>
+     <div className="news-sidebar">
+            <a href="javascript:history.back()"><i className="fas fa-long-arrow-alt-left"></i> Back </a>
+            <Link className="toallnews" to="/allnews"> <i className="fas fa-chevron-right"></i> Tất cả tin</Link>
+        </div>  
         <div className="news-content">
+            <h1>TUYỂN NHÂN VIÊN KINH DOANH</h1>
+            <small>15:11 16-1-2014</small>
             <p>
             1/ Nhân viên kinh doanh thiết bị thí nghiệm, thiết bị đo lường:
 

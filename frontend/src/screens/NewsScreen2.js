@@ -1,11 +1,16 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 function NewsScreen2(props){
     return <div className="newspage">
+     <div className="news-sidebar">
+            <a href="javascript:history.back()"><i className="fas fa-long-arrow-alt-left"></i> Back </a>
+            <Link className="toallnews" to="/allnews"> <i className="fas fa-chevron-right"></i> Tất cả tin</Link>
+        </div>
+       
+        <div className="news-content">
         <h1>ANALYTICA VIETNAM 2013 TRIỂN LÃM QUỐC TẾ LẦN THỨ 3 VỀ CÔNG NGHỆ THÍ NGHIỆM, PHÂN TÍCH, CÔNG NGHỆ SINH HỌC VÀ CHẨN ĐOÁN</h1>
         <small>15:11 16-1-2014</small>
-        <div className="news-content">
-            
         <p> Ngày:  17 - 19/04/2013 </p>
 
         <p> Khách tham quan: Thương mại</p>

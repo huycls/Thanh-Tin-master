@@ -69,10 +69,7 @@ export default function HomeScreen() {
       </div>
       <div className="sidebar">
       <div className="news">
-          <div className="news-title"><i className="fas fa-chevron-right"></i> <Link to="/intro">Giới thiệu</Link></div>
-          <div className="news-content">
-            <strong><i className="fas fa-chevron-right"></i>CÔNG TY TNHH THIẾT BỊ VÀ HÓA CHẤT THÀNH TÍN</strong> hoạt động trong lĩnh vực tư vấn, cung cấp các giải pháp, thiết bị phòng thí nghiệm, thiết bị công nghiệp, hóa chất, vật tư...
-          </div>
+          
           <div className="news-title"><i className="fas fa-chevron-right"></i> <Link to="/allnews">Tin mới</Link></div>
           <div className="news-content">
             <Link to="/news">
@@ -100,48 +97,12 @@ export default function HomeScreen() {
           </div>
         </div>
         <div className="sidebar-title">
-          <Link to="/solution">Giải pháp công nghệ tự động</Link>
+          <a href="https://www.youtube.com/channel/UCWvi8FoZbVU-PMQHDsYC5pQ/featured">Kênh Video - Video mới nhất</a>
         </div>
         <div className="sidebar-content">
-          <Link to="/solution" className="content-img">
-            <img
-              src="./images/sidebar-img.png"
-              alt="giai-phap-cong-nghe-tu-dong"
-            />
-            <div className="caption">
-              <h5> Lorem ipsum dolor sit amet.</h5>
-              <p>15-1-2020, 4:51 pm</p>
-            </div>
-          </Link>
+          <iframe src="https://www.youtube.com/embed/xjndBrxqtzU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-        <div className="sub-content">
-          <Link to="/nproduct">
-            <img
-              src="./images/thumb_DM4A300.jpg"
-              alt="thiet-bi-phong-thi-nghiem"
-            />
-            <span>
-              {" "}
-              Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit. Maecenas eu nulla malesuada,
-              vehicula eros ac
-            </span>
-          </Link>
-        </div>
-        <div className="sub-content">
-          <Link to="/nproduct">
-            <img
-              src="./images/thumb_DM4A300.jpg"
-              alt="thiet-bi-phong-thi-nghiem"
-            />
-            <span>
-              {" "}
-              Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit. Maecenas eu nulla malesuada,
-              vehicula eros ac
-            </span>
-          </Link>
-        </div>
+        
    
       </div>
     </div>

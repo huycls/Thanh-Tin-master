@@ -126,7 +126,7 @@ export default function SearchScreen(props) {
               {applies.map((c)=>(
                 <li key={c}>
                   <Link to="#">
-                    {c}
+                   
                   </Link>
                 </li>
              

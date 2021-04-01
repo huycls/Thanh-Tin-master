@@ -6,6 +6,9 @@ import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { PRODUCT_UPDATE_RESET } from '../constants/productConstants';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import {CKEditor} from '@ckeditor/ckeditor5-react';
+
+
 
 export default function ProductEditScreen(props) {
   const productId = props.match.params.id;
@@ -191,7 +194,7 @@ export default function ProductEditScreen(props) {
             </div>
             <div>
               <label htmlFor="brand">Hãng sản xuất</label>
-              <select id="brandcategory" className="form-select" value={brand} onChange={(e) => setBrand(e.target.value)} aria-label="Default select example">
+              <select id="brand" className="form-select" value={brand} onChange={(e) => setBrand(e.target.value)} aria-label="Default select example">
                 <option defaultValue="ALP - NHẬT BẢN">ALP - NHẬT BẢN</option>
                 <option value="EMCO - GERMANY">EMCO - GERMANY</option>
                 <option value="CONSORT">CONSORT</option>
@@ -200,6 +203,7 @@ export default function ProductEditScreen(props) {
                 <option value="GRUSS - GERMANY">GRUSS - GERMANY</option>
                 <option value="PTA - CHÂU ÂU">PTA - CHÂU ÂU</option>
                 <option value="COMETECH - ĐÀI LOAN">COMETECH - ĐÀI LOAN</option>
+                <option value="NABERTHERM - GERMANY">NABERTHERM - GERMANY</option>
               </select>
             </div>
             <div>
@@ -235,7 +239,7 @@ export default function ProductEditScreen(props) {
         
             <div>
               <label htmlFor="parameter">Thông số kỹ thuật</label>
-                <textarea
+                {/* <textarea
                 id="parameter"
                 name="editor1"
                 rows="10"
@@ -243,8 +247,19 @@ export default function ProductEditScreen(props) {
                 placeholder="Enter parameter"
                 value={parameter}
                 onChange={(e) => setParameter(e.target.value)}
-              > </textarea>  
-             
+              > </textarea>   */}
+              <CKEditor 
+                editor={ClassicEditor}
+                data={parameter}
+                onInit={editor =>{
+
+                }}
+                onChange = {(event, editor) => {
+                  const data = editor.getData();
+                  console.log(data);
+                  setParameter(data);
+                }}
+              />
             </div>
           
             <div>

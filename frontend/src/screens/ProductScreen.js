@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import {  detailsProduct } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import Product from '../components/Product';
+// import Product from '../components/Product';
 import { listProducts } from '../actions/productActions';
+import parse from 'html-react-parser';
 // import { PRODUCT_REVIEW_CREATE_RESET } from '../constants/productConstants';
 
 export default function ProductScreen(props) {
@@ -15,7 +16,7 @@ export default function ProductScreen(props) {
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
   const productList = useSelector((state) => state.productList);
-  const { products } = productList;
+  // const { products } = productList;
   // const userSignin = useSelector((state) => state.userSignin);
   // const { userInfo } = userSignin;
 
@@ -172,7 +173,7 @@ export default function ProductScreen(props) {
             </ul>
             <div className="tab-content" id="pills-tabContent">
               <div className="tab-pane fade show active" id="pills-parameter" role="tabpanel" aria-labelledby="pills-parameter-tab">
-                {product.parameter}
+                {parse(product.parameter)}
               </div>
               <div className="tab-pane fade" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab"><a href="./images/sidebar-img.jpg" download>Link</a></div>
               <div className="tab-pane fade" id="pills-characteristic" role="tabpanel" aria-labelledby="pills-characteristic-tab">Đặc tính</div>
