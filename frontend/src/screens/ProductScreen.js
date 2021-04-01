@@ -55,6 +55,27 @@ export default function ProductScreen(props) {
     dispatch(listProducts({}));
     // dispatch(listTopSellers());
    }, [dispatch]);
+  window.onload = function(){
+    var modal = document.getElementById("myModal");
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementById("pic");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+      img.onclick = function(){
+      modal.style.display = "block";
+      modalImg.src = this.src;
+      captionText.innerHTML = this.alt;
+    }
+  
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+  
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() { 
+        modal.style.display = "none";
+      }
+  }
   return (
     <div>
       {loading ? (
@@ -71,6 +92,11 @@ export default function ProductScreen(props) {
                 src={product.image}
                 alt={product.name}
               ></img>
+              <div id="myModal" className="modal">
+                <span className="close">&times;</span>
+                <img className="modal-content" id="img01" />
+                <div id="caption"></div>
+              </div>
               <div id="myModal" className="modal">
                 <span className="close">&times;</span>
                 <img className="modal-content" id="img01" />
@@ -180,7 +206,6 @@ export default function ProductScreen(props) {
               <div className="tab-pane fade" id="pills-application" role="tabpanel" aria-labelledby="pills-application-tab">Ứng dụng</div>
               <div className="tab-pane fade" id="pills-accessories" role="tabpanel" aria-labelledby="pills-accessories-tab">Phụ kiện</div>
               <div className="tab-pane fade" id="pills-download" role="tabpanel" aria-labelledby="pills-download-tab"><a href="./images/sidebar-img.jpg" download>Download</a></div>
-            
             </div>
           </div>
           <div className="recommend-product">

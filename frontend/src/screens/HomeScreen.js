@@ -97,7 +97,7 @@ export default function HomeScreen() {
           </div>
         </div>
         <div className="sidebar-title">
-          <a href="https://www.youtube.com/channel/UCWvi8FoZbVU-PMQHDsYC5pQ/featured">Kênh Video - Video mới nhất</a>
+          <a href="https://www.youtube.com/channel/UCWvi8FoZbVU-PMQHDsYC5pQ/featured" target="_blank">Kênh Video - Video mới nhất</a>
         </div>
         <div className="sidebar-content">
           <iframe src="https://www.youtube.com/embed/xjndBrxqtzU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

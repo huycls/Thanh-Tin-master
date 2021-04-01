@@ -36,11 +36,11 @@ export default function ShippingAddressScreen(props) {
        'service_8sszg3c', templateId,
        variables
        ).then( res =>{
-         alert('Your request successfully sent!');
+         alert('Yêu cầu của bạn đã được gửi thành công!');
          const inputs = document.querySelectorAll('input');
           inputs.forEach(input => input.value = ''); 
        })
-       .catch(err => console.error("Your request has been failed, please try later", err))
+       .catch(err => console.error("Oops, có vẻ như đã xảy ra lỗi, hãy thử lại sau.", err))
      
    }
   

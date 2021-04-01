@@ -465,9 +465,9 @@ function App() {
               <div className="contact-media footer-child">
                 <div className="fb-page" data-href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" data-tabs="timeline" data-width="300" data-height="200" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" className="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147">Công ty TNHH Thiết Bị Và Hoá Chất  Thành Tín</a></blockquote></div>
                 <div className="other-social">
-                  <a href="https://www.linkedin.com/in/thanh-tin-tech-co-ltd-43979a205/"><i className="fab fa-aedin"></i></a>
+                  <a href="https://www.linkedin.com/in/thanh-tin-tech-co-ltd-43979a205/" target="_blank"><i className="fab fa-linkedin"></i></a>
                   <a href="#"><i className="fab fa-twitter"></i></a>
-                  <a href="https://www.youtube.com/channel/UCWvi8FoZbVU-PMQHDsYC5pQ"><i className="fab fa-youtube"></i></a>
+                  <a href="https://www.youtube.com/channel/UCWvi8FoZbVU-PMQHDsYC5pQ" target="_blank"><i className="fab fa-youtube"></i></a>
                   <a href="#"><i className="fab fa-pinterest"></i></a>
                 </div>
               </div>

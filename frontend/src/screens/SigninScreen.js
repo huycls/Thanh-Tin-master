@@ -35,7 +35,7 @@ export default function SigninScreen(props) {
         {loading && <LoadingBox></LoadingBox>}
         {error && <MessageBox variant="danger">{error}</MessageBox>}
         <div>
-          <label htmlFor="email">Email address</label>
+          <label htmlFor="email">Email</label>
           <input
             type="email"
             id="email"
@@ -45,7 +45,7 @@ export default function SigninScreen(props) {
           ></input>
         </div>
         <div>
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Mật khẩu</label>
           <input
             type="password"
             id="password"
@@ -57,15 +57,15 @@ export default function SigninScreen(props) {
         <div>
           <label />
           <button className="primary" type="submit">
-            Sign In
+            Đăng nhập
           </button>
         </div>
         <div>
           <label />
           <div>
-            New customer?{' '}
+            Chưa có tài khoản?{' '}
             <Link to={`/register?redirect=${redirect}`}>
-              Create your account
+              Tạo tài khoản
             </Link>
           </div>
         </div>
