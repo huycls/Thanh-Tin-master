@@ -90,7 +90,7 @@ export default function RegisterScreen(props) {
           <label />
           <div>
             Đã có tài khoản?{' '}
-            <Link to={`/signin?redirect=${redirect}`}>Đăng nhập</Link>
+            <Link to={`/dang-nhap?redirect=${redirect}`}>Đăng nhập</Link>
           </div>
         </div>
       </form>

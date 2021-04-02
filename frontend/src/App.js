@@ -143,13 +143,13 @@ function App() {
               
             
             <div>
-              <Link to="/cart">
+              <Link to="/gio-hang">
                 <i className="fas fa-shopping-basket"></i>
                 {cartItems.length > 0 && (
                   <span className="badge">{cartItems.length}</span>
                 )}
               </Link>
-              <Link to="/intro">Giới thiệu</Link>
+              <Link to="/gioi-thieu">Giới thiệu</Link>
               {userInfo ? (
                 <div className="dropdown">
                   <Link to="#">
@@ -170,7 +170,7 @@ function App() {
                   </ul>
                 </div>
               ) : (
-                <Link to="/signin">Đăng nhập</Link>
+                <Link to="/dang-nhap">Đăng nhập</Link>
               )}
               {userInfo && userInfo.isSeller && (
                 <div className="dropdown">
@@ -234,28 +234,28 @@ function App() {
               </div>
             </div>
           </div>
-          <Route path="/allnews" component={Allnews}></Route>
-          <Route path="/intro" component={IntroScreen}></Route>
-          <Route path="/nproduct" component={NewsProduct}></Route>
-          <Route path="/solution" component={SolutionScreen}></Route>
-          <Route path="/news" component={NewsScreen}></Route>
-          <Route path="/news1" component={NewsScreen1}></Route>
-          <Route path="/news2" component={NewsScreen2}></Route>
-          <Route path="/news3" component={NewsScreen3}></Route>
+          <Route path="/tat-ca-tin-tuc" component={Allnews}></Route>
+          <Route path="/gioi-thieu" component={IntroScreen}></Route>
+          <Route path="/tin-san-pham-moi" component={NewsProduct}></Route>
+          <Route path="/giai-phap" component={SolutionScreen}></Route>
+          <Route path="/cong-ty-thanh-tin-la-nha-phan-phoi-chinh-thuc-cho-hang-mettler-toledo" component={NewsScreen}></Route>
+          <Route path="/thong-bao-thay-doi-ten-giao-dich" component={NewsScreen1}></Route>
+          <Route path="/analytica-viet-nam-2013" component={NewsScreen2}></Route>
+          <Route path="/tuyen-nhan-vien-kinh-doanh" component={NewsScreen3}></Route>
           <Route path="/seller/:id" component={SellerScreen}></Route>
-          <Route path="/cart/:id?" component={CartScreen}></Route>
+          <Route path="/gio-hang/:id?" component={CartScreen}></Route>
           <Fragment>
             <ScrollToTop />
-            <Route path="/product/:id" component={ProductScreen} exact></Route>
+            <Route path="/san-pham/:id" component={ProductScreen} exact></Route>
           </Fragment>
           <Route
-            path="/product/:id/edit"
+            path="/san-pham/:id/edit"
             component={ProductEditScreen}
             exact
           ></Route>
-          <Route path="/signin" component={SigninScreen}></Route>
-          <Route path="/register" component={RegisterScreen}></Route>
-          <Route path="/shipping" component={ShippingAddressScreen}></Route>
+          <Route path="/dang-nhap" component={SigninScreen}></Route>
+          <Route path="/dang-ky-tai-khoan" component={RegisterScreen}></Route>
+          <Route path="/yeu-cau-bao-gia" component={ShippingAddressScreen}></Route>
           {/* <Route path="/payment" component={PaymentMethodScreen}></Route>
           <Route path="/placeorder" component={PlaceOrderScreen}></Route> */}
           {/* <Route path="/order/:id" component={OrderScreen}></Route> */}

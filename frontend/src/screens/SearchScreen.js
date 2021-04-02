@@ -66,7 +66,8 @@ export default function SearchScreen(props) {
       'PNSHAR',
       'GRUSS - GERMANY',
       'PTA - CHÂU ÂU',
-      'COMETECH - ĐÀI LOAN'
+      'COMETECH - ĐÀI LOAN',
+      'NABERTHERM - GERMANY'
     ];
   return (
     <div className="search-screen">

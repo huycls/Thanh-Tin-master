@@ -31,13 +31,19 @@ export default function HomeScreen() {
         <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-inner">
             <div className="carousel-item active" data-bs-interval="2000">
+              <img src="./images/1.jpg" className="d-block w-100" alt="..." />
+            </div>
+            <div className="carousel-item" data-bs-interval="2000">
+              <img src="./images/2.jpg" className="d-block w-100" alt="..." />
+            </div>
+            <div className="carousel-item">
               <img src="./images/3.jpg" className="d-block w-100" alt="..." />
             </div>
             <div className="carousel-item" data-bs-interval="2000">
               <img src="./images/4.jpg" className="d-block w-100" alt="..." />
             </div>
-            <div className="carousel-item">
-              <img src="./images/thiet-bi-ptn.jpg" className="d-block w-100" alt="..." />
+            <div className="carousel-item" data-bs-interval="2000">
+              <img src="./images/5.jpg" className="d-block w-100" alt="..." />
             </div>
           </div>
           <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -70,26 +76,26 @@ export default function HomeScreen() {
       <div className="sidebar">
       <div className="news">
           
-          <div className="news-title"><i className="fas fa-chevron-right"></i> <Link to="/allnews">Tin mới</Link></div>
+          <div className="news-title"><i className="fas fa-chevron-right"></i> <Link to="/tat-ca-tin-tuc">Tin mới</Link></div>
           <div className="news-content">
-            <Link to="/news">
+            <Link to="/cong-ty-thanh-tin-la-nha-phan-phoi-chinh-thuc-cho-hang-mettler-toledo">
               <p>
                 <i className="fas fa-chevron-right"></i>Công ty Thành Tín là nhà phân
                 phối chính thức cho dòng cân HE/TLE/HE của hãng METTLER TOLEDO (Thụy
                 Sỹ)
               </p>
             </Link>
-            <Link to="news1">
+            <Link to="thong-bao-thay-doi-ten-giao-dich">
               <p>
                 <i className="fas fa-chevron-right"></i>Thông báo thay đổi tên giao dịch
               </p>
             </Link>
-            <Link to="news2">
+            <Link to="analytica-viet-nam-2013">
               <p>
                 <i className="fas fa-chevron-right"></i>ANALYTICA VIETNAM 2013 TRIỂN LÃM QUỐC TẾ LẦN THỨ 3 VỀ CÔNG NGHỆ THÍ NGHIỆM, PHÂN TÍCH, CÔNG NGHỆ SINH HỌC VÀ CHẨN ĐOÁN
               </p>
             </Link>
-            <Link to="news3">
+            <Link to="tuyen-nhan-vien-kinh-doanh">
               <p>
                 <i className="fas fa-chevron-right"></i>Tuyển nhân viên kinh doanh
               </p>

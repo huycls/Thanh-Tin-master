@@ -39,7 +39,7 @@ export default function ProductScreen(props) {
     dispatch(detailsProduct(productId));
   }, [dispatch, productId, successReviewCreate]);
   const addToCartHandler = () => {
-    props.history.push(`/cart/${productId}?qty=${qty}`);
+    props.history.push(`/gio-hang/${productId}?qty=${qty}`);
   };
   // const submitHandler = (e) => {
   //   e.preventDefault();
@@ -202,14 +202,14 @@ export default function ProductScreen(props) {
                 {parse(product.parameter)}
               </div>
               <div className="tab-pane fade" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab"><a href="./images/sidebar-img.jpg" download>Link</a></div>
-              <div className="tab-pane fade" id="pills-characteristic" role="tabpanel" aria-labelledby="pills-characteristic-tab">Đặc tính</div>
-              <div className="tab-pane fade" id="pills-application" role="tabpanel" aria-labelledby="pills-application-tab">Ứng dụng</div>
-              <div className="tab-pane fade" id="pills-accessories" role="tabpanel" aria-labelledby="pills-accessories-tab">Phụ kiện</div>
+              <div className="tab-pane fade" id="pills-characteristic" role="tabpanel" aria-labelledby="pills-characteristic-tab">...</div>
+              <div className="tab-pane fade" id="pills-application" role="tabpanel" aria-labelledby="pills-application-tab">...</div>
+              <div className="tab-pane fade" id="pills-accessories" role="tabpanel" aria-labelledby="pills-accessories-tab">...</div>
               <div className="tab-pane fade" id="pills-download" role="tabpanel" aria-labelledby="pills-download-tab"><a href="./images/sidebar-img.jpg" download>Download</a></div>
             </div>
           </div>
           <div className="recommend-product">
-            {}                           
+                                       
           </div>                        
         </div>
       )}

@@ -24,7 +24,7 @@ export default function CartScreen(props) {
   };
 
   const checkoutHandler = () => {
-    props.history.push('/shipping');
+    props.history.push('/yeu-cau-bao-gia');
   };
   return (
     <div className="row top cart-screen">
@@ -48,7 +48,7 @@ export default function CartScreen(props) {
                     ></img>
                   </div>
                   <div className="min-10">
-                    <Link to={`/product/${item.product}`}>{item.name}</Link>
+                    <Link to={`/san-pham/${item.product}`}>{item.name}</Link>
                   </div>
                   <div>
                     <select

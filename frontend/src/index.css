@@ -428,6 +428,7 @@ img.large {
 .card-header{
   height: 50%;
   padding:0;
+  background:none;
 }
 
 .card .details-btn:hover{
@@ -828,7 +829,6 @@ img.large {
 /*Tin tuc*/
 .news{
   width: 100%;
-  margin-left: 1%;
 }
 
 .news-title{

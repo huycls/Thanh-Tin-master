@@ -64,7 +64,7 @@ export default function SigninScreen(props) {
           <label />
           <div>
             Chưa có tài khoản?{' '}
-            <Link to={`/register?redirect=${redirect}`}>
+            <Link to={`/dang-ky-tai-khoan?redirect=${redirect}`}>
               Tạo tài khoản
             </Link>
           </div>

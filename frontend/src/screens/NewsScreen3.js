@@ -5,7 +5,7 @@ function NewsScreen3(props){
     return <div className="newspage">
      <div className="news-sidebar">
             <a href="javascript:history.back()"><i className="fas fa-long-arrow-alt-left"></i> Back </a>
-            <Link className="toallnews" to="/allnews"> <i className="fas fa-chevron-right"></i> Tất cả tin</Link>
+            <Link className="toallnews" to="/tat-ca-tin-tuc"> <i className="fas fa-chevron-right"></i> Tất cả tin</Link>
         </div>  
         <div className="news-content">
             <h1>TUYỂN NHÂN VIÊN KINH DOANH</h1>

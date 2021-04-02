@@ -147,7 +147,7 @@ productRouter.post(
       image: '/images/3.jpg',
       price: 0,
       category: 'THIẾT BỊ NGÀNH GIẤY',
-      brand: 'sample brand',
+      brand: 'ALP - NHẬT BẢN',
       countInStock: 0,
       rating: 0,
       numReviews: 0,
