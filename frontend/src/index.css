@@ -291,7 +291,7 @@ img.large {
   margin: auto;
   display: block;
   width: 80%;
-  max-width: 700px;
+  max-width: 250px!important;
 }
 
 /* Caption of Modal Image */
@@ -313,6 +313,7 @@ img.large {
   animation-name: zoom;
   animation-duration: 0.6s;
 }
+
 
 @-webkit-keyframes zoom {
   from {-webkit-transform:scale(0)} 
