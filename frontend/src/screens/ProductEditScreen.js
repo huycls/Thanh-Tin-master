@@ -195,15 +195,17 @@ export default function ProductEditScreen(props) {
             <div>
               <label htmlFor="brand">Hãng sản xuất</label>
               <select id="brand" className="form-select" value={brand} onChange={(e) => setBrand(e.target.value)} aria-label="Default select example">
-                <option defaultValue="ALP - NHẬT BẢN">ALP - NHẬT BẢN</option>
+                <option defaultValue="ALP - JAPAN">ALP - JAPAN</option>
                 <option value="EMCO - GERMANY">EMCO - GERMANY</option>
                 <option value="CONSORT">CONSORT</option>
-                <option value="DOSER - ĐỨC">DOSER - ĐỨC</option>
-                <option value="PNSHAR">PNSHAR</option>
+                <option value="DOSER - GERMANY">DOSER - GERMANY</option>
+                <option value="PNSHAR - CHINA">PNSHAR - CHINA</option>
                 <option value="GRUSS - GERMANY">GRUSS - GERMANY</option>
-                <option value="PTA - CHÂU ÂU">PTA - CHÂU ÂU</option>
-                <option value="COMETECH - ĐÀI LOAN">COMETECH - ĐÀI LOAN</option>
+                <option value="PTA - EUROPE">PTA - EUROPE</option>
+                <option value="COMETECH - TAIWAN">COMETECH - TAIWAN</option>
                 <option value="NABERTHERM - GERMANY">NABERTHERM - GERMANY</option>
+                <option value="TILO">TILO</option>
+                <option value="IDM TEST - SPAIN">IDM TEST - SPAIN</option>
               </select>
             </div>
             <div>

@@ -59,15 +59,17 @@ export default function SearchScreen(props) {
   };
   
     const brands = [
-      'ALP - NHẬT BẢN',
+      'ALP - JAPAN',
       'EMCO - GERMANY',
       'CONSORT',
-      'DOSER - ĐỨC',
-      'PNSHAR',
+      'DOSER - GERMANY',
+      'PNSHAR - CHINA',
       'GRUSS - GERMANY',
-      'PTA - CHÂU ÂU',
-      'COMETECH - ĐÀI LOAN',
-      'NABERTHERM - GERMANY'
+      'PTA - EUROPE',
+      'COMETECH - TAIWAN',
+      'NABERTHERM - GERMANY',
+      'TILO',
+      'IDM TEST - SPAIN'
     ];
   return (
     <div className="search-screen">
