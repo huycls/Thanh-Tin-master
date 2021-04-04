@@ -109,7 +109,7 @@ function App() {
     <BrowserRouter>
       <div className="grid-container"> 
       <div className="upper-nav">
-            <div className="hotline">Hotline: 0988 816 815 </div>
+            <div className="hotline">Hotline: <a href="tel:0988 816 815">0988 816 815</a> </div>
             <div>
               Email:<a  href="mailto:sales@thanhtin-tech.com">sales@thanhtin-tech.com</a>
             </div>

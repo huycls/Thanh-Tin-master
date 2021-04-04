@@ -16,7 +16,7 @@ export default function ProductScreen(props) {
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
   const productList = useSelector((state) => state.productList);
-  // const { products } = productList;
+  const { products } = productList;
   // const userSignin = useSelector((state) => state.userSignin);
   // const { userInfo } = userSignin;
 
@@ -55,27 +55,24 @@ export default function ProductScreen(props) {
     dispatch(listProducts({}));
     // dispatch(listTopSellers());
    }, [dispatch]);
-  window.onload = function(){
     var modal = document.getElementById("myModal");
 
     // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img = document.getElementById("pic");
     var modalImg = document.getElementById("img01");
     var captionText = document.getElementById("caption");
-      img.onclick = function(){
+    const zoomImage = () =>{
       modal.style.display = "block";
-      modalImg.src = this.src;
-      captionText.innerHTML = this.alt;
+       modalImg.src = product.image;
+       captionText.innerHTML = product.name;
     }
   
-      // Get the <span> element that closes the modal
-      var span = document.getElementsByClassName("close")[0];
+    
   
       // When the user clicks on <span> (x), close the modal
-      span.onclick = function() { 
+      const closeSpan = () => { 
         modal.style.display = "none";
       }
-  }
+  
   return (
     <div>
       {loading ? (
@@ -91,9 +88,10 @@ export default function ProductScreen(props) {
                 id="pic"
                 src={product.image}
                 alt={product.name}
+                onClick = {zoomImage}
               ></img>
               <div id="myModal" className="modal">
-                <span className="close">&times;</span>
+                <span className="close" onClick={closeSpan}>&times;</span>
                 <img className="modal-content" id="img01" />
                 <div id="caption"></div>
               </div>
@@ -209,7 +207,9 @@ export default function ProductScreen(props) {
             </div>
           </div>
           <div className="recommend-product">
-                                       
+            {
+              
+            }                        
           </div>                        
         </div>
       )}

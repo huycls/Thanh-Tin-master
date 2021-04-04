@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 
 export default function Product(props) {
   const { product } = props;
+  const name = product.name;
+  const cutname = name.length > 50 ? 
+                  name.substring(0, 47) + "..." :
+                  name;
   return (
     <div key={product._id} className="card product-card">
       <Link className="card-header" to={`/san-pham/${product._id}`}>
@@ -10,7 +14,7 @@ export default function Product(props) {
       </Link>
       <div className="card-body">
         <Link to={`/san-pham/${product._id}`}>
-          <h2>{product.name}</h2>
+          <h2>{cutname}</h2>
         </Link>
         <div className="row">
           <div className="product-model">Model: {product.model}</div>

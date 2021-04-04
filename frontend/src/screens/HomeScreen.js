@@ -56,7 +56,7 @@ export default function HomeScreen() {
           </button>
         </div>
         <div className="product-box">      
-          <h1 className="product-banner">Tất cả sản phẩm</h1>
+          <h1 className="product-banner">Sản phẩm nổi bật</h1>
           {loading ? (
             <LoadingBox></LoadingBox>
           ) : error ? (
@@ -69,8 +69,7 @@ export default function HomeScreen() {
                   <Product key={product._id} product={product}></Product>
                 ))}
               </div>
-            </div>
-            
+            </div>   
           )}
         </div>
       </div>
@@ -107,7 +106,7 @@ export default function HomeScreen() {
           <a href="https://www.youtube.com/channel/UCWvi8FoZbVU-PMQHDsYC5pQ/featured" target="_blank">Kênh Video - Video mới nhất</a>
         </div>
         <div className="sidebar-content">
-          <iframe src="https://www.youtube.com/embed/xjndBrxqtzU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/xjndBrxqtzU" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </div>
         
    
