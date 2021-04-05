@@ -28,6 +28,12 @@ export default function SearchScreen(props) {
   const { loading, error, products, page, pages } = productList;
   const productBrandList = useSelector((state) => state.productBrandList);
   // const {brands}  = productBrandList;
+
+  // const accentName () => {
+  //   return name.normalize('NFD')
+  //             .replace(/[\u0300-\u036f]/g, '')
+  //             .replace(/đ/g, 'd').replace(/Đ/g, 'D');
+  // }
    const {
        loading: loadingBrands,
        error: errorBrands

@@ -196,6 +196,10 @@ a.brand img{
   height: 40rem;
 }
 
+.col-05{
+  flex: 1 1 11rem;
+}
+
 .col-1 {
   flex: 1 1 25rem;
 }
@@ -243,12 +247,14 @@ img.large {
   align-items: center;
 }
 
-.detail-product{
-  padding-left: 3rem;
-}
 
 .detail-product h1{
   text-transform: uppercase;
+  font-size: 2rem;
+}
+
+.detail-page .card{
+  height: 27rem!important;
 }
 
 .detail-page{
@@ -1385,7 +1391,7 @@ margin: 10px;
   }
 
   .cart-card{
-    width:15rem!important;
+    width:22rem!important;
     height:15rem!important;
   }
   
@@ -1415,6 +1421,9 @@ margin: 10px;
 
   .newspage{
     flex-direction: column;
+  }
+  .detail-page .card{
+    margin-top: 1rem;
   }
 }
 
@@ -1484,13 +1493,20 @@ margin: 10px;
     height: auto;
   }
 
+  .productscreen-card .card-child{
+    width: 10rem;
+  }
+
 
   .detail-page .card{
     width: 95%;
     display: flex;
+    height: 20rem!important;
   }
 
-  
+  .lower-detailpage{
+    padding:0;
+  }
 
   .product-container{
     flex-direction: column;
@@ -1500,20 +1516,29 @@ margin: 10px;
     width:73%;
   }
 
-  .productscreen-card{
-    max-height: 28rem !important;
-
-  }
-
   .collect-email form{
     width: 70%;
   }
 
 }
 
+@media screen and (max-width: 700px){
+  .col-1{
+    flex: 1 1 40rem;
+  }
+
+  main{
+    padding: 1rem!important;
+  }
+}
+
 @media screen and (max-width: 600px){
   .sidebar{
     width: 100%!important;
+  }
+  
+  .detail-page{
+    padding: 0;
   }
 }
 

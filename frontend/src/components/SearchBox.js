@@ -6,11 +6,7 @@ export default function SearchBox(props) {
     e.preventDefault();
     props.history.push(`/search/name/${name}`);
   };
-  // const accentName () => {
-  //   return name.normalize('NFD')
-  //             .replace(/[\u0300-\u036f]/g, '')
-  //             .replace(/đ/g, 'd').replace(/Đ/g, 'D');
-  // }
+  
   return (
     <form className="search" onSubmit={submitHandler}>
       <div className="row large-searchbar">

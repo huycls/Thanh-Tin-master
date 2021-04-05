@@ -118,19 +118,19 @@ export default function ProductScreen(props) {
                 </li>
               </ul>
             </div>
-            <div className="col-1 col">
+            <div className="col col-05 center">
               <div className="card productcard-body productscreen-card">
                 <ul>              
                   <li>
                     <div className="row">
-                      <div>Giá</div>
-                      <div className="price">{product.price} VNĐ</div>
+                      <div className="card-child">Giá</div>
+                      <div className="price card-child">{product.price} VNĐ</div>
                     </div>
                   </li>
                   <li>
                     <div className="row">
-                      <div>Trạng thái</div>
-                      <div>
+                      <div className="card-child">Trạng thái</div>
+                      <div className=" card-child">
                         {product.countInStock > 0 ? (
                           <span className="success">Còn hàng</span>
                         ) : (
@@ -143,8 +143,8 @@ export default function ProductScreen(props) {
                     <>
                       <li>
                         <div className="row">
-                          <div>Số lượng</div>
-                          <div>
+                          <div className="card-child">Số lượng</div>
+                          <div className="card-child">
                             <select
                               value={qty}
                               onChange={(e) => setQty(e.target.value)}

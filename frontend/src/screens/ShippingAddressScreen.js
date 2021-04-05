@@ -15,13 +15,6 @@ export default function ShippingAddressScreen(props) {
   const [phonenumber, setPhonenumber] = useState(shippingAddress.phonenumber);
   const dispatch = useDispatch();
 
-//   const form = document.getElementById('form');
-// const fullname = document.getElementById('fullname');
-// const company = document.getElementById('company');
-// const address = document.getElementById('address');
-// const city = document.getElementById('city');
-// const email = document.getElementById('email');
-// const phonenumber = document.getElementById('phonenumber');
 
 
     const submitHandler = (e) => {
