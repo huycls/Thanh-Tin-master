@@ -236,7 +236,7 @@ function App() {
                 {categories1.map(category => (
                     <li key={category}>
                       <Link
-                        to={`/search/category||subcategory/${category}`}
+                        to={`/search/category/${category}`}
                         onClick={() => setSidebarIsOpen(false)}
                       >
                         {category}
