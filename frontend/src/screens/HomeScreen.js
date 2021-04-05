@@ -30,19 +30,19 @@ export default function HomeScreen() {
       <div className="upper-content">
         <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-inner">
-            <div className="carousel-item active" data-bs-interval="2000">
+            <div className="carousel-item active" data-bs-interval="3000">
               <img src="./images/1.jpg" className="d-block w-100" alt="..." />
             </div>
-            <div className="carousel-item" data-bs-interval="2000">
+            <div className="carousel-item" data-bs-interval="3000">
               <img src="./images/2.jpg" className="d-block w-100" alt="..." />
             </div>
-            <div className="carousel-item">
+            <div className="carousel-item" data-bs-interval="3000">
               <img src="./images/3.jpg" className="d-block w-100" alt="..." />
             </div>
-            <div className="carousel-item" data-bs-interval="2000">
+            <div className="carousel-item" data-bs-interval="3000">
               <img src="./images/4.jpg" className="d-block w-100" alt="..." />
             </div>
-            <div className="carousel-item" data-bs-interval="2000">
+            <div className="carousel-item" data-bs-interval="3000">
               <img src="./images/5.jpg" className="d-block w-100" alt="..." />
             </div>
           </div>
@@ -74,8 +74,7 @@ export default function HomeScreen() {
         </div>
       </div>
       <div className="sidebar">
-      <div className="news">
-          
+      <div className="news"> 
           <div className="news-title"><i className="fas fa-chevron-right"></i> <Link to="/tat-ca-tin-tuc">Tin mới</Link></div>
           <div className="news-content">
             <Link to="/cong-ty-thanh-tin-la-nha-phan-phoi-chinh-thuc-cho-hang-mettler-toledo">
@@ -108,8 +107,13 @@ export default function HomeScreen() {
         <div className="sidebar-content">
           <iframe src="https://www.youtube.com/embed/xjndBrxqtzU" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </div>
-        
-   
+        <div className="sidebar-title">
+          <a href="#">Hỗ trợ trực tuyến</a>
+        </div>
+        <div className="sidebar-content">
+          <h3>Zalo  0988 816 815</h3>
+          <img src="./images/hotline.png" />           
+        </div>
       </div>
     </div>
   );

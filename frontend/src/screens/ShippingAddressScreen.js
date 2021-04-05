@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CART_EMPTY } from '../constants/cartConstants';
+import {Link} from 'react-router-dom';
 
 export default function ShippingAddressScreen(props) {
  
@@ -48,7 +49,7 @@ export default function ShippingAddressScreen(props) {
     <div>
       <form className="form" id="form" onSubmit={submitHandler}>
         <div>
-          <h1>Thông tin khách hàng</h1>
+          <h1>Gửi yêu cầu báo giá</h1>
         </div>
         <div>
           <label htmlFor="fullName">Tên đầy đủ</label>
@@ -126,7 +127,7 @@ export default function ShippingAddressScreen(props) {
           <ul>
             {cart.cartItems.map(item => (
               <li key={item.product}>
-               <strong>Sản phẩm đang chọn:</strong> {item.name}
+               <strong>Sản phẩm đang chọn:</strong> <Link to={`/san-pham/${item.product}`}>{item.name}</Link>
               </li>
             ))}
           </ul>

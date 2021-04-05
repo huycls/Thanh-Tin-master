@@ -81,7 +81,7 @@ export default function ProductScreen(props) {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <div>
-          <a href="javascript:history.back()">Trở lại</a>
+          <a href="javascript:history.back()"><i class="fas fa-arrow-left"></i> Trở lại</a>
           <div className="rowe top detail-page">
             <div className="col-1 col image-product">
               <img
@@ -199,11 +199,11 @@ export default function ProductScreen(props) {
               <div className="tab-pane fade show active" id="pills-parameter" role="tabpanel" aria-labelledby="pills-parameter-tab">
                 {parse(product.parameter)}
               </div>
-              <div className="tab-pane fade" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab"><a href="./images/sidebar-img.jpg" download>Link</a></div>
+              <div className="tab-pane fade" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab"><a href="#" download>Link</a></div>
               <div className="tab-pane fade" id="pills-characteristic" role="tabpanel" aria-labelledby="pills-characteristic-tab">...</div>
               <div className="tab-pane fade" id="pills-application" role="tabpanel" aria-labelledby="pills-application-tab">...</div>
               <div className="tab-pane fade" id="pills-accessories" role="tabpanel" aria-labelledby="pills-accessories-tab">...</div>
-              <div className="tab-pane fade" id="pills-download" role="tabpanel" aria-labelledby="pills-download-tab"><a href="./images/sidebar-img.jpg" download>Download</a></div>
+              <div className="tab-pane fade" id="pills-download" role="tabpanel" aria-labelledby="pills-download-tab"><a href="#" download>Download</a></div>
             </div>
           </div>
           <div className="recommend-product">

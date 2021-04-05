@@ -16,6 +16,7 @@ export default function SearchScreen(props) {
   const {
     name = 'all',
     category = 'all',
+    subcategory = 'all',
     brand = 'all',
     // min = 0,
     // max = 0,
@@ -25,20 +26,19 @@ export default function SearchScreen(props) {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
   const { loading, error, products, page, pages } = productList;
-
   const productBrandList = useSelector((state) => state.productBrandList);
   // const {brands}  = productBrandList;
    const {
        loading: loadingBrands,
        error: errorBrands
        } = productBrandList;
-  
   useEffect(() => {
     dispatch(
       listProducts({
         pageNumber,
         name: name !== 'all' ? name : '',
         category: category !== 'all' ? category : '',
+        subcategory: subcategory !== 'all' ? subcategory : '',
         brand: brand !== 'all' ? brand : '',
         // min,
         // max,
@@ -46,10 +46,10 @@ export default function SearchScreen(props) {
       })
     );
   }, [category, brand, dispatch, name, pageNumber]);
-
   const getFilterUrl = (filter) => {
     const filterPage = filter.page || pageNumber;
-    const filterCategory = filter.category || category;
+    const filterCategory = filter.category || category ||  subcategory ;
+    // const filterSubcategory = filter.subcategory || subcategory;
     const filterBrand = filter.brand || brand;
     const filterName = filter.name || name;
     // const sortOrder = filter.order || order;
@@ -57,7 +57,6 @@ export default function SearchScreen(props) {
     // const filterMax = filter.max ? filter.max : filter.max === 0 ? 0 : max;
     return `/search/category/${filterCategory}/brand/${filterBrand}/name/${filterName}/pageNumber/${filterPage}`;
   };
-  
     const brands = [
       'ALP - JAPAN',
       'EMCO - GERMANY',
@@ -95,9 +94,9 @@ export default function SearchScreen(props) {
           </select>
         </div> */}
       </div>
-      <div className="row top">
+      <div className="row top">       
         <div className="subcategory">
-          <h3>Hãng sản xuất</h3>
+        <h3>Hãng sản xuất</h3>
             {/* {loadingBrands ? (
               <LoadingBox></LoadingBox>
             ) : errorBrands ? (
@@ -131,13 +130,10 @@ export default function SearchScreen(props) {
                   <Link to="#">
                    
                   </Link>
-                </li>
-             
+                </li>           
               ))}
-            
             </ul>
-          </div> 
-          
+          </div>          
         </div>
         <div className="search-box">
           {loading ? (

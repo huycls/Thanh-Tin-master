@@ -14,6 +14,7 @@ productRouter.get(
     const page = Number(req.query.pageNumber) || 1;
     const name = req.query.name || '';
     const category = req.query.category || '';
+    const subcategory = req.query.subcategory || '';
     const brand = req.query.brand || '';
     const description = req.query.description || '';
     const model = req.query.model || '';
@@ -34,6 +35,7 @@ productRouter.get(
     const nameFilter = name ? { name: { $regex: name, $options: 'i' } } : {};
     const sellerFilter = seller ? { seller } : {};
     const categoryFilter = category ? { category } : {};
+    const subcategoryFilter = subcategory ? {subcategory} :{};
     const brandFilter = brand ? { brand } : {};
     const modelFilter = model ? { model } : {};
     const parameterFilter = parameter ? { parameter } : {};
@@ -54,6 +56,7 @@ productRouter.get(
       ...sellerFilter,
       ...nameFilter,
       ...categoryFilter,
+      ...subcategoryFilter,
       ...brandFilter,
       ...parameterFilter,
       ...descriptionFilter,
@@ -67,6 +70,7 @@ productRouter.get(
       ...sellerFilter,
       ...nameFilter,
       ...categoryFilter,
+      ...subcategoryFilter,
       ...brandFilter,
       ...descriptionFilter,
       ...modelFilter,
@@ -147,6 +151,7 @@ productRouter.post(
       image: '/images/3.jpg',
       price: 0,
       category: 'THIẾT BỊ NGÀNH GIẤY',
+      subcategory: '',
       brand: 'ALP - NHẬT BẢN',
       countInStock: 0,
       rating: 0,
@@ -173,6 +178,7 @@ productRouter.put(
       product.price = req.body.price;
       product.image = req.body.image;
       product.category = req.body.category;
+      product.subcategory = req.body.subcategory;
       product.model = req.body.model;
       product.parameter = req.body.parameter;
       product.video = req.body.video;

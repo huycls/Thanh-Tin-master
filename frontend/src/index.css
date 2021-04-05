@@ -357,7 +357,6 @@ img.large {
   border: 0.1rem #c0c0c0 solid;
   background-color: #f8f8f8;
   border-radius: 0.5rem;
-  overflow: hidden;
   margin-bottom: 1rem;
 }
 
@@ -511,6 +510,11 @@ img.large {
   max-width: 60rem;
   margin: 0 auto;
 }
+
+.form h1{
+  text-align: center;
+}
+
 .form > div {
   display: flex;
   flex-direction: column;
@@ -981,9 +985,6 @@ margin: 10px;
   color:#00A349;
 }
 
-.newscomponent-detail{
-  
-}
 
 /*Search page*/
 
@@ -1019,6 +1020,12 @@ margin: 10px;
 
 .subcategory{
   width: 25%;
+}
+
+.subcategory ul{
+  
+  height: 40rem;
+  overflow-y: scroll;
 }
 
 .search-box{
@@ -1174,7 +1181,6 @@ margin: 10px;
   padding-top: 30px;
 }
 
-
 .footer-child{
   margin: 1rem;
   width: 30rem;
@@ -1196,15 +1202,12 @@ margin: 10px;
 
 .counter-footer{
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   width: 10rem;
-  height: 20rem;
-  align-items: center;
-}
-
-.counter-footer img{
-  width: 10rem;
-  height: 8rem;
+  height: 10rem;
+  position: absolute;
+  right:1rem;
+  bottom:2rem;
 }
 
 .dept{
@@ -1296,6 +1299,10 @@ margin: 10px;
     width: 100%;
   }
 
+  .product-name h2{
+    color:#007A37;
+  }
+  
   /*Sidebar*/
 
   .sidebar{
@@ -1308,6 +1315,7 @@ margin: 10px;
     background-color: #007A37;
     font-weight: bold;
     padding: .5rem 0;
+    margin-top: 1rem;
   }
   
   .sidebar-title a{
@@ -1326,13 +1334,22 @@ margin: 10px;
     height:auto;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
   }
   
   .sidebar-content iframe{
-    margin-top: 1rem;
     max-width: 100%;
   }
   
+  .sidebar-content h3{
+    color: #a02020;
+  }
+
+  .sidebar-content img{
+    width: 10rem;
+  }
 
   #scrolltotop {
     display: none;

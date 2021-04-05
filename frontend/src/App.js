@@ -52,6 +52,20 @@ function App() {
     "THIẾT BỊ ĐO ONLINE (KHÍ THẢI - NƯỚC THẢI - NƯỚC CẤP)",
     "HỆ THỐNG QUAN TRẮC NƯỚC THẢI - KHÍ THẢI TỰ ĐỘNG",
     "THIẾT BỊ CƠ BẢN PHÒNG THÍ NGHIỆM"];
+    const subcategories = ["THIẾT BỊ NGÀNH GIẤY",
+    "THIẾT BỊ NGÀNH BAO BÌ GIẤY",
+    "THIẾT BỊ NGÀNH BAO BÌ NHỰA",
+    "THIẾT BỊ NGÀNH CAO SU - NHỰA",
+    "THIẾT BỊ THỬ NGHIỆM THÉP",
+    "THIẾT BỊ NGÀNH SƠN - XI MẠ",
+    "THIẾT BỊ NGÀNH VẬT LIỆU XÂY DỰNG",
+    "THIẾT BỊ NGÀNH THỰC PHẨM",
+    "THIẾT BỊ NGÀNH DƯỢC PHẨM",
+    "THIẾT BỊ NGÀNH Y TẾ - SINH HỌC",
+    "THIẾT BỊ NGÀNH NƯỚC VÀ MÔI TRƯỜNG",
+    "THIẾT BỊ ĐO ONLINE (KHÍ THẢI - NƯỚC THẢI - NƯỚC CẤP)",
+    "HỆ THỐNG QUAN TRẮC NƯỚC THẢI - KHÍ THẢI TỰ ĐỘNG",
+    "THIẾT BỊ CƠ BẢN PHÒNG THÍ NGHIỆM"];
     
   const cart = useSelector((state) => state.cart);
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
@@ -222,7 +236,7 @@ function App() {
                 {categories1.map(category => (
                     <li key={category}>
                       <Link
-                        to={`/search/category/${category}`}
+                        to={`/search/category||subcategory/${category}`}
                         onClick={() => setSidebarIsOpen(false)}
                       >
                         {category}
@@ -455,25 +469,28 @@ function App() {
                   <p><strong>HCM: </strong><span><a href="mailto:sales@thanhtin-tech.com">sales@thanhtin-tech.com</a> </span></p>
                   <p><strong>Hà Nội: </strong><span><a href="mailto:hanoi@thanhtin-tech.com">hanoi@thanhtin-tech.com</a> </span></p>
                 </div>
+                
+              </div>             
+              <div className="footer-child ">             
+                {/* <img src="https://www.freevisitorcounters.com/en/counter/render/812336/t/0" border="0" className="counterimg" /> */}
                 <div className="tech-dept ">
                   <h4 className="footer-title">phòng kỹ thuật</h4>
                   <p><strong>HCM: </strong><span><a href="mailto:service@thanhtin-tech.com">service@thanhtin-tech.com</a> </span></p>
                   <p><strong>Hà Nội: </strong><span><a href="mailto:service@thanhtin-tech.com">service@thanhtin-tech.com</a> </span></p>
                 </div>
               </div>
-              
               <div className="contact-media footer-child">
                 <div className="fb-page" data-href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" data-tabs="timeline" data-width="300" data-height="200" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" className="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147">Công ty TNHH Thiết Bị Và Hoá Chất  Thành Tín</a></blockquote></div>
                 <div className="other-social">
                   <a href="https://www.linkedin.com/in/thanh-tin-tech-co-ltd-43979a205/" target="_blank"><i className="fab fa-linkedin"></i></a>
                   <a href="#"><i className="fab fa-twitter"></i></a>
                   <a href="https://www.youtube.com/channel/UCWvi8FoZbVU-PMQHDsYC5pQ" target="_blank"><i className="fab fa-youtube"></i></a>
-                  <a href="#"><i className="fab fa-pinterest"></i></a>
+                  
                 </div>
               </div>
-              <div className="footer-child counter-footer">             
-                <img src="https://www.freevisitorcounters.com/en/counter/render/812336/t/0" border="0" className="counterimg" />
-              </div>
+              <a className="counter-footer" href="http://besucherzaehler.co/stats/8hlj">
+                <svg width="100" height="90" id="besucherzaehler2"><g><rect width="100" height="70" x="0" y="0"  fillOpacity="0.0" stroke="#ffffff"></rect><text x="6" y="38"  fontFamily="Roboto, sans-serif" fontSize="11" fill="#ffffff">Total: 1</text><text x="6" y="50"  fontFamily="Roboto, sans-serif" fontSize="11" fill="#ffffff">Today: 1</text><text x="6" y="62" fontFamily="Roboto, sans-serif" fontSize="11" fill="#ffffff">Yesterday: 0</text><rect width="3" height="9" x="6" y="14" ></rect><rect width="3" height="17" x="11" y="6" ></rect><rect width="3" height="13" x="16" y="10" ></rect><text x="25" y="23" fontFamily="Roboto, sans-serif" fontSize="11" fill="#ffffff">Visitor:</text></g></svg>
+              </a>
               <div className="copyright">
             <div>COPYRIGHT &copy; 2021 CÔNG TY TNHH THIẾT BỊ VÀ HÓA CHẤT THÀNH TÍN</div>
           </div>  

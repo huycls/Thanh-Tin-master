@@ -13,7 +13,7 @@ export default function Product(props) {
         <img className="small" src={product.image} alt={product.name} />
       </Link>
       <div className="card-body">
-        <Link to={`/san-pham/${product._id}`}>
+        <Link to={`/san-pham/${product._id}`} className="product-name">
           <h2>{cutname}</h2>
         </Link>
         <div className="row">

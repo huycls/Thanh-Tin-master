@@ -16,6 +16,7 @@ export default function ProductEditScreen(props) {
   const [price, setPrice] = useState('');
   const [image, setImage] = useState('');
   const [category, setCategory] = useState('');
+  const [subcategory, setSubcategory] = useState('');
   const [parameter, setParameter] = useState('');
   const [video, setVideo] = useState('');
   const [catalog, setCatalog] = useState('');
@@ -47,6 +48,7 @@ export default function ProductEditScreen(props) {
       setPrice(product.price);
       setImage(product.image);
       setCategory(product.category);
+      setSubcategory(product.subcategory);
       setParameter(product.parameter);
       setVideo(product.video);
       setCatalog(product.catalog);
@@ -66,6 +68,7 @@ export default function ProductEditScreen(props) {
         price,
         image,
         category,
+        subcategory,
         parameter,
         model,
         video,
@@ -177,6 +180,26 @@ export default function ProductEditScreen(props) {
               ></input> */}
               <select id="category" className="form-select" value={category} onChange={(e) => setCategory(e.target.value)} aria-label="Default select example">
                 <option defaultValue="THIẾT BỊ NGÀNH GIẤY">THIẾT BỊ NGÀNH GIẤY</option>
+                <option value="THIẾT BỊ NGÀNH BAO BÌ GIẤY">THIẾT BỊ NGÀNH BAO BÌ GIẤY</option>
+                <option value="THIẾT BỊ NGÀNH BAO BÌ NHỰA">THIẾT BỊ NGÀNH BAO BÌ NHỰA</option>
+                <option value="THIẾT BỊ NGÀNH CAO SU - NHỰA">THIẾT BỊ NGÀNH CAO SU - NHỰA</option>
+                <option value="THIẾT BỊ THỬ NGHIỆM THÉP">THIẾT BỊ THỬ NGHIỆM THÉP</option>
+                <option value="THIẾT BỊ NGÀNH SƠN - XI MẠ">THIẾT BỊ NGÀNH SƠN - XI MẠ</option>
+                <option value="THIẾT BỊ NGÀNH VẬT LIỆU XÂY DỰNG">THIẾT BỊ NGÀNH BAO BÌ NHỰA</option>
+                <option value="THIẾT BỊ NGÀNH THỰC PHẨM">THIẾT BỊ NGÀNH THỰC PHẨM</option>
+                <option value="THIẾT BỊ NGÀNH DƯỢC PHẨM">THIẾT BỊ NGÀNH DƯỢC PHẨM</option>
+                <option value="THIẾT BỊ NGÀNH Y TẾ - SINH HỌC">THIẾT BỊ NGÀNH Y TẾ - SINH HỌC</option>
+                <option value="THIẾT BỊ NGÀNH NƯỚC VÀ MÔI TRƯỜNG">THIẾT BỊ NGÀNH NƯỚC VÀ MÔI TRƯỜNG</option>
+                <option value="THIẾT BỊ ĐO ONLINE (KHÍ THẢI - NƯỚC THẢI - NƯỚC CẤP)">THIẾT BỊ ĐO ONLINE (KHÍ THẢI - NƯỚC THẢI - NƯỚC CẤP)</option>
+                <option value="HỆ THỐNG QUAN TRẮC NƯỚC THẢI - KHÍ THẢI TỰ ĐỘNG">HỆ THỐNG QUAN TRẮC NƯỚC THẢI - KHÍ THẢI TỰ ĐỘNG</option>
+                <option value="THIẾT BỊ CƠ BẢN PHÒNG THÍ NGHIỆM">THIẾT BỊ CƠ BẢN PHÒNG THÍ NGHIỆM</option>
+              </select>
+            </div>
+            <div>
+              <label htmlFor="subcategory">Subcategory</label>
+              <select id="subcategory" className="form-select" value={subcategory} onChange={(e) => setSubcategory(e.target.value)} aria-label="Default select example">
+                <option defaultValue=""></option>
+                <option value="THIẾT BỊ NGÀNH GIẤY">THIẾT BỊ NGÀNH GIẤY</option>
                 <option value="THIẾT BỊ NGÀNH BAO BÌ GIẤY">THIẾT BỊ NGÀNH BAO BÌ GIẤY</option>
                 <option value="THIẾT BỊ NGÀNH BAO BÌ NHỰA">THIẾT BỊ NGÀNH BAO BÌ NHỰA</option>
                 <option value="THIẾT BỊ NGÀNH CAO SU - NHỰA">THIẾT BỊ NGÀNH CAO SU - NHỰA</option>
