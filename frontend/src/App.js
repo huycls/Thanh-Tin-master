@@ -152,11 +152,9 @@ function App() {
                 )}
               ></Route>
             </div>
-            <button className="small-searchbar" onClick={dropSearchbar}><i className="fa fa-search"></i></button>
-            
-              
-            
+            <button className="small-searchbar" onClick={dropSearchbar}><i className="fa fa-search"></i></button>            
             <div>
+            
               <Link to="/gio-hang">
                 <i className="fas fa-shopping-basket"></i>
                 {cartItems.length > 0 && (

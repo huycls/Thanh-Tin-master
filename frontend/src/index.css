@@ -1424,6 +1424,7 @@ margin: 10px;
 
 @media screen and (max-width: 800px){
 
+
   .sidebar{
     width: 100%!important;
   }
@@ -1448,7 +1449,7 @@ margin: 10px;
   }
 
   .lower-nav{
-    justify-content: space-around;   
+    justify-content: space-between;   
   }
 
   .dropdownmenu-content a {
@@ -1460,11 +1461,10 @@ margin: 10px;
   }
 
   .search-bar{
-    width:50%;
+    width:60%;
     position: absolute;
     display: none;
-    bottom: -2rem;
-    left: 20rem;
+    bottom:-4rem;
     z-index: 1;
 
   }
@@ -1477,7 +1477,6 @@ margin: 10px;
     display: block!important;
     position: relative!important;
     border-radius: 50%!important;
-    width: 5rem!important;
     margin:0;
     outline: none!important;
     border: none!important;
@@ -1549,4 +1548,20 @@ margin: 10px;
   .collect-email button{
     width: 20%;
   }
+  header i{
+    font-size: 20px!important;
+  }
+
+  header a{
+    margin: 5px;
+  }
+
+  header img{
+    margin: 0;
+  }
+
+  .product-card{
+    width: 25rem;
+  }
+  
 }
