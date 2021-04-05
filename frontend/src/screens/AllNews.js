@@ -14,116 +14,104 @@ function Allnews(){
             <div className="tab-content tab-news" id="v-pills-tabContent">
                 <div className="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                     <div className="news-component">
-                        <Link to="/cong-ty-thanh-tin-la-nha-phan-phoi-chinh-thuc-cho-hang-mettler-toledo" className="newscomponent-title">Công ty Thành Tín là nhà phân phối chính thức cho dòng cân HE/TLE/HE của hãng METTLER TOLEDO (Thụy Sỹ)</Link>
                         <div className="newscomponent-content">
                             <Link className="newscomponent-image" to="/cong-ty-thanh-tin-la-nha-phan-phoi-chinh-thuc-cho-hang-mettler-toledo">
                                 <img src="./images/logo.png" alt="news-bla" />
-                            </Link>
-                            <p className="newscomponent-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros eget mauris gravida ornare. Vestibulum consectetur, ante vel consectetur ornare, sapien sem laoreet urna, ac rhoncus enim ligula vitae odio.</p>
+                            </Link>   
                         </div>
+                        <Link to="/cong-ty-thanh-tin-la-nha-phan-phoi-chinh-thuc-cho-hang-mettler-toledo" className="newscomponent-title">Công ty Thành Tín là nhà phân phối chính thức cho dòng cân HE/TLE/HE của hãng METTLER TOLEDO (Thụy Sỹ)</Link>                 
                     </div>
                     <div className="news-component">
-                        <Link className="newscomponent-title" to="/thong-bao-thay-doi-ten-giao-dich">Thông báo thay đổi tên giao dịch</Link>
                         <div className="newscomponent-content">
                             <Link className="newscomponent-image" to="/thong-bao-thay-doi-ten-giao-dich">
                                 <img src="./images/logo.png" alt="news-bla" />
-                            </Link>
-                            <p className="newscomponent-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros eget mauris gravida ornare. Vestibulum consectetur, ante vel consectetur ornare, sapien sem laoreet urna, ac rhoncus enim ligula vitae odio.</p>
+                            </Link>  
                         </div>
+                        <Link className="newscomponent-title" to="/thong-bao-thay-doi-ten-giao-dich">Thông báo thay đổi tên giao dịch</Link>                        
                     </div>
                     <div className="news-component">
-                        <Link className="newscomponent-title" to="/analytica-viet-nam-2013">ANALYTICA VIETNAM 2013 TRIỂN LÃM QUỐC TẾ LẦN THỨ 3 VỀ CÔNG NGHỆ THÍ NGHIỆM, PHÂN TÍCH, CÔNG NGHỆ SINH HỌC VÀ CHẨN ĐOÁN</Link>
                         <div className="newscomponent-content">
                             <Link className="newscomponent-image" to="/analytica-viet-nam-2013">
                                 <img src="./images/logo.png" alt="news-bla" />
-                            </Link>
-                            <p className="newscomponent-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros eget mauris gravida ornare. Vestibulum consectetur, ante vel consectetur ornare, sapien sem laoreet urna, ac rhoncus enim ligula vitae odio.</p>
+                            </Link>                          
                         </div>
+                        <Link className="newscomponent-title" to="/analytica-viet-nam-2013">ANALYTICA VIETNAM 2013 TRIỂN LÃM QUỐC TẾ LẦN THỨ 3 VỀ CÔNG NGHỆ THÍ NGHIỆM, PHÂN TÍCH, CÔNG NGHỆ SINH HỌC VÀ CHẨN ĐOÁN</Link>                      
                     </div>
                     <div className="news-component">
-                        <Link className="newscomponent-title" to="/tuyen-nhan-vien-kinh-doanh">TUYỂN NHÂN VIÊN KINH DOANH</Link>
-                        <div className="newscomponent-content">
+                         <div className="newscomponent-content">
                             <Link className="newscomponent-image" to="/tuyen-nhan-vien-kinh-doanh">
                                 <img src="./images/logo.png" alt="news-bla" />
-                            </Link>
-                            <p className="newscomponent-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros eget mauris gravida ornare. Vestibulum consectetur, ante vel consectetur ornare, sapien sem laoreet urna, ac rhoncus enim ligula vitae odio.</p>
+                            </Link>  
                         </div>
+                        <Link className="newscomponent-title" to="/tuyen-nhan-vien-kinh-doanh">TUYỂN NHÂN VIÊN KINH DOANH</Link>                       
                     </div>
                 </div>
                 <div className="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
                     <div className="news-component">
-                        <Link className="newscomponent-title">Giải pháp</Link>
+                         <div className="newscomponent-content">
+                            <Link className="newscomponent-image">
+                                <img src="./images/logo.png" alt="news-bla" />
+                            </Link> 
+                        </div>
+                        <Link className="newscomponent-title">Giải pháp</Link>                      
+                    </div>
+                    <div className="news-component">
                         <div className="newscomponent-content">
                             <Link className="newscomponent-image">
                                 <img src="./images/logo.png" alt="news-bla" />
-                            </Link>
-                            <p className="newscomponent-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros eget mauris gravida ornare. Vestibulum consectetur, ante vel consectetur ornare, sapien sem laoreet urna, ac rhoncus enim ligula vitae odio.</p>
+                            </Link>           
                         </div>
+                        <Link className="newscomponent-title">...</Link>                     
                     </div>
-                    <div className="news-component">
-                        <Link className="newscomponent-title">Thông báo thay đổi tên giao dịch</Link>
-                        <div className="newscomponent-content">
-                            <Link className="newscomponent-image">
-                                <img src="./images/logo.png" alt="news-bla" />
-                            </Link>
-                            <p className="newscomponent-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros eget mauris gravida ornare. Vestibulum consectetur, ante vel consectetur ornare, sapien sem laoreet urna, ac rhoncus enim ligula vitae odio.</p>
-                        </div>
-                    </div>
-                    <div className="news-component">
-                        <Link className="newscomponent-title">ANALYTICA VIETNAM 2013 TRIỂN LÃM QUỐC TẾ LẦN THỨ 3 VỀ CÔNG NGHỆ THÍ NGHIỆM, PHÂN TÍCH, CÔNG NGHỆ SINH HỌC VÀ CHẨN ĐOÁN</Link>
+                    <div className="news-component">                    
                         <div className="newscomponent-content">
                             <Link className="newscomponent-image" to="/news2">
                                 <img src="./images/logo.png" alt="news-bla" />
-                            </Link>
-                            <p className="newscomponent-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros eget mauris gravida ornare. Vestibulum consectetur, ante vel consectetur ornare, sapien sem laoreet urna, ac rhoncus enim ligula vitae odio.</p>
+                            </Link>        
                         </div>
+                        <Link className="newscomponent-title">...</Link>
                     </div>
                     <div className="news-component">
-                        <Link className="newscomponent-title">TUYỂN NHÂN VIÊN KINH DOANH</Link>
                         <div className="newscomponent-content">
                             <Link className="newscomponent-image">
                                 <img src="./images/logo.png" alt="news-bla" />
-                            </Link>
-                            <p className="newscomponent-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros eget mauris gravida ornare. Vestibulum consectetur, ante vel consectetur ornare, sapien sem laoreet urna, ac rhoncus enim ligula vitae odio.</p>
+                            </Link>               
                         </div>
-                    </div>
+                        <Link className="newscomponent-title">...</Link>
+                    </div>                      
                 </div>
                 <div className="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                    <div className="news-component">
+                    <div className="news-component">                      
+                        <div className="newscomponent-content">
+                            <Link className="newscomponent-image">
+                                <img src="./images/logo.png" alt="news-bla" />
+                            </Link>
+                        </div>
                         <Link className="newscomponent-title">Ứng dụng</Link>
-                        <div className="newscomponent-content">
-                            <Link className="newscomponent-image">
-                                <img src="./images/logo.png" alt="news-bla" />
-                            </Link>
-                            <p className="newscomponent-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros eget mauris gravida ornare. Vestibulum consectetur, ante vel consectetur ornare, sapien sem laoreet urna, ac rhoncus enim ligula vitae odio.</p>
-                        </div>
                     </div>
-                    <div className="news-component">
-                        <Link className="newscomponent-title">Thông báo thay đổi tên giao dịch</Link>
+                    <div className="news-component">                     
                         <div className="newscomponent-content">
                             <Link className="newscomponent-image">
                                 <img src="./images/logo.png" alt="news-bla" />
-                            </Link>
-                            <p className="newscomponent-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros eget mauris gravida ornare. Vestibulum consectetur, ante vel consectetur ornare, sapien sem laoreet urna, ac rhoncus enim ligula vitae odio.</p>
+                            </Link>              
                         </div>
+                        <Link className="newscomponent-title">...</Link>
                     </div>
-                    <div className="news-component">
-                        <Link className="newscomponent-title">ANALYTICA VIETNAM 2013 TRIỂN LÃM QUỐC TẾ LẦN THỨ 3 VỀ CÔNG NGHỆ THÍ NGHIỆM, PHÂN TÍCH, CÔNG NGHỆ SINH HỌC VÀ CHẨN ĐOÁN</Link>
+                    <div className="news-component">                       
                         <div className="newscomponent-content">
                             <Link className="newscomponent-image">
                                 <img src="./images/logo.png" alt="news-bla" />
-                            </Link>
-                            <p className="newscomponent-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros eget mauris gravida ornare. Vestibulum consectetur, ante vel consectetur ornare, sapien sem laoreet urna, ac rhoncus enim ligula vitae odio.</p>
+                            </Link>               
                         </div>
+                        <Link className="newscomponent-title">...</Link>
                     </div>
-                    <div className="news-component">
-                        <Link className="newscomponent-title">TUYỂN NHÂN VIÊN KINH DOANH</Link>
+                    <div className="news-component">                      
                         <div className="newscomponent-content">
                             <Link className="newscomponent-image">
                                 <img src="./images/logo.png" alt="news-bla" />
-                            </Link>
-                            <p className="newscomponent-detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non eros eget mauris gravida ornare. Vestibulum consectetur, ante vel consectetur ornare, sapien sem laoreet urna, ac rhoncus enim ligula vitae odio.</p>
+                            </Link>               
                         </div>
+                        <Link className="newscomponent-title">...</Link>
                     </div>
                 </div>
             </div>
