@@ -48,7 +48,7 @@ export default function SearchScreen(props) {
         brand: brand !== 'all' ? brand : '',
         // min,
         // max,
-        // order,
+        // order, category == category ? category == subcategory : ''
       })
     );
   }, [category, brand, dispatch, name, pageNumber]);
