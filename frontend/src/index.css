@@ -657,6 +657,10 @@ img.large {
   padding: 0;
 }
 
+.description{
+  white-space: pre-wrap;
+}
+
 .nav-pills{
   border-bottom: .1rem solid #c0c0c0;
 }

@@ -106,12 +106,12 @@ export default function ProductScreen(props) {
                 <li>
                   <h1>{product.name}</h1>
                 </li>              
-                <li>Giá : {product.price} VNĐ</li>
+                <li><strong>Giá: </strong> {product.price} VNĐ</li>
                 <li> 
-                  <p>Model: {product.model}</p>
+                  <p><strong>Model:</strong> {product.model}</p>
                 </li>
                 <li> 
-                  <p>Mô tả: {product.description}</p>
+                  <p className="description"><strong>Mô tả:</strong> {product.description}</p>
                 </li>
                 <li>
                   <p className="contact-sale"> <strong> Liên hệ Email: <a href="mailto:sales@thanhtin-tech.com">sales@thanhtin-tech.com</a></strong></p>
