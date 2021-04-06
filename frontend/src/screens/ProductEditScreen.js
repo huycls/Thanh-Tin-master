@@ -223,12 +223,16 @@ export default function ProductEditScreen(props) {
                 <option value="CONSORT">CONSORT</option>
                 <option value="DOSER - GERMANY">DOSER - GERMANY</option>
                 <option value="PNSHAR - CHINA">PNSHAR - CHINA</option>
-                <option value="GRUSS - GERMANY">GRUSS - GERMANY</option>
+                <option value="KRUSS - GERMANY">GRUSS - GERMANY</option>
                 <option value="PTA - EUROPE">PTA - EUROPE</option>
                 <option value="COMETECH - TAIWAN">COMETECH - TAIWAN</option>
                 <option value="NABERTHERM - GERMANY">NABERTHERM - GERMANY</option>
                 <option value="TILO">TILO</option>
                 <option value="IDM TEST - SPAIN">IDM TEST - SPAIN</option>
+                <option value="HAMILTON - ENGLAND">HAMILTON - ENGLAND</option>
+                <option value="NOVAPRO - KOREA">NOVAPRO - KOREA</option>
+                <option value="STURDY - TAIWAN">STURDY - TAIWAN</option>
+                <option value="HETTICH - GERMANY">HETTICH - GERMANY</option>
               </select>
             </div>
             <div>
