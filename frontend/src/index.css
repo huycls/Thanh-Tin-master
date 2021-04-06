@@ -176,6 +176,11 @@ a.brand img{
   align-items: center;
 }
 
+.menu-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .rowe {
   display: flex;
   flex-wrap: wrap;
@@ -1424,6 +1429,11 @@ margin: 10px;
 
 @media screen and (max-width: 800px){
 
+  .menu-container{
+    width: 60%;
+    display: flex;
+    align-items: center;
+  }
 
   .sidebar{
     width: 100%!important;
@@ -1461,7 +1471,7 @@ margin: 10px;
   }
 
   .search-bar{
-    width:60%;
+    width:90%;
     position: absolute;
     display: none;
     bottom:-4rem;
@@ -1524,7 +1534,13 @@ margin: 10px;
   main{
     padding: 1rem!important;
   }
+
+
+  .small-searchbar{
+    padding: 0;
+  }
 }
+
 
 @media screen and (max-width: 600px){
   .sidebar{
@@ -1534,9 +1550,29 @@ margin: 10px;
   .detail-page{
     padding: 0;
   }
+
+  .application{
+    visibility: hidden;
+  }
+
+  .search-box{
+    justify-content: flex-start!important;
+  }
 }
 
 @media screen and (max-width: 500px){
+
+  .menu-container{
+    width:70%;
+  }
+
+  .subcategory{
+    width: 35%;
+  }
+
+  .search-box{
+    width: 65%;
+  }
   .hotline,.email{
     display: none;
   }
@@ -1563,5 +1599,22 @@ margin: 10px;
   .product-card{
     width: 25rem;
   }
+  
+}
+
+@media screen and (max-width: 400px){
+  .subcategory{
+    width:90%;
+    height:30rem;
+  }
+
+  .subcategory ul{
+    height: 25rem;
+  }
+
+  .search-box{
+    width: 100%;
+  }
+
   
 }

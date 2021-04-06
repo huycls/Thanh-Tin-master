@@ -151,7 +151,7 @@ export default function SearchScreen(props) {
               {products.length === 0 && (
                 <MessageBox>No Product Found</MessageBox>
               )}
-              <div className="rowe">
+              <div className="rowe search-result">
                 {products.map((product) => (
                   <Product key={product._id} product={product}></Product>
                 ))}

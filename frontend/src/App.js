@@ -152,9 +152,8 @@ function App() {
                 )}
               ></Route>
             </div>
-            <button className="small-searchbar" onClick={dropSearchbar}><i className="fa fa-search"></i></button>            
-            <div>
-            
+            <div className="menu-container">
+              <button className="small-searchbar" onClick={dropSearchbar}><i className="fa fa-search"></i></button>            
               <Link to="/gio-hang">
                 <i className="fas fa-shopping-basket"></i>
                 {cartItems.length > 0 && (
@@ -461,7 +460,7 @@ function App() {
                   <p><strong>MST: </strong><span>0311941553 -001</span></p><p><strong>Email: </strong><span><a href="mailto:hanoi@thanhtin-tech.com">hanoi@thanhtin-tech.com</a></span></p>
                 </div>
               </div>
-              <div className=" footer-child dept">
+              <div className=" footer-child">
                 <div className="sale-dept">
                   <h4 className="footer-title">phòng kinh doanh </h4>
                   <p><strong>HCM: </strong><span><a href="mailto:sales@thanhtin-tech.com">sales@thanhtin-tech.com</a> </span></p>
