@@ -69,12 +69,16 @@ export default function SearchScreen(props) {
       'CONSORT',
       'DOSER - GERMANY',
       'PNSHAR - CHINA',
-      'GRUSS - GERMANY',
+      'KRUSS - GERMANY',
       'PTA - EUROPE',
       'COMETECH - TAIWAN',
       'NABERTHERM - GERMANY',
       'TILO',
-      'IDM TEST - SPAIN'
+      'IDM TEST - SPAIN',
+      'HAMILTON - ENGLAND',
+      'NOVAPRO - KOREA',
+      'STURDY - TAIWAN',
+      'HETTICH - GERMANY'
     ];
   return (
     <div className="search-screen">
