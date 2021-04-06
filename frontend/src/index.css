@@ -104,6 +104,8 @@ header a {
   color: #00A349;
   font-size: 18px;
   margin: 0 10px;
+  display: flex;
+  align-items: center;
 }
 
 header i{
@@ -179,6 +181,11 @@ a.brand img{
 .menu-container{
   display: flex;
   flex-wrap: wrap;
+}
+
+.menu-container div{
+  display: flex;
+  align-items: center;
 }
 
 .rowe {
