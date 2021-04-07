@@ -156,9 +156,9 @@ productRouter.post(
       countInStock: 0,
       rating: 0,
       numReviews: 0,
-      description: '',
-      model: '',
-      parameter: '',
+      description: 'sample description',
+      model: 'sample model',
+      parameter: 'sample paremeter',
       video: 'sameple link',
       catalog: 'sample catalog',
     });
