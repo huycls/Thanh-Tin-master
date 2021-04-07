@@ -232,7 +232,7 @@ export default function ProductEditScreen(props) {
                 <option value="HAMILTON - ENGLAND">HAMILTON - ENGLAND</option>
                 <option value="NOVAPRO - KOREA">NOVAPRO - KOREA</option>
                 <option value="STURDY - TAIWAN">STURDY - TAIWAN</option>
-                <option value="HETTICH - GERMANY">HETTICH - GERMANY</option>
+                <option value="ANDREAS HETTICH - GERMANY">ANDREAS HETTICH - GERMANY</option>
               </select>
             </div>
             <div>

@@ -78,7 +78,7 @@ export default function SearchScreen(props) {
       'HAMILTON - ENGLAND',
       'NOVAPRO - KOREA',
       'STURDY - TAIWAN',
-      'HETTICH - GERMANY'
+      'ANDREAS HETTICH - GERMANY'
     ];
   return (
     <div className="search-screen">
