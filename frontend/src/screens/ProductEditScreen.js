@@ -223,7 +223,7 @@ export default function ProductEditScreen(props) {
                 <option value="CONSORT">CONSORT</option>
                 <option value="DOSER - GERMANY">DOSER - GERMANY</option>
                 <option value="PNSHAR - CHINA">PNSHAR - CHINA</option>
-                <option value="KRUSS - GERMANY">GRUSS - GERMANY</option>
+                <option value="KRUSS - GERMANY">KRUSS - GERMANY</option>
                 <option value="PTA - EUROPE">PTA - EUROPE</option>
                 <option value="COMETECH - TAIWAN">COMETECH - TAIWAN</option>
                 <option value="NABERTHERM - GERMANY">NABERTHERM - GERMANY</option>

@@ -16,7 +16,7 @@ export default function SearchScreen(props) {
   const {
     name = 'all',
     category = 'all',
-    subcategory = 'all',
+    // subcategory = 'all',
     brand = 'all',
     // min = 0,
     // max = 0,
@@ -44,7 +44,7 @@ export default function SearchScreen(props) {
         pageNumber,
         name: name !== 'all' ? name : '',
         category: category !== 'all' ? category : '',
-        subcategory: subcategory !== 'all' ? subcategory : '',
+        // subcategory: subcategory !== 'all' ? subcategory : '',
         brand: brand !== 'all' ? brand : '',
         // min,
         // max,
@@ -52,9 +52,10 @@ export default function SearchScreen(props) {
       })
     );
   }, [category, brand, dispatch, name, pageNumber]);
+  
   const getFilterUrl = (filter) => {
     const filterPage = filter.page || pageNumber;
-    const filterCategory = filter.category || category ||  subcategory ;
+    const filterCategory = filter.category || category;
     // const filterSubcategory = filter.subcategory || subcategory;
     const filterBrand = filter.brand || brand;
     const filterName = filter.name || name;
@@ -127,7 +128,7 @@ export default function SearchScreen(props) {
                       className={c === brand ? 'active' : ''}
                       to={getFilterUrl({ brand: c })}
                     >
-                      {c} <i class="fas fa-chevron-right"></i>
+                      {c} <i className="fas fa-chevron-right"></i>
                     </Link>
                   </li>
                 ))}

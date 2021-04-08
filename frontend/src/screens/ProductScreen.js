@@ -7,11 +7,13 @@ import MessageBox from '../components/MessageBox';
 // import Product from '../components/Product';
 import { listProducts } from '../actions/productActions';
 import parse from 'html-react-parser';
+import queryString from 'query-string';
 // import { PRODUCT_REVIEW_CREATE_RESET } from '../constants/productConstants';
 
 export default function ProductScreen(props) {
   const dispatch = useDispatch();
   const productId = props.match.params.id;
+  // let parsed = queryString.parse(props.location.search);
   const [qty, setQty] = useState(1);
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
@@ -81,7 +83,7 @@ export default function ProductScreen(props) {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <div>
-          <a href="javascript:history.back()"><i class="fas fa-arrow-left"></i> Trở lại</a>
+          <a href="javascript:history.back()"><i className="fas fa-arrow-left"></i> Trở lại</a>
           <div className="rowe top detail-page">
             <div className="col-1 col image-product">
               <img
@@ -207,9 +209,7 @@ export default function ProductScreen(props) {
             </div>
           </div>
           <div className="recommend-product">
-            {
-              
-            }                        
+                     
           </div>                        
         </div>
       )}

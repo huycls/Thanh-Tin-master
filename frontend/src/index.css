@@ -178,6 +178,17 @@ a.brand img{
   align-items: center;
 }
 
+.menu-responsive{
+  display: none;
+  position: absolute;
+  right: 1rem;
+  background:none;
+  border: none;
+  color: #00A349;
+  font-size: 2rem;
+  outline: none;
+}
+
 .menu-container{
   display: flex;
   flex-wrap: wrap;
@@ -814,7 +825,7 @@ img.large {
 }
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {display:block;}
+.show {display:block!important;}
 
 /* Clear floats after the columns */
 
@@ -1440,10 +1451,43 @@ margin: 10px;
 
 @media screen and (max-width: 800px){
 
-  .menu-container{
-    width: 60%;
+  .menu-responsive{
+    display: block;  
+  }
+
+  .icon-container{
     display: flex;
+    justify-content: space-around;
+    align-items: center;  
     align-items: center;
+    margin-right: 20%;
+    width: 30%;
+  }
+
+  .menu-container{
+    position: absolute;
+    align-items: center;
+    flex-direction: column;
+    right: 0;
+    top: 10rem;
+    background-color: #fff;
+    z-index : 15; 
+    border-left: .1rem solid #c0c0c0;
+    display: none;
+  }
+
+  .menu-container a{
+    padding: .8rem 2rem;
+  }
+
+  .dropdown-nav{
+    margin-right: 13rem;
+    background-color: #fff!important;
+    border: .1rem solid #f0f0f0;
+  }
+
+  .dropdown-nav a{
+    border-bottom: .1rem solid #f0f0f0;
   }
 
   .sidebar{
@@ -1473,6 +1517,7 @@ margin: 10px;
     justify-content: space-between;   
   }
 
+ 
   .dropdownmenu-content a {
     width: 100%;
     color: black;
@@ -1482,12 +1527,12 @@ margin: 10px;
   }
 
   .search-bar{
-    width:90%;
+    width:50%;
     position: absolute;
     display: none;
-    bottom:-4rem;
+    bottom:-2rem;
     z-index: 1;
-
+    left:30%;
   }
 
   .search-bar.show{

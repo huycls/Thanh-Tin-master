@@ -85,6 +85,10 @@ function App() {
       document.getElementById("myDropdown").classList.toggle("show");
     }
 
+  function dropdownresmenu(){
+    document.getElementById('dropdown-responsivemenu').classList.toggle("show");
+  }
+
      
     // Close the dropdown menu if the user clicks outside of it
     window.onclick = function(event) {
@@ -137,8 +141,7 @@ function App() {
             </div>
           </div>
         <button id="scrolltotop" onClick={scrollToTop}><i className="fas fa-chevron-up"></i></button>
-        <header className="navbar" id="navbar">
-       
+        <header className="navbar" id="navbar">      
           <div className="lower-nav">
             <div>
               <Link className="brand" to="/">
@@ -152,7 +155,7 @@ function App() {
                 )}
               ></Route>
             </div>
-            <div className="menu-container">
+            <div className="icon-container">
               <button className="small-searchbar" onClick={dropSearchbar}><i className="fa fa-search"></i></button>            
               <Link to="/gio-hang">
                 <i className="fas fa-shopping-basket"></i>
@@ -160,13 +163,18 @@ function App() {
                   <span className="badge">{cartItems.length}</span>
                 )}
               </Link>
+            </div>
+            <button className="menu-responsive" onClick={dropdownresmenu}>
+              Menu  <i className="fas fa-ellipsis-v menu-icon"></i>
+            </button>
+            <div className="menu-container"  id="dropdown-responsivemenu">            
               <Link to="/gioi-thieu">Giới thiệu</Link>
               {userInfo ? (
                 <div className="dropdown">
                   <Link to="#">
                     {userInfo.name} <i className="fa fa-caret-down"></i>{' '}
                   </Link>
-                  <ul className="dropdown-content">
+                  <ul className="dropdown-content dropdown-nav">
                     <li>
                       <Link to="/profile">User Profile</Link>
                     </li>
@@ -188,7 +196,7 @@ function App() {
                   <Link to="#admin">
                     Seller <i className="fa fa-caret-down"></i>
                   </Link>
-                  <ul className="dropdown-content">
+                  <ul className="dropdown-content dropdown-nav">
                     <li>
                       <Link to="/productlist/seller">Products</Link>
                     </li>
@@ -203,7 +211,7 @@ function App() {
                   <Link to="#admin">
                     Admin <i className="fa fa-caret-down"></i>
                   </Link>
-                  <ul className="dropdown-content">
+                  <ul className="dropdown-content dropdown-nav">
                     <li>
                       <Link to="/dashboard">Dashboard</Link>
                     </li>
@@ -257,7 +265,7 @@ function App() {
           <Route path="/gio-hang/:id?" component={CartScreen}></Route>
           <Fragment>
             <ScrollToTop />
-            <Route path="/san-pham/:id" component={ProductScreen} exact></Route>
+            <Route path="/san-pham/:id" component={ProductScreen}></Route>
           </Fragment>
           <Route
             path="/san-pham/:id/edit"
