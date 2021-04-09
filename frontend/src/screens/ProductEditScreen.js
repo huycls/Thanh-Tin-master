@@ -171,50 +171,28 @@ export default function ProductEditScreen(props) {
             </div>
             <div>
               <label htmlFor="category">Category</label>
-              {/* <input
+               <input
                 id="category"
                 type="text"
                 placeholder="Enter category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-              ></input> */}
-              <select id="category" className="form-select" value={category} onChange={(e) => setCategory(e.target.value)} aria-label="Default select example">
-                <option defaultValue="THIẾT BỊ NGÀNH GIẤY">THIẾT BỊ NGÀNH GIẤY</option>
-                <option value="THIẾT BỊ NGÀNH BAO BÌ GIẤY">THIẾT BỊ NGÀNH BAO BÌ GIẤY</option>
-                <option value="THIẾT BỊ NGÀNH BAO BÌ NHỰA">THIẾT BỊ NGÀNH BAO BÌ NHỰA</option>
-                <option value="THIẾT BỊ NGÀNH CAO SU - NHỰA">THIẾT BỊ NGÀNH CAO SU - NHỰA</option>
-                <option value="THIẾT BỊ THỬ NGHIỆM THÉP">THIẾT BỊ THỬ NGHIỆM THÉP</option>
-                <option value="THIẾT BỊ NGÀNH SƠN - XI MẠ">THIẾT BỊ NGÀNH SƠN - XI MẠ</option>
-                <option value="THIẾT BỊ NGÀNH VẬT LIỆU XÂY DỰNG">THIẾT BỊ NGÀNH BAO BÌ NHỰA</option>
-                <option value="THIẾT BỊ NGÀNH THỰC PHẨM">THIẾT BỊ NGÀNH THỰC PHẨM</option>
-                <option value="THIẾT BỊ NGÀNH DƯỢC PHẨM">THIẾT BỊ NGÀNH DƯỢC PHẨM</option>
-                <option value="THIẾT BỊ NGÀNH Y TẾ - SINH HỌC">THIẾT BỊ NGÀNH Y TẾ - SINH HỌC</option>
-                <option value="THIẾT BỊ NGÀNH NƯỚC VÀ MÔI TRƯỜNG">THIẾT BỊ NGÀNH NƯỚC VÀ MÔI TRƯỜNG</option>
-                <option value="THIẾT BỊ ĐO ONLINE (KHÍ THẢI - NƯỚC THẢI - NƯỚC CẤP)">THIẾT BỊ ĐO ONLINE (KHÍ THẢI - NƯỚC THẢI - NƯỚC CẤP)</option>
-                <option value="HỆ THỐNG QUAN TRẮC NƯỚC THẢI - KHÍ THẢI TỰ ĐỘNG">HỆ THỐNG QUAN TRẮC NƯỚC THẢI - KHÍ THẢI TỰ ĐỘNG</option>
-                <option value="THIẾT BỊ CƠ BẢN PHÒNG THÍ NGHIỆM">THIẾT BỊ CƠ BẢN PHÒNG THÍ NGHIỆM</option>
-              </select>
+                ></input>
+              {/* <select id="category" className="form-select" value={category} onChange={(e) => setCategory(e.target.value)} aria-label="Default select example">
+                <option defaultValue="Lò nung">Lò nung</option>
+                <option value="Máy ly tâm">Máy ly tâm</option>
+                <option value="Máy đo">Máy đo</option>
+                <option value="Máy hấp tiệt trùng">Máy hấp tiệt trùng</option>
+                <option value="Các loại tủ đựng">Các loại tủ đựng</option>
+                <option value="Tủ sấy">Tủ sấy</option>
+              </select> */}
             </div>
-            <div>
-              <label htmlFor="subcategory">Subcategory</label>
-              <select id="subcategory" className="form-select" value={subcategory} onChange={(e) => setSubcategory(e.target.value)} aria-label="Default select example">
-                <option defaultValue=""></option>
-                <option value="THIẾT BỊ NGÀNH GIẤY">THIẾT BỊ NGÀNH GIẤY</option>
-                <option value="THIẾT BỊ NGÀNH BAO BÌ GIẤY">THIẾT BỊ NGÀNH BAO BÌ GIẤY</option>
-                <option value="THIẾT BỊ NGÀNH BAO BÌ NHỰA">THIẾT BỊ NGÀNH BAO BÌ NHỰA</option>
-                <option value="THIẾT BỊ NGÀNH CAO SU - NHỰA">THIẾT BỊ NGÀNH CAO SU - NHỰA</option>
-                <option value="THIẾT BỊ THỬ NGHIỆM THÉP">THIẾT BỊ THỬ NGHIỆM THÉP</option>
-                <option value="THIẾT BỊ NGÀNH SƠN - XI MẠ">THIẾT BỊ NGÀNH SƠN - XI MẠ</option>
-                <option value="THIẾT BỊ NGÀNH VẬT LIỆU XÂY DỰNG">THIẾT BỊ NGÀNH BAO BÌ NHỰA</option>
-                <option value="THIẾT BỊ NGÀNH THỰC PHẨM">THIẾT BỊ NGÀNH THỰC PHẨM</option>
-                <option value="THIẾT BỊ NGÀNH DƯỢC PHẨM">THIẾT BỊ NGÀNH DƯỢC PHẨM</option>
-                <option value="THIẾT BỊ NGÀNH Y TẾ - SINH HỌC">THIẾT BỊ NGÀNH Y TẾ - SINH HỌC</option>
-                <option value="THIẾT BỊ NGÀNH NƯỚC VÀ MÔI TRƯỜNG">THIẾT BỊ NGÀNH NƯỚC VÀ MÔI TRƯỜNG</option>
-                <option value="THIẾT BỊ ĐO ONLINE (KHÍ THẢI - NƯỚC THẢI - NƯỚC CẤP)">THIẾT BỊ ĐO ONLINE (KHÍ THẢI - NƯỚC THẢI - NƯỚC CẤP)</option>
-                <option value="HỆ THỐNG QUAN TRẮC NƯỚC THẢI - KHÍ THẢI TỰ ĐỘNG">HỆ THỐNG QUAN TRẮC NƯỚC THẢI - KHÍ THẢI TỰ ĐỘNG</option>
-                <option value="THIẾT BỊ CƠ BẢN PHÒNG THÍ NGHIỆM">THIẾT BỊ CƠ BẢN PHÒNG THÍ NGHIỆM</option>
-              </select>
-            </div>
+              <div>
+                <label htmlFor="subcategory">Subcategory</label>
+                <select id="subcategory" className="form-select" value={subcategory} onChange={(e) => setSubcategory(e.target.value)} aria-label="Default select example">
+                
+                </select>
+              </div>
             <div>
               <label htmlFor="brand">Hãng sản xuất</label>
               <select id="brand" className="form-select" value={brand} onChange={(e) => setBrand(e.target.value)} aria-label="Default select example">
@@ -281,7 +259,7 @@ export default function ProductEditScreen(props) {
               <CKEditor 
                 editor={ClassicEditor}
                 data={parameter}
-                onInit={editor =>{
+                onReady={editor =>{
 
                 }}
                 onChange = {(event, editor) => {

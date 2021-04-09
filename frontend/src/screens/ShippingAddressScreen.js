@@ -43,7 +43,7 @@ export default function ShippingAddressScreen(props) {
       <form className="form" id="form" onSubmit={submitHandler}>
         <div>
           <h1>Gửi yêu cầu báo giá</h1>
-        </div>
+        </div>      
         <div>
           <label htmlFor="fullName">Tên đầy đủ</label>
           <input
@@ -118,9 +118,10 @@ export default function ShippingAddressScreen(props) {
         </div>
         <div>
           <ul>
+            <strong>Sản phẩm đang chọn:</strong>
             {cart.cartItems.map(item => (
               <li key={item.product}>
-               <strong>Sản phẩm đang chọn:</strong> <Link to={`/san-pham/${item.product}`}>{item.name}</Link>
+                <Link to={`/san-pham/${item.product}`}>{item.name}</Link>
               </li>
             ))}
           </ul>

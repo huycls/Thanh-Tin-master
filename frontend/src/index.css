@@ -238,6 +238,9 @@ a.brand img{
 .p-1 {
   padding: 1rem;
 }
+.dropbtn{
+  margin-bottom: .5rem;
+}
 
 /*Home page*/
 
@@ -802,21 +805,36 @@ img.large {
 
 /* Links inside the dropdown */
 
+.dropdownmenu-content{
+  width: 88%;
+  background-color: #fff;
+  box-shadow: 2px 2px 8px #c0c0c0;
+  max-height: 60rem;
+  overflow-y: scroll;
+}
+
+.dropdownmenu-content ul{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .dropdownmenu-content li{
   list-style: none;
+  width:20%;
+  min-width: 12rem;
+  margin: 0;
 }
 
 .dropdownmenu-content a {
   width: 100%;
   color: black;
+  font-weight: bold;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
-.dropdownmenu-content li{
-  width: 50%;
-}
 
 /* Change color of dropdown links on hover */
 .dropdownmenu-content a:hover {

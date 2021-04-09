@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Link, Route } from 'react-router-dom';
 import { signout } from './actions/userActions';
@@ -34,39 +34,14 @@ import NewsProduct from './screens/NewsProduct';
 import IntroScreen from './screens/IntroScreen';
 import Allnews from './screens/AllNews';
 import ScrollToTop from './components/ScrollToTop';
+import { listProductCategories } from './actions/productActions';
+import LoadingBox from './components/LoadingBox';
+import MessageBox from './components/MessageBox';
 // import SubSearchScreen from './screens/SubSearchScreen';
 
 
 function App() {
-  const categories1 = ["THIẾT BỊ NGÀNH GIẤY",
-    "THIẾT BỊ NGÀNH BAO BÌ GIẤY",
-    "THIẾT BỊ NGÀNH BAO BÌ NHỰA",
-    "THIẾT BỊ NGÀNH CAO SU - NHỰA",
-    "THIẾT BỊ THỬ NGHIỆM THÉP",
-    "THIẾT BỊ NGÀNH SƠN - XI MẠ",
-    "THIẾT BỊ NGÀNH VẬT LIỆU XÂY DỰNG",
-    "THIẾT BỊ NGÀNH THỰC PHẨM",
-    "THIẾT BỊ NGÀNH DƯỢC PHẨM",
-    "THIẾT BỊ NGÀNH Y TẾ - SINH HỌC",
-    "THIẾT BỊ NGÀNH NƯỚC VÀ MÔI TRƯỜNG",
-    "THIẾT BỊ ĐO ONLINE (KHÍ THẢI - NƯỚC THẢI - NƯỚC CẤP)",
-    "HỆ THỐNG QUAN TRẮC NƯỚC THẢI - KHÍ THẢI TỰ ĐỘNG",
-    "THIẾT BỊ CƠ BẢN PHÒNG THÍ NGHIỆM"];
-    const subcategories = ["THIẾT BỊ NGÀNH GIẤY",
-    "THIẾT BỊ NGÀNH BAO BÌ GIẤY",
-    "THIẾT BỊ NGÀNH BAO BÌ NHỰA",
-    "THIẾT BỊ NGÀNH CAO SU - NHỰA",
-    "THIẾT BỊ THỬ NGHIỆM THÉP",
-    "THIẾT BỊ NGÀNH SƠN - XI MẠ",
-    "THIẾT BỊ NGÀNH VẬT LIỆU XÂY DỰNG",
-    "THIẾT BỊ NGÀNH THỰC PHẨM",
-    "THIẾT BỊ NGÀNH DƯỢC PHẨM",
-    "THIẾT BỊ NGÀNH Y TẾ - SINH HỌC",
-    "THIẾT BỊ NGÀNH NƯỚC VÀ MÔI TRƯỜNG",
-    "THIẾT BỊ ĐO ONLINE (KHÍ THẢI - NƯỚC THẢI - NƯỚC CẤP)",
-    "HỆ THỐNG QUAN TRẮC NƯỚC THẢI - KHÍ THẢI TỰ ĐỘNG",
-    "THIẾT BỊ CƠ BẢN PHÒNG THÍ NGHIỆM"];
-    
+  // const categories1 = ["Lò nung", "Máy ly tâm", "Máy đo", "Máy hấp tiệt trùng", "Các loại tủ đựng", "Tủ sấy"];
   const cart = useSelector((state) => state.cart);
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const { cartItems } = cart;
@@ -76,33 +51,35 @@ function App() {
   const signoutHandler = () => {
     dispatch(signout());
   };
-
-
-   const productCategoryList = useSelector((state) => state.productCategoryList);
-  
-
+  const productCategoryList = useSelector((state) => state.productCategoryList);
+  const {
+    loading: loadingCategories,
+    error: errorCategories,
+    categories,
+  } = productCategoryList;
+  useEffect(() => {
+    dispatch(listProductCategories());
+  }, [dispatch]);
   function dropdownmenu() {
       document.getElementById("myDropdown").classList.toggle("show");
     }
-
   function dropdownresmenu(){
     document.getElementById('dropdown-responsivemenu').classList.toggle("show");
-  }
-
-     
+  }    
     // Close the dropdown menu if the user clicks outside of it
     window.onclick = function(event) {
         if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdownmenu-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-            }
-        }
+          var dropdowns = document.getElementsByClassName("dropdownmenu-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+              }
+          } 
         }
     }
+    
     function dropSearchbar(){
       document.getElementById("search-bar").classList.toggle("show");
     }
@@ -122,6 +99,34 @@ function App() {
           scrolltotop.style.display = "none";
         }
       }
+    }
+    function removeVietnameseTones(str) {
+      str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a"); 
+      str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e"); 
+      str = str.replace(/ì|í|ị|ỉ|ĩ/g,"i"); 
+      str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g,"o"); 
+      str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u"); 
+      str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y"); 
+      str = str.replace(/đ/g,"d");
+      str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A");
+      str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E");
+      str = str.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+      str = str.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "O");
+      str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U");
+      str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y");
+      str = str.replace(/Đ/g, "D");
+      // Some system encode vietnamese combining accent as individual utf-8 characters
+      // Một vài bộ encode coi các dấu mũ, dấu chữ như một kí tự riêng biệt nên thêm hai dòng này
+      str = str.replace(/\u0300|\u0301|\u0303|\u0309|\u0323/g, ""); // ̀ ́ ̃ ̉ ̣  huyền, sắc, ngã, hỏi, nặng
+      str = str.replace(/\u02C6|\u0306|\u031B/g, ""); // ˆ ̆ ̛  Â, Ê, Ă, Ơ, Ư
+      // Remove extra spaces
+      // Bỏ các khoảng trắng liền nhau
+      str = str.replace(/ + /g," ");
+      str = str.trim();
+      // Remove punctuations
+      // Bỏ dấu câu, kí tự đặc biệt
+      str = str.replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g," ");
+      return str;
     }
   return (
     <BrowserRouter>
@@ -231,11 +236,10 @@ function App() {
           </div>
         </header> 
         <main>
-          <div className="dropdownmenu">
-            <button onClick={dropdownmenu} className="dropbtn">
+            {/* <button onClick={dropdownmenu} className="dropbtn">
               <i className="fas fa-bars"></i>Danh mục sản phẩm
-            </button>
-            <div id="myDropdown" className="dropdownmenu-content">
+            </button> */}
+            {/* <div id="myDropdown" className="dropdownmenu-content">
               <div className="dropdown-large row">
                 <div className="row">
                 {categories1.map(category => (
@@ -251,8 +255,30 @@ function App() {
                 }              
                 </div>               
               </div>
+            </div> */}
+            <button onClick={dropdownmenu} className="dropbtn">
+              <i className="fas fa-bars"></i>Danh mục sản phẩm
+            </button>
+            <div id="myDropdown" className="dropdownmenu-content">
+            <ul>
+            {loadingCategories ? (
+              <LoadingBox></LoadingBox>
+            ) : errorCategories ? (
+              <MessageBox variant="danger">{errorCategories}</MessageBox>
+            ) : (
+              categories.map(category => (          
+                <li key={category}>
+                    <Link
+                      to={`/search/category/${removeVietnameseTones(category).toLowerCase().split(" ").join("-")}`}
+                      onClick={() => setSidebarIsOpen(false)}
+                    >
+                      {category} 
+                    </Link>
+                  </li>              
+              ))
+            )}
+              </ul>
             </div>
-          </div>
           <Route path="/tat-ca-tin-tuc" component={Allnews}></Route>
           <Route path="/gioi-thieu" component={IntroScreen}></Route>
           <Route path="/tin-san-pham-moi" component={NewsProduct}></Route>
@@ -266,6 +292,7 @@ function App() {
           <Fragment>
             <ScrollToTop />
             <Route path="/san-pham/:id" component={ProductScreen}></Route>
+            {/*exact path*/}
           </Fragment>
           <Route
             path="/san-pham/:id/edit"
@@ -285,7 +312,7 @@ function App() {
             exact
           ></Route>
           <Route
-            path="/search/category/:category"
+            path="/search/category/:accentCategory"
             component={SearchScreen}
             exact
           ></Route>
@@ -293,14 +320,14 @@ function App() {
             path="/search/category/:subcategory"
             component={SearchScreen}
             exact>
-          </Route> */}
+          </Route>  */}
           <Route
-            path="/search/category/:category/brand/:brand"
+            path="/search/category/:accentCategory/brand/:brand"
             component={SearchScreen}
             exact
           ></Route>
           <Route
-            path="/search/category/:category/brand/:brand/name/:name"
+            path="/search/category/:accentCategory/brand/:brand/name/:name"
             component={SearchScreen}
             exact
           ></Route>
@@ -309,11 +336,14 @@ function App() {
             component={SearchScreen}
             exact
           ></Route> */}
-          <Route
-            path="/search/category/:category/brand/:brand/name/:name/pageNumber/:pageNumber"
+          <Fragment>
+            <ScrollToTop />
+            <Route
+            path="/search/category/:accentCategory/brand/:brand/name/:name/pageNumber/:pageNumber"
             component={SearchScreen}
             exact
-          ></Route>
+            ></Route>
+          </Fragment>        
           <PrivateRoute
             path="/profile"
             component={ProfileScreen}
@@ -324,11 +354,15 @@ function App() {
             component={ProductListScreen}
             exact
           ></AdminRoute>
-          <AdminRoute
+          <Fragment>
+            
+            <AdminRoute
             path="/productlist/pageNumber/:pageNumber"
             component={ProductListScreen}
             exact
           ></AdminRoute>
+          <ScrollToTop />
+          </Fragment>         
           {/* <AdminRoute
             path="/orderlist"
             component={OrderListScreen}

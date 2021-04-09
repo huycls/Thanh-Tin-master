@@ -150,7 +150,7 @@ productRouter.post(
       seller: req.user._id,
       image: '/images/3.jpg',
       price: 0,
-      category: 'THIẾT BỊ NGÀNH GIẤY',
+      category: 'Lò nung',
       subcategory: '',
       brand: 'ALP - JAPAN',
       countInStock: 0,

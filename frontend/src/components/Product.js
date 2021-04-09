@@ -38,21 +38,21 @@ export default function Product(props) {
   const urlname = removeVietnameseTones(name).toLowerCase()
                       .split(" ")
                       .join("-");
-  console.log(urlname);               
+                
   return (
     <div key={product._id} className="card product-card">
       <Link className="card-header" to={`/san-pham/${product._id}/${urlname}`}>
         <img className="small" src={product.image} alt={product.name} />
       </Link>
       <div className="card-body">
-        <Link to={`/san-pham/${product._id}`} className="product-name">
+        <Link to={`/san-pham/${product._id}/${urlname}`} className="product-name">
           <h2>{cutname}</h2>
         </Link>
         <div className="row">
           <div className="product-model">Model: {product.model}</div>
           <div className="product-brand">Hãng sản xuất: {product.brand}</div>
         </div>
-        <Link className="details-btn" to={`/san-pham/${product._id}`}>
+        <Link className="details-btn" to={`/san-pham/${product._id}/${urlname}`}>
           Chi tiết
         </Link>
       </div>
