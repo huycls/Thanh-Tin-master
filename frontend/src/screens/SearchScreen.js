@@ -54,11 +54,11 @@ export default function SearchScreen(props) {
   }, [category, brand, dispatch, name, pageNumber]);
   const accentCategory = removeVietnameseTones(category).toLowerCase()
                                                         .split(" ")
-                                                        .join("-");
+                                                        .join("-");                                               
   console.log(accentCategory);                                                      
   const getFilterUrl = (filter) => {
     const filterPage = filter.page || pageNumber;
-    const filterCategory = filter.accentCategory || accentCategory;
+    const filterCategory = filter.category || category;
     // const filterSubcategory = filter.subcategory || subcategory;
     const filterBrand = filter.brand || brand;
     const filterName = filter.name || name;

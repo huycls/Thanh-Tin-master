@@ -269,10 +269,10 @@ function App() {
               categories.map(category => (          
                 <li key={category}>
                     <Link
-                      to={`/search/category/${removeVietnameseTones(category).toLowerCase().split(" ").join("-")}`}
+                      to={`/search/category/${category}`}
                       onClick={() => setSidebarIsOpen(false)}
                     >
-                      {category} 
+                      {category.toUpperCase()} 
                     </Link>
                   </li>              
               ))
@@ -312,9 +312,9 @@ function App() {
             exact
           ></Route>
           <Route
-            path="/search/category/:accentCategory"
+            path="/search/category/:category"
             component={SearchScreen}
-            exact
+             exact
           ></Route>
           {/* <Route
             path="/search/category/:subcategory"
@@ -322,12 +322,12 @@ function App() {
             exact>
           </Route>  */}
           <Route
-            path="/search/category/:accentCategory/brand/:brand"
+            path="/search/category/:category/brand/:brand"
             component={SearchScreen}
             exact
           ></Route>
           <Route
-            path="/search/category/:accentCategory/brand/:brand/name/:name"
+            path="/search/category/:category/brand/:brand/name/:name"
             component={SearchScreen}
             exact
           ></Route>
@@ -339,7 +339,7 @@ function App() {
           <Fragment>
             <ScrollToTop />
             <Route
-            path="/search/category/:accentCategory/brand/:brand/name/:name/pageNumber/:pageNumber"
+            path="/search/category/:category/brand/:brand/name/:name/pageNumber/:pageNumber"
             component={SearchScreen}
             exact
             ></Route>

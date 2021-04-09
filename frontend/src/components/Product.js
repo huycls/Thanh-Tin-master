@@ -49,8 +49,8 @@ export default function Product(props) {
           <h2>{cutname}</h2>
         </Link>
         <div className="row">
-          <div className="product-model">Model: {product.model}</div>
-          <div className="product-brand">Hãng sản xuất: {product.brand}</div>
+          <div className="product-model"><strong>Model: </strong> {product.model}</div>
+          <div className="product-brand"><strong>Hãng sản xuất: </strong> {product.brand}</div>
         </div>
         <Link className="details-btn" to={`/san-pham/${product._id}/${urlname}`}>
           Chi tiết

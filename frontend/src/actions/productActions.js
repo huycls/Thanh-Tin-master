@@ -43,7 +43,7 @@ export const listProducts = ({
   });
   try {
     const { data } = await Axios.get(
-      `/api/products?pageNumber=${pageNumber}&name=${name}&category=${removeVietnameseTones(category).toLowerCase().split(" ").join("-")}&brand=${brand}`
+      `/api/products?pageNumber=${pageNumber}&name=${name}&category=${category}&brand=${brand}`
     );
     function removeVietnameseTones(str) {
       str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a"); 
