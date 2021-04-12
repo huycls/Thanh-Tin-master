@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { register } from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import {Helmet} from 'react-helmet';
 
 export default function RegisterScreen(props) {
   const [name, setName] = useState('');
@@ -34,6 +35,9 @@ export default function RegisterScreen(props) {
   }, [props.history, redirect, userInfo]);
   return (
     <div>
+      <Helmet>
+        <title>Đăng ký tài khoản</title>
+      </Helmet>
       <form className="form" onSubmit={submitHandler}>
         <div>
           <h1>Create Account</h1>

@@ -35,7 +35,7 @@ productRouter.get(
     const nameFilter = name ? { name: { $regex: name, $options: 'i' } } : {};
     const sellerFilter = seller ? { seller } : {};
     const categoryFilter = category ? { category } : {};
-    const subcategoryFilter = subcategory ? {subcategory} :{};
+    const subcategoryFilter = category ? {category} :{};
     const brandFilter = brand ? { brand } : {};
     const modelFilter = model ? { model } : {};
     const parameterFilter = parameter ? { parameter } : {};
@@ -93,6 +93,14 @@ productRouter.get(
   expressAsyncHandler(async (req, res) => {
     const categories = await Product.find().distinct('category');
     res.send(categories);
+  })
+);
+
+productRouter.get(
+  '/subcategories',
+  expressAsyncHandler(async (req, res) => {
+    const subcategories = await Product.find().distinct('subcategory');
+    res.send(subcategories);
   })
 );
 

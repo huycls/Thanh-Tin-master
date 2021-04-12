@@ -18,6 +18,9 @@ import {
   PRODUCT_CATEGORY_LIST_SUCCESS,
   PRODUCT_CATEGORY_LIST_REQUEST,
   PRODUCT_CATEGORY_LIST_FAIL,
+  PRODUCT_SUBCATEGORY_LIST_SUCCESS,
+  PRODUCT_SUBCATEGORY_LIST_REQUEST,
+  PRODUCT_SUBCATEGORY_LIST_FAIL,
   PRODUCT_BRAND_LIST_SUCCESS,
   PRODUCT_BRAND_LIST_REQUEST,
   PRODUCT_BRAND_LIST_FAIL,
@@ -33,6 +36,7 @@ export const listProducts = ({
   name = '',
   category = '',
   brand = '',
+  subcategory = '',
   // order = '',
   // min = 0,
   // max = 0,
@@ -45,6 +49,7 @@ export const listProducts = ({
     const { data } = await Axios.get(
       `/api/products?pageNumber=${pageNumber}&name=${name}&category=${category}&brand=${brand}`
     );
+    console.log(category);
     function removeVietnameseTones(str) {
       str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a"); 
       str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e"); 
@@ -90,6 +95,20 @@ export const listProductCategories = () => async (dispatch) => {
     dispatch({ type: PRODUCT_CATEGORY_LIST_FAIL, payload: error.message });
   }
 };
+
+export const listProductSubcategories = () => async (dispatch) => {
+  dispatch({
+    type: PRODUCT_SUBCATEGORY_LIST_REQUEST,
+  });
+  try {
+    const { data } = await Axios.get(`/api/products/subcategories`);
+    dispatch({ type: PRODUCT_SUBCATEGORY_LIST_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: PRODUCT_SUBCATEGORY_LIST_FAIL, payload: error.message });
+  }
+};
+
+
 
 export const listProductBrands = () => async (dispatch) => {
   dispatch({

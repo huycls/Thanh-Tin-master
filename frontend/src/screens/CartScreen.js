@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addToCart, removeFromCart } from '../actions/cartActions';
 import MessageBox from '../components/MessageBox';
+import {Helmet} from 'react-helmet';
+import { withNamespaces } from 'react-i18next';
 
-export default function CartScreen(props) {
+export default withNamespaces()(function CartScreen(props, {t}) {
   const productId = props.match.params.id;
   const qty = props.location.search
     ? Number(props.location.search.split('=')[1])
@@ -26,8 +28,14 @@ export default function CartScreen(props) {
   const checkoutHandler = () => {
     props.history.push('/yeu-cau-bao-gia');
   };
+
   return (
     <div className="row top cart-screen">
+      <Helmet>
+        <title>
+          Giỏ hàng
+        </title>
+      </Helmet>
       <div className="col-2 cartscreen-cart">
         <h1>Giỏ hàng</h1>
         {error && <MessageBox variant="danger">{error}</MessageBox>}
@@ -105,4 +113,4 @@ export default function CartScreen(props) {
       </div>
     </div>
   );
-}
+})

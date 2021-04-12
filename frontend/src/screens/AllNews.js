@@ -1,9 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {Helmet} from 'react-helmet';
+
 
 
 function Allnews(){
     return <div className="allnewspage">
+        <Helmet>
+            <title>Tin tức - Công ty TNHH thiết bị và hóa chất Thành Tín</title>
+        </Helmet>
         <div className="d-flex align-items-start">
             <div className="nav flex-column nav-pills me-3 nav-news" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <h3><i class="fas fa-bars"></i> Danh mục tin</h3>

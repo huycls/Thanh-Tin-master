@@ -8,8 +8,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { listProducts } from '../actions/productActions';
 // import { listTopSellers } from '../actions/userActions';
 import { Link } from 'react-router-dom';
+import {Helmet} from 'react-helmet';
+import { withNamespaces } from 'react-i18next';
 
-export default function HomeScreen() {
+
+export default withNamespaces() (function HomeScreen({t}) {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
@@ -27,6 +30,9 @@ export default function HomeScreen() {
    }, [dispatch]);
   return (
     <div className="rowe">
+    <Helmet>
+      <title>{t("title.label")}</title>
+    </Helmet>
       <div className="upper-content">
         <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-inner">
@@ -56,14 +62,14 @@ export default function HomeScreen() {
           </button>
         </div>
         <div className="product-box">      
-          <h1 className="product-banner">Sản phẩm nổi bật</h1>
+          <h1 className="product-banner">{t("newproduct.label")}</h1>
           {loading ? (
             <LoadingBox></LoadingBox>
           ) : error ? (
             <MessageBox variant="danger">{error}</MessageBox>
           ) : (
             <div>
-              {products.length === 0 && <MessageBox>No Product Found</MessageBox>}
+              {products.length === 0 && <MessageBox>{t("noproduct.label")}</MessageBox>}
               <div className="rowe">
                 {products.map((product) => (
                   <Product key={product._id} product={product}></Product>
@@ -75,7 +81,7 @@ export default function HomeScreen() {
       </div>
       <div className="sidebar">
       <div className="news"> 
-          <div className="news-title"><i className="fas fa-chevron-right"></i> <Link to="/tat-ca-tin-tuc">Tin mới</Link></div>
+          <div className="news-title"><i className="fas fa-chevron-right"></i> <Link to="/tat-ca-tin-tuc">{t("news.label")}</Link></div>
           <div className="news-content">
             <Link to="/cong-ty-thanh-tin-la-nha-phan-phoi-chinh-thuc-cho-hang-mettler-toledo">
               <p>
@@ -102,13 +108,13 @@ export default function HomeScreen() {
           </div>
         </div>
         <div className="sidebar-title">
-          <a href="https://www.youtube.com/channel/UCWvi8FoZbVU-PMQHDsYC5pQ/featured" target="_blank">Kênh Video - Video mới nhất</a>
+          <a href="https://www.youtube.com/channel/UCWvi8FoZbVU-PMQHDsYC5pQ/featured" target="_blank">{t("video.label")}</a>
         </div>
         <div className="sidebar-content">
           <iframe src="https://www.youtube.com/embed/xjndBrxqtzU" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </div>
         <div className="sidebar-title">
-          <a href="#">Hỗ trợ trực tuyến</a>
+          <a href="#">{t("support.label")}</a>
         </div>
         <div className="sidebar-content">
           <h3>Zalo  0988 816 815</h3>
@@ -117,4 +123,4 @@ export default function HomeScreen() {
       </div>
     </div>
   );
-}
+})

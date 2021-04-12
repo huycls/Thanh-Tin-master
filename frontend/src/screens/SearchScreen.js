@@ -7,8 +7,9 @@ import MessageBox from '../components/MessageBox';
 import Product from '../components/Product';
 // import { prices } from '../utils';
 // import OrderScreen from './OrderScreen';
+import {Helmet} from 'react-helmet';
 
-export default function SearchScreen(props) {
+export default function SearchScreen( props) {
  
   const applies = [
     "Giấy carton"
@@ -51,15 +52,12 @@ export default function SearchScreen(props) {
         // order, category == category ? category == subcategory : ''
       })
     );
-  }, [category, brand, dispatch, name, pageNumber]);
-  const accentCategory = removeVietnameseTones(category).toLowerCase()
-                                                        .split(" ")
-                                                        .join("-");                                               
-  console.log(accentCategory);                                                      
+  }, [  category, brand, dispatch, name, pageNumber]);
+                                                                                                  
   const getFilterUrl = (filter) => {
     const filterPage = filter.page || pageNumber;
-    const filterCategory = filter.category || category;
-    // const filterSubcategory = filter.subcategory || subcategory;
+    const filterCategory = filter.category|| category;
+    //  const filterSubcategory = filter.category || category;
     const filterBrand = filter.brand || brand;
     const filterName = filter.name || name;
     // const sortOrder = filter.order || order;
@@ -67,6 +65,7 @@ export default function SearchScreen(props) {
     // const filterMax = filter.max ? filter.max : filter.max === 0 ? 0 : max;
     return `/search/category/${filterCategory}/brand/${filterBrand}/name/${filterName}/pageNumber/${filterPage}`;
   };
+  
     const brands = [
       'ALP - JAPAN',
       'EMCO - GERMANY',
@@ -112,8 +111,12 @@ export default function SearchScreen(props) {
       str = str.replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g," ");
       return str;
   }
+  const titlesearch = "Tìm kiếm";
   return (
     <div className="search-screen">
+      <Helmet>
+        <title>{titlesearch} - {category}</title>
+      </Helmet>
       <div className="rowe">
         {loading ? (
           <LoadingBox></LoadingBox>
@@ -187,7 +190,7 @@ export default function SearchScreen(props) {
               {products.length === 0 && (
                 <MessageBox>No Product Found</MessageBox>
               )}
-              <div className="rowe search-result">
+              <div className="rowe">
                 {products.map((product) => (
                   <Product key={product._id} product={product}></Product>
                 ))}

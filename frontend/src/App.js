@@ -38,9 +38,13 @@ import { listProductCategories } from './actions/productActions';
 import LoadingBox from './components/LoadingBox';
 import MessageBox from './components/MessageBox';
 // import SubSearchScreen from './screens/SubSearchScreen';
+import Helmet from 'react-helmet';
+import { withNamespaces } from 'react-i18next';
+import i18n from './i18n';
 
 
-function App() {
+function App({t}) {
+  
   // const categories1 = ["Lò nung", "Máy ly tâm", "Máy đo", "Máy hấp tiệt trùng", "Các loại tủ đựng", "Tủ sấy"];
   const cart = useSelector((state) => state.cart);
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
@@ -128,6 +132,9 @@ function App() {
       str = str.replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g," ");
       return str;
     }
+    function handleChangeLang(lang){
+      i18n.changeLanguage(lang)
+    }
   return (
     <BrowserRouter>
       <div className="grid-container"> 
@@ -137,10 +144,10 @@ function App() {
               Email:<a  href="mailto:sales@thanhtin-tech.com">sales@thanhtin-tech.com</a>
             </div>
             <div className="lang">
-              <button>
+              <button onClick = {() => handleChangeLang("vn")}>
                 <img src="./images/vnese.png" alt="vietnamese" />
               </button>
-              <button>
+              <button onClick = {() => handleChangeLang("en")}>
                 <img src="./images/usa.png" alt="english" />
               </button>
             </div>
@@ -173,7 +180,7 @@ function App() {
               Menu  <i className="fas fa-ellipsis-v menu-icon"></i>
             </button>
             <div className="menu-container"  id="dropdown-responsivemenu">            
-              <Link to="/gioi-thieu">Giới thiệu</Link>
+              <Link to="/gioi-thieu">{t("intro.label")}</Link>
               {userInfo ? (
                 <div className="dropdown">
                   <Link to="#">
@@ -194,7 +201,7 @@ function App() {
                   </ul>
                 </div>
               ) : (
-                <Link to="/dang-nhap">Đăng nhập</Link>
+                <Link to="/dang-nhap">{t("signin.label")}</Link>
               )}
               {userInfo && userInfo.isSeller && (
                 <div className="dropdown">
@@ -257,7 +264,7 @@ function App() {
               </div>
             </div> */}
             <button onClick={dropdownmenu} className="dropbtn">
-              <i className="fas fa-bars"></i>Danh mục sản phẩm
+              <i className="fas fa-bars"></i>{t("category.label")}
             </button>
             <div id="myDropdown" className="dropdownmenu-content">
             <ul>
@@ -314,7 +321,7 @@ function App() {
           <Route
             path="/search/category/:category"
             component={SearchScreen}
-             exact
+            // exact
           ></Route>
           {/* <Route
             path="/search/category/:subcategory"
@@ -324,7 +331,7 @@ function App() {
           <Route
             path="/search/category/:category/brand/:brand"
             component={SearchScreen}
-            exact
+             exact
           ></Route>
           <Route
             path="/search/category/:category/brand/:brand/name/:name"
@@ -341,7 +348,7 @@ function App() {
             <Route
             path="/search/category/:category/brand/:brand/name/:name/pageNumber/:pageNumber"
             component={SearchScreen}
-            exact
+             exact
             ></Route>
           </Fragment>        
           <PrivateRoute
@@ -383,7 +390,7 @@ function App() {
           ></SellerRoute> */}
           <Route path="/" component={HomeScreen} exact></Route>
           <div className="collect-email">
-            <p>Đăng ký email để nhận tin sản phẩm mới nhất</p>
+            <p>{t("collectemail.label")}</p>
             <form id="form"  method="GET" action="https://script.google.com/macros/s/AKfycbyTSr30R7jPcxOqEYFOuxNOjvKeKWCmBqN2tnnRYTrXPnOElveM/exec">
               <input id="email" type="email" name="email_user" />
               <button type="submit" id="submit-form" placeholder="Email">Gửi</button>
@@ -490,32 +497,32 @@ function App() {
         </main>
         <div className="footer">
               <div className="contact-info footer-child">
-                <h4 className="footer-title">thông tin liên hệ</h4>
-                <h3>công ty tnhh thiết bị và hóa chất thành tín</h3>
-                <h4><i className="fas fa-chevron-right"></i><Link to="/intro">Giới thiệu công ty</Link></h4>
+                <h4 className="footer-title">{t("contact.label")}</h4>
+                <h3>{t("company.label")}</h3>
+                <h4><i className="fas fa-chevron-right"></i><Link to="/intro">{t("intro.label")}</Link></h4>
                 <div className="vphcm ">
-                  <strong>VP HCM:</strong><span> 78 Đường số 1A, Khu Phố 4, P.Bình Hưng Hòa B, Quận Bình Tân, Tp.HCM</span>
-                  <p><strong>Điện thoại:</strong> <span> (028) 36 360 901 </span></p><p><strong>Fax:</strong> <span>(028) 36 360 902</span></p>
+                  <strong>{t("hcm.label")}: </strong><span>{t("hcmadd.label")}</span>
+                  <p><strong>{t("phone.label")}: </strong> <span> (028) 36 360 901 </span></p><p><strong>Fax:</strong> <span>(028) 36 360 902</span></p>
                 </div>
                 <div className="vphn">
-                  <strong>VP Hà Nội: </strong><span>Lô 3, khu A1-A2-A3, Đường Cầu Thanh Trì, P.Cự Khối, Quận Long Biên, Hà Nội</span>
-                  <p><strong>MST: </strong><span>0311941553 -001</span></p><p><strong>Email: </strong><span><a href="mailto:hanoi@thanhtin-tech.com">hanoi@thanhtin-tech.com</a></span></p>
+                  <strong>{t("hn.label")}: </strong><span>{t("hnadd.label")}</span>
+                  <p><strong>{t("mst.label")}: </strong><span>0311941553 -001</span></p><p><strong>Email: </strong><span><a href="mailto:hanoi@thanhtin-tech.com">hanoi@thanhtin-tech.com</a></span></p>
                 </div>
               </div>
               <div className=" footer-child">
                 <div className="sale-dept">
-                  <h4 className="footer-title">phòng kinh doanh </h4>
-                  <p><strong>HCM: </strong><span><a href="mailto:sales@thanhtin-tech.com">sales@thanhtin-tech.com</a> </span></p>
-                  <p><strong>Hà Nội: </strong><span><a href="mailto:hanoi@thanhtin-tech.com">hanoi@thanhtin-tech.com</a> </span></p>
+                  <h4 className="footer-title">{t("sale.label")}</h4>
+                  <p><strong>{t("hcmname.label")}: </strong><span><a href="mailto:sales@thanhtin-tech.com">sales@thanhtin-tech.com</a> </span></p>
+                  <p><strong>{t("hnname.label")}: </strong><span><a href="mailto:hanoi@thanhtin-tech.com">hanoi@thanhtin-tech.com</a> </span></p>
                 </div>
                 
               </div>             
               <div className="footer-child ">             
                 {/* <img src="https://www.freevisitorcounters.com/en/counter/render/812336/t/0" border="0" className="counterimg" /> */}
                 <div className="tech-dept ">
-                  <h4 className="footer-title">phòng kỹ thuật</h4>
-                  <p><strong>HCM: </strong><span><a href="mailto:service@thanhtin-tech.com">service@thanhtin-tech.com</a> </span></p>
-                  <p><strong>Hà Nội: </strong><span><a href="mailto:service@thanhtin-tech.com">service@thanhtin-tech.com</a> </span></p>
+                  <h4 className="footer-title">{t("tech.label")}</h4>
+                  <p><strong>{t("hcmname.label")}: </strong><span><a href="mailto:service@thanhtin-tech.com">service@thanhtin-tech.com</a> </span></p>
+                  <p><strong>{t("hnname.label")}: </strong><span><a href="mailto:service@thanhtin-tech.com">service@thanhtin-tech.com</a> </span></p>
                 </div>
               </div>
               <div className="contact-media footer-child">
@@ -531,7 +538,7 @@ function App() {
                 <svg width="100" height="90" id="besucherzaehler2"><g><rect width="100" height="70" x="0" y="0"  fillOpacity="0.0" stroke="#ffffff"></rect><text x="6" y="38"  fontFamily="Roboto, sans-serif" fontSize="11" fill="#ffffff">Total: 1</text><text x="6" y="50"  fontFamily="Roboto, sans-serif" fontSize="11" fill="#ffffff">Today: 1</text><text x="6" y="62" fontFamily="Roboto, sans-serif" fontSize="11" fill="#ffffff">Yesterday: 0</text><rect width="3" height="9" x="6" y="14" ></rect><rect width="3" height="17" x="11" y="6" ></rect><rect width="3" height="13" x="16" y="10" ></rect><text x="25" y="23" fontFamily="Roboto, sans-serif" fontSize="11" fill="#ffffff">Visitor:</text></g></svg>
               </a>
               <div className="copyright">
-            <div>COPYRIGHT &copy; 2021 CÔNG TY TNHH THIẾT BỊ VÀ HÓA CHẤT THÀNH TÍN</div>
+            <div>COPYRIGHT &copy; 2021 {t("company.label")}</div>
           </div>  
         </div>  
       </div>
@@ -540,4 +547,4 @@ function App() {
   );
 }
 
-export default App;
+export default withNamespaces()(App);

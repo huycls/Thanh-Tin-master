@@ -8,6 +8,7 @@ import MessageBox from '../components/MessageBox';
 import { listProducts } from '../actions/productActions';
 import parse from 'html-react-parser';
 import queryString from 'query-string';
+import {Helmet} from 'react-helmet';
 // import { PRODUCT_REVIEW_CREATE_RESET } from '../constants/productConstants';
 
 export default function ProductScreen(props) {
@@ -77,12 +78,17 @@ export default function ProductScreen(props) {
   
   return (
     <div>
+      
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
+       
         <div>
+        <Helmet>
+        <title>{product.name}</title>
+        </Helmet>
           <a href="javascript:history.back()"><i className="fas fa-arrow-left"></i> Trở lại</a>
           <div className="rowe top detail-page">
             <div className="col-1 col image-product">
