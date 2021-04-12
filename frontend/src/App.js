@@ -195,7 +195,7 @@ function App({t}) {
                     </li>
                     <li>
                       <Link to="#signout" onClick={signoutHandler}>
-                        Đăng xuất
+                        {t("logout.label")}
                       </Link>
                     </li>
                   </ul>
@@ -393,7 +393,7 @@ function App({t}) {
             <p>{t("collectemail.label")}</p>
             <form id="form"  method="GET" action="https://script.google.com/macros/s/AKfycbyTSr30R7jPcxOqEYFOuxNOjvKeKWCmBqN2tnnRYTrXPnOElveM/exec">
               <input id="email" type="email" name="email_user" />
-              <button type="submit" id="submit-form" placeholder="Email">Gửi</button>
+              <button type="submit" id="submit-form" placeholder="Email">{t("send.label")}</button>
             </form>
           </div>
           <div className="marquee">

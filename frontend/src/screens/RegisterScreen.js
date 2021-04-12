@@ -5,8 +5,11 @@ import { register } from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import {Helmet} from 'react-helmet';
+import { withNamespaces } from 'react-i18next';
 
-export default function RegisterScreen(props) {
+export default withNamespaces((props) => props.namespaces) (function RegisterScreen(props) {
+
+  const {t} = props;
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -36,16 +39,16 @@ export default function RegisterScreen(props) {
   return (
     <div>
       <Helmet>
-        <title>Đăng ký tài khoản</title>
+        <title>{t("register.label")}</title>
       </Helmet>
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1>Create Account</h1>
+          <h1>{t("createuser")}</h1>
         </div>
         {loading && <LoadingBox></LoadingBox>}
         {error && <MessageBox variant="danger">{error}</MessageBox>}
         <div>
-          <label htmlFor="name">Tên</label>
+          <label htmlFor="name">{t("name.label")}</label>
           <input
             type="text"
             id="name"
@@ -65,7 +68,7 @@ export default function RegisterScreen(props) {
           ></input>
         </div>
         <div>
-          <label htmlFor="password">Mật khẩu</label>
+          <label htmlFor="password">{t("pass.label")}</label>
           <input
             type="password"
             id="password"
@@ -75,7 +78,7 @@ export default function RegisterScreen(props) {
           ></input>
         </div>
         <div>
-          <label htmlFor="confirmPassword">Nhập lại mật khẩu</label>
+          <label htmlFor="confirmPassword">{t("repass.label")}</label>
           <input
             type="password"
             id="confirmPassword"
@@ -87,17 +90,17 @@ export default function RegisterScreen(props) {
         <div>
           <label />
           <button className="primary" type="submit">
-            Đăng ký ngay
+            {t("submit.label")}
           </button>
         </div>
         <div>
           <label />
           <div>
-            Đã có tài khoản?{' '}
-            <Link to={`/dang-nhap?redirect=${redirect}`}>Đăng nhập</Link>
+            {t("haveaccount")}?{' '}
+            <Link to={`/dang-nhap?redirect=${redirect}`}>{t("signinnow.label")}</Link>
           </div>
         </div>
       </form>
     </div>
   );
-}
+})

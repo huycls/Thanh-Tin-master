@@ -6,7 +6,8 @@ import MessageBox from '../components/MessageBox';
 import {Helmet} from 'react-helmet';
 import { withNamespaces } from 'react-i18next';
 
-export default withNamespaces()(function CartScreen(props, {t}) {
+export default withNamespaces((props) => props.namespaces) (function CartScreen(props) {
+  const {t} = props;
   const productId = props.match.params.id;
   const qty = props.location.search
     ? Number(props.location.search.split('=')[1])
@@ -33,15 +34,15 @@ export default withNamespaces()(function CartScreen(props, {t}) {
     <div className="row top cart-screen">
       <Helmet>
         <title>
-          Giỏ hàng
+        {t("cart.label")}
         </title>
       </Helmet>
       <div className="col-2 cartscreen-cart">
-        <h1>Giỏ hàng</h1>
+          <h1>{t("cart.label")}</h1>    
         {error && <MessageBox variant="danger">{error}</MessageBox>}
         {cartItems.length === 0 ? (
           <MessageBox>
-            Giỏ hàng đang trống. <Link to="/">Mua hàng ngay</Link>
+            {t("emptycart.label")} <Link to="/">{t("buynow.label")}</Link>
           </MessageBox>
         ) : (
           <ul>
@@ -80,7 +81,7 @@ export default withNamespaces()(function CartScreen(props, {t}) {
                       type="button"
                       onClick={() => removeFromCartHandler(item.product)}
                     >
-                      Xóa
+                      {t("delete")}
                     </button>
                   </div>
                 </div>
@@ -94,7 +95,7 @@ export default withNamespaces()(function CartScreen(props, {t}) {
           <ul>
             <li>
               <h2>
-                Tổng cộng ({cartItems.reduce((a, c) => a + c.qty, 0)} sản phẩm): 
+                {t("total.label")} ({cartItems.reduce((a, c) => a + c.qty, 0)} {t("productqty.label")}): 
                 <p>{cartItems.reduce((a, c) => a + c.price * c.qty, 0)} VNĐ</p>
               </h2>
             </li>
@@ -105,7 +106,7 @@ export default withNamespaces()(function CartScreen(props, {t}) {
                 className="primary block"
                 disabled={cartItems.length === 0}
               >
-                Xác nhận
+                {t("submit.label")}
               </button>
             </li>
           </ul>

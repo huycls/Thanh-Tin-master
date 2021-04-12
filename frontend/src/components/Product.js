@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withNamespaces } from 'react-i18next';
 
-export default function Product(props) {
+export default withNamespaces((props) => props.namespaces) (function Product(props) {
+  const {t} = props;
   const { product } = props;
   let name = product.name;
   const cutname = name.length > 50 ? 
@@ -50,12 +52,12 @@ export default function Product(props) {
         </Link>
         <div className="row">
           <div className="product-model"><strong>Model: </strong> {product.model}</div>
-          <div className="product-brand"><strong>Hãng sản xuất: </strong> {product.brand}</div>
+          <div className="product-brand"><strong>{t("brand.label")} </strong> {product.brand}</div>
         </div>
         <Link className="details-btn" to={`/san-pham/${product._id}/${urlname}`}>
-          Chi tiết
+          {t("detailbtn.label")}
         </Link>
       </div>
     </div>
   );
-}
+})

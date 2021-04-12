@@ -9,9 +9,11 @@ import { listProducts } from '../actions/productActions';
 import parse from 'html-react-parser';
 import queryString from 'query-string';
 import {Helmet} from 'react-helmet';
+import { withNamespaces } from 'react-i18next';
 // import { PRODUCT_REVIEW_CREATE_RESET } from '../constants/productConstants';
 
-export default function ProductScreen(props) {
+export default withNamespaces((props) => props.namespaces) (function ProductScreen(props) {
+  const {t} = props;
   const dispatch = useDispatch();
   const productId = props.match.params.id;
   // let parsed = queryString.parse(props.location.search);
@@ -77,8 +79,7 @@ export default function ProductScreen(props) {
       }
   
   return (
-    <div>
-      
+    <div>  
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
@@ -89,7 +90,7 @@ export default function ProductScreen(props) {
         <Helmet>
         <title>{product.name}</title>
         </Helmet>
-          <a href="javascript:history.back()"><i className="fas fa-arrow-left"></i> Trở lại</a>
+          <a href="javascript:history.back()"><i className="fas fa-arrow-left"></i> {t("back.label")}</a>
           <div className="rowe top detail-page">
             <div className="col-1 col image-product">
               <img
@@ -114,15 +115,15 @@ export default function ProductScreen(props) {
                 <li>
                   <h1>{product.name}</h1>
                 </li>              
-                <li><strong>Giá: </strong> {product.price} VNĐ</li>
+                <li><strong>{t("price.label")} </strong> {product.price} VNĐ</li>
                 <li> 
                   <p><strong>Model:</strong> {product.model}</p>
                 </li>
                 <li> 
-                  <p className="description"><strong>Mô tả:</strong> {product.description}</p>
+                  <p className="description"><strong>{t("description.label")}</strong> {product.description}</p>
                 </li>
                 <li>
-                  <p className="contact-sale"> <strong> Liên hệ Email: <a href="mailto:sales@thanhtin-tech.com">sales@thanhtin-tech.com</a></strong></p>
+                  <p className="contact-sale"> <strong> {t("emailus.label")} <a href="mailto:sales@thanhtin-tech.com">sales@thanhtin-tech.com</a></strong></p>
                 </li>
               </ul>
             </div>
@@ -131,18 +132,18 @@ export default function ProductScreen(props) {
                 <ul>              
                   <li>
                     <div className="row">
-                      <div className="card-child">Giá</div>
+                      <div className="card-child">{t("price.label")}</div>
                       <div className="price card-child">{product.price} VNĐ</div>
                     </div>
                   </li>
                   <li>
                     <div className="row">
-                      <div className="card-child">Trạng thái</div>
+                      <div className="card-child">{t("status.label")}</div>
                       <div className=" card-child">
                         {product.countInStock > 0 ? (
-                          <span className="success">Còn hàng</span>
+                          <span className="success">{t("instock")}</span>
                         ) : (
-                          <span className="danger">Hết hàng</span>
+                          <span className="danger">{t("outofstock")}</span>
                         )}
                       </div>
                     </div>
@@ -151,7 +152,7 @@ export default function ProductScreen(props) {
                     <>
                       <li>
                         <div className="row">
-                          <div className="card-child">Số lượng</div>
+                          <div className="card-child">{t("qty.label")}</div>
                           <div className="card-child">
                             <select
                               value={qty}
@@ -173,7 +174,7 @@ export default function ProductScreen(props) {
                           onClick={addToCartHandler}
                           className="primary block"
                         >
-                          Thêm vào giỏ hàng
+                          {t("tocart.label")}
                         </button>
                       </li>
                     </>
@@ -185,19 +186,19 @@ export default function ProductScreen(props) {
           <div className="lower-detailpage">
             <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
               <li className="nav-item" role="presentation">
-                <button className="nav-link active" id="pills-parameter-tab" data-bs-toggle="pill" data-bs-target="#pills-parameter" type="button" role="tab" aria-controls="pills-parameter" aria-selected="true">Thông số kỹ thuật</button>
+                <button className="nav-link active" id="pills-parameter-tab" data-bs-toggle="pill" data-bs-target="#pills-parameter" type="button" role="tab" aria-controls="pills-parameter" aria-selected="true">{t("parameter")}</button>
               </li>
               <li className="nav-item" role="presentation">
                 <button className="nav-link" id="pills-video-tab" data-bs-toggle="pill" data-bs-target="#pills-video" type="button" role="tab" aria-controls="pills-video" aria-selected="false">Video</button>
               </li>
               <li className="nav-item" role="presentation">
-                <button className="nav-link" id="pills-characteristic-tab" data-bs-toggle="pill" data-bs-target="#pills-characteristic" type="button" role="tab" aria-controls="pills-characteristic" aria-selected="false">Đặc tính nổi bật</button>
+                <button className="nav-link" id="pills-characteristic-tab" data-bs-toggle="pill" data-bs-target="#pills-characteristic" type="button" role="tab" aria-controls="pills-characteristic" aria-selected="false">{t("feature.label")}</button>
               </li>
               <li className="nav-item" role="presentation">
-                <button className="nav-link" id="pills-application-tab" data-bs-toggle="pill" data-bs-target="#pills-application" type="button" role="tab" aria-controls="pills-application" aria-selected="false">Ứng dụng</button>
+                <button className="nav-link" id="pills-application-tab" data-bs-toggle="pill" data-bs-target="#pills-application" type="button" role="tab" aria-controls="pills-application" aria-selected="false">{t("apply.label")}</button>
               </li>
               <li className="nav-item" role="presentation">
-                <button className="nav-link" id="pills-accessories-tab" data-bs-toggle="pill" data-bs-target="#pills-accessories" type="button" role="tab" aria-controls="pills-accessories" aria-selected="false">Phụ kiện</button>
+                <button className="nav-link" id="pills-accessories-tab" data-bs-toggle="pill" data-bs-target="#pills-accessories" type="button" role="tab" aria-controls="pills-accessories" aria-selected="false">{t("access.label")}</button>
               </li>
               <li className="nav-item" role="presentation">
                 <button className="nav-link" id="pills-download-tab" data-bs-toggle="pill" data-bs-target="#pills-download" type="button" role="tab" aria-controls="pills-download" aria-selected="false">Download</button>
@@ -222,4 +223,4 @@ export default function ProductScreen(props) {
      
     </div>
   );
-}
+})

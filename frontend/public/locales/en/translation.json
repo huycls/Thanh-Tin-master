@@ -1,13 +1,16 @@
 {
     "intro.label": "About us",
     "signin.label": "Sign in",
+    "logout.label": "Log out",
+    "pass.label": "Password",
     "category.label": "Categories",
     "news.label": "News",
     "video.label": "Video channel - New video",
     "support.label": "Online Support",
     "productbox.label": "New products",
-    "detailbtn.label": "Detail",
+
     "collectemail.label": "Enter email to receive latest news from us",
+    "send.label":"Send",
     "contact.label": "Contact Information",
     "company.label": "Thanh Tin Instrument And Chemical Co.LTD",
     "hcm.label": "Ho Chi Minh Office",
@@ -26,11 +29,14 @@
     "newproduct.label": "New Products",
     "noproduct.label": "No product found",
     "cart.label": "Cart",
-    "emtycart.label": "Emty cart",
+    "emptycart.label": "Cart is empty now. ",
     "buynow.label": "Shop now",
     "total.label": "Total",
     "productqty.label": "product",
     "submit.label": "Submit",
+
+    "emailus.label": "Email us",
+    "back.label": "Back",
     "price.label": "Price",
     "description.label": "Description",
     "status.label": "Status",
@@ -40,6 +46,17 @@
     "access.label": "Accessories",
     "apply.label": "Application",
     "tocart.label": "Add to cart",
+    "delete": "Delete",
+
+    "newuser.label": "Haven't have an account",
+    "registernow.label": "Register now",
+
+    "register.label":"Register",
+    "createuser": "Create account",
+    "name.label": "Name",
+    "repass.label": "Rewrite password",
+    "haveaccount": "Have an account",
+    "signinnow.label": "Sign in now",
 
     "brand.label": "Brand",
     "allpro.label": "All",
@@ -60,5 +77,16 @@
     "intro.li4": " Only provide branded and good quality equipment",
     "intro.li5": " Put customer's benefits and success first",
     "intro.li6": " For the success of our team of associates and partners",
-    "intro.p2": "We look forward to establishing relationships with all units at home and abroad in a spirit of cooperation for the prosperity of society and mutual benefit."  
+    "intro.p2": "We look forward to establishing relationships with all units at home and abroad in a spirit of cooperation for the prosperity of society and mutual benefit.",
+
+    "brand.label": "Manufacturer",
+    "detailbtn.label": "Detail",
+
+    "confirmorder": "Confirm Order",
+    "fullname": "Fullname",
+    "company": "Your company",
+    "address": "Your address",
+    "city": "Province/City",
+    "selected": "Selected",
+    "phone": "Phone number"
 }

@@ -5,8 +5,10 @@ import { signin } from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import {Helmet} from 'react-helmet';
+import { withNamespaces } from 'react-i18next';
 
-export default function SigninScreen(props) {
+export default withNamespaces((props) => props.namespaces) (function SigninScreen(props) {
+  const {t} = props;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -30,11 +32,11 @@ export default function SigninScreen(props) {
   return (
     <div>
       <Helmet>
-        <title>Đăng nhập</title>
+        <title>{t("signin.label")}</title>
       </Helmet>
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1>Sign In</h1>
+          <h1>{t("signin.label")}</h1>
         </div>
         {loading && <LoadingBox></LoadingBox>}
         {error && <MessageBox variant="danger">{error}</MessageBox>}
@@ -49,7 +51,7 @@ export default function SigninScreen(props) {
           ></input>
         </div>
         <div>
-          <label htmlFor="password">Mật khẩu</label>
+          <label htmlFor="password">{t("pass.label")}</label>
           <input
             type="password"
             id="password"
@@ -61,19 +63,19 @@ export default function SigninScreen(props) {
         <div>
           <label />
           <button className="primary" type="submit">
-            Đăng nhập
+            {t("submit.label")}
           </button>
         </div>
         <div>
           <label />
           <div>
-            Chưa có tài khoản?{' '}
+            {t("newuser.label")}?{' '}
             <Link to={`/dang-ky-tai-khoan?redirect=${redirect}`}>
-              Tạo tài khoản
+              {t("registernow.label")}
             </Link>
           </div>
         </div>
       </form>
     </div>
   );
-}
+})

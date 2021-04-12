@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CART_EMPTY } from '../constants/cartConstants';
 import {Link} from 'react-router-dom';
+import { withNamespaces } from 'react-i18next';
 
-export default function ShippingAddressScreen(props) {
- 
+export default withNamespaces((props) => props.namespaces) (function ShippingAddressScreen(props) {
+  const {t} = props;
   const cart = useSelector((state) => state.cart);
   const { shippingAddress } = cart;
   const [fullName, setFullName] = useState(shippingAddress.fullName);
@@ -42,10 +43,10 @@ export default function ShippingAddressScreen(props) {
     <div>
       <form className="form" id="form" onSubmit={submitHandler}>
         <div>
-          <h1>Gửi yêu cầu báo giá</h1>
+          <h1>{t("confirmorder")}</h1>
         </div>      
         <div>
-          <label htmlFor="fullName">Tên đầy đủ</label>
+          <label htmlFor="fullName">{t("fullname")}</label>
           <input
             name="Ten_khach_hang"
             type="text"
@@ -57,7 +58,7 @@ export default function ShippingAddressScreen(props) {
           ></input>
         </div>
         <div>
-          <label htmlFor="address">Tên công ty</label>
+          <label htmlFor="address">{t("company")}</label>
           <input
             name="Cong_ty"
             type="text"
@@ -69,7 +70,7 @@ export default function ShippingAddressScreen(props) {
           ></input>
         </div>
         <div>
-          <label htmlFor="address">Địa chỉ</label>
+          <label htmlFor="address">{t("address")}</label>
           <input
             name="Dia_chi"
             type="text"
@@ -81,7 +82,7 @@ export default function ShippingAddressScreen(props) {
           ></input>
         </div>
         <div>
-          <label htmlFor="city">Tỉnh/Thành phố</label>
+          <label htmlFor="city">{t("city")}</label>
           <input
             name="Thanh_pho"
             type="text"
@@ -105,7 +106,7 @@ export default function ShippingAddressScreen(props) {
           ></input>
         </div>
         <div>
-          <label htmlFor="phonenumber">Điện thoại</label>
+          <label htmlFor="phonenumber">{t("phone")}</label>
           <input
             name="SDT"
             type="tel"
@@ -118,7 +119,7 @@ export default function ShippingAddressScreen(props) {
         </div>
         <div>
           <ul>
-            <strong>Sản phẩm đang chọn:</strong>
+            <strong>{t("selected")}:</strong>
             {cart.cartItems.map(item => (
               <li key={item.product}>
                 <Link to={`/san-pham/${item.product}`}>{item.name}</Link>
@@ -129,10 +130,10 @@ export default function ShippingAddressScreen(props) {
         <div>
           <label />
           <button className="primary" id="submit-btn" type="submit">
-            Xác nhận
+           {t("submit.label")}
           </button>
         </div>
       </form>
     </div>
   );
-}
+})

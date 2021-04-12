@@ -1,14 +1,17 @@
 {
     "intro.label": "Giới thiệu",
     "signin.label": "Đăng nhập",
+    "logout.label": "Đăng xuất",
+    "pass.label": "Mật khẩu",
     "category.label": "Danh mục sản phẩm",
     "paper.label": "Thiết bị ngành giấy",
     "news.label": "Tin mới",
     "video.label": "Kênh Video - Video mới nhất",
     "support.label": "Hỗ trợ trực tuyến",
     "productbox.label": "Sản phẩm nổi bật",
-    "detailbtn.label": "Chi tiết",
+
     "collectemail.label": "Đăng ký email để nhận tin mới nhất",
+    "send.label": "Gửi",
     "contact.label": "Thông tin liên hệ",
     "company.label": "Công ty TNHH thiết bị và hóa chất Thành Tín",
     "hcm.label": "VP HCM",
@@ -26,11 +29,14 @@
     "newproduct.label": "Sản phẩm nổi bật",
     "noproduct.label": "Không tìm thấy sản phẩm",
     "cart.label": "Giỏ hàng",
-    "emtycart.label": "Giỏ hàng đang trống",
+    "emptycart.label": "Giỏ hàng đang trống",
     "buynow.label": "Mua hàng ngay",
     "total.label": "Tổng cộng",
     "productqty.label": "sản phẩm",
     "submit.label": "Xác nhận",
+
+    "emailus.label": "Liên hệ email",
+    "back.label": "Trở lại",
     "price.label": "Giá",
     "description.label": "Mô tả",
     "status.label": "Trạng thái",
@@ -42,6 +48,16 @@
     "tocart.label": "Thêm vào giỏ hàng",
     "delete": "Xóa",
 
+    "newuser.label": "Chưa có tài khoản",
+    "registernow.label": "Đăng ký tài khoản ngay",
+
+    "createuser": "Tạo tài khoản",
+    "name.label": "Tên",
+    "repass.label": "Nhập lại mật khẩu",
+    "haveaccount": "Đã có tài khoản",
+    "signinnow.label": "Đăng nhập ngay",
+
+    "register.label": "Đăng ký tài khoản",
     "brand.label": "Hãng sản xuất",
     "allpro.label": "Tất cả",
     "result.label": "Kết quả tìm kiếm",
@@ -61,5 +77,17 @@
     "intro.li4": " Chỉ cung cấp thiết bị có thương hiệu và chất lượng tốt",
     "intro.li5": " Đặt lợi ích khách hàng và thành công khách hàng trước tiên",
     "intro.li6": " Vì sự thành công của đội ngũ cộng sự và đối tác",
-    "intro.p2": " Chúng tôi mong muốn được thiết lập mối quan hệ với tất cả các đơn vị trong và ngoài nước trên tinh thần hợp tác vì sự phồn vinh của xã hội và đôi bên cùng có lợi."
+    "intro.p2": " Chúng tôi mong muốn được thiết lập mối quan hệ với tất cả các đơn vị trong và ngoài nước trên tinh thần hợp tác vì sự phồn vinh của xã hội và đôi bên cùng có lợi.",
+
+    "brand.label": "Hãng sản xuất",
+    "detailbtn.label": "Chi tiết",
+
+    "confirmorder": "Gửi yêu cầu báo giá",
+    "fullname": "Tên đầy đủ",
+    "company": "Tên công ty",
+    "address": "Địa chỉ",
+    "city": "Tỉnh/Thành phố",
+    "selected": "Sản phẩm đã chọn",
+    "phone": "Số điện thoại"
+
 }
