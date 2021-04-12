@@ -1,20 +1,21 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {Helmet} from 'react-helmet';
+import { withNamespaces } from 'react-i18next';
 
 
 
-function Allnews(){
+function Allnews({t}){
     return <div className="allnewspage">
         <Helmet>
             <title>Tin tức - Công ty TNHH thiết bị và hóa chất Thành Tín</title>
         </Helmet>
         <div className="d-flex align-items-start">
             <div className="nav flex-column nav-pills me-3 nav-news" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <h3><i class="fas fa-bars"></i> Danh mục tin</h3>
-                <button className="nav-link news-nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Tin tức</button>
-                <button className="nav-link news-nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Ứng dụng</button>
-                <button className="nav-link news-nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Giải pháp</button>
+                <h3><i class="fas fa-bars"></i>{t("newsmenu")}</h3>
+                <button className="nav-link news-nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">{t("news.label")}</button>
+                <button className="nav-link news-nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">{t("apply.label")}</button>
+                <button className="nav-link news-nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">{t("solution")}</button>
             </div>
             <div className="tab-content tab-news" id="v-pills-tabContent">
                 <div className="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
@@ -58,7 +59,7 @@ function Allnews(){
                                 <img src="./images/logo.png" alt="news-bla" />
                             </Link> 
                         </div>
-                        <Link className="newscomponent-title">Giải pháp</Link>                      
+                        <Link className="newscomponent-title">{t("solution")}</Link>                      
                     </div>
                     <div className="news-component">
                         <div className="newscomponent-content">
@@ -123,4 +124,4 @@ function Allnews(){
         </div>
     </div>
 }
-export default Allnews;
+export default withNamespaces()(Allnews);

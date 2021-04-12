@@ -44,7 +44,7 @@
     "parameter.label": "Parameter",
     "feature.label": "Features",
     "access.label": "Accessories",
-    "apply.label": "Application",
+    "apply.label": "Applications",
     "tocart.label": "Add to cart",
     "delete": "Delete",
 
@@ -88,5 +88,9 @@
     "address": "Your address",
     "city": "Province/City",
     "selected": "Selected",
-    "phone": "Phone number"
+    "phone": "Phone number",
+
+    "newstitle": "News - Thanh Tin Tech Instrument And Chemical Co.LTD",
+    "newsmenu": "News Menu",
+    "solution": "Solutions"
 }
