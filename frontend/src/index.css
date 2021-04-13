@@ -181,7 +181,7 @@ a.brand img{
 .navbar{
   background-color: #007a37;
   padding: 0 7rem;
-  z-index: 20;
+  z-index: 5;
 }
 
 .navbar .fas{
