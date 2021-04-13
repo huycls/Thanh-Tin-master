@@ -118,13 +118,7 @@ export default function SearchScreen( props) {
         <title>{titlesearch} - {category}</title>
       </Helmet>
       <div className="rowe">
-        {loading ? (
-          <LoadingBox></LoadingBox>
-        ) : error ? (
-          <MessageBox variant="danger">{error}</MessageBox>
-        ) : (
-          <div className="search-result">{products.length} Kết quả tìm kiếm</div>
-        )}
+       
         {/* <div>
           Sort by{' '}
           <select
@@ -147,7 +141,7 @@ export default function SearchScreen( props) {
             ) : errorBrands ? (
               <MessageBox variant="danger">{errorBrands}</MessageBox>
             ) : ( */}
-              <ul>
+              <ul className="subcategory-container">
                 <li>
                   <Link
                     className={'all' === brand ? 'active' : ''}
@@ -162,24 +156,19 @@ export default function SearchScreen( props) {
                       className={c === brand ? 'active' : ''}
                       to={getFilterUrl({ brand: c })}
                     >
-                      {c} <i className="fas fa-chevron-right"></i>
+                      {c.toLowerCase().replace(/(^|\s)\S/g, L => L.toUpperCase())}
                     </Link>
                   </li>
                 ))}
-              </ul>   
-         <div className="application">
-            <h3>Ứng dụng</h3>
-            <ul>
-              {applies.map((c)=>(
-                <li key={c}>
-                  <Link to="#">
-                   
-                  </Link>
-                </li>           
-              ))}
-            </ul>
-          </div>          
+              </ul>        
         </div>
+        {loading ? (
+          <LoadingBox></LoadingBox>
+        ) : error ? (
+          <MessageBox variant="danger">{error}</MessageBox>
+        ) : (
+          <div className="search-result">{products.length} Kết quả tìm kiếm</div>
+        )}
         <div className="search-box">
           {loading ? (
             <LoadingBox></LoadingBox>

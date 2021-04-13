@@ -29,7 +29,7 @@ export default withNamespaces() (function HomeScreen({t}) {
     // dispatch(listTopSellers());
    }, [dispatch]);
   return (
-    <div className="rowe">
+    <div>
     <Helmet>
       <title>{t("title.label")}</title>
     </Helmet>
@@ -77,48 +77,6 @@ export default withNamespaces() (function HomeScreen({t}) {
               </div>
             </div>   
           )}
-        </div>
-      </div>
-      <div className="sidebar">
-      <div className="news"> 
-          <div className="news-title"><i className="fas fa-chevron-right"></i> <Link to="/tat-ca-tin-tuc">{t("news.label")}</Link></div>
-          <div className="news-content">
-            <Link to="/cong-ty-thanh-tin-la-nha-phan-phoi-chinh-thuc-cho-hang-mettler-toledo">
-              <p>
-                <i className="fas fa-chevron-right"></i>Công ty Thành Tín là nhà phân
-                phối chính thức cho dòng cân HE/TLE/HE của hãng METTLER TOLEDO (Thụy
-                Sỹ)
-              </p>
-            </Link>
-            <Link to="thong-bao-thay-doi-ten-giao-dich">
-              <p>
-                <i className="fas fa-chevron-right"></i>Thông báo thay đổi tên giao dịch
-              </p>
-            </Link>
-            <Link to="analytica-viet-nam-2013">
-              <p>
-                <i className="fas fa-chevron-right"></i>ANALYTICA VIETNAM 2013 TRIỂN LÃM QUỐC TẾ LẦN THỨ 3 VỀ CÔNG NGHỆ THÍ NGHIỆM, PHÂN TÍCH, CÔNG NGHỆ SINH HỌC VÀ CHẨN ĐOÁN
-              </p>
-            </Link>
-            <Link to="tuyen-nhan-vien-kinh-doanh">
-              <p>
-                <i className="fas fa-chevron-right"></i>Tuyển nhân viên kinh doanh
-              </p>
-            </Link>        
-          </div>
-        </div>
-        <div className="sidebar-title">
-          <a href="https://www.youtube.com/channel/UCWvi8FoZbVU-PMQHDsYC5pQ/featured" target="_blank">{t("video.label")}</a>
-        </div>
-        <div className="sidebar-content">
-          <iframe src="https://www.youtube.com/embed/xjndBrxqtzU" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-        </div>
-        <div className="sidebar-title">
-          <a href="#">{t("support.label")}</a>
-        </div>
-        <div className="sidebar-content">
-          <h3>Zalo  0988 816 815</h3>
-          <img src="./images/hotline.png" />           
         </div>
       </div>
     </div>

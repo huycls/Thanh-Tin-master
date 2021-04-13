@@ -14,10 +14,6 @@ function NewsScreen(props){
                 </li>
             </ul>
         </div> */}
-        <div className="news-sidebar">
-            <a href="javascript:history.back()"><i className="fas fa-long-arrow-alt-left"></i> Back </a>
-            <Link className="toallnews" to="/tat-ca-tin-tuc"> <i className="fas fa-chevron-right"></i> Tất cả tin</Link>
-        </div>
         <div className="news-content">
             <h1>CÔNG TY THÀNH TÍN LÀ NHÀ PHÂN PHỐI CHÍNH THỨC CHO DÒNG CÂN ME/TLE/HE CỦA HÃNG METTLER TOLEDO (THỤY SỸ)</h1>
             <small>15:11 16-1-2014</small>

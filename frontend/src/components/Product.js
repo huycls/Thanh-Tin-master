@@ -40,7 +40,8 @@ export default withNamespaces((props) => props.namespaces) (function Product(pro
   const urlname = removeVietnameseTones(name).toLowerCase()
                       .split(" ")
                       .join("-");
-                
+  let brand = product.brand;
+  const custombrand = brand.toLowerCase().replace(/(^|\s)\S/g, L => L.toUpperCase())             
   return (
     <div key={product._id} className="card product-card">
       <Link className="card-header" to={`/san-pham/${product._id}/${urlname}`}>
@@ -52,7 +53,7 @@ export default withNamespaces((props) => props.namespaces) (function Product(pro
         </Link>
         <div className="row">
           <div className="product-model"><strong>Model: </strong> {product.model}</div>
-          <div className="product-brand"><strong>{t("brand.label")} </strong> {product.brand}</div>
+          <div className="product-brand"><strong>{t("brand.label")}: </strong> {custombrand}</div>
         </div>
         <Link className="details-btn" to={`/san-pham/${product._id}/${urlname}`}>
           {t("detailbtn.label")}

@@ -8,11 +8,6 @@ function NewsScreen1(props){
     <Helmet>
         <title>THÔNG BÁO THAY ĐỔI TÊN GIAO DỊCH - Công ty TNHH thiết bị và hóa chất Thành Tín</title>
     </Helmet>
-     <div className="news-sidebar">
-            <a href="javascript:history.back()"><i className="fas fa-long-arrow-alt-left"></i> Back </a>
-            <Link className="toallnews" to="/tat-ca-tin-tuc"> <i className="fas fa-chevron-right"></i> Tất cả tin</Link>
-        </div>
-        
         <div className="news-content">
             <h1>THÔNG BÁO THAY ĐỔI TÊN GIAO DỊCH</h1>
             <p>Thông báo thay đổi tên giao dịch: Kể từ ngày 29/07/13 Công ty TNHH TM DV XD Kỹ Thuật Thành Tín sẽ thay bằng tên Công ty TNHH Thiết Bị và Hóa Chất Thành Tín. Xin thông báo đến Quý khách hàng cũng như các đơn vị có giao dịch với công ty được rỏ.

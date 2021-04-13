@@ -22,7 +22,7 @@ const productSchema = new mongoose.Schema(
     parameter: { type: String, required: true },
     video: { type: String, required: false },
     catalog: { type: String, required: false },
-    price: { type: Number, required: true },
+    price: { type: String, required: true },
     countInStock: { type: Number, required: true },
     rating: { type: Number, required: true },
     numReviews: { type: Number, required: true },

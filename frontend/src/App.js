@@ -25,11 +25,17 @@ import SellerScreen from './screens/SellerScreen';
 import SearchBox from './components/SearchBox';
 import SearchScreen from './screens/SearchScreen';
 // import MapScreen from './screens/MapScreen';
+import ContactScreen from './screens/ContactScreen';
 import NewsScreen from './screens/NewsScreen';
 import NewsScreen1 from './screens/NewsScreen1';
 import NewsScreen2 from './screens/NewsScreen2';
 import NewsScreen3 from './screens/NewsScreen3';
-import SolutionScreen from './screens/SolutionScreen';
+import Allservices from './screens/Allservices';
+import Service1Screen from './screens/Service1Screen';
+import Service2Screen from './screens/Service2Screen';
+import Service3Screen from './screens/Service3Screen';
+import Service4Screen from './screens/Service4Screen';
+// import SolutionScreen from './screens/SolutionScreen';
 import NewsProduct from './screens/NewsProduct';
 import IntroScreen from './screens/IntroScreen';
 import Allnews from './screens/AllNews';
@@ -41,6 +47,7 @@ import MessageBox from './components/MessageBox';
 import Helmet from 'react-helmet';
 import { withNamespaces } from 'react-i18next';
 import i18n from './i18n';
+import {Navbar, Nav, NavDropdown} from 'react-bootstrap';
 
 
 function App({t}) {
@@ -66,6 +73,10 @@ function App({t}) {
   }, [dispatch]);
   function dropdownmenu() {
       document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    function dropdownmenu2() {
+      document.getElementById("myDropdown2").classList.toggle("show");
     }
   function dropdownresmenu(){
     document.getElementById('dropdown-responsivemenu').classList.toggle("show");
@@ -135,6 +146,7 @@ function App({t}) {
     function handleChangeLang(lang){
       i18n.changeLanguage(lang)
     }
+    
   return (
     <BrowserRouter>
       <div className="grid-container"> 
@@ -153,7 +165,7 @@ function App({t}) {
             </div>
           </div>
         <button id="scrolltotop" onClick={scrollToTop}><i className="fas fa-chevron-up"></i></button>
-        <header className="navbar" id="navbar">      
+        <header className="nav-bar" id="navbar">      
           <div className="lower-nav">
             <div>
               <Link className="brand" to="/">
@@ -176,11 +188,7 @@ function App({t}) {
                 )}
               </Link>
             </div>
-            <button className="menu-responsive" onClick={dropdownresmenu}>
-              Menu  <i className="fas fa-ellipsis-v menu-icon"></i>
-            </button>
-            <div className="menu-container"  id="dropdown-responsivemenu">            
-              <Link to="/gioi-thieu">{t("intro.label")}</Link>
+            <div className="menu-container" >                          
               {userInfo ? (
                 <div className="dropdown">
                   <Link to="#">
@@ -241,154 +249,190 @@ function App({t}) {
               )}
             </div>
           </div>
-        </header> 
+          <Navbar bg="#007a37" expand="lg" variant="dark">
+            <Navbar.Toggle aria-controls="basic-navbar-nav"  />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav  className="mr-auto">
+                <Nav.Link href="/"><i class="fas fa-home"></i> {t("home.label")}</Nav.Link>
+                <Nav.Link href="/gioi-thieu">{t("intro.label")}</Nav.Link>
+                <Nav.Link href="/tat-ca-dich-vu">{t("service.label")}</Nav.Link>
+                <Nav.Link href="/thong-tin-lien-he">{t("contactnav")}</Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
+          </Navbar>
+        </header>        
         <main>
-            {/* <button onClick={dropdownmenu} className="dropbtn">
-              <i className="fas fa-bars"></i>Danh mục sản phẩm
-            </button> */}
-            {/* <div id="myDropdown" className="dropdownmenu-content">
-              <div className="dropdown-large row">
-                <div className="row">
-                {categories1.map(category => (
-                    <li key={category}>
+          <aside className="sidebar">
+            <div className="news"> 
+              <div className="news-title"><Link to="/tat-ca-tin-tuc">{t("news.label")}</Link><button onClick={dropdownmenu} className="resdropdown-btn"><i className="fas fa-sort-down"></i></button></div>
+              <div className="news-content"  id="myDropdown">
+                <Link to="/cong-ty-thanh-tin-la-nha-phan-phoi-chinh-thuc-cho-hang-mettler-toledo">
+                  <p>
+                    <i className="fas fa-chevron-right"></i>Công ty Thành Tín là nhà phân
+                    phối chính thức cho dòng cân HE/TLE/HE của hãng METTLER TOLEDO (Thụy
+                    Sỹ)
+                  </p>
+                </Link>
+                <Link to="thong-bao-thay-doi-ten-giao-dich">
+                  <p>
+                    <i className="fas fa-chevron-right"></i>Thông báo thay đổi tên giao dịch
+                  </p>
+                </Link>
+                <Link to="analytica-viet-nam-2013">
+                  <p>
+                    <i className="fas fa-chevron-right"></i>ANALYTICA VIETNAM 2013 TRIỂN LÃM QUỐC TẾ LẦN THỨ 3 VỀ CÔNG NGHỆ THÍ NGHIỆM, PHÂN TÍCH, CÔNG NGHỆ SINH HỌC VÀ CHẨN ĐOÁN
+                  </p>
+                </Link>
+                <Link to="tuyen-nhan-vien-kinh-doanh">
+                  <p>
+                    <i className="fas fa-chevron-right"></i>Tuyển nhân viên kinh doanh
+                  </p>
+                </Link>        
+              </div>
+            </div>
+            <strong className="category">{t("category.label")} <button onClick={dropdownmenu2} className="resdropdown-btn"><i className="fas fa-sort-down"></i></button></strong>
+            <ul className="category-menu" id="myDropdown2">
+              {loadingCategories ? (
+                <LoadingBox></LoadingBox>
+              ) : errorCategories ? (
+                <MessageBox variant="danger">{errorCategories}</MessageBox>
+              ) : (
+                categories.map(category => (          
+                  <li key={category}>
                       <Link
                         to={`/search/category/${category}`}
                         onClick={() => setSidebarIsOpen(false)}
                       >
-                        {category}
+                        {category.toUpperCase()} 
                       </Link>
-                    </li>
-                  ))
-                }              
-                </div>               
-              </div>
-            </div> */}
-            <button onClick={dropdownmenu} className="dropbtn">
-              <i className="fas fa-bars"></i>{t("category.label")}
-            </button>
-            <div id="myDropdown" className="dropdownmenu-content">
-            <ul>
-            {loadingCategories ? (
-              <LoadingBox></LoadingBox>
-            ) : errorCategories ? (
-              <MessageBox variant="danger">{errorCategories}</MessageBox>
-            ) : (
-              categories.map(category => (          
-                <li key={category}>
-                    <Link
-                      to={`/search/category/${category}`}
-                      onClick={() => setSidebarIsOpen(false)}
-                    >
-                      {category.toUpperCase()} 
-                    </Link>
-                  </li>              
-              ))
-            )}
-              </ul>
-            </div>
-          <Route path="/tat-ca-tin-tuc" component={Allnews}></Route>
-          <Route path="/gioi-thieu" component={IntroScreen}></Route>
-          <Route path="/tin-san-pham-moi" component={NewsProduct}></Route>
-          <Route path="/giai-phap" component={SolutionScreen}></Route>
-          <Route path="/cong-ty-thanh-tin-la-nha-phan-phoi-chinh-thuc-cho-hang-mettler-toledo" component={NewsScreen}></Route>
-          <Route path="/thong-bao-thay-doi-ten-giao-dich" component={NewsScreen1}></Route>
-          <Route path="/analytica-viet-nam-2013" component={NewsScreen2}></Route>
-          <Route path="/tuyen-nhan-vien-kinh-doanh" component={NewsScreen3}></Route>
-          <Route path="/seller/:id" component={SellerScreen}></Route>
-          <Route path="/gio-hang/:id?" component={CartScreen}></Route>
-          <Fragment>
-            <ScrollToTop />
-            <Route path="/san-pham/:id" component={ProductScreen}></Route>
-            {/*exact path*/}
-          </Fragment>
-          <Route
-            path="/san-pham/:id/edit"
-            component={ProductEditScreen}
-            exact
-          ></Route>
-          <Route path="/dang-nhap" component={SigninScreen}></Route>
-          <Route path="/dang-ky-tai-khoan" component={RegisterScreen}></Route>
-          <Route path="/yeu-cau-bao-gia" component={ShippingAddressScreen}></Route>
-          {/* <Route path="/payment" component={PaymentMethodScreen}></Route>
-          <Route path="/placeorder" component={PlaceOrderScreen}></Route> */}
-          {/* <Route path="/order/:id" component={OrderScreen}></Route> */}
-          {/* <Route path="/orderhistory" component={OrderHistoryScreen}></Route> */}
-          <Route
-            path="/search/name/:name?"
-            component={SearchScreen}
-            exact
-          ></Route>
-          <Route
-            path="/search/category/:category"
-            component={SearchScreen}
-            // exact
-          ></Route>
-          {/* <Route
-            path="/search/category/:subcategory"
-            component={SearchScreen}
-            exact>
-          </Route>  */}
-          <Route
-            path="/search/category/:category/brand/:brand"
-            component={SearchScreen}
-             exact
-          ></Route>
-          <Route
-            path="/search/category/:category/brand/:brand/name/:name"
-            component={SearchScreen}
-            exact
-          ></Route>
-          {/* <Route
-            path="/search/category/:category/name/:name"
-            component={SearchScreen}
-            exact
-          ></Route> */}
-          <Fragment>
-            <ScrollToTop />
-            <Route
-            path="/search/category/:category/brand/:brand/name/:name/pageNumber/:pageNumber"
-            component={SearchScreen}
-             exact
-            ></Route>
-          </Fragment>        
-          <PrivateRoute
-            path="/profile"
-            component={ProfileScreen}
-          ></PrivateRoute>
-          {/* <PrivateRoute path="/map" component={MapScreen}></PrivateRoute> */}
-          <AdminRoute
-            path="/productlist"
-            component={ProductListScreen}
-            exact
-          ></AdminRoute>
-          <Fragment>
+                    </li>              
+                ))
+              )}
+            </ul>
             
+            <div className="sidebar-title res">
+              <a href="https://www.youtube.com/channel/UCWvi8FoZbVU-PMQHDsYC5pQ/featured" target="_blank">{t("video.label")}</a>
+            </div>
+            <div className="sidebar-content res">
+              <iframe src="https://www.youtube.com/embed/xjndBrxqtzU" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+            </div>
+            <div className="sidebar-title res">
+              <a href="#">{t("support.label")}</a>
+            </div>
+            <div className="sidebar-content res">
+              <h3>Zalo  0988 816 815</h3>
+              <img src="./images/hotline.png" />           
+            </div>
+          </aside>
+           
+          <div className="main-content">
+            <Route path="/dich-vu-ho-tro-online" component={Service4Screen}></Route>
+            <Route path="/dich-vu-hieu-chuan" component={Service3Screen}></Route>
+            <Route path="/dich-vu-chuan-doan-va-sua-chua" component={Service2Screen}></Route>
+            <Route path="/dich-vu-bao-tri" component={Service1Screen}></Route>
+            <Route path="/tat-ca-dich-vu" component={Allservices}></Route>
+            <Route path="/thong-tin-lien-he" component={ContactScreen}></Route>
+            <Route path="/tat-ca-tin-tuc" component={Allnews}></Route>
+            <Route path="/gioi-thieu" component={IntroScreen}></Route>
+            <Route path="/tin-san-pham-moi" component={NewsProduct}></Route>
+            {/* <Route path="/giai-phap" component={SolutionScreen}></Route> */}
+            <Route path="/cong-ty-thanh-tin-la-nha-phan-phoi-chinh-thuc-cho-hang-mettler-toledo" component={NewsScreen}></Route>
+            <Route path="/thong-bao-thay-doi-ten-giao-dich" component={NewsScreen1}></Route>
+            <Route path="/analytica-viet-nam-2013" component={NewsScreen2}></Route>
+            <Route path="/tuyen-nhan-vien-kinh-doanh" component={NewsScreen3}></Route>
+            <Route path="/seller/:id" component={SellerScreen}></Route>
+            <Route path="/gio-hang/:id?" component={CartScreen}></Route>
+            <Fragment>
+              <ScrollToTop />
+              <Route path="/san-pham/:id" component={ProductScreen}></Route>
+              {/*exact path*/}
+            </Fragment>
+            <Route
+              path="/san-pham/:id/edit"
+              component={ProductEditScreen}
+              exact
+            ></Route>
+            <Route path="/dang-nhap" component={SigninScreen}></Route>
+            <Route path="/dang-ky-tai-khoan" component={RegisterScreen}></Route>
+            <Route path="/yeu-cau-bao-gia" component={ShippingAddressScreen}></Route>
+          
+            <Route
+              path="/search/name/:name?"
+              component={SearchScreen}
+              exact
+            ></Route>
+            <Route
+              path="/search/category/:category"
+              component={SearchScreen}
+               exact
+            ></Route>
+            {/* <Route
+              path="/search/category/:subcategory"
+              component={SearchScreen}
+              exact>
+            </Route>  */}
+            <Route
+              path="/search/category/:category/brand/:brand"
+              component={SearchScreen}
+              exact
+            ></Route>
+            <Route
+              path="/search/category/:category/brand/:brand/name/:name"
+              component={SearchScreen}
+              exact
+            ></Route>
+            {/* <Route
+              path="/search/category/:category/name/:name"
+              component={SearchScreen}
+              exact
+            ></Route> */}
+            <Fragment>
+              <ScrollToTop />
+              <Route
+              path="/search/category/:category/brand/:brand/name/:name/pageNumber/:pageNumber"
+              component={SearchScreen}
+              exact
+              ></Route>
+            </Fragment>        
+            <PrivateRoute
+              path="/profile"
+              component={ProfileScreen}
+            ></PrivateRoute>
+            {/* <PrivateRoute path="/map" component={MapScreen}></PrivateRoute> */}
             <AdminRoute
-            path="/productlist/pageNumber/:pageNumber"
-            component={ProductListScreen}
-            exact
-          ></AdminRoute>
-          <ScrollToTop />
-          </Fragment>         
-          {/* <AdminRoute
-            path="/orderlist"
-            component={OrderListScreen}
-            exact
-          ></AdminRoute> */}
-          <AdminRoute path="/userlist" component={UserListScreen}></AdminRoute>
-          <AdminRoute
-            path="/user/:id/edit"
-            component={UserEditScreen}
-          ></AdminRoute>
-          <SellerRoute
-            path="/productlist/seller"
-            component={ProductListScreen}
-          ></SellerRoute>
-          {/* <SellerRoute
-            path="/orderlist/seller"
-            component={OrderListScreen}
-          ></SellerRoute> */}
-          <Route path="/" component={HomeScreen} exact></Route>
+              path="/productlist"
+              component={ProductListScreen}
+              exact
+            ></AdminRoute>
+            <Fragment>
+              
+              <AdminRoute
+              path="/productlist/pageNumber/:pageNumber"
+              component={ProductListScreen}
+              exact
+            ></AdminRoute>
+            <ScrollToTop />
+            </Fragment>         
+            {/* <AdminRoute
+              path="/orderlist"
+              component={OrderListScreen}
+              exact
+            ></AdminRoute> */}
+            <AdminRoute path="/userlist" component={UserListScreen}></AdminRoute>
+            <AdminRoute
+              path="/user/:id/edit"
+              component={UserEditScreen}
+            ></AdminRoute>
+            <SellerRoute
+              path="/productlist/seller"
+              component={ProductListScreen}
+            ></SellerRoute>
+            {/* <SellerRoute
+              path="/orderlist/seller"
+              component={OrderListScreen}
+            ></SellerRoute> */}
+            <Route path="/" component={HomeScreen} exact></Route>
+          </div>
           <div className="collect-email">
             <p>{t("collectemail.label")}</p>
             <form id="form"  method="GET" action="https://script.google.com/macros/s/AKfycbyTSr30R7jPcxOqEYFOuxNOjvKeKWCmBqN2tnnRYTrXPnOElveM/exec">

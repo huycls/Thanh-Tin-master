@@ -1,4 +1,8 @@
 {
+
+    "home.label":"Trang chủ",
+    "service.label": "Dịch vụ",
+    "contactnav": "Liên hệ",
     "intro.label": "Giới thiệu",
     "signin.label": "Đăng nhập",
     "logout.label": "Đăng xuất",
@@ -6,7 +10,7 @@
     "category.label": "Danh mục sản phẩm",
     "paper.label": "Thiết bị ngành giấy",
     "news.label": "Tin mới",
-    "video.label": "Kênh Video - Video mới nhất",
+    "video.label": "Kênh Video ",
     "support.label": "Hỗ trợ trực tuyến",
     "productbox.label": "Sản phẩm nổi bật",
 
@@ -34,6 +38,8 @@
     "total.label": "Tổng cộng",
     "productqty.label": "sản phẩm",
     "submit.label": "Xác nhận",
+    "instock": "Còn hàng ",
+    "outofstock": "Hết hàng",
 
     "emailus.label": "Liên hệ email",
     "back.label": "Trở lại",

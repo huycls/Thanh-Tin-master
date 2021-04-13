@@ -2,12 +2,11 @@ import React from 'react';
 import { withNamespaces } from 'react-i18next';
 
 function IntroScreen({t}){
-    return <div className="intro-page">
-        
+    return <div className="intro-page">      
         <div className="intro-content">
         <h1><img className="intro-image" src="../images/logofavico.jpg" alt="intro"></img>{t("intro.label")}</h1>
         <small>15-1-2020, 4:51 pm</small>
-            <p><span><strong className="company-name">{t("company.label")}</strong>{t("intro.p1")}</span></p>
+            <p><span><strong className="company-name">{t("company.label")}</strong> {t("intro.p1")}</span></p>
             <ul>
                 <li><i className="fas fa-chevron-right"></i>{t("intro.l1")}</li>
                 <li><i className="fas fa-chevron-right"></i>{t("intro.l2")}</li>
@@ -33,7 +32,7 @@ function IntroScreen({t}){
         <div className="introinfo-field">
         <div className="intro-info">
             <strong className="company-name">{t("contact.label")}</strong>
-            <p><strong className="office-name">{t("hcm.label")}</strong>{t("hcmadd.label")}</p>
+            <p><strong className="office-name">{t("hcm.label")}: </strong>{t("hcmadd.label")}</p>
             <p><strong>{t("phone.label")}</strong>(028) 36 360 901</p>
             <p><span><strong>Fax: </strong>(028) 36 360 902  <strong>{t("mst.label")}</strong>0311941553</span></p>
             <p><strong>{t("sale.label")} </strong><a href="mailto:sales@thanhtin-tech.com">sales@thanhtin-tech.com</a>   </p>
