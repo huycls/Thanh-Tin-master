@@ -13,16 +13,21 @@ import {CKEditor} from '@ckeditor/ckeditor5-react';
 export default function ProductEditScreen(props) {
   const productId = props.match.params.id;
   const [name, setName] = useState('');
+  const [enname, setEnname] = useState('');
   const [price, setPrice] = useState('');
   const [image, setImage] = useState('');
   const [category, setCategory] = useState('');
+  const [encategory, setEncategory] = useState('');
   const [subcategory, setSubcategory] = useState('');
   const [parameter, setParameter] = useState('');
+  const [enparameter, setEnparameter] = useState('');
   const [video, setVideo] = useState('');
   const [catalog, setCatalog] = useState('');
   const [countInStock, setCountInStock] = useState('');
   const [brand, setBrand] = useState('');
+  const [vnbrand, setVnbrand] = useState('');
   const [description, setDescription] = useState('');
+  const [endescription, setEndescription] = useState('');
   const [model, setModel] = useState('');
 
   const productDetails = useSelector((state) => state.productDetails);
@@ -45,16 +50,21 @@ export default function ProductEditScreen(props) {
       dispatch(detailsProduct(productId));
     } else {
       setName(product.name);
+      setEnname(product.enname);
       setPrice(product.price);
       setImage(product.image);
       setCategory(product.category);
+      setEncategory(product.encategory);
       setSubcategory(product.subcategory);
       setParameter(product.parameter);
+      setEnparameter(product.enparameter);
       setVideo(product.video);
       setCatalog(product.catalog);
       setCountInStock(product.countInStock);
       setBrand(product.brand);
+      setVnbrand(product.vnbrand);
       setDescription(product.description);
+      setEndescription(product.endescription);
       setModel(product.model);
     }
   }, [product, dispatch, productId, successUpdate, props.history]);
@@ -65,17 +75,22 @@ export default function ProductEditScreen(props) {
       updateProduct({
         _id: productId,
         name,
+        enname,
         price,
         image,
         category,
+        encategory,
         subcategory,
         parameter,
+        enparameter,
         model,
         video,
         catalog,
         brand,
+        vnbrand,
         countInStock,
         description,
+        endescription,
       })
     );
   };
@@ -164,6 +179,16 @@ export default function ProductEditScreen(props) {
               ></input>
             </div>
             <div>
+              <label htmlFor="enname">Tên sản phẩm (English) </label>
+              <input
+                id="enname"
+                type="text"
+                placeholder="Enter enname"
+                value={enname}
+                onChange={(e) => setEnname(e.target.value)}
+              ></input>
+            </div>
+            <div>
               <label htmlFor="price">Giá (VNĐ)</label>
               <input
                 id="price"
@@ -205,40 +230,63 @@ export default function ProductEditScreen(props) {
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 ></input>
-              {/* <select id="category" className="form-select" value={category} onChange={(e) => setCategory(e.target.value)} aria-label="Default select example">
-                <option defaultValue="Lò nung">Lò nung</option>
-                <option value="Máy ly tâm">Máy ly tâm</option>
-                <option value="Máy đo">Máy đo</option>
-                <option value="Máy hấp tiệt trùng">Máy hấp tiệt trùng</option>
-                <option value="Các loại tủ đựng">Các loại tủ đựng</option>
-                <option value="Tủ sấy">Tủ sấy</option>
-              </select> */}
             </div>
-              <div>
+            <div>
+              <label htmlFor="encategory">Category (English) </label>
+               <input
+                id="encategory"
+                type="text"
+                placeholder="Enter encategory"
+                value={encategory}
+                onChange={(e) => setEncategory(e.target.value)}
+                ></input>
+            </div>
+            <div>
                 <label htmlFor="subcategory">Subcategory</label>
                 <input id="subcategory" className="form-select" value={removeVietnameseTones(category).toLowerCase().split(" ").join("-")} onChange={(e) => setSubcategory(e.target.value)} aria-label="Default select example">            
                 </input>
-              </div>
+            </div>
             <div>
-              <label htmlFor="brand">Hãng sản xuất</label>
-              <select id="brand" className="form-select" value={brand} onChange={(e) => setBrand(e.target.value)} aria-label="Default select example">
-                <option defaultValue="ALP - JAPAN">ALP - JAPAN</option>
-                <option value="EMCO - GERMANY">EMCO - GERMANY</option>
+              <label htmlFor="vnbrand">Hãng sản xuất</label>
+              <select id="vnbrand" className="form-select" value={vnbrand} onChange={(e) => setVnbrand(e.target.value)} aria-label="Default select example">
+                <option defaultValue="ALP - JAPAN">ALP - Nhật Bản</option>
+                <option value="EMCO - Đức">EMCO - Đức</option>
                 <option value="CONSORT">CONSORT</option>
-                <option value="DOSER - GERMANY">DOSER - GERMANY</option>
-                <option value="PNSHAR - CHINA">PNSHAR - CHINA</option>
-                <option value="KRUSS - GERMANY">KRUSS - GERMANY</option>
-                <option value="PTA - EUROPE">PTA - EUROPE</option>
-                <option value="COMETECH - TAIWAN">COMETECH - TAIWAN</option>
-                <option value="NABERTHERM - GERMANY">NABERTHERM - GERMANY</option>
+                <option value="DOSER - Đức">DOSER - Đức</option>
+                <option value="PNSHAR - Trung Quốc">PNSHAR - Trung Quốc</option>
+                <option value="KRUSS - Đức">KRUSS - Đức</option>
+                <option value="PTA - Europe">PTA - Europe</option>
+                <option value="COMETECH - Đài loan">COMETECH - Đài loan</option>
+                <option value="NABERTHERM - Đức">NABERTHERM - Đức</option>
                 <option value="TILO">TILO</option>
-                <option value="IDM TEST - SPAIN">IDM TEST - SPAIN</option>
-                <option value="HAMILTON - ENGLAND">HAMILTON - ENGLAND</option>
-                <option value="NOVAPRO - KOREA">NOVAPRO - KOREA</option>
-                <option value="STURDY - TAIWAN">STURDY - TAIWAN</option>
-                <option value="ANDREAS HETTICH - GERMANY">ANDREAS HETTICH - GERMANY</option>
+                <option value="IDM TEST - Tây Ban Nha">IDM TEST - Tây Ban Nha</option>
+                <option value="HAMILTON - ENGLAND">HAMILTON - Anh</option>
+                <option value="NOVAPRO - KOREA">NOVAPRO - Hàn Quốc</option>
+                <option value="STURDY - Đài loan">STURDY - Đài loan</option>
+                <option value="ANDREAS HETTICH - Đức">ANDREAS HETTICH - Đức</option>
               </select>
             </div>
+            <div>
+              <label htmlFor="brand">Hãng sản xuất (English)</label>
+              <select id="brand" className="form-select" value={brand} onChange={(e) => setBrand(e.target.value)} aria-label="Default select example">
+                <option defaultValue="ALP - JAPAN">ALP - Japan</option>
+                <option value="EMCO - Germany">EMCO - Germany</option>
+                <option value="CONSORT">CONSORT</option>
+                <option value="DOSER - Germany">DOSER - Germany</option>
+                <option value="PNSHAR - China">PNSHAR - China</option>
+                <option value="KRUSS - Germany">KRUSS - Germany</option>
+                <option value="PTA - EUROPE">PTA - EUROPE</option>
+                <option value="COMETECH - Taiwan">COMETECH - Taiwan</option>
+                <option value="NABERTHERM - Germany">NABERTHERM - Germany</option>
+                <option value="TILO">TILO</option>
+                <option value="IDM TEST - Spain">IDM TEST - Spain</option>
+                <option value="HAMILTON - England">HAMILTON - England</option>
+                <option value="NOVAPRO - KOREA">NOVAPRO - Korea</option>
+                <option value="STURDY - Taiwan">STURDY - Taiwan</option>
+                <option value="ANDREAS HETTICH - Germany">ANDREAS HETTICH - Germany</option>
+              </select>
+            </div>
+            
             <div>
               <label htmlFor="countInStock">Số lượng</label>
               <input
@@ -270,18 +318,19 @@ export default function ProductEditScreen(props) {
                 onChange={(e) => setDescription(e.target.value)}
               ></textarea>
             </div>
-        
+            <div>
+              <label htmlFor="endescription">Mô tả: (English)</label>
+              <textarea
+                rows="4"
+                id="endescription"
+                type="text"
+                placeholder="Enter endescription"
+                value={endescription}
+                onChange={(e) => setEndescription(e.target.value)}
+              ></textarea>
+            </div>           
             <div>
               <label htmlFor="parameter">Thông số kỹ thuật</label>
-                {/* <textarea
-                id="parameter"
-                name="editor1"
-                rows="10"
-                type="text"
-                placeholder="Enter parameter"
-                value={parameter}
-                onChange={(e) => setParameter(e.target.value)}
-              > </textarea>   */}
               <CKEditor 
                 editor={ClassicEditor}
                 data={parameter}
@@ -289,13 +338,27 @@ export default function ProductEditScreen(props) {
 
                 }}
                 onChange = {(event, editor) => {
-                  const data = editor.getData();
-                  console.log(data);
-                  setParameter(data);
+                  const data1 = editor.getData();
+                  console.log(data1);
+                  setParameter(data1);
                 }}
               />
             </div>
-          
+            <div>
+              <label htmlFor="enparameter">Thông số kỹ thuật (English)</label>
+              <CKEditor 
+                editor={ClassicEditor}
+                data={enparameter}
+                onReady={editor =>{
+
+                }}
+                onChange = {(event, editor1) => {
+                  const data = editor1.getData();
+                  console.log(data);
+                  setEnparameter(data);
+                }}
+              />
+            </div>
             <div>
                <label htmlFor="video">Link Video</label>
                <input

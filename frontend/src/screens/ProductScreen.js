@@ -4,26 +4,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import {  detailsProduct } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-// import Product from '../components/Product';
+import Product from '../components/Product';
 import { listProducts } from '../actions/productActions';
 import parse from 'html-react-parser';
-import queryString from 'query-string';
 import {Helmet} from 'react-helmet';
 import { withNamespaces } from 'react-i18next';
+import {useHistory} from 'react-router-dom';
+
 // import { PRODUCT_REVIEW_CREATE_RESET } from '../constants/productConstants';
 
 export default withNamespaces((props) => props.namespaces) (function ProductScreen(props) {
   const {t} = props;
   const dispatch = useDispatch();
   const productId = props.match.params.id;
-  // let parsed = queryString.parse(props.location.search);
   const [qty, setQty] = useState(1);
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
   const productList = useSelector((state) => state.productList);
   const { products } = productList;
-  // const userSignin = useSelector((state) => state.userSignin);
-  // const { userInfo } = userSignin;
 
   const productReviewCreate = useSelector((state) => state.productReviewCreate);
   const {
@@ -31,38 +29,17 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
     success: successReviewCreate,
   } = productReviewCreate;
 
-  // const [rating, setRating] = useState(0);
-  // const [comment, setComment] = useState('');
-
-  useEffect(() => {
-    // if (successReviewCreate) {
-    //   window.alert('Review Submitted Successfully');
-    //   setRating('');
-    //   setComment('');
-    //   dispatch({ type: PRODUCT_REVIEW_CREATE_RESET });
-    // }
+  useEffect(() => { 
     dispatch(detailsProduct(productId));
   }, [dispatch, productId, successReviewCreate]);
   const addToCartHandler = () => {
     props.history.push(`/gio-hang/${productId}?qty=${qty}`);
   };
-  // const submitHandler = (e) => {
-  //   e.preventDefault();
-  //   if (comment && rating) {
-  //     dispatch(
-  //       createReview(productId, { rating, comment, name: userInfo.name })
-  //     );
-  //   } else {
-  //     alert('Please enter comment and rating');
-  //   }
-  // };
+  
   useEffect(() => {
     dispatch(listProducts({}));
-    // dispatch(listTopSellers());
    }, [dispatch]);
     var modal = document.getElementById("myModal");
-
-    // Get the image and insert it inside the modal - use its "alt" text as a caption
     var modalImg = document.getElementById("img01");
     var captionText = document.getElementById("caption");
     const zoomImage = () =>{
@@ -71,12 +48,14 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
        captionText.innerHTML = product.name;
     }
   
-    
-  
-      // When the user clicks on <span> (x), close the modal
-      const closeSpan = () => { 
-        modal.style.display = "none";
-      }
+    // When the user clicks on <span> (x), close the modal
+    const closeSpan = () => { 
+      modal.style.display = "none";
+    }
+    // const history = useHistory();
+    // useEffect(()=>{
+    //   history.replace(`/${product.name}`);
+    // }, [])
   
   return (
     <div>  
@@ -85,7 +64,7 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-       
+        
         <div>
         <Helmet>
         <title>{product.name}</title>
@@ -120,7 +99,7 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
                   <p><strong>Model:</strong> {product.model}</p>
                 </li>
                 <li> 
-                  <p className="description"><strong>{t("description.label")}</strong> {product.description}</p>
+                  <p className="description"><strong>{t("description.label")}</strong> {t("key", {product})}</p>
                 </li>
                 <li>
                   <p className="contact-sale"> <strong> {t("emailus.label")} <a href="mailto:sales@thanhtin-tech.com">sales@thanhtin-tech.com</a></strong></p>
@@ -206,7 +185,7 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
             </ul>
             <div className="tab-content" id="pills-tabContent">
               <div className="tab-pane fade show active" id="pills-parameter" role="tabpanel" aria-labelledby="pills-parameter-tab">
-                {parse(product.parameter)}
+                {parse(t("parameter.content", {product}))}
               </div>
               <div className="tab-pane fade" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab"><a href="#" download>Link</a></div>
               <div className="tab-pane fade" id="pills-characteristic" role="tabpanel" aria-labelledby="pills-characteristic-tab">...</div>

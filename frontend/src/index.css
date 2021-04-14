@@ -369,7 +369,7 @@ img.large {
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 6; /* Sit on top */
   padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;
@@ -992,7 +992,7 @@ img.large {
   margin-top: 1rem;
 }
 
-.news-content a:hover{
+.news-content .news-link:hover{
   color: #e67e22!important;
 }
 

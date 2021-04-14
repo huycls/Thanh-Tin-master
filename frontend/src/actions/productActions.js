@@ -96,28 +96,14 @@ export const listProductCategories = () => async (dispatch) => {
   }
 };
 
-export const listProductSubcategories = () => async (dispatch) => {
-  dispatch({
-    type: PRODUCT_SUBCATEGORY_LIST_REQUEST,
-  });
-  try {
-    const { data } = await Axios.get(`/api/products/subcategories`);
-    dispatch({ type: PRODUCT_SUBCATEGORY_LIST_SUCCESS, payload: data });
-  } catch (error) {
-    dispatch({ type: PRODUCT_SUBCATEGORY_LIST_FAIL, payload: error.message });
-  }
-};
-
-
-
 export const listProductBrands = () => async (dispatch) => {
   dispatch({
     type: PRODUCT_BRAND_LIST_REQUEST,
   });
   try {
-    const {data} = await Axios.get(`api/products/brands`);
+    const { data } = await Axios.get(`api/products/brands`);
     dispatch({ type: PRODUCT_BRAND_LIST_SUCCESS, payload: data});
-  } catch(error){
+  } catch (error) {
     dispatch({type: PRODUCT_BRAND_LIST_FAIL, payload: error.message });
   }
 };

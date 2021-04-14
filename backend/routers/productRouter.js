@@ -13,12 +13,17 @@ productRouter.get(
     const pageSize = 20;
     const page = Number(req.query.pageNumber) || 1;
     const name = req.query.name || '';
+    const enname = req.query.enname || '';
     const category = req.query.category || '';
+    const encategory = req.query.encategory || '';
     const subcategory = req.query.subcategory || '';
     const brand = req.query.brand || '';
+    const vnbrand = req.query.vnbrand || '';
     const description = req.query.description || '';
+    const endescription = req.query.endescription || '';
     const model = req.query.model || '';
     const parameter = req.query.parameter || '';
+    const enparameter = req.query.enparameter || '';
     const video = req.query.video || '';
     const catalog = req.query.catalog || '';
     const seller = req.query.seller || '';
@@ -33,15 +38,20 @@ productRouter.get(
         : 0;
     
     const nameFilter = name ? { name: { $regex: name, $options: 'i' } } : {};
+    const ennameFilter = enname ? { enname: { $regex: enname, $options: 'i' } } : {};
     const sellerFilter = seller ? { seller } : {};
     const categoryFilter = category ? { category } : {};
+    const encategoryFilter = encategory ? {encategory} : {};
     const subcategoryFilter = category ? {category} :{};
     const brandFilter = brand ? { brand } : {};
+    const vnbrandFilter = vnbrand ? { vnbrand } : {};
     const modelFilter = model ? { model } : {};
     const parameterFilter = parameter ? { parameter } : {};
+    const enparameterFilter = enparameter ? {enparameter} : {};
     const videoFilter = video ? { video } : {};
     const catalogFilter = catalog ? { catalog } : {};
     const descriptionFilter = description ? {description} : {};
+    const endescriptionFilter = endescription ? {endescription} : {};
     const priceFilter = min && max ? { price: { $gte: min, $lte: max } } : {};
     const ratingFilter = rating ? { rating: { $gte: rating } } : {};
     const sortOrder =
@@ -55,11 +65,16 @@ productRouter.get(
     const count = await Product.count({
       ...sellerFilter,
       ...nameFilter,
+      ...ennameFilter,
       ...categoryFilter,
+      ...encategoryFilter,
       ...subcategoryFilter,
       ...brandFilter,
+      ...vnbrandFilter,
       ...parameterFilter,
+      ...enparameterFilter,
       ...descriptionFilter,
+      ...endescriptionFilter,
       ...modelFilter,
       ...videoFilter,
       ...catalogFilter,
@@ -69,12 +84,17 @@ productRouter.get(
     const products = await Product.find({
       ...sellerFilter,
       ...nameFilter,
+      ...ennameFilter,
       ...categoryFilter,
+      ...encategoryFilter,
       ...subcategoryFilter,
       ...brandFilter,
+      ...vnbrandFilter,
       ...descriptionFilter,
+      ...endescriptionFilter,
       ...modelFilter,
       ...parameterFilter,
+      ...enparameterFilter,
       ...videoFilter,
       ...catalogFilter,
       ...priceFilter,
@@ -155,18 +175,23 @@ productRouter.post(
   expressAsyncHandler(async (req, res) => {
     const product = new Product({
       name: 'sample name ' + Date.now(),
+      enname: 'sample name ' ,
       seller: req.user._id,
       image: '/images/3.jpg',
       price: "?",
       category: 'Lò nung',
+      encategory: 'sample',
       subcategory: '',
       brand: 'ALP - JAPAN',
+      vnbrand: 'sample',
       countInStock: 1,
       rating: 0,
       numReviews: 0,
       description: 'sample description',
+      endescription: 'sample',
       model: 'sample model',
       parameter: 'sample paremeter',
+      enparameter: 'sample',
       video: 'sample link',
       catalog: 'sample catalog',
     });
@@ -183,17 +208,22 @@ productRouter.put(
     const product = await Product.findById(productId);
     if (product) {
       product.name = req.body.name;
+      product.enname = req.body.enname;
       product.price = req.body.price;
       product.image = req.body.image;
       product.category = req.body.category;
+      product.encategory = req.body.encategory;
       product.subcategory = req.body.subcategory;
       product.model = req.body.model;
       product.parameter = req.body.parameter;
+      product.enparameter = req.body.enparameter;
       product.video = req.body.video;
       product.catalog = req.body.catalog;
       product.brand = req.body.brand;
+      product.vnbrand = req.body.vnbrand;
       product.countInStock = req.body.countInStock;
       product.description = req.body.description;
+      product.endescription = req.body.endescription;
       const updatedProduct = await product.save();
       res.send({ message: 'Product Updated', product: updatedProduct });
     } else {

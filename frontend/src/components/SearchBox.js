@@ -41,8 +41,7 @@ export default function SearchBox(props) {
           type="text"
           name="q"
           id="q"
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Máy đo,..."
+          onChange={(e) => setName(e.target.value)}        
         ></input>
         <button className="primary" type="submit">
           <i className="fa fa-search"></i>

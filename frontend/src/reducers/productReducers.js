@@ -66,7 +66,9 @@ export const productCategoryListReducer = (
   }
 };
 
-export const productBrandListReducer = (state = {loading: true, products: [] }, action
+export const productBrandListReducer = (
+  state = {loading: true, products: [] }, 
+  action
 ) => {
   switch (action.type){
     case PRODUCT_BRAND_LIST_REQUEST:

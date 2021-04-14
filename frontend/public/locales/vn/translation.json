@@ -23,7 +23,7 @@
     "phone.label": "Điện thoại",
     "hn.label": "VP Hà Nội",
     "hnadd.label": "Lô 3, Khu A1-A2-A3, đường Cầu Thanh Trì, phường Cự Khối, quận Long Biên, Hà Nội",
-    "mst.label": "MST",
+    "mst.label": "MST:",
     "sale.label": "Phòng Kinh Doanh",
     "hcmname.label": "HCM",
     "hnname.label": "Hà Nội",
@@ -48,6 +48,7 @@
     "status.label": "Trạng thái",
     "qty.label": "Số lượng",
     "parameter.label": "Thông số kỹ thuật",
+    "parameter.content": "{{product.parameter}}",
     "feature.label": "Đặc tính nổi bật",
     "access.label": "Phụ kiện",
     "apply.label": "Ứng dụng",
@@ -66,6 +67,7 @@
     "register.label": "Đăng ký tài khoản",
     "brand.label": "Hãng sản xuất",
     "allpro.label": "Tất cả",
+    "search.label": "Tìm kiếm",
     "result.label": "Kết quả tìm kiếm",
 
     "intro.p1": " hoạt động trong lĩnh vực tư vấn, cung cấp các giải pháp, thiết bị phòng thí nghiệm, thiết bị công nghiệp, hóa chất, vật tư chủ yếu trong các lĩnh vực sau:",
@@ -94,10 +96,11 @@
     "address": "Địa chỉ",
     "city": "Tỉnh/Thành phố",
     "selected": "Sản phẩm đã chọn",
-    "phone": "Số điện thoại",
+    "phone": "Số điện thoại:",
 
     "newstitle": "Tin tức - Công ty TNHH thiết bị và hóa chất Thành Tín",
     "newsmenu": "Danh mục tin",
-    "solution": "Giải pháp"
+    "solution": "Giải pháp",
+    "key": "{{product.description}}"
 
 }

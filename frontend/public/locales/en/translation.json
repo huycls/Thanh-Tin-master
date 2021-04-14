@@ -21,7 +21,7 @@
     "phone.label": "Hotline",
     "hn.label": "Ha Noi Office",
     "hnadd.label": " 3, A1-A2-A3 Area, Cau Thanh Tri St., Cu Khoi Ward, Long Bien Dist., Ha Noi, VietNam",
-    "mst.label": "Tax",
+    "mst.label": "Tax:",
     "sale.label": "Sale Department",
     "hcmname.label": "Ho Chi Minh",
     "hnname.label": "Ha Noi",
@@ -47,6 +47,7 @@
     "status.label": "Status",
     "qty.label": "Quantity",
     "parameter.label": "Parameter",
+    "parameter.content": "{{product.enparameter}}",
     "feature.label": "Features",
     "access.label": "Accessories",
     "apply.label": "Applications",
@@ -65,6 +66,7 @@
 
     "brand.label": "Brand",
     "allpro.label": "All",
+    "search.label": "Search for",
     "result.label": "search results",
 
     "intro.p1": "operates in the field of consultancy, providing solutions, laboratory equipment, industrial equipment, chemicals in the following field:",
@@ -93,9 +95,10 @@
     "address": "Your address",
     "city": "Province/City",
     "selected": "Selected",
-    "phone": "Phone number",
+    "phone": "Phone number:",
 
     "newstitle": "News - Thanh Tin Tech Instrument And Chemical Co.LTD",
     "newsmenu": "News Menu",
-    "solution": "Solutions"
+    "solution": "Solutions",
+    "key": "{{product.endescription}}"
 }

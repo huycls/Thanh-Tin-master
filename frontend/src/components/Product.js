@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { withNamespaces } from 'react-i18next';
+
 
 export default withNamespaces((props) => props.namespaces) (function Product(props) {
   const {t} = props;
@@ -41,21 +42,25 @@ export default withNamespaces((props) => props.namespaces) (function Product(pro
                       .split(" ")
                       .join("-");
   let brand = product.brand;
-  const custombrand = brand.toLowerCase().replace(/(^|\s)\S/g, L => L.toUpperCase())             
+  const custombrand = brand.toLowerCase().replace(/(^|\s)\S/g, L => L.toUpperCase())  
+  
+  let queryParameter = {
+    name: urlname,
+  }
   return (
     <div key={product._id} className="card product-card">
-      <Link className="card-header" to={`/san-pham/${product._id}/${urlname}`}>
+      <Link className="card-header" to={`/san-pham/${product._id}`}>
         <img className="small" src={product.image} alt={product.name} />
       </Link>
       <div className="card-body">
-        <Link to={`/san-pham/${product._id}/${urlname}`} className="product-name">
+        <Link to={{pathname:`/san-pham/${product._id}`, query: queryParameter}} className="product-name">
           <h2>{cutname}</h2>
         </Link>
         <div className="row">
           <div className="product-model"><strong>Model: </strong> {product.model}</div>
           <div className="product-brand"><strong>{t("brand.label")}: </strong> {custombrand}</div>
         </div>
-        <Link className="details-btn" to={`/san-pham/${product._id}/${urlname}`}>
+        <Link className="details-btn" to={`/san-pham/${product._id}`}>
           {t("detailbtn.label")}
         </Link>
       </div>
