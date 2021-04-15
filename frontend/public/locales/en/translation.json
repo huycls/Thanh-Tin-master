@@ -11,6 +11,7 @@
     "video.label": "Video channel",
     "support.label": "Online Support",
     "productbox.label": "New products",
+    "cutname": "{{product.enname}}",
 
     "collectemail.label": "Enter email to receive latest news from us",
     "send.label":"Send",
@@ -40,14 +41,17 @@
     "instock": "In stock",
     "outofstock": "Out of Stock",
 
+    "productcategory": "encategory",
+    "productname": "{{product.enname}}",
     "emailus.label": "Email us",
     "back.label": "Back",
-    "price.label": "Price",
+    "price.label": "Price:",
     "description.label": "Description",
     "status.label": "Status",
     "qty.label": "Quantity",
     "parameter.label": "Parameter",
     "parameter.content": "{{product.enparameter}}",
+    "key": "{{product.endescription}}",
     "feature.label": "Features",
     "access.label": "Accessories",
     "apply.label": "Applications",
@@ -99,6 +103,7 @@
 
     "newstitle": "News - Thanh Tin Tech Instrument And Chemical Co.LTD",
     "newsmenu": "News Menu",
-    "solution": "Solutions",
-    "key": "{{product.endescription}}"
+    "solution": "Solutions"
+    
+
 }

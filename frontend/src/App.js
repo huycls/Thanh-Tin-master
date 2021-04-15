@@ -521,7 +521,7 @@ function App({t}) {
               <div className="contact-info footer-child">
                 <h4 className="footer-title">{t("contact.label")}</h4>
                 <h3>{t("company.label")}</h3>
-                <h4><i className="fas fa-chevron-right"></i><Link to="/intro">{t("intro.label")}</Link></h4>
+                <h4><i className="fas fa-chevron-right"></i><Link to="/gioi-thieu">{t("intro.label")}</Link></h4>
                 <div className="vphcm ">
                   <strong>{t("hcm.label")}: </strong><span>{t("hcmadd.label")}</span>
                   <p><strong>{t("phone.label")}: </strong> <span> (028) 36 360 901 </span></p><p><strong>Fax:</strong> <span>(028) 36 360 902</span></p>

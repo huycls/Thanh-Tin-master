@@ -7,9 +7,13 @@ export default withNamespaces((props) => props.namespaces) (function Product(pro
   const {t} = props;
   const { product } = props;
   let name = product.name;
+  let enname = product.enname;
   const cutname = name.length > 50 ? 
                   name.substring(0, 47) + "..." :
                   name;
+  const cutenname = enname.length > 50 ? 
+                    enname.substring(0, 47) + "..." :
+                    enname;
     function removeVietnameseTones(str) {
       str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a"); 
       str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e"); 
@@ -54,7 +58,7 @@ export default withNamespaces((props) => props.namespaces) (function Product(pro
       </Link>
       <div className="card-body">
         <Link to={{pathname:`/san-pham/${product._id}`, query: queryParameter}} className="product-name">
-          <h2>{cutname}</h2>
+          <h2>{t("cutname", {product})}</h2>
         </Link>
         <div className="row">
           <div className="product-model"><strong>Model: </strong> {product.model}</div>

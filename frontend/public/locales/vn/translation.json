@@ -13,6 +13,7 @@
     "video.label": "Kênh Video ",
     "support.label": "Hỗ trợ trực tuyến",
     "productbox.label": "Sản phẩm nổi bật",
+    "cutname": "{{product.name}}",
 
     "collectemail.label": "Đăng ký email để nhận tin mới nhất",
     "send.label": "Gửi",
@@ -41,14 +42,17 @@
     "instock": "Còn hàng ",
     "outofstock": "Hết hàng",
 
+    "productcategory": "category",
+    "productname": "{{product.name}}",
     "emailus.label": "Liên hệ email",
     "back.label": "Trở lại",
-    "price.label": "Giá",
+    "price.label": "Giá:",
     "description.label": "Mô tả",
     "status.label": "Trạng thái",
     "qty.label": "Số lượng",
     "parameter.label": "Thông số kỹ thuật",
     "parameter.content": "{{product.parameter}}",
+    "key": "{{product.description}}",
     "feature.label": "Đặc tính nổi bật",
     "access.label": "Phụ kiện",
     "apply.label": "Ứng dụng",
@@ -100,7 +104,7 @@
 
     "newstitle": "Tin tức - Công ty TNHH thiết bị và hóa chất Thành Tín",
     "newsmenu": "Danh mục tin",
-    "solution": "Giải pháp",
-    "key": "{{product.description}}"
+    "solution": "Giải pháp"
+    
 
 }

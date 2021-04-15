@@ -38,7 +38,7 @@ productRouter.get(
         : 0;
     
     const nameFilter = name ? { name: { $regex: name, $options: 'i' } } : {};
-    const ennameFilter = enname ? { enname: { $regex: enname, $options: 'i' } } : {};
+    const ennameFilter = enname ? { enname } : {};
     const sellerFilter = seller ? { seller } : {};
     const categoryFilter = category ? { category } : {};
     const encategoryFilter = encategory ? {encategory} : {};

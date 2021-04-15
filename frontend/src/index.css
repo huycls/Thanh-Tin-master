@@ -276,6 +276,11 @@ a.brand img{
   cursor:default;
 }
 
+.category-menu {
+  max-height: 60rem;
+  overflow-y: scroll;
+}
+
 .category-menu li{
   margin:0;
   width: 100%;
@@ -927,7 +932,6 @@ img.large {
 .carousel{
   width: 100%!important;
   height: auto;
-  z-index: -1;
 }
 
 .carousel button{
@@ -1323,6 +1327,7 @@ margin: 10px;
 .service-detail-page h1{
   text-align: center;
   font-weight: bold;
+  color: #007a37;
 }
 
 .service-detail{
@@ -1609,6 +1614,10 @@ margin: 10px;
 }
 
 @media screen and (max-width: 800px){
+
+  .carousel{
+    z-index: -1;
+  }
 
   .service-container{
     display: block;

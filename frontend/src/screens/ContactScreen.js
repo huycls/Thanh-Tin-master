@@ -1,8 +1,12 @@
 import React from 'react';
 import { withNamespaces } from 'react-i18next';
+import {Helmet} from 'react-helmet';
 
 export default withNamespaces()(function ContactScreen({t}){
     return <div className="contact-page">
+        <Helmet>
+            <title>Liên hệ</title>
+        </Helmet>
         <div className="introinfo-field">
             <div className="intro-info">
                 <strong className="company-name">{t("contact.label")}</strong>

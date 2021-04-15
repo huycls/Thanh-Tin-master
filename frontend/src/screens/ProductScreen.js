@@ -92,9 +92,9 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
             <div className="col-1 col detail-product">
               <ul>
                 <li>
-                  <h1>{product.name}</h1>
+                  <h1>{t("productname", {product})}</h1>
                 </li>              
-                <li><strong>{t("price.label")} </strong> {product.price} VNĐ</li>
+                <li><strong>{t("price.label")} </strong> {product.price} &#8363;</li>
                 <li> 
                   <p><strong>Model:</strong> {product.model}</p>
                 </li>
@@ -112,7 +112,7 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
                   <li>
                     <div className="row">
                       <div className="card-child">{t("price.label")}</div>
-                      <div className="price card-child">{product.price} VNĐ</div>
+                      <div className="price card-child">{product.price} &#8363;</div>
                     </div>
                   </li>
                   <li>

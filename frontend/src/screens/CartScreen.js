@@ -75,7 +75,7 @@ export default withNamespaces((props) => props.namespaces) (function CartScreen(
                       ))}
                     </select>
                   </div>
-                  <div>{item.price} VNĐ</div>
+                  <div>{item.price} &#8363;</div>
                   <div>
                     <button
                       type="button"
@@ -96,7 +96,7 @@ export default withNamespaces((props) => props.namespaces) (function CartScreen(
             <li>
               <h2>
                 {t("total.label")} ({cartItems.reduce((a, c) => a + c.qty, 0)} {t("productqty.label")}): 
-                <p>{cartItems.reduce((a, c) => a + c.price * c.qty, 0)} VNĐ</p>
+                <p>{cartItems.reduce((a, c) => a + c.price * c.qty, 0)} &#8363;</p>
               </h2>
             </li>
             <li>

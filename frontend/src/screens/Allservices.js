@@ -1,9 +1,13 @@
 import React from 'react';
 import { withNamespaces } from 'react-i18next';
 import {Link} from 'react-router-dom';
+import {Helmet} from 'react-helmet';
 
 export default function Allservices(){
     return <div className="service-page">
+     <Helmet>
+            <title>Dịch vụ</title>
+        </Helmet>
         <div className="service-container">
             <div className="service-card">
             <Link to="/dich-vu-bao-tri">
