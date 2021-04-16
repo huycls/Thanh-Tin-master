@@ -1618,6 +1618,11 @@ margin: 10px;
 
 @media screen and (max-width: 800px){
 
+  
+.category-menu {
+  max-height: 30rem;
+}
+
   .carousel{
     z-index: -1;
   }

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { CART_EMPTY } from '../constants/cartConstants';
 import {Link} from 'react-router-dom';
 import { withNamespaces } from 'react-i18next';
+import Helmet from 'react-helmet';
 
 export default withNamespaces((props) => props.namespaces) (function ShippingAddressScreen(props) {
   const {t} = props;
@@ -41,6 +42,9 @@ export default withNamespaces((props) => props.namespaces) (function ShippingAdd
   
   return (
     <div>
+    <Helmet>
+      <title>{t("confirmorder")}</title>
+    </Helmet>
       <form className="form" id="form" onSubmit={submitHandler}>
         <div>
           <h1>{t("confirmorder")}</h1>

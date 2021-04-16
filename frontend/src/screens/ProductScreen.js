@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import {  detailsProduct } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import Product from '../components/Product';
+// import Product from '../components/Product';
 import { listProducts } from '../actions/productActions';
 import parse from 'html-react-parser';
 import {Helmet} from 'react-helmet';
 import { withNamespaces } from 'react-i18next';
-import {useHistory} from 'react-router-dom';
+// import {useHistory} from 'react-router-dom';
 
 // import { PRODUCT_REVIEW_CREATE_RESET } from '../constants/productConstants';
 
@@ -20,8 +20,8 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
   const [qty, setQty] = useState(1);
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
-  const productList = useSelector((state) => state.productList);
-  const { products } = productList;
+  // const productList = useSelector((state) => state.productList);
+  // const { products } = productList;
 
   const productReviewCreate = useSelector((state) => state.productReviewCreate);
   const {

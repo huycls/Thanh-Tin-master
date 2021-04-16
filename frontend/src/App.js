@@ -17,14 +17,12 @@ import RegisterScreen from './screens/RegisterScreen';
 import ShippingAddressScreen from './screens/ShippingAddressScreen';
 import SigninScreen from './screens/SigninScreen';
 import ProductEditScreen from './screens/ProductEditScreen';
-// import OrderListScreen from './screens/OrderListScreen';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
 import SellerRoute from './components/SellerRoute';
 import SellerScreen from './screens/SellerScreen';
 import SearchBox from './components/SearchBox';
 import SearchScreen from './screens/SearchScreen';
-// import MapScreen from './screens/MapScreen';
 import ContactScreen from './screens/ContactScreen';
 import NewsScreen from './screens/NewsScreen';
 import NewsScreen1 from './screens/NewsScreen1';
@@ -35,7 +33,6 @@ import Service1Screen from './screens/Service1Screen';
 import Service2Screen from './screens/Service2Screen';
 import Service3Screen from './screens/Service3Screen';
 import Service4Screen from './screens/Service4Screen';
-// import SolutionScreen from './screens/SolutionScreen';
 import NewsProduct from './screens/NewsProduct';
 import IntroScreen from './screens/IntroScreen';
 import Allnews from './screens/AllNews';
@@ -43,11 +40,10 @@ import ScrollToTop from './components/ScrollToTop';
 import { listProductCategories, listProductBrands } from './actions/productActions';
 import LoadingBox from './components/LoadingBox';
 import MessageBox from './components/MessageBox';
-// import SubSearchScreen from './screens/SubSearchScreen';
-import Helmet from 'react-helmet';
 import { withNamespaces } from 'react-i18next';
 import i18n from './i18n';
 import {Navbar, Nav} from 'react-bootstrap';
+import allcategories from './allcategories.js';
 
 
 
@@ -55,7 +51,6 @@ function App({t}) {
   
   // const categories1 = ["Lò nung", "Máy ly tâm", "Máy đo", "Máy hấp tiệt trùng", "Các loại tủ đựng", "Tủ sấy"];
   const cart = useSelector((state) => state.cart);
-  const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const { cartItems } = cart;
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
@@ -87,7 +82,12 @@ function App({t}) {
     }
   function dropdownresmenu(){
     document.getElementById('dropdown-responsivemenu').classList.toggle("show");
-  }    
+  }   
+  
+  function clearEmailRqInput(){
+    const input = document.querySelectorAll("input");
+    input.forEach(input => input.value = (''));
+  }
     // Close the dropdown menu if the user clicks outside of it
     window.onclick = function(event) {
         if (!event.target.matches('.dropbtn')) {
@@ -108,7 +108,7 @@ function App({t}) {
     
     function scrollToTop(e){
       var toTop = document.getElementById("navbar");
-      toTop.scrollIntoView(true);
+      toTop.scrollIntoView({behavior: "smooth"});
       e.preventDefault();
     }
 
@@ -127,7 +127,8 @@ function App({t}) {
     function handleChangeLang(lang){
       i18n.changeLanguage(lang)
     }
-    
+ 
+  
   return (
     <BrowserRouter>
       <div className="grid-container"> 
@@ -278,13 +279,13 @@ function App({t}) {
               ) : errorCategories ? (
                 <MessageBox variant="danger">{errorCategories}</MessageBox>
               ) : (
-                categories.map(category => (          
-                  <li key={category}>
+                allcategories.map((val, key) => (          
+                  <li key={val.category}>
                       <Link
-                        to={`/search/category/${category}`}
-                        onClick={() => setSidebarIsOpen(false)}
+                        to={`/search/category/${val.category}`}
+                      
                       >
-                        {category.toUpperCase()} 
+                        {t("switchcategory", {val})} 
                       </Link>
                     </li>              
                 ))
@@ -418,8 +419,8 @@ function App({t}) {
           <div className="collect-email">
             <p>{t("collectemail.label")}</p>
             <form id="form"  method="GET" action="https://script.google.com/macros/s/AKfycbyTSr30R7jPcxOqEYFOuxNOjvKeKWCmBqN2tnnRYTrXPnOElveM/exec">
-              <input id="email" type="email" name="email_user" />
-              <button type="submit" id="submit-form" placeholder="Email">{t("send.label")}</button>
+              <input id="email" type="email" name="email_user" required/>
+              <button onClick={clearEmailRqInput} type="submit" id="submit-form" placeholder="Email">{t("send.label")}</button>
             </form>
           </div>
           <div className="marquee">

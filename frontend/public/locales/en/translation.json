@@ -13,6 +13,7 @@
     "productbox.label": "New products",
     "cutname": "{{product.enname}}",
     "productbrand": "{{product.brand}}",
+    "switchcategory": "{{val.encategory}}",
 
     "collectemail.label": "Enter email to receive latest news from us",
     "send.label":"Send",
@@ -58,6 +59,7 @@
     "apply.label": "Applications",
     "tocart.label": "Add to cart",
     "delete": "Delete",
+    "cartitem.name": "{{item.enname}}",
 
     "newuser.label": "Haven't have an account",
     "registernow.label": "Register now",

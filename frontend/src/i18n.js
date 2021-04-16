@@ -6,7 +6,6 @@ import { reactI18nextModule } from "react-i18next";
 // translations are already at
 // '../public/locales/en/translation.json'
 // which is the default for the xhr backend to load from
-const Languages = ["vn", "en"];
 
 i18n
     .use(Backend)

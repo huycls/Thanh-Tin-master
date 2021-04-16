@@ -15,6 +15,7 @@
     "productbox.label": "Sản phẩm nổi bật",
     "cutname": "{{product.name}}",
     "productbrand": "{{product.vnbrand}}",
+    "switchcategory": "{{val.category}}",
 
     "collectemail.label": "Đăng ký email để nhận tin mới nhất",
     "send.label": "Gửi",
@@ -59,6 +60,7 @@
     "apply.label": "Ứng dụng",
     "tocart.label": "Thêm vào giỏ hàng",
     "delete": "Xóa",
+    "cartitem.name": "{{item.name}}",
 
     "newuser.label": "Chưa có tài khoản",
     "registernow.label": "Đăng ký tài khoản ngay",
