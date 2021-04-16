@@ -249,7 +249,7 @@ export default function ProductEditScreen(props) {
             <div>
               <label htmlFor="vnbrand">Hãng sản xuất</label>
               <select id="vnbrand" className="form-select" value={vnbrand} onChange={(e) => setVnbrand(e.target.value)} aria-label="Default select example">
-                <option defaultValue="ALP - JAPAN">ALP - Nhật Bản</option>
+                <option defaultValue="ALP - Japan">ALP - Nhật Bản</option>
                 <option value="EMCO - Đức">EMCO - Đức</option>
                 <option value="CONSORT">CONSORT</option>
                 <option value="DOSER - Đức">DOSER - Đức</option>
@@ -260,8 +260,8 @@ export default function ProductEditScreen(props) {
                 <option value="NABERTHERM - Đức">NABERTHERM - Đức</option>
                 <option value="TILO">TILO</option>
                 <option value="IDM TEST - Tây Ban Nha">IDM TEST - Tây Ban Nha</option>
-                <option value="HAMILTON - ENGLAND">HAMILTON - Anh</option>
-                <option value="NOVAPRO - KOREA">NOVAPRO - Hàn Quốc</option>
+                <option value="HAMILTON - England">HAMILTON - Anh</option>
+                <option value="NOVAPRO - Korea">NOVAPRO - Hàn Quốc</option>
                 <option value="STURDY - Đài loan">STURDY - Đài loan</option>
                 <option value="ANDREAS HETTICH - Đức">ANDREAS HETTICH - Đức</option>
               </select>
@@ -269,19 +269,19 @@ export default function ProductEditScreen(props) {
             <div>
               <label htmlFor="brand">Hãng sản xuất (English)</label>
               <select id="brand" className="form-select" value={brand} onChange={(e) => setBrand(e.target.value)} aria-label="Default select example">
-                <option defaultValue="ALP - JAPAN">ALP - Japan</option>
+                <option defaultValue="ALP - Japan">ALP - Japan</option>
                 <option value="EMCO - Germany">EMCO - Germany</option>
                 <option value="CONSORT">CONSORT</option>
                 <option value="DOSER - Germany">DOSER - Germany</option>
                 <option value="PNSHAR - China">PNSHAR - China</option>
                 <option value="KRUSS - Germany">KRUSS - Germany</option>
-                <option value="PTA - EUROPE">PTA - EUROPE</option>
+                <option value="PTA - Europe">PTA - EUROPE</option>
                 <option value="COMETECH - Taiwan">COMETECH - Taiwan</option>
                 <option value="NABERTHERM - Germany">NABERTHERM - Germany</option>
                 <option value="TILO">TILO</option>
                 <option value="IDM TEST - Spain">IDM TEST - Spain</option>
                 <option value="HAMILTON - England">HAMILTON - England</option>
-                <option value="NOVAPRO - KOREA">NOVAPRO - Korea</option>
+                <option value="NOVAPRO - Korea">NOVAPRO - Korea</option>
                 <option value="STURDY - Taiwan">STURDY - Taiwan</option>
                 <option value="ANDREAS HETTICH - Germany">ANDREAS HETTICH - Germany</option>
               </select>

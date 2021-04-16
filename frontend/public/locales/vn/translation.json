@@ -14,6 +14,7 @@
     "support.label": "Hỗ trợ trực tuyến",
     "productbox.label": "Sản phẩm nổi bật",
     "cutname": "{{product.name}}",
+    "productbrand": "{{product.vnbrand}}",
 
     "collectemail.label": "Đăng ký email để nhận tin mới nhất",
     "send.label": "Gửi",

@@ -1158,6 +1158,9 @@ margin: 10px;
   flex-wrap: wrap;
 }
 
+.hide{
+  display: none!important;
+}
 
 /*Intro page*/
 

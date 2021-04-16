@@ -117,7 +117,7 @@ export default withNamespaces() (function SearchScreen( props) {
               <ul className="subcategory-container">
                 <li>
                   <Link
-                    className={'all' === brand ? 'active' : ''}
+                    className={'all' === brand ? 'active' : '' }
                     to={getFilterUrl({ brand: 'all' })}
                   >
                     Tất cả

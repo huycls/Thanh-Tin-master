@@ -75,6 +75,9 @@ function App({t}) {
   useEffect(() => {
     dispatch(listProductCategories());
   }, [dispatch]);
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   function dropdownmenu() {
       document.getElementById("myDropdown").classList.toggle("show");
     }
@@ -103,9 +106,10 @@ function App({t}) {
       document.getElementById("search-bar").classList.toggle("show");
     }
     
-    function scrollToTop(){
+    function scrollToTop(e){
       var toTop = document.getElementById("navbar");
-      toTop.scrollIntoView();
+      toTop.scrollIntoView(true);
+      e.preventDefault();
     }
 
     window.onload = function(){
@@ -250,17 +254,17 @@ function App({t}) {
                     Sỹ)
                   </p>
                 </Link>
-                <Link to="thong-bao-thay-doi-ten-giao-dich">
+                <Link to="/thong-bao-thay-doi-ten-giao-dich">
                   <p className="news-link">
                     <i className="fas fa-chevron-right"></i>Thông báo thay đổi tên giao dịch
                   </p>
                 </Link>
-                <Link to="analytica-viet-nam-2013">
+                <Link to="/analytica-viet-nam-2013">
                   <p className="news-link">
                     <i className="fas fa-chevron-right"></i>ANALYTICA VIETNAM 2013 TRIỂN LÃM QUỐC TẾ LẦN THỨ 3 VỀ CÔNG NGHỆ THÍ NGHIỆM, PHÂN TÍCH, CÔNG NGHỆ SINH HỌC VÀ CHẨN ĐOÁN
                   </p>
                 </Link>
-                <Link to="tuyen-nhan-vien-kinh-doanh">
+                <Link to="/tuyen-nhan-vien-kinh-doanh">
                   <p className="news-link">
                     <i className="fas fa-chevron-right"></i>Tuyển nhân viên kinh doanh
                   </p>

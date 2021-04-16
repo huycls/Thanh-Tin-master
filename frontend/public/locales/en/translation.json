@@ -12,6 +12,7 @@
     "support.label": "Online Support",
     "productbox.label": "New products",
     "cutname": "{{product.enname}}",
+    "productbrand": "{{product.brand}}",
 
     "collectemail.label": "Enter email to receive latest news from us",
     "send.label":"Send",

@@ -46,8 +46,9 @@ export default withNamespaces((props) => props.namespaces) (function Product(pro
                       .split(" ")
                       .join("-");
   let brand = product.brand;
-  const custombrand = brand.toLowerCase().replace(/(^|\s)\S/g, L => L.toUpperCase())  
-  
+  let vnbrand = product.vnbrand;
+  const custombrand = brand.toLowerCase().replace(/(^|\s)\S/g, L => L.toUpperCase());  
+  const vncustombrand = vnbrand.toLowerCase().replace(/(^|\s)\S/g, L => L.toUpperCase());
   let queryParameter = {
     name: urlname,
   }
@@ -57,12 +58,12 @@ export default withNamespaces((props) => props.namespaces) (function Product(pro
         <img className="small" src={product.image} alt={product.name} />
       </Link>
       <div className="card-body">
-        <Link to={{pathname:`/san-pham/${product._id}`, query: queryParameter}} className="product-name">
+        <Link to={`/san-pham/${product._id}`} className="product-name">
           <h2>{t("cutname", {product})}</h2>
         </Link>
         <div className="row">
           <div className="product-model"><strong>Model: </strong> {product.model}</div>
-          <div className="product-brand"><strong>{t("brand.label")}: </strong> {custombrand}</div>
+          <div className="product-brand"><strong>{t("brand.label")}: </strong> {t("productbrand", {product})}</div>
         </div>
         <Link className="details-btn" to={`/san-pham/${product._id}`}>
           {t("detailbtn.label")}
