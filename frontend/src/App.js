@@ -105,6 +105,18 @@ function App({t}) {
     function dropSearchbar(){
       document.getElementById("search-bar").classList.toggle("show");
     }
+    window.onclick = function(event) {
+      if (!event.target.matches('.small-searchbar')) {
+        var dropdowns = document.getElementById("search-bar");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+            }
+        } 
+      }
+  }
     
     function scrollToTop(e){
       var toTop = document.getElementById("navbar");

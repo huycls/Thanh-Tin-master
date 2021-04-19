@@ -39,18 +39,16 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
   useEffect(() => {
     dispatch(listProducts({}));
    }, [dispatch]);
-    var modal = document.getElementById("myModal");
-    var modalImg = document.getElementById("img01");
-    var captionText = document.getElementById("caption");
+   
     const zoomImage = () =>{
-      modal.style.display = "block";
-       modalImg.src = product.image;
-       captionText.innerHTML = product.name;
+      document.getElementById("myModal").style.display = "block";
+      document.getElementById("img01").src = product.image;
+      document.getElementById("caption").innerHTML = product.name;
     }
   
     // When the user clicks on <span> (x), close the modal
     const closeSpan = () => { 
-      modal.style.display = "none";
+      document.getElementById("myModal").style.display = "none";
     }
     // const history = useHistory();
     // useEffect(()=>{

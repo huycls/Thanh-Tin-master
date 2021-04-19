@@ -1248,17 +1248,21 @@ margin: 10px;
 }
 
 .collect-email input{
-  width: 85%;
+  width: 80%;
   border: none;
   outline: none;
 }
 
 .collect-email button{
   margin-left: 2%;
-  width: 13%;
+  width: 18%;
   border: none;
   outline: none;
   color: #00A349;
+}
+
+.collect-email button:hover{
+  color: #e67e22;
 }
 
 .marquee {
@@ -1825,6 +1829,9 @@ margin: 10px;
     z-index: 30;
   }
 
+  .news-title{
+    margin-top: 1 rem;
+  }
 
   .search-box{
     width: 65%;
