@@ -9,7 +9,7 @@ import { listProducts } from '../actions/productActions';
 import parse from 'html-react-parser';
 import {Helmet} from 'react-helmet';
 import { withNamespaces } from 'react-i18next';
-// import {useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
 // import { PRODUCT_REVIEW_CREATE_RESET } from '../constants/productConstants';
 
@@ -56,7 +56,7 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
     // useEffect(()=>{
     //   history.replace(`/${product.name}`);
     // }, [])
-  
+  const history = useHistory();
   return (
     <div>  
       {loading ? (
@@ -69,7 +69,7 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
         <Helmet>
         <title>{product.name}</title>
         </Helmet>
-          <a href="javascript:history.back()"><i className="fas fa-arrow-left"></i> {t("back.label")}</a>
+          <button className="goback btn btn-outline-primary"  onClick={() => history.goBack()}><i className="fas fa-arrow-left"></i> {t("back.label")}</button>
           <div className="rowe top detail-page">
             <div className="col-1 col image-product">
               <img

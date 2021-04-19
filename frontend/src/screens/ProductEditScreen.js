@@ -221,15 +221,39 @@ export default function ProductEditScreen(props) {
                 <MessageBox variant="danger">{errorUpload}</MessageBox>
               )}
             </div>
-            <div>
-              <label htmlFor="category">Category</label>
+            {/* <div>
+              <label htmlFor="subcategory">Category</label>
                <input
-                id="category"
+                id="subcategory"
                 type="text"
                 placeholder="Enter category"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
+                value={subcategory}
+                onChange={(e) => setSubcategory(e.target.value)}
                 ></input>
+            </div> */}
+            <div>
+                <label htmlFor="category">Category</label>
+                <select id="category" className="form-select" value={category} onChange={(e) => setCategory(e.target.value)} aria-label="Default select example">
+                <option defaultValue="do-luong">Đo lường</option>
+                <option value="be-cach-thuy">Bể cách thủy</option>
+                <option value="khuc-xa-ke">Khúc xạ kế</option>
+                <option value="kem-tra-giay">Kiểm tra giấy</option>
+                <option value="lo-nung">Lò nung</option>
+                <option value="may-che-tao-mau">Máy chế tạo mẫu</option>
+                <option value="may-cat-nuoc">Máy cất nước</option>
+                <option value="may-cat-giay">Máy cắt giấy</option>
+                <option value="noi-hap-tiet-trung">Nồi hấp tiệt trùng</option>
+                <option value="may-ly-tam">Máy ly tâm</option>
+                <option value="may-lac">Máy lắc</option>
+                <option value="may-nghien">Máy nghiền</option>
+                <option value="may-thu-do-kin">Máy thử độ kín</option>
+                <option value="may-tach-so-soi-bot-giay">Máy tách sơ sợi bột giấy</option>
+                <option value="so-mau">So màu</option>
+                <option value="tu-an-toan-sinh-hoc">Tủ an toàn sinh học</option>
+                <option value="tu-say">Tủ sấy</option>
+                <option value="tu-dung-hoa-chat">Tủ đựng hóa chất</option>
+                <option value="tu-am">Tủ ấm</option>
+              </select>
             </div>
             <div>
               <label htmlFor="encategory">Category (English) </label>
@@ -241,11 +265,7 @@ export default function ProductEditScreen(props) {
                 onChange={(e) => setEncategory(e.target.value)}
                 ></input>
             </div>
-            <div>
-                <label htmlFor="subcategory">Subcategory</label>
-                <input id="subcategory" className="form-select" value={removeVietnameseTones(category).toLowerCase().split(" ").join("-")} onChange={(e) => setSubcategory(e.target.value)} aria-label="Default select example">            
-                </input>
-            </div>
+            
             <div>
               <label htmlFor="vnbrand">Hãng sản xuất</label>
               <select id="vnbrand" className="form-select" value={vnbrand} onChange={(e) => setVnbrand(e.target.value)} aria-label="Default select example">

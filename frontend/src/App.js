@@ -128,7 +128,6 @@ function App({t}) {
       i18n.changeLanguage(lang)
     }
  
-  
   return (
     <BrowserRouter>
       <div className="grid-container"> 
@@ -282,7 +281,7 @@ function App({t}) {
                 allcategories.map((val, key) => (          
                   <li key={val.category}>
                       <Link
-                        to={`/search/category/${val.category}`}
+                        to={`/search/category/${val.urlcategory}`}
                       
                       >
                         {t("switchcategory", {val})} 

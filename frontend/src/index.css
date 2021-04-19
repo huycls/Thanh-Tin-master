@@ -180,7 +180,7 @@ a.brand img{
 
 .navbar{
   background-color: #007a37;
-  padding: 0 7rem;
+  padding: .5rem 7rem;
   z-index: 5;
 }
 
@@ -331,6 +331,7 @@ img.large {
   display: flex;
   align-items: center;
 }
+
 
 
 .detail-product h1{
