@@ -21,11 +21,11 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
   // const productList = useSelector((state) => state.productList);
-  // const { products } = productList;
+  // const {products} = productList;
+
 
   const productReviewCreate = useSelector((state) => state.productReviewCreate);
   const {
-    
     success: successReviewCreate,
   } = productReviewCreate;
 
@@ -50,10 +50,7 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
     const closeSpan = () => { 
       document.getElementById("myModal").style.display = "none";
     }
-    // const history = useHistory();
-    // useEffect(()=>{
-    //   history.replace(`/${product.name}`);
-    // }, [])
+
   const history = useHistory();
   return (
     <div>  
@@ -61,15 +58,14 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
         <LoadingBox></LoadingBox>
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
-      ) : (
-        
+      ) : (        
         <div>
         <Helmet>
         <title>{product.name}</title>
         </Helmet>
           <button className="goback btn btn-outline-primary"  onClick={() => history.goBack()}><i className="fas fa-arrow-left"></i> {t("back.label")}</button>
-          <div className="rowe top detail-page">
-            <div className="col-1 col image-product">
+          <div className="row top detail-page">
+            <div className=" image-product ">
               <img
                 id="pic"
                 src={product.image}
@@ -87,7 +83,7 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
                 <div id="caption"></div>
               </div>
             </div>
-            <div className="col-1 col detail-product">
+            <div className=" detail-product">
               <ul>
                 <li>
                   <h1>{t("productname", {product})}</h1>
@@ -100,11 +96,11 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
                   <p className="description"><strong>{t("description.label")}</strong> {t("key", {product})}</p>
                 </li>
                 <li>
-                  <p className="contact-sale"> <strong> {t("emailus.label")} <a href="mailto:sales@thanhtin-tech.com">sales@thanhtin-tech.com</a></strong></p>
+                  <p className="contact-sale"> <strong> {t("emailus.label")}: <a href="mailto:sales@thanhtin-tech.com"> sales@thanhtin-tech.com</a></strong></p>
                 </li>
               </ul>
             </div>
-            <div className="col col-05 center">
+            <div className="product-detail-submit">
               <div className="card productcard-body productscreen-card">
                 <ul>              
                   <li>
@@ -178,7 +174,7 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
                 <button className="nav-link" id="pills-accessories-tab" data-bs-toggle="pill" data-bs-target="#pills-accessories" type="button" role="tab" aria-controls="pills-accessories" aria-selected="false">{t("access.label")}</button>
               </li>
               <li className="nav-item" role="presentation">
-                <button className="nav-link" id="pills-download-tab" data-bs-toggle="pill" data-bs-target="#pills-download" type="button" role="tab" aria-controls="pills-download" aria-selected="false">Download</button>
+                <button className="nav-link" id="pills-download-tab" data-bs-toggle="pill" data-bs-target="#pills-download" type="button" role="tab" aria-controls="pills-download" aria-selected="false">Sản phẩm liên quan</button>
               </li>
             </ul>
             <div className="tab-content" id="pills-tabContent">
@@ -189,12 +185,16 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
               <div className="tab-pane fade" id="pills-characteristic" role="tabpanel" aria-labelledby="pills-characteristic-tab">...</div>
               <div className="tab-pane fade" id="pills-application" role="tabpanel" aria-labelledby="pills-application-tab">...</div>
               <div className="tab-pane fade" id="pills-accessories" role="tabpanel" aria-labelledby="pills-accessories-tab">...</div>
-              <div className="tab-pane fade" id="pills-download" role="tabpanel" aria-labelledby="pills-download-tab"><a href="#" download>Download</a></div>
+              <div className="tab-pane fade" id="pills-download" role="tabpanel" aria-labelledby="pills-download-tab">
+                
+              </div>
             </div>
           </div>
-          <div className="recommend-product">
-                     
-          </div>                        
+          {/* <div className="recommend-product">
+            {Object.keys(products).filter(key => products[key] === product.brand).map((product) => (
+              <Product key={product._id} product={product}></Product>
+            ))}
+          </div>                         */}
         </div>
       )}
      

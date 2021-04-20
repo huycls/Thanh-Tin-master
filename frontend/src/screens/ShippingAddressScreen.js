@@ -46,9 +46,7 @@ export default withNamespaces((props) => props.namespaces) (function ShippingAdd
       <title>{t("confirmorder")}</title>
     </Helmet>
       <form className="form" id="form" onSubmit={submitHandler}>
-        <div>
-          <h1>{t("confirmorder")}</h1>
-        </div>      
+          <h1>{t("confirmorder")}</h1>    
         <div>
           <label htmlFor="fullName">{t("fullname")}</label>
           <input

@@ -7,6 +7,7 @@ import MessageBox from '../components/MessageBox';
 import { PRODUCT_UPDATE_RESET } from '../constants/productConstants';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {CKEditor} from '@ckeditor/ckeditor5-react';
+import {Helmet} from 'react-helmet';
 
 
 
@@ -168,6 +169,9 @@ export default function ProductEditScreen(props) {
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           <>
+            <Helmet>
+              <title>Edit: {product.name}</title>
+            </Helmet>
             <div>
               <label htmlFor="name">Tên sản phẩm </label>
               <input

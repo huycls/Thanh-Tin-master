@@ -44,7 +44,7 @@ import { withNamespaces } from 'react-i18next';
 import i18n from './i18n';
 import {Navbar, Nav} from 'react-bootstrap';
 import allcategories from './allcategories.js';
-
+import useScript from './useScript';
 
 
 function App({t}) {
@@ -80,42 +80,27 @@ function App({t}) {
     function dropdownmenu2() {
       document.getElementById("myDropdown2").classList.toggle("show");
     }
-  function dropdownresmenu(){
-    document.getElementById('dropdown-responsivemenu').classList.toggle("show");
-  }   
+
   
   function clearEmailRqInput(){
     const input = document.querySelectorAll("input");
     input.forEach(input => input.value = (''));
   }
-    // Close the dropdown menu if the user clicks outside of it
-    window.onclick = function(event) {
-        if (!event.target.matches('.dropbtn')) {
-          var dropdowns = document.getElementsByClassName("dropdownmenu-content");
-          var i;
-          for (i = 0; i < dropdowns.length; i++) {
-              var openDropdown = dropdowns[i];
-              if (openDropdown.classList.contains('show')) {
-              openDropdown.classList.remove('show');
-              }
-          } 
-        }
+  
+  function dropSearchbar(){
+    document.getElementById("search-bar").classList.toggle("show");
+  }
+  window.onclick = function(event) {
+    if (!event.target.matches('.small-searchbar')) {
+      var dropdown = document.getElementById("search-bar");
+      var i;
+      for (i = 0; i < dropdown.length; i++) {
+          var openDropdown = dropdown[i];
+          if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+          }
+      } 
     }
-    
-    function dropSearchbar(){
-      document.getElementById("search-bar").classList.toggle("show");
-    }
-    window.onclick = function(event) {
-      if (!event.target.matches('.small-searchbar')) {
-        var dropdowns = document.getElementById("search-bar");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-            }
-        } 
-      }
   }
     
     function scrollToTop(e){
@@ -139,7 +124,7 @@ function App({t}) {
     function handleChangeLang(lang){
       i18n.changeLanguage(lang)
     }
- 
+  useScript("https://apps.elfsight.com/p/platform.js");
   return (
     <BrowserRouter>
       <div className="grid-container"> 
@@ -553,14 +538,16 @@ function App({t}) {
                   <p><strong>{t("hcmname.label")}: </strong><span><a href="mailto:sales@thanhtin-tech.com">sales@thanhtin-tech.com</a> </span></p>
                   <p><strong>{t("hnname.label")}: </strong><span><a href="mailto:hanoi@thanhtin-tech.com">hanoi@thanhtin-tech.com</a> </span></p>
                 </div>
-                
-              </div>             
-              <div className="footer-child ">             
-                {/* <img src="https://www.freevisitorcounters.com/en/counter/render/812336/t/0" border="0" className="counterimg" /> */}
                 <div className="tech-dept ">
                   <h4 className="footer-title">{t("tech.label")}</h4>
                   <p><strong>{t("hcmname.label")}: </strong><span><a href="mailto:service@thanhtin-tech.com">service@thanhtin-tech.com</a> </span></p>
                   <p><strong>{t("hnname.label")}: </strong><span><a href="mailto:service@thanhtin-tech.com">service@thanhtin-tech.com</a> </span></p>
+                </div>
+                               
+              </div>             
+              <div className="footer-child ">             
+                <div className="counter">
+                  <div className="elfsight-app-100c9ba3-780c-4067-b06c-79da05bf0162" id="counter"></div>
                 </div>
               </div>
               <div className="contact-media footer-child">
@@ -568,13 +555,10 @@ function App({t}) {
                 <div className="other-social">
                   <a href="https://www.linkedin.com/in/thanh-tin-tech-co-ltd-43979a205/" target="_blank"><i className="fab fa-linkedin"></i></a>
                   <a href="#"><i className="fab fa-twitter"></i></a>
-                  <a href="https://www.youtube.com/channel/UCWvi8FoZbVU-PMQHDsYC5pQ" target="_blank"><i className="fab fa-youtube"></i></a>
-                  
+                  <a href="https://www.youtube.com/channel/UCWvi8FoZbVU-PMQHDsYC5pQ" target="_blank"><i className="fab fa-youtube"></i></a>                 
                 </div>
-              </div>
-              <a className="counter-footer" href="http://besucherzaehler.co/stats/8hlj">
-                <svg width="100" height="90" id="besucherzaehler2"><g><rect width="100" height="70" x="0" y="0"  fillOpacity="0.0" stroke="#ffffff"></rect><text x="6" y="38"  fontFamily="Roboto, sans-serif" fontSize="11" fill="#ffffff">Total: 1</text><text x="6" y="50"  fontFamily="Roboto, sans-serif" fontSize="11" fill="#ffffff">Today: 1</text><text x="6" y="62" fontFamily="Roboto, sans-serif" fontSize="11" fill="#ffffff">Yesterday: 0</text><rect width="3" height="9" x="6" y="14" ></rect><rect width="3" height="17" x="11" y="6" ></rect><rect width="3" height="13" x="16" y="10" ></rect><text x="25" y="23" fontFamily="Roboto, sans-serif" fontSize="11" fill="#ffffff">Visitor:</text></g></svg>
-              </a>
+              </div>              
+              
               <div className="copyright">
             <div>COPYRIGHT &copy; 2021 {t("company.label")}</div>
           </div>  

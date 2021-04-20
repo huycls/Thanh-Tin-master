@@ -37,6 +37,7 @@ productRouter.get(
         ? Number(req.query.rating)
         : 0;
     
+
     const nameFilter = name ? { name: { $regex: name, $options: 'i' } } : {};
     const ennameFilter = enname ? { enname } : {};
     const sellerFilter = seller ? { seller } : {};

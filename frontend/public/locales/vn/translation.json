@@ -12,7 +12,7 @@
     "news.label": "Tin mới",
     "video.label": "Kênh Video ",
     "support.label": "Hỗ trợ trực tuyến",
-    "productbox.label": "Sản phẩm nổi bật",
+    "productbox.label": "Sản phẩm mới",
     "cutname": "{{product.name}}",
     "productbrand": "{{product.vnbrand}}",
     "switchcategory": "{{val.category}}",

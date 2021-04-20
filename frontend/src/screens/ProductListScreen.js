@@ -12,6 +12,7 @@ import {
   PRODUCT_CREATE_RESET,
   PRODUCT_DELETE_RESET,
 } from '../constants/productConstants';
+import {Helmet} from 'react-helmet';
 
 export default function ProductListScreen(props) {
   const { pageNumber = 1 } = useParams();
@@ -69,6 +70,9 @@ export default function ProductListScreen(props) {
   };
   return (
     <div>
+      <Helmet>
+        <title>Product List</title>
+      </Helmet>
       <div className="row">
         <h1>Sản phẩm</h1>
         <button type="button" className="primary" onClick={createHandler}>
