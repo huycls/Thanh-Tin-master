@@ -7,7 +7,7 @@ function NewsScreen3(props){
     <Helmet>
         <title>TUYỂN NHÂN VIÊN KINH DOANH - Công ty TNHH thiết bị và hóa chất Thành Tín</title>
     </Helmet>
-        <div className="news-content">
+        <div className="newspage-content">
             <h1>TUYỂN NHÂN VIÊN KINH DOANH</h1>
             <small>15:11 16-1-2014</small><br />
             <strong>

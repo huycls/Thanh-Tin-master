@@ -8,7 +8,7 @@ function NewsScreen2(props){
     <Helmet>
         <title>ANALYTICA VIETNAM 2013 TRIỂN LÃM QUỐC TẾ LẦN THỨ 3 VỀ CÔNG NGHỆ THÍ NGHIỆM, PHÂN TÍCH, CÔNG NGHỆ SINH HỌC VÀ CHẨN ĐOÁN - Công ty TNHH thiết bị và hóa chất Thành Tín</title>
     </Helmet>
-        <div className="news-content">
+        <div className="newspage-content">
         <h1>ANALYTICA VIETNAM 2013 TRIỂN LÃM QUỐC TẾ LẦN THỨ 3 VỀ CÔNG NGHỆ THÍ NGHIỆM, PHÂN TÍCH, CÔNG NGHỆ SINH HỌC VÀ CHẨN ĐOÁN</h1>
         <small>15:11 16-1-2014</small>
         <p> Ngày:  17 - 19/04/2013 </p>
