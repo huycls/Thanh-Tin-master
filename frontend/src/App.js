@@ -560,7 +560,7 @@ function App({t}) {
               </div>              
               
               <div className="copyright">
-            <div>COPYRIGHT &copy; 2021 {t("company.label")}</div>
+            <div className="copyright-container"><span>COPYRIGHT &copy; 2021</span> <span>{t("company.label")}</span></div>
           </div>  
         </div>  
       </div>

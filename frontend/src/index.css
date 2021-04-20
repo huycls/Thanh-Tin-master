@@ -1679,6 +1679,11 @@ margin: 10px;
     align-items: center;
     width: 100%;
   }
+
+  .subcategory ul{
+    max-height: 20rem;
+    overflow-y: scroll;
+  }
   
   .detail-product{
     width: 100%;
@@ -1755,6 +1760,9 @@ margin: 10px;
 
   .resdropdown-btn{
     visibility: visible;
+  }
+  .dropbrand{
+    visibility: hidden;
   }
 
   .menu-responsive{
@@ -1899,9 +1907,14 @@ margin: 10px;
 
 @media screen and (max-width: 600px){
 
+  .dropbrand{
+    visibility: visible;
+  }
+
   .subcategory-container{
     display: none;
   }
+
 
   .footer-child{
     width: 35rem;
@@ -1971,6 +1984,14 @@ margin: 10px;
 }
 
 @media screen and (max-width: 400px){
+  body{
+    font-size: 1.2rem;
+  }
+
+  .copyright-container{
+    display: flex;
+    flex-direction: column;
+  }
 
   .search-bar{
     width: 85%;
@@ -1980,12 +2001,9 @@ margin: 10px;
 
   .subcategory{
     width:90%;
-    height:30rem;
   }
 
-  .subcategory ul{
-    height: 25rem;
-  }
+ 
 
   .search-box{
     width: 100%;

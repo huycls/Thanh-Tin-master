@@ -65,7 +65,7 @@ export default withNamespaces() (function SearchScreen( props) {
       </div>
       <div className="row top">       
         <div className="subcategory">
-        <h3>Hãng sản xuất <button className="resdropdown-btn" onClick={dropdownmenu}><i className="fa fa-caret-down"></i></button></h3>
+        <h3>Hãng sản xuất <button className="resdropdown-btn dropbrand" onClick={dropdownmenu}><i className="fa fa-caret-down"></i></button></h3>
             {loadingBrands ? (
               <LoadingBox></LoadingBox>
             ) : errorBrands ? (
