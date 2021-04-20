@@ -1978,6 +1978,11 @@ margin: 10px;
   .product-card{
     width: 25rem;
   }
+
+  .newspage{
+    padding: .5rem .5rem;
+    display: flex;
+  }
   
 }
 
@@ -1985,6 +1990,8 @@ margin: 10px;
   body{
     font-size: 1.2rem!important;
   }
+
+  
 
   .copyright-container{
     display: flex;
