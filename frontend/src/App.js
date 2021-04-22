@@ -214,10 +214,10 @@ function App({t}) {
             <Navbar.Toggle aria-controls="basic-navbar-nav"  />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav  className="mr-auto">
-                <Nav.Link as={Link} to="/"><i className="fas fa-home"></i> {t("home.label")}</Nav.Link>
-                <Nav.Link as={Link} to="/gioi-thieu">{t("intro.label")}</Nav.Link>
-                <Nav.Link as={Link} to="/tat-ca-dich-vu">{t("service.label")}</Nav.Link>
-                <Nav.Link as={Link} to="/thong-tin-lien-he">{t("contactnav")}</Nav.Link>
+                <Nav.Link as={Link} to="/" className=" mainnav-link"><i className="fas fa-home " aria-current="page" ></i> {t("home.label")}</Nav.Link>
+                <Nav.Link as={Link} to="/gioi-thieu" className="mainnav-link">{t("intro.label")}</Nav.Link>
+                <Nav.Link as={Link} to="/tat-ca-dich-vu" className="mainnav-link">{t("service.label")}</Nav.Link>
+                <Nav.Link as={Link} to="/thong-tin-lien-he" className="mainnav-link">{t("contactnav")}</Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Navbar>

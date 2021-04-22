@@ -180,8 +180,17 @@ a.brand img{
 
 .navbar{
   background-color: #007a37;
-  padding: .5rem 7rem;
+  padding: .5rem 0;
   z-index: 5;
+}
+
+.mainnav-link.active{
+  background-color: #015b2a;
+}
+
+.navbar-collapse{
+  display: flex;
+  justify-content: center;
 }
 
 .navbar-dark .navbar-toggler{

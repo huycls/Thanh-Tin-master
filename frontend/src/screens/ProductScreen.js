@@ -59,7 +59,7 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
         <Helmet>
         <title>{product.name} | Thành Tín Tech</title>
         </Helmet>
-          <button className="goback btn btn-outline-primary"  onClick={() => history.goBack()}><i className="fas fa-arrow-left"></i> {t("back.label")}</button>
+          <button className="goback btn btn-outline-secondary"  onClick={() => history.goBack()}><i className="fas fa-arrow-left"></i> {t("back.label")}</button>
           <div className="row top detail-page">
             <div className=" image-product ">
               <img
