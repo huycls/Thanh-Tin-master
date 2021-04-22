@@ -355,7 +355,8 @@ function App({t}) {
               component={SearchScreen}
               exact
               ></Route>
-            </Fragment>        
+            </Fragment>
+                   
             <PrivateRoute
               path="/profile"
               component={ProfileScreen}

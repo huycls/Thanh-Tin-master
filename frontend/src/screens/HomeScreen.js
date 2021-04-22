@@ -10,8 +10,7 @@ import { listProducts } from '../actions/productActions';
 import { Link } from 'react-router-dom';
 import {Helmet} from 'react-helmet';
 import { withNamespaces } from 'react-i18next';
-// import Pagination from "react-js-pagination";
-
+import Pagination from '../Pagination';
 
 
 export default withNamespaces() (function HomeScreen({t}) {
@@ -23,7 +22,17 @@ export default withNamespaces() (function HomeScreen({t}) {
     dispatch(listProducts({}));
     // dispatch(listTopSellers());
    }, [dispatch]);
+  
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productPerPage] = useState(20);
 
+  //get current products
+  const indexOfLastProduct = currentPage * productPerPage;
+  const inxdexOfFirstProduct = indexOfLastProduct - productPerPage;
+
+  //change page
+  const paginate = (pagehomeNumber) => setCurrentPage(pagehomeNumber);
+  
   return (
     <div>
     <Helmet>
@@ -67,10 +76,11 @@ export default withNamespaces() (function HomeScreen({t}) {
             <div>
               {products.length === 0 && <MessageBox>{t("noproduct.label")}</MessageBox>}
               <div className="rowe">
-                {products.map((product) => (
+                {products.slice(inxdexOfFirstProduct, indexOfLastProduct).map((product) => (
                   <Product key={product._id} product={product}></Product>
                 ))}
-              </div>  
+              </div>
+              <Pagination productPerPage={productPerPage} totalProduct={products.length} paginate={paginate} />
             </div>   
           )}
         </div>
