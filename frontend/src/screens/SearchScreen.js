@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { listProducts } from '../actions/productActions';
@@ -9,6 +9,7 @@ import Product from '../components/Product';
 // import OrderScreen from './OrderScreen';
 import {Helmet} from 'react-helmet';
 import {withNamespaces} from 'react-i18next';
+import Pagination from '../Pagination';
 
 
 export default withNamespaces() (function SearchScreen( props) {
@@ -16,16 +17,13 @@ export default withNamespaces() (function SearchScreen( props) {
   const {
     name = 'all',
     category = 'all',
-    // subcategory = 'all',
+
     brand = 'all',
-    // min = 0,
-    // max = 0,
-    // order = 'newest',
-    pageNumber = 1,
+  
   } = useParams();
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
-  const { loading, error, products, page, pages } = productList;
+  const { loading, error, products } = productList;
   const productBrandList = useSelector((state) => state.productBrandList);
    const {
        loading: loadingBrands,
@@ -36,26 +34,36 @@ export default withNamespaces() (function SearchScreen( props) {
   useEffect(() => {
     dispatch(
       listProducts({
-        pageNumber,
         name: name !== 'all' ? name : '',
         category: category !== 'all' ? category : '',
         // subcategory: subcategory !== 'all' ? subcategory : '',
         brand: brand !== 'all' ? brand : '',
       })
     );
-  }, [  category, brand, dispatch, name, pageNumber]);
+  }, [  category, brand, dispatch, name]);
                                                                                                   
   const getFilterUrl = (filter) => {
-    const filterPage = filter.page || pageNumber;
     const filterCategory = filter.category|| category;
     //  const filterSubcategory = filter.category || category;
     const filterBrand = filter.brand || brand;
     const filterName = filter.name || name; 
-    return `/search/category/${filterCategory}/brand/${filterBrand}/name/${filterName}/pageNumber/${filterPage}`;
+    return `/search/category/${filterCategory}/brand/${filterBrand}/name/${filterName}`;
   };
   function dropdownmenu() {
     document.getElementById("myDropdown3").classList.toggle("show");
   }
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productPerPage] = useState(20);
+
+  //get current products
+  const indexOfLastProduct = currentPage * productPerPage;
+  const inxdexOfFirstProduct = indexOfLastProduct - productPerPage;
+
+  //change page
+  const paginate = (pagehomeNumber) => setCurrentPage(pagehomeNumber);
+  
+
   return (
     <div className="search-screen">
       <Helmet>
@@ -72,9 +80,10 @@ export default withNamespaces() (function SearchScreen( props) {
               <MessageBox variant="danger">{errorBrands}</MessageBox>
             ) : (
               <ul className="subcategory-container" id="myDropdown3">
-                <li>
+                <li >
                   <Link
                     className={'all' === brand ? 'active' : '' }
+                    id="brand-link"
                     to={getFilterUrl({ brand: 'all' })}
                   >
                     Tất cả
@@ -83,6 +92,7 @@ export default withNamespaces() (function SearchScreen( props) {
                 {brands.map((c) => (
                   <li key={c}>
                     <Link
+                      id="brand-link"
                       className={c === brand ? 'active' : ''}
                       to={getFilterUrl({ brand: c })}
                     >
@@ -112,21 +122,11 @@ export default withNamespaces() (function SearchScreen( props) {
                 <MessageBox>No Product Found</MessageBox>
               )}
               <div className="rowe">
-                {products.map((product) => (
+                {products.slice(inxdexOfFirstProduct, indexOfLastProduct).map((product) => (
                   <Product key={product._id} product={product}></Product>
                 ))}
               </div>
-              <div className="rowe center pagination">
-                {[...Array(pages).keys()].map((x) => (
-                  <Link
-                    className={x + 1 === page ? 'active' : ''}
-                    key={x + 1}
-                    to={getFilterUrl({ page: x + 1 })}
-                  >
-                    {x + 1}
-                  </Link>
-                ))}
-              </div>
+              <Pagination productPerPage={productPerPage} totalProduct={products.length} paginate={paginate} />
             </>
           )}
         </div>

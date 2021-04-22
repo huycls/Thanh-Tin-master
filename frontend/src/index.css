@@ -423,6 +423,8 @@ img.large {
   max-width: 300px!important;
 }
 
+
+
 /* Caption of Modal Image */
 #caption {
   margin: auto;
@@ -1153,17 +1155,17 @@ margin: 10px;
   margin: 0;
 }
 
-.search-screen ul{
+.search-screen .subcategory-container{
   border: .1rem solid #f0f0f0;
 }
 
-.search-screen ul li{
+.search-screen .subcategory-container li{
   border-bottom: .1rem solid #f0f0f0;
   margin:0;
   width: 20rem;
 }
 
-.search-screen li a{
+#brand-link{
   width: 100%!important;
   padding: 0.8rem 1rem;
   display: flex;
@@ -1172,7 +1174,7 @@ margin: 10px;
   color: #000;
 }
 
-.search-screen li a:hover{
+#brand-link:hover{
   color: #00A349;
 }
 

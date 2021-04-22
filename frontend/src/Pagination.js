@@ -7,7 +7,7 @@ const Pagination = ({productPerPage, totalProduct, paginate}) => {
         pagehomeNumbers.push(i);
     }
     return <nav>
-        <ul className="pagination">
+        <ul className="pagination center rowe">
             {pagehomeNumbers.map(num => (
                 <li key={num} className="page-item">
                     <Link to="#" onClick={() => paginate(num)} className="page-link">
