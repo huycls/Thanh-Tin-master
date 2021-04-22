@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 // import { Carousel } from 'react-responsive-carousel';
 import Product from '../components/Product';
@@ -10,6 +10,8 @@ import { listProducts } from '../actions/productActions';
 import { Link } from 'react-router-dom';
 import {Helmet} from 'react-helmet';
 import { withNamespaces } from 'react-i18next';
+// import Pagination from "react-js-pagination";
+
 
 
 export default withNamespaces() (function HomeScreen({t}) {
@@ -17,17 +19,11 @@ export default withNamespaces() (function HomeScreen({t}) {
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
 
-  // const userTopSellersList = useSelector((state) => state.userTopSellersList);
-  // const {
-  //   loading: loadingSellers,
-  //   error: errorSellers,
-  //   users: sellers,
-  // } = userTopSellersList;
-
    useEffect(() => {
     dispatch(listProducts({}));
     // dispatch(listTopSellers());
    }, [dispatch]);
+
   return (
     <div>
     <Helmet>
@@ -74,7 +70,7 @@ export default withNamespaces() (function HomeScreen({t}) {
                 {products.map((product) => (
                   <Product key={product._id} product={product}></Product>
                 ))}
-              </div>
+              </div>  
             </div>   
           )}
         </div>

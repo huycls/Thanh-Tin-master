@@ -82,27 +82,10 @@ function App({t}) {
     }
 
   
-  function clearEmailRqInput(){
-    const input = document.querySelectorAll("input");
-    input.forEach(input => input.value = (''));
-  }
-  
   function dropSearchbar(){
     document.getElementById("search-bar").classList.toggle("show");
   }
-  window.onclick = function(event) {
-    if (!event.target.matches('.small-searchbar')) {
-      var dropdown = document.getElementById("search-bar");
-      var i;
-      for (i = 0; i < dropdown.length; i++) {
-          var openDropdown = dropdown[i];
-          if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-          }
-      } 
-    }
-  }
-    
+  
     function scrollToTop(e){
       var toTop = document.getElementById("navbar");
       toTop.scrollIntoView({behavior: "smooth"});
@@ -416,7 +399,7 @@ function App({t}) {
             <p>{t("collectemail.label")}</p>
             <form id="form"  method="GET" action="https://script.google.com/macros/s/AKfycbyTSr30R7jPcxOqEYFOuxNOjvKeKWCmBqN2tnnRYTrXPnOElveM/exec">
               <input id="email" type="email" name="email_user" required/>
-              <button onClick={clearEmailRqInput} type="submit" id="submit-form" placeholder="Email">{t("send.label")}</button>
+              <button type="submit" id="submit-form" placeholder="Email">{t("send.label")}</button>
             </form>
           </div>
           <div className="marquee">

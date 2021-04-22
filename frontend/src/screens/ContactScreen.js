@@ -5,7 +5,7 @@ import {Helmet} from 'react-helmet';
 export default withNamespaces()(function ContactScreen({t}){
     return <div className="contact-page">
         <Helmet>
-            <title>Liên hệ</title>
+            <title>Liên hệ - Công ty TNHH thiết bị và hóa chất Thành Tín</title>
         </Helmet>
         <div className="introinfo-field">
             <div className="intro-info">

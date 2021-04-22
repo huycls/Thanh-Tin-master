@@ -10,7 +10,7 @@ const productRouter = express.Router();
 productRouter.get(
   '/',
   expressAsyncHandler(async (req, res) => {
-    const pageSize = 20;
+    const pageSize = 1000;
     const page = Number(req.query.pageNumber) || 1;
     const name = req.query.name || '';
     const enname = req.query.enname || '';
@@ -54,7 +54,6 @@ productRouter.get(
     const descriptionFilter = description ? {description} : {};
     const endescriptionFilter = endescription ? {endescription} : {};
     const priceFilter = min && max ? { price: { $gte: min, $lte: max } } : {};
-    const ratingFilter = rating ? { rating: { $gte: rating } } : {};
     const sortOrder =
       order === 'lowest'
         ? { price: 1 }
@@ -80,7 +79,6 @@ productRouter.get(
       ...videoFilter,
       ...catalogFilter,
       ...priceFilter,
-      ...ratingFilter,
     });
     const products = await Product.find({
       ...sellerFilter,
@@ -99,7 +97,6 @@ productRouter.get(
       ...videoFilter,
       ...catalogFilter,
       ...priceFilter,
-      ...ratingFilter,
     })
       .populate('seller', 'seller.name seller.logo')
       .sort(sortOrder)

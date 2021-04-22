@@ -4,14 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import {  detailsProduct } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-// import Product from '../components/Product';
+import Product from '../components/Product';
 import { listProducts } from '../actions/productActions';
 import parse from 'html-react-parser';
 import {Helmet} from 'react-helmet';
 import { withNamespaces } from 'react-i18next';
 import {useHistory} from 'react-router-dom';
-
-// import { PRODUCT_REVIEW_CREATE_RESET } from '../constants/productConstants';
 
 export default withNamespaces((props) => props.namespaces) (function ProductScreen(props) {
   const {t} = props;
@@ -20,9 +18,8 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
   const [qty, setQty] = useState(1);
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
-  // const productList = useSelector((state) => state.productList);
-  // const {products} = productList;
-
+  const productList = useSelector((state) => state.productList);
+  const {products} = productList;
 
   const productReviewCreate = useSelector((state) => state.productReviewCreate);
   const {
@@ -40,17 +37,16 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
     dispatch(listProducts({}));
    }, [dispatch]);
    
-    const zoomImage = () =>{
-      document.getElementById("myModal").style.display = "block";
-      document.getElementById("img01").src = product.image;
-      document.getElementById("caption").innerHTML = product.name;
-    }
+  const zoomImage = () =>{
+    document.getElementById("myModal").style.display = "block";
+    document.getElementById("img01").src = product.image;
+    document.getElementById("caption").innerHTML = product.name;
+  }
   
     // When the user clicks on <span> (x), close the modal
-    const closeSpan = () => { 
-      document.getElementById("myModal").style.display = "none";
-    }
-
+  const closeSpan = () => { 
+    document.getElementById("myModal").style.display = "none";
+  }
   const history = useHistory();
   return (
     <div>  
@@ -61,7 +57,7 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
       ) : (        
         <div>
         <Helmet>
-        <title>{product.name}</title>
+        <title>{product.name} | Thành Tín Tech</title>
         </Helmet>
           <button className="goback btn btn-outline-primary"  onClick={() => history.goBack()}><i className="fas fa-arrow-left"></i> {t("back.label")}</button>
           <div className="row top detail-page">
@@ -172,10 +168,7 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
               </li>
               <li className="nav-item" role="presentation">
                 <button className="nav-link" id="pills-accessories-tab" data-bs-toggle="pill" data-bs-target="#pills-accessories" type="button" role="tab" aria-controls="pills-accessories" aria-selected="false">{t("access.label")}</button>
-              </li>
-              <li className="nav-item" role="presentation">
-                <button className="nav-link" id="pills-download-tab" data-bs-toggle="pill" data-bs-target="#pills-download" type="button" role="tab" aria-controls="pills-download" aria-selected="false">Sản phẩm liên quan</button>
-              </li>
+              </li>              
             </ul>
             <div className="tab-content" id="pills-tabContent">
               <div className="tab-pane fade show active" id="pills-parameter" role="tabpanel" aria-labelledby="pills-parameter-tab">
@@ -184,20 +177,23 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
               <div className="tab-pane fade" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab"><a href="#" download>Link</a></div>
               <div className="tab-pane fade" id="pills-characteristic" role="tabpanel" aria-labelledby="pills-characteristic-tab">...</div>
               <div className="tab-pane fade" id="pills-application" role="tabpanel" aria-labelledby="pills-application-tab">...</div>
-              <div className="tab-pane fade" id="pills-accessories" role="tabpanel" aria-labelledby="pills-accessories-tab">...</div>
-              <div className="tab-pane fade" id="pills-download" role="tabpanel" aria-labelledby="pills-download-tab">
-                
-              </div>
+              <div className="tab-pane fade" id="pills-accessories" role="tabpanel" aria-labelledby="pills-accessories-tab">...</div>             
             </div>
           </div>
-          {/* <div className="recommend-product">
-            {Object.keys(products).filter(key => products[key] === product.brand).map((product) => (
-              <Product key={product._id} product={product}></Product>
-            ))}
-          </div>                         */}
+          <div className="recommend-product">
+            <h2 className="product-banner">{t("relate.product")}</h2>
+            <div className="rowe">
+              {loading ? (
+                <LoadingBox></LoadingBox>
+              ) : error ? (
+                <MessageBox variant="danger">{error}</MessageBox>
+              ) : ( products && products.filter( item => product.category == item.category && item._id !== product._id).slice(0, 5).map(product => (
+                        <Product key={product._id} product={product}></Product>
+              )))}
+            </div>
+          </div>                        
         </div>
-      )}
-     
+      )} 
     </div>
   );
 })

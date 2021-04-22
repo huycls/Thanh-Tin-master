@@ -1,5 +1,4 @@
 {
-
     "home.label":"Trang chủ",
     "service.label": "Dịch vụ",
     "contactnav": "Liên hệ",
@@ -76,6 +75,7 @@
     "allpro.label": "Tất cả",
     "search.label": "Tìm kiếm",
     "result.label": "Kết quả tìm kiếm",
+    "relate.product": "Sản phẩm tương tự",
 
     "intro.p1": " hoạt động trong lĩnh vực tư vấn, cung cấp các giải pháp, thiết bị phòng thí nghiệm, thiết bị công nghiệp, hóa chất, vật tư chủ yếu trong các lĩnh vực sau:",
     "intro.l1": " Giải pháp phòng thí nghiệm ngành thực phẩm - nước giải khát, thức ăn chăn nuôi, thủy sản",
@@ -84,7 +84,7 @@
     "intro.l4": " Giải pháp phòng thí nghiệm ngành dược phẩm - hóa mỹ phẩm",
     "intro.l5": " Ngành nước cấp, nước thải và môi trường",
     "intro.l6": " Các giải pháp tự động hóa",
-    "intro.h2": "Tầm nhìn & Sứ mệnh: ",
+    "intro.h2": " Tầm nhìn & Sứ mệnh: ",
     "intro.li1": " Trở thành nhà cung cấp dẫn đầu cung cấp giải pháp tổng thể chuyên ngành, lĩnh vực ứng dụng.",
     "intro.li2": " Cung cấp các dịch vụ kỹ thuật trọn gói : bảo dưỡng, sửa chữa và hiệu chuẩn, tư vấn tiêu chuẩn và kỹ thuật.",
     "intro.li3": " Giá trị cốt lõi : Trung thực – Trách nhiệm – Cầu thị",
@@ -109,5 +109,4 @@
     "newsmenu": "Danh mục tin",
     "solution": "Giải pháp"
     
-
 }

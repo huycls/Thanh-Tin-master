@@ -394,6 +394,12 @@ img.large {
 
 #pic:hover {opacity: 0.7;}
 
+/* .recommend-product{
+  display: flex;
+  flex-wrap: wrap;
+} */
+
+
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */

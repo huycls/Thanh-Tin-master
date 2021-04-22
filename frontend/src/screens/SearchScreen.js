@@ -59,7 +59,7 @@ export default withNamespaces() (function SearchScreen( props) {
   return (
     <div className="search-screen">
       <Helmet>
-        <title>{t("search.label")} - {category}</title>
+        <title>{t("search.label")}</title>
       </Helmet>
       <div className="rowe">
       </div>

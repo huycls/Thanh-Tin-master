@@ -1,7 +1,11 @@
 import React from 'react';
+import {Helmet} from 'react-helmet';
 
 export default function Service2Screen(){
     return <div className="service-detail-page">
+        <Helmet>
+            <title>Dịch vụ chuẩn đoán và sửa chữa | Thành Tín Tech</title>
+        </Helmet>
          <h1>
             Dịch vụ chuẩn đoán và sửa chữa
         </h1>

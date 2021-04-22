@@ -5,8 +5,8 @@ import {Helmet} from 'react-helmet';
 
 export default function Allservices(){
     return <div className="service-page">
-     <Helmet>
-            <title>Dịch vụ</title>
+        <Helmet>
+            <title>Dịch vụ - Công ty TNHH thiết bị và hóa chất Thành Tín</title>
         </Helmet>
         <div className="service-container">
             <div className="service-card">
