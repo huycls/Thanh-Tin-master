@@ -42,9 +42,7 @@ export default withNamespaces((props) => props.namespaces) (function RegisterScr
         <title>{t("register.label")}</title>
       </Helmet>
       <form className="form" onSubmit={submitHandler}>
-        <div>
           <h1>{t("createuser")}</h1>
-        </div>
         {loading && <LoadingBox></LoadingBox>}
         {error && <MessageBox variant="danger">{error}</MessageBox>}
         <div>

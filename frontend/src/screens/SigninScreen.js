@@ -34,10 +34,8 @@ export default withNamespaces((props) => props.namespaces) (function SigninScree
       <Helmet>
         <title>{t("signin.label")}</title>
       </Helmet>
-      <form className="form" onSubmit={submitHandler}>
-        <div>
-          <h1>{t("signin.label")}</h1>
-        </div>
+      <form className="form" onSubmit={submitHandler}>       
+        <h1>{t("signin.label")}</h1>
         {loading && <LoadingBox></LoadingBox>}
         {error && <MessageBox variant="danger">{error}</MessageBox>}
         <div>

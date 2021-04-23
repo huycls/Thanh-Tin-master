@@ -17,9 +17,7 @@ export default withNamespaces() (function SearchScreen( props) {
   const {
     name = 'all',
     category = 'all',
-
-    brand = 'all',
-  
+    brand = 'all', 
   } = useParams();
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
@@ -52,18 +50,13 @@ export default withNamespaces() (function SearchScreen( props) {
   function dropdownmenu() {
     document.getElementById("myDropdown3").classList.toggle("show");
   }
-
   const [currentPage, setCurrentPage] = useState(1);
   const [productPerPage] = useState(20);
-
   //get current products
   const indexOfLastProduct = currentPage * productPerPage;
   const inxdexOfFirstProduct = indexOfLastProduct - productPerPage;
-
   //change page
   const paginate = (pagehomeNumber) => setCurrentPage(pagehomeNumber);
-  
-
   return (
     <div className="search-screen">
       <Helmet>
@@ -101,8 +94,7 @@ export default withNamespaces() (function SearchScreen( props) {
                   </li>
                 ))}
               </ul>
-            )}        
-        
+            )}               
         </div>
         {loading ? (
           <LoadingBox></LoadingBox>

@@ -241,7 +241,7 @@ function App({t}) {
                 </Link>
                 <Link to="/analytica-viet-nam-2013">
                   <p className="news-link">
-                    <i className="fas fa-chevron-right"></i>ANALYTICA VIETNAM 2013 TRIỂN LÃM QUỐC TẾ LẦN THỨ 3 VỀ CÔNG NGHỆ THÍ NGHIỆM, PHÂN TÍCH, CÔNG NGHỆ SINH HỌC VÀ CHẨN ĐOÁN
+                    <i className="fas fa-chevron-right"></i>ANALYTICA VIETNAM 2013 triển lãm quốc tế lần thứ 3 về công nghệ thí nghiệm,...
                   </p>
                 </Link>
                 <Link to="/tuyen-nhan-vien-kinh-doanh">
