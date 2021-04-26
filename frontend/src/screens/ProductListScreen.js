@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import {
@@ -13,6 +13,10 @@ import {
   PRODUCT_DELETE_RESET,
 } from '../constants/productConstants';
 import {Helmet} from 'react-helmet';
+import Pagination from '../Pagination';
+
+
+
 
 export default function ProductListScreen(props) {
   const { pageNumber = 1 } = useParams();
@@ -68,6 +72,16 @@ export default function ProductListScreen(props) {
   const createHandler = () => {
     dispatch(createProduct());
   };
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productPerPage] = useState(20);
+
+  //get current products
+  const indexOfLastProduct = currentPage * productPerPage;
+  const inxdexOfFirstProduct = indexOfLastProduct - productPerPage;
+
+  //change page
+  const paginate = (pagehomeNumber) => setCurrentPage(pagehomeNumber);
+  
   return (
     <div>
       <Helmet>
@@ -103,7 +117,7 @@ export default function ProductListScreen(props) {
               </tr>
             </thead>
             <tbody>
-              {products.map((product) => (
+              {products.slice(inxdexOfFirstProduct, indexOfLastProduct).map((product) => (
                 <tr key={product._id}>
                   <td>{product._id}</td>
                   <td>{product.name}</td>
@@ -133,15 +147,7 @@ export default function ProductListScreen(props) {
             </tbody>
           </table>
           <div className="rowe center pagination">
-            {[...Array(pages).keys()].map((x) => (
-              <Link
-                className={x + 1 === page ? 'active' : ''}
-                key={x + 1}
-                to={`/productlist/pageNumber/${x + 1}`}
-              >
-                {x + 1}
-              </Link>
-            ))}
+          <Pagination productPerPage={productPerPage} totalProduct={products.length} paginate={paginate} />
           </div>
         </>
       )}
