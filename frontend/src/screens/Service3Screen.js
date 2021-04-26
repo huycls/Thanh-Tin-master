@@ -23,9 +23,9 @@ export default function Service3Screen(){
                 <li>Lĩnh vực nhựa (ống nhựa) , bao bình nhựa</li>
                 </ul>
                 <h4>Năng lực hiệu chuẩn</h4>
-                <img src="./images/dv2.png" />            
-                <img src="./images/dv3.png" />
-                <img src="./images/dich_vu_6.png" />
+                <img src="./images/dv2.png" alt="dich-vu-hieu-chuan"/>            
+                <img src="./images/dv3.png"  alt="dich-vu-hieu-chuan"/>
+                <img src="./images/dich_vu_6.png"  alt="dich-vu-hieu-chuan"/>
             </div>
         </div>
     </div>

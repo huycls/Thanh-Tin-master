@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import {
   createProduct,
   deleteProduct,
@@ -23,7 +23,7 @@ export default function ProductListScreen(props) {
 
   const sellerMode = props.match.path.indexOf('/seller') >= 0;
   const productList = useSelector((state) => state.productList);
-  const { loading, error, products, page, pages } = productList;
+  const { loading, error, products } = productList;
 
   const productCreate = useSelector((state) => state.productCreate);
   const {

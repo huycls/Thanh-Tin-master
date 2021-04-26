@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Link, Route } from 'react-router-dom';
 import { signout } from './actions/userActions';
@@ -272,7 +272,7 @@ function App({t}) {
             </ul>
             
             <div className="sidebar-title res">
-              <a href="https://www.youtube.com/channel/UCWvi8FoZbVU-PMQHDsYC5pQ/featured" target="_blank">{t("video.label")}</a>
+              <a href="https://www.youtube.com/channel/UCWvi8FoZbVU-PMQHDsYC5pQ/featured" target="_blank" rel="noopener noreferrer">{t("video.label")}</a>
             </div>
             <div className="sidebar-content res">
               <iframe src="https://www.youtube.com/embed/xjndBrxqtzU" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
@@ -282,7 +282,7 @@ function App({t}) {
             </div>
             <div className="sidebar-content res">
               <h3>Zalo  0988 816 815</h3>
-              <img src="./images/hotline.png" />           
+              <img src="./images/hotline.png" alt="hotline"/>           
             </div>
           </aside>
            
@@ -328,11 +328,6 @@ function App({t}) {
               component={SearchScreen}
                exact
             ></Route>
-            {/* <Route
-              path="/search/category/:subcategory"
-              component={SearchScreen}
-              exact>
-            </Route>  */}
             <Route
               path="/search/category/:category/brand/:brand"
               component={SearchScreen}
@@ -343,11 +338,7 @@ function App({t}) {
               component={SearchScreen}
               exact
             ></Route>
-            {/* <Route
-              path="/search/category/:category/name/:name"
-              component={SearchScreen}
-              exact
-            ></Route> */}
+          
             <Fragment>
               <ScrollToTop />
               <Route
@@ -376,11 +367,7 @@ function App({t}) {
             ></AdminRoute>
             <ScrollToTop />
             </Fragment>         
-            {/* <AdminRoute
-              path="/orderlist"
-              component={OrderListScreen}
-              exact
-            ></AdminRoute> */}
+           
             <AdminRoute path="/userlist" component={UserListScreen}></AdminRoute>
             <AdminRoute
               path="/user/:id/edit"
@@ -390,10 +377,7 @@ function App({t}) {
               path="/productlist/seller"
               component={ProductListScreen}
             ></SellerRoute>
-            {/* <SellerRoute
-              path="/orderlist/seller"
-              component={OrderListScreen}
-            ></SellerRoute> */}
+         
             <Route path="/" component={HomeScreen} exact></Route>
           </div>
           <div className="collect-email">
@@ -537,9 +521,9 @@ function App({t}) {
               <div className="contact-media footer-child">
                 <div className="fb-page" data-href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" data-tabs="timeline" data-width="300" data-height="200" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" className="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147">Công ty TNHH Thiết Bị Và Hoá Chất  Thành Tín</a></blockquote></div>
                 <div className="other-social">
-                  <a href="https://www.linkedin.com/in/thanh-tin-tech-co-ltd-43979a205/" target="_blank"><i className="fab fa-linkedin"></i></a>
+                  <a href="https://www.linkedin.com/in/thanh-tin-tech-co-ltd-43979a205/" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a>
                   <a href="#"><i className="fab fa-twitter"></i></a>
-                  <a href="https://www.youtube.com/channel/UCWvi8FoZbVU-PMQHDsYC5pQ" target="_blank"><i className="fab fa-youtube"></i></a>                 
+                  <a href="https://www.youtube.com/channel/UCWvi8FoZbVU-PMQHDsYC5pQ" target="_blank" rel="noopener noreferrer"><i className="fab fa-youtube"></i></a>                 
                 </div>
               </div>              
               
