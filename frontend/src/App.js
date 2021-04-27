@@ -113,7 +113,7 @@ function App({t}) {
       <div className="grid-container"> 
       <div className="upper-nav">
             <div className="hotline">Hotline: <a href="tel:0988 816 815">0988 816 815</a> </div>
-            <div>
+            <div className="email">
               Email:<a  href="mailto:sales@thanhtin-tech.com">sales@thanhtin-tech.com</a>
             </div>
             <div className="lang">
