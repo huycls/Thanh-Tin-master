@@ -86,10 +86,18 @@ function App({t}) {
     document.getElementById("search-bar").classList.toggle("show");
   }
   
-    function scrollToTop(e){
-      var toTop = document.getElementById("navbar");
-      toTop.scrollIntoView({behavior: "smooth"});
-      e.preventDefault();
+    // function scrollToTop(e){
+    //   var toTop = document.getElementById("navbar");
+    //   toTop.scrollIntoView({behavior: "smooth"});
+    //   e.preventDefault();
+    // }
+
+    function scrollToTop(){
+      const c = document.documentElement.scrollTop || document.body.scrollTop;
+      if (c > 0) {
+        window.requestAnimationFrame(scrollToTop);
+        window.scrollTo(0, c - c / 6);
+      }
     }
 
     window.onload = function(){

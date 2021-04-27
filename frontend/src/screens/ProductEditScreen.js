@@ -119,7 +119,6 @@ export default function ProductEditScreen(props) {
       setLoadingUpload(false);
     }
   };
-  
   return (
     <div>
       <form className="form" onSubmit={submitHandler}>
