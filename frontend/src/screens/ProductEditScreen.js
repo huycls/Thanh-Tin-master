@@ -123,9 +123,7 @@ export default function ProductEditScreen(props) {
   return (
     <div>
       <form className="form" onSubmit={submitHandler}>
-        <div>
           <h1>Edit Product id: {productId}</h1>
-        </div>
         {loadingUpdate && <LoadingBox></LoadingBox>}
         {errorUpdate && <MessageBox variant="danger">{errorUpdate}</MessageBox>}
         {loading ? (
