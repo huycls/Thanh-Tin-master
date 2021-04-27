@@ -387,6 +387,10 @@ img.large {
   padding: 0 7rem;
 }
 
+.lower-detailpage img{
+  max-width: 90%;
+}
+
 .lower-detailpage .nav-link{
   color: #000!important;
 }
@@ -1719,9 +1723,6 @@ margin: 10px;
     padding: 0;
   }
 
-  .lower-detailpage img{
-    max-width: 90%;
-  }
 
   .col-05{
     flex: 1 1 20rem;
@@ -1969,6 +1970,7 @@ margin: 10px;
   .search-box{
     width: 65%;
   }
+
   .email{
     display: none;
   }
@@ -1980,6 +1982,7 @@ margin: 10px;
   .collect-email button{
     width: 20%;
   }
+
   header i{
     font-size: 20px!important;
   }
@@ -2008,8 +2011,6 @@ margin: 10px;
     font-size: 1.2rem!important;
   }
 
-  
-
   .copyright-container{
     display: flex;
     flex-direction: column;
@@ -2024,8 +2025,6 @@ margin: 10px;
   .subcategory{
     width:90%;
   }
-
- 
 
   .search-box{
     width: 100%;
