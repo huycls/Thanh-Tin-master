@@ -85,7 +85,7 @@ export default function ProductListScreen(props) {
   return (
     <div>
       <Helmet>
-        <title>Product List</title>
+        <title>Product List </title>
       </Helmet>
       <div className="row">
         <h1>Sản phẩm</h1>
@@ -105,6 +105,7 @@ export default function ProductListScreen(props) {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <>
+         
           <table className="table">
             <thead>
               <tr>
@@ -147,7 +148,7 @@ export default function ProductListScreen(props) {
             </tbody>
           </table>
           <div className="rowe center pagination">
-          <Pagination productPerPage={productPerPage} totalProduct={products.length} paginate={paginate} />
+          <Pagination productPerPage={productPerPage} totalProduct={products.length} paginate={paginate}  currentPage={currentPage}/>
           </div>
         </>
       )}

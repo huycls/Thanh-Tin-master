@@ -118,7 +118,7 @@ export default withNamespaces() (function SearchScreen( props) {
                   <Product key={product._id} product={product}></Product>
                 ))}
               </div>
-              <Pagination productPerPage={productPerPage} totalProduct={products.length} paginate={paginate} />
+              <Pagination productPerPage={productPerPage} totalProduct={products.length} paginate={paginate}  currentPage={currentPage}/>
             </>
           )}
         </div>

@@ -849,9 +849,6 @@ img.large {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.pagination a.active {
-  font-weight: bold;
-}
 
 /*Dropdown menu*/
 /* Dropdown Button */

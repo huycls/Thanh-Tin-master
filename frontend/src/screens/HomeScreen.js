@@ -32,7 +32,6 @@ export default withNamespaces() (function HomeScreen({t}) {
 
   //change page
   const paginate = (pagehomeNumber) => setCurrentPage(pagehomeNumber);
-  
   return (
     <div>
     <Helmet>
@@ -80,7 +79,7 @@ export default withNamespaces() (function HomeScreen({t}) {
                   <Product key={product._id} product={product}></Product>
                 ))}
               </div>
-              <Pagination productPerPage={productPerPage} totalProduct={products.length} paginate={paginate} />
+              <Pagination productPerPage={productPerPage} totalProduct={products.length} paginate={paginate} currentPage={currentPage}/>
             </div>   
           )}
         </div>
