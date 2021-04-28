@@ -49,7 +49,9 @@ export default withNamespaces() (function SearchScreen( props) {
   };
   function dropdownmenu() {
     document.getElementById("myDropdown3").classList.toggle("show");
-  }
+  } 
+
+
   const [currentPage, setCurrentPage] = useState(1);
   const [productPerPage] = useState(20);
   //get current products
@@ -57,6 +59,10 @@ export default withNamespaces() (function SearchScreen( props) {
   const inxdexOfFirstProduct = indexOfLastProduct - productPerPage;
   //change page
   const paginate = (pagehomeNumber) => setCurrentPage(pagehomeNumber);
+  
+
+  const brandSet = new Set(products && products.map(item => item.brand));
+  const brandList = Array.from(brandSet).sort();
   return (
     <div className="search-screen">
       <Helmet>
@@ -82,7 +88,7 @@ export default withNamespaces() (function SearchScreen( props) {
                     Tất cả
                   </Link>
                 </li>
-                {brands.map((c) => (
+                {brandList.map((c) => (
                   <li key={c}>
                     <Link
                       id="brand-link"
@@ -92,7 +98,7 @@ export default withNamespaces() (function SearchScreen( props) {
                       {c.toLowerCase().replace(/(^|\s)\S/g, L => L.toUpperCase())}
                     </Link>
                   </li>
-                ))}
+                )).filter((val, id , array) => array.indexOf(val) == id)}
               </ul>
             )}               
         </div>

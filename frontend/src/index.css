@@ -775,6 +775,7 @@ img.large {
 
 .active {
   font-weight: bold;
+  color: #e67e22!important;
 }
 
 .tab-pane{
@@ -1182,6 +1183,7 @@ margin: 10px;
   justify-content: space-between;
   text-decoration: none;
   color: #000;
+  font-weight: bold;
 }
 
 #brand-link:hover{
