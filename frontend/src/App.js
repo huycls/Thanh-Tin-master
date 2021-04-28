@@ -272,7 +272,7 @@ function App({t}) {
                         to={`/search/category/${val.urlcategory}`}
                       
                       >
-                        {t("switchcategory", {val})} 
+                       <i class="fas fa-caret-right"></i> {t("switchcategory", {val})} 
                       </Link>
                     </li>              
                 ))

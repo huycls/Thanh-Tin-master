@@ -322,6 +322,10 @@ a.brand img{
   background-color: #00A349;
 }
 
+.category-menu i{
+  margin-right: 1rem;
+}
+
 .main-content{
   width: 80%;
   margin-left: 20%;
