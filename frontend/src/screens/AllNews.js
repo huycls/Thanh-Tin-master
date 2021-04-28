@@ -4,7 +4,6 @@ import {Helmet} from 'react-helmet';
 import { withNamespaces } from 'react-i18next';
 
 
-
 function Allnews({t}){
     return <div className="allnewspage">
         <Helmet>

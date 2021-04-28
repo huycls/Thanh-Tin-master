@@ -1151,12 +1151,24 @@ margin: 10px;
   height: auto;
 }
 
+.nav .fa-bars{
+  margin-right: 1rem;
+}
+
 .news-nav-link{
   border-bottom: .1rem solid #f0f0f0!important;
-
+  color: #000!important;
+  font-weight: bold;
 }
+
 .news-nav-link:hover{
-  color:#00A349;
+  color:#00A349!important;
+  background-color: #fff!important;
+}
+
+.news-nav-link.active{
+  color: #e67e22!important;
+  background-color: #fff!important;
 }
 
 
