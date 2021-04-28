@@ -773,9 +773,9 @@ img.large {
 }
 
 
-.active {
+#brand-link.active {
   font-weight: bold;
-  color: #e67e22!important;
+  color: #e67e22;
 }
 
 .tab-pane{
