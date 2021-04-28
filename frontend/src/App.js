@@ -183,7 +183,7 @@ function App({t}) {
               {userInfo && userInfo.isSeller && (
                 <div className="dropdown">
                   <Link to="#admin">
-                    Seller <i className="fa fa-caret-down"></i>
+                    Staff <i className="fa fa-caret-down"></i>
                   </Link>
                   <ul className="dropdown-content dropdown-nav">
                     <li>
