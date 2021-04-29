@@ -104,7 +104,7 @@ function App({t}) {
       let scrolltotop = document.getElementById('scrolltotop');
       window.onscroll = function() {scrollFunction()};
       function scrollFunction() {
-        if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
           scrolltotop.style.display = "block";
         } else {
           scrolltotop.style.display = "none";
