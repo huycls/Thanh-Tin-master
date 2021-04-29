@@ -168,16 +168,20 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
               </li>
               <li className="nav-item" role="presentation">
                 <button className="nav-link" id="pills-accessories-tab" data-bs-toggle="pill" data-bs-target="#pills-accessories" type="button" role="tab" aria-controls="pills-accessories" aria-selected="false">{t("access.label")}</button>
-              </li>              
+              </li>
+              <li className="nav-item" role="presentation">
+                <button className="nav-link" id="pills-catalog-tab" data-bs-toggle="pill" data-bs-target="#pills-catalog" type="button" role="tab" aria-controls="pills-catalog" aria-selected="false">Catalogue</button>
+              </li>               
             </ul>
             <div className="tab-content" id="pills-tabContent">
               <div className="tab-pane fade show active" id="pills-parameter" role="tabpanel" aria-labelledby="pills-parameter-tab">
                 {parse(t("parameter.content", {product}))}
               </div>
-              <div className="tab-pane fade" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab"><a href="#" download>Link</a></div>
+              <div className="tab-pane fade" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab"><a href={product.video}>Xem video</a></div>
               <div className="tab-pane fade" id="pills-characteristic" role="tabpanel" aria-labelledby="pills-characteristic-tab">...</div>
               <div className="tab-pane fade" id="pills-application" role="tabpanel" aria-labelledby="pills-application-tab">...</div>
-              <div className="tab-pane fade" id="pills-accessories" role="tabpanel" aria-labelledby="pills-accessories-tab">...</div>             
+              <div className="tab-pane fade" id="pills-accessories" role="tabpanel" aria-labelledby="pills-accessories-tab">...</div>
+              <div className="tab-pane fade" id="pills-catalog" role="tabpanel" aria-labelledby="pills-catalog-tab"><a href={product.catalog} download>Download</a></div>            
             </div>
           </div>
           <div className="recommend-product">

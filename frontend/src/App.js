@@ -62,7 +62,6 @@ function App({t}) {
   const {
     loading: loadingCategories,
     error: errorCategories,
-    categories,
   } = productCategoryList;
   useEffect(() => {
     dispatch(listProductBrands());

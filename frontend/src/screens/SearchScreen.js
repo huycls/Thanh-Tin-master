@@ -26,7 +26,6 @@ export default withNamespaces() (function SearchScreen( props) {
    const {
        loading: loadingBrands,
        error: errorBrands,
-       brands,
        } = productBrandList;
   
   useEffect(() => {
