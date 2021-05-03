@@ -244,11 +244,16 @@ a.brand img{
   align-items: center;
 }
 
+.products{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
 .rowe {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-
 }
 .rowe.center {
   justify-content: center;
@@ -443,7 +448,9 @@ img.large {
   max-width: 300px!important;
 }
 
-
+.cartscreen-cart ul li{
+  border-bottom: .1rem solid #c0c0c0;
+}
 
 /* Caption of Modal Image */
 #caption {
@@ -508,7 +515,7 @@ img.large {
   border: 0.1rem #c0c0c0 solid;
   background-color: #f8f8f8;
   border-radius: 0.5rem;
-  margin-bottom: 1rem;
+  margin: .5rem;
 }
 
 .card img{

@@ -118,7 +118,7 @@ export default withNamespaces() (function SearchScreen( props) {
               {products.length === 0 && (
                 <MessageBox>No Product Found</MessageBox>
               )}
-              <div className="rowe">
+              <div className="products">
                 {products.slice(inxdexOfFirstProduct, indexOfLastProduct).map((product) => (
                   <Product key={product._id} product={product}></Product>
                 ))}

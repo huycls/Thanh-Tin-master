@@ -74,7 +74,7 @@ export default withNamespaces() (function HomeScreen({t}) {
           ) : (
             <div>
               {products.length === 0 && <MessageBox>{t("noproduct.label")}</MessageBox>}
-              <div className="rowe">
+              <div className="products">
                 {products.slice(inxdexOfFirstProduct, indexOfLastProduct).map((product) => (
                   <Product key={product._id} product={product}></Product>
                 ))}

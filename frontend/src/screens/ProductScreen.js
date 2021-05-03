@@ -186,7 +186,7 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
           </div>
           <div className="recommend-product">
             <h2 className="product-banner">{t("relate.product")}</h2>
-            <div className="rowe">
+            <div className="products">
               {loading ? (
                 <LoadingBox></LoadingBox>
               ) : error ? (
