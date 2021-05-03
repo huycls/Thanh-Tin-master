@@ -91,29 +91,31 @@ function App({t}) {
     //   e.preventDefault();
     // }
 
-    function scrollToTop(){
-      const c = document.documentElement.scrollTop || document.body.scrollTop;
-      if (c > 0) {
-        window.requestAnimationFrame(scrollToTop);
-        window.scrollTo(0, c - c / 6);
-      }
+    function scrollToTop(h){
+      // const c = document.documentElement.scrollTop || document.body.scrollTop;
+      // if (c > 0) {
+      //   window.requestAnimationFrame(scrollToTop);
+      //   window.scrollTo(0, c - c / 6);
+      // }
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     }
 
-    window.onload = function(){
-      let scrolltotop = document.getElementById('scrolltotop');
-      window.onscroll = function() {scrollFunction()};
-      function scrollFunction() {
-        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-          scrolltotop.style.display = "block";
-        } else {
-          scrolltotop.style.display = "none";
-        }
+
+  window.onload = function(){
+    let scrolltotop = document.getElementById('scrolltotop');
+    window.onscroll = function() {scrollFunction()};
+    function scrollFunction() {
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        scrolltotop.style.display = "block";
+      } else {
+        scrolltotop.style.display = "none";
       }
     }
-   
-    function handleChangeLang(lang){
-      i18n.changeLanguage(lang)
-    }
+  }
+  
+  function handleChangeLang(lang){
+    i18n.changeLanguage(lang)
+  }
   useScript("https://apps.elfsight.com/p/platform.js");
   return (
     <BrowserRouter>
