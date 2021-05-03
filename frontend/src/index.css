@@ -280,6 +280,9 @@ a.brand img{
 .min-30 {
   min-width: 30rem;
 }
+.max-20{
+  max-width: 20rem;
+}
 .p-1 {
   padding: 1rem;
 }

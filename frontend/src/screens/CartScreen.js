@@ -56,7 +56,7 @@ export default withNamespaces((props) => props.namespaces) (function CartScreen(
                       
                     ></img>
                   </div>
-                  <div className="min-10">
+                  <div className="min-10 max-20">
                     <Link to={`/san-pham/${item.product}`}>{item.name}</Link>
                   </div>
                   <div>
