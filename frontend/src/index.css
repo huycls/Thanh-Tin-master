@@ -388,6 +388,7 @@ img.large {
   padding: 0 5rem;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .detail-page .col{
@@ -515,6 +516,7 @@ img.large {
   background-color: #f8f8f8;
   border-radius: 0.5rem;
   margin: .5rem;
+  overflow: hidden;
 }
 
 .card img{
@@ -2028,6 +2030,14 @@ margin: 10px;
     padding: .5rem .5rem;
     display: flex;
   }
+
+  .products{
+    justify-content: center;
+  }
+
+  .card{
+    width: 18rem;
+  }
   
 }
 
@@ -2061,5 +2071,9 @@ margin: 10px;
 
   .service-card img{
     max-width: 30rem;
+  }
+
+  .card{
+    width: 15rem;
   }
 }
