@@ -1065,6 +1065,10 @@ img.large {
   color: #000;
 }
 
+.news-link i {
+  font-size: 1rem;
+}
+
 
 
 /*News page*/
