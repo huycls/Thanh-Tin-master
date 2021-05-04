@@ -91,16 +91,23 @@ function App({t}) {
     //   e.preventDefault();
     // }
 
-    function scrollToTop(h){
-      // const c = document.documentElement.scrollTop || document.body.scrollTop;
-      // if (c > 0) {
-      //   window.requestAnimationFrame(scrollToTop);
-      //   window.scrollTo(0, c - c / 6);
-      // }
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }
-
-
+    // function scrollToTop(h){
+    //   // const c = document.documentElement.scrollTop || document.body.scrollTop;
+    //   // if (c > 0) {
+    //   //   window.requestAnimationFrame(scrollToTop);
+    //   //   window.scrollTo(0, c - c / 6);
+    //   // }
+    //   window.scrollTo({ top: 0, behavior: 'smooth' })
+    // }
+    function scrollToTop(){
+      const scrollTop = window.setInterval(function() {
+      let pos = window.pageYOffset;
+      if ( pos > 0 ) {
+          window.scrollTo( 0, pos - 20 ); // how far to scroll on each step
+      } else {
+          window.clearInterval( scrollTop );
+      }
+  }, 6)}
   window.onload = function(){
     let scrolltotop = document.getElementById('scrolltotop');
     window.onscroll = function() {scrollFunction()};
