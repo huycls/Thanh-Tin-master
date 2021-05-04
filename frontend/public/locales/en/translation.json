@@ -12,6 +12,7 @@
     "support.label": "Online Support",
     "productbox.label": "New products",
     "cutname": "{{product.enname}}",
+    "cartname": "{{item.enname}}",
     "productbrand": "{{product.brand}}",
     "switchcategory": "{{val.encategory}}",
 
@@ -73,8 +74,8 @@
 
     "brand.label": "Brand",
     "allpro.label": "All",
-    "search.label": "Search for",
-    "result.label": "search results",
+    "search.label": "Search",
+    "result.label": "Search results",
     "relate.product": "Relative Products",
 
     "intro.p1": "operates in the field of consultancy, providing solutions, laboratory equipment, industrial equipment, chemicals in the following field:",
@@ -96,6 +97,7 @@
 
     "brand.label": "Manufacturer",
     "detailbtn.label": "Detail",
+    "all.label": "All",
 
     "confirmorder": "Confirm Order",
     "fullname": "Fullname",

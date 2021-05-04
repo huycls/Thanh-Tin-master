@@ -71,7 +71,7 @@ export default withNamespaces() (function SearchScreen( props) {
       </div>
       <div className="row top">       
         <div className="subcategory">
-        <h3>Hãng sản xuất <button className="resdropdown-btn dropbrand" onClick={dropdownmenu}><i className="fa fa-caret-down"></i></button></h3>
+        <h3>{t("brand.label")}<button className="resdropdown-btn dropbrand" onClick={dropdownmenu}><i className="fa fa-caret-down"></i></button></h3>
             {loadingBrands ? (
               <LoadingBox></LoadingBox>
             ) : errorBrands ? (
@@ -84,7 +84,7 @@ export default withNamespaces() (function SearchScreen( props) {
                     id="brand-link"
                     to={getFilterUrl({ brand: 'all' })}
                   >
-                    Tất cả
+                    {t("all.label")}
                   </Link>
                 </li>
                 {brandList.map((c) => (
@@ -106,7 +106,7 @@ export default withNamespaces() (function SearchScreen( props) {
         ) : error ? (
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
-          <div className="search-result">{products.length} Kết quả tìm kiếm</div>
+          <div className="search-result">{products.length} {t("result.label")}</div>
         )}
         <div className="search-box">
           {loading ? (

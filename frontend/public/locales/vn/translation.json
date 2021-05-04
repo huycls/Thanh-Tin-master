@@ -59,7 +59,7 @@
     "apply.label": "Ứng dụng",
     "tocart.label": "Thêm vào giỏ hàng",
     "delete": "Xóa",
-    "cartitem.name": "{{item.name}}",
+    "cartname": "{{item.name}}",
 
     "newuser.label": "Chưa có tài khoản",
     "registernow.label": "Đăng ký tài khoản ngay",
@@ -96,6 +96,7 @@
 
     "brand.label": "Hãng sản xuất",
     "detailbtn.label": "Chi tiết",
+    "all.label": "Tất cả",
 
     "confirmorder": "Gửi yêu cầu báo giá",
     "fullname": "Tên đầy đủ",

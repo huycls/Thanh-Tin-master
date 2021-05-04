@@ -21,14 +21,10 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
   const productList = useSelector((state) => state.productList);
   const {products} = productList;
 
-  const productReviewCreate = useSelector((state) => state.productReviewCreate);
-  const {
-    success: successReviewCreate,
-  } = productReviewCreate;
 
   useEffect(() => { 
     dispatch(detailsProduct(productId));
-  }, [dispatch, productId, successReviewCreate]);
+  }, [dispatch, productId]);
   const addToCartHandler = () => {
     props.history.push(`/gio-hang/${productId}?qty=${qty}`);
   };

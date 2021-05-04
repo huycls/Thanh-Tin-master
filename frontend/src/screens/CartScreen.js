@@ -52,8 +52,7 @@ export default withNamespaces((props) => props.namespaces) (function CartScreen(
                   <div>
                     <img
                       src={item.image}
-                      alt={item.name}
-                      
+                      alt={item.name}                    
                     ></img>
                   </div>
                   <div className="min-10 max-20">
