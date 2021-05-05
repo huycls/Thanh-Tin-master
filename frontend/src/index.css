@@ -93,6 +93,10 @@ button:hover {
 button.primary {
   background-color: #f0c040;
 }
+
+button.primary:hover{
+  color: #fff;
+}
 button.block {
   width: 100%;
 }
@@ -203,6 +207,10 @@ a.brand img{
   margin: 0;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+.nav-link{
+  font-weight: bold;
 }
 
 .navbar .fas{
