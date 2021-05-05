@@ -85,11 +85,13 @@ function App({t}) {
     document.getElementById("search-bar").classList.toggle("show");
   }
   
-    // function scrollToTop(e){
-    //   var toTop = document.getElementById("navbar");
-    //   toTop.scrollIntoView({behavior: "smooth"});
-    //   e.preventDefault();
-    // }
+  function scrollToTop(){
+    window.scroll({ 
+      top: 0, // could be negative value
+      left: 0, 
+      behavior: 'smooth' 
+    });
+  }
 
     // function scrollToTop(h){
     //   // const c = document.documentElement.scrollTop || document.body.scrollTop;
@@ -99,15 +101,15 @@ function App({t}) {
     //   // }
     //   window.scrollTo({ top: 0, behavior: 'smooth' })
     // }
-    function scrollToTop(){
-      const scrollTop = window.setInterval(function() {
-      let pos = window.pageYOffset;
-      if ( pos > 0 ) {
-          window.scrollTo( 0, pos - 20 ); // how far to scroll on each step
-      } else {
-          window.clearInterval( scrollTop );
-      }
-  }, 6)}
+  //   function scrollToTop(){
+  //     const scrollTop = window.setInterval(function() {
+  //     let pos = window.pageYOffset;
+  //     if ( pos > 0 ) {
+  //         window.scrollTo( 0, pos - 20 ); // how far to scroll on each step
+  //     } else {
+  //         window.clearInterval( scrollTop );
+  //     }
+  // }, 6)}
   window.onload = function(){
     let scrolltotop = document.getElementById('scrolltotop');
     window.onscroll = function() {scrollFunction()};
@@ -127,7 +129,7 @@ function App({t}) {
   return (
     <BrowserRouter>
       <div className="grid-container"> 
-      <div className="upper-nav">
+      <div className="upper-nav" id="top">
             <div className="hotline">Hotline: <a href="tel:0988 816 815">0988 816 815</a> </div>
             <div className="email">
               Email:<a  href="mailto:sales@thanhtin-tech.com">sales@thanhtin-tech.com</a>
