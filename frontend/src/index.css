@@ -856,11 +856,13 @@ img.large {
 }
 /* Pagination */
 .pagination a {
-  padding: 1rem;
+  display: grid;
+  place-items: center;
+  width: 3rem;
   margin: 0.5rem;
   border-radius: 0.5rem;
   border: 0.1rem #a4a4a4 solid;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

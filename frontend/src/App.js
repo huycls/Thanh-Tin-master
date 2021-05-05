@@ -93,14 +93,6 @@ function App({t}) {
     });
   }
 
-    // function scrollToTop(h){
-    //   // const c = document.documentElement.scrollTop || document.body.scrollTop;
-    //   // if (c > 0) {
-    //   //   window.requestAnimationFrame(scrollToTop);
-    //   //   window.scrollTo(0, c - c / 6);
-    //   // }
-    //   window.scrollTo({ top: 0, behavior: 'smooth' })
-    // }
   //   function scrollToTop(){
   //     const scrollTop = window.setInterval(function() {
   //     let pos = window.pageYOffset;
