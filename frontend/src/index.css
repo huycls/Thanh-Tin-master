@@ -202,6 +202,7 @@ a.brand img{
   font-weight: bold;
 }
 
+
 .navbar-dark .navbar-nav .nav-link{
   font-weight: bold;
   margin: 0;
@@ -1221,7 +1222,7 @@ margin: 10px;
   width: 100%!important;
   padding: 0.8rem 1rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   text-decoration: none;
   color: #000;
   font-weight: bold;
@@ -1729,6 +1730,12 @@ margin: 10px;
   }
   .detail-page .card{
     margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 900px){
+  .service-detail-page img{
+    width: 100%;
   }
 }
 

@@ -81,6 +81,9 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
                   <h1>{t("productname", {product})}</h1>
                 </li>              
                 <li><strong>{t("price.label")} </strong> {product.price} &#8363;</li>
+                <li>
+                  <strong>{t("brand.label")}: </strong> {t("productbrand", {product})}
+                </li>
                 <li> 
                   <p><strong>Model:</strong> {product.model}</p>
                 </li>

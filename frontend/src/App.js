@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect} from 'react';
+import React, { Fragment, useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Link, Route } from 'react-router-dom';
 import { signout } from './actions/userActions';
@@ -102,6 +102,22 @@ function App({t}) {
   //         window.clearInterval( scrollTop );
   //     }
   // }, 6)}
+  //Close navbar when click nav link
+  const [expanded, setExpanded] = useState(false);
+
+  //Close dropdown menu when click link
+  function closeDropdown(){
+    const dropdown1 = document.querySelector('.news-content'); 
+    if(dropdown1.classList.contains("show")){
+      dropdown1.classList.remove("show");
+    }
+  }
+  function closeDropdown2(){
+    const dropdown2 = document.querySelector('.category-menu'); 
+    if(dropdown2.classList.contains("show")){
+      dropdown2.classList.remove("show");
+    }
+  }
   window.onload = function(){
     let scrolltotop = document.getElementById('scrolltotop');
     window.onscroll = function() {scrollFunction()};
@@ -220,14 +236,14 @@ function App({t}) {
               )}
             </div>
           </div>
-          <Navbar bg="#007a37" expand="lg" variant="dark">
-            <Navbar.Toggle aria-controls="basic-navbar-nav"  />
+          <Navbar expanded={expanded} bg="#007a37" expand="lg" variant="light">
+            <Navbar.Toggle onClick={() => setExpanded(expanded ? false : "expanded")} aria-controls="basic-navbar-nav"  />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav  className="mr-auto">
-                <Nav.Link as={Link} to="/" className=" mainnav-link"><i className="fas fa-home " aria-current="page" ></i> {t("home.label")}</Nav.Link>
-                <Nav.Link as={Link} to="/gioi-thieu" className="mainnav-link">{t("intro.label")}</Nav.Link>
-                <Nav.Link as={Link} to="/tat-ca-dich-vu" className="mainnav-link">{t("service.label")}</Nav.Link>
-                <Nav.Link as={Link} to="/thong-tin-lien-he" className="mainnav-link">{t("contactnav")}</Nav.Link>
+                <Nav.Link onClick={() => setExpanded(false)} as={Link} to="/" className=" mainnav-link"><i className="fas fa-home " aria-current="page" ></i> {t("home.label")}</Nav.Link>
+                <Nav.Link onClick={() => setExpanded(false)} as={Link} to="/gioi-thieu" className="mainnav-link">{t("intro.label")}</Nav.Link>
+                <Nav.Link onClick={() => setExpanded(false)} as={Link} to="/tat-ca-dich-vu" className="mainnav-link">{t("service.label")}</Nav.Link>
+                <Nav.Link onClick={() => setExpanded(false)} as={Link} to="/thong-tin-lien-he" className="mainnav-link">{t("contactnav")}</Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
@@ -237,24 +253,24 @@ function App({t}) {
             <div className="news"> 
               <div className="news-title"><Link to="/tat-ca-tin-tuc">{t("news.label")}</Link><button onClick={dropdownmenu} className="resdropdown-btn"><i className="fas fa-sort-down"></i></button></div>
               <div className="news-content"  id="myDropdown">
-                <Link to="/cong-ty-thanh-tin-la-nha-phan-phoi-chinh-thuc-cho-hang-mettler-toledo">
+                <Link onClick={closeDropdown} to="/cong-ty-thanh-tin-la-nha-phan-phoi-chinh-thuc-cho-hang-mettler-toledo">
                   <p className="news-link">
                     <i className="fas fa-chevron-right"></i>Công ty Thành Tín là nhà phân
                     phối chính thức cho dòng cân HE/TLE/HE của hãng METTLER TOLEDO (Thụy
                     Sỹ)
                   </p>
                 </Link>
-                <Link to="/thong-bao-thay-doi-ten-giao-dich">
+                <Link onClick={closeDropdown} to="/thong-bao-thay-doi-ten-giao-dich">
                   <p className="news-link">
                     <i className="fas fa-chevron-right"></i>Thông báo thay đổi tên giao dịch
                   </p>
                 </Link>
-                <Link to="/analytica-viet-nam-2013">
+                <Link onClick={closeDropdown} to="/analytica-viet-nam-2013">
                   <p className="news-link">
                     <i className="fas fa-chevron-right"></i>ANALYTICA VIETNAM 2013 triển lãm quốc tế lần thứ 3 về công nghệ thí nghiệm,...
                   </p>
                 </Link>
-                <Link to="/tuyen-nhan-vien-kinh-doanh">
+                <Link onClick={closeDropdown} to="/tuyen-nhan-vien-kinh-doanh">
                   <p className="news-link">
                     <i className="fas fa-chevron-right"></i>Tuyển nhân viên kinh doanh
                   </p>
@@ -270,9 +286,9 @@ function App({t}) {
               ) : (
                 allcategories.map((val, key) => (          
                   <li key={val.category}>
-                      <Link
+                      <Link  
                         to={`/search/category/${val.urlcategory}`}
-                      
+                        onClick={closeDropdown2}
                       >
                        <i class="fas fa-caret-right"></i> {t("switchcategory", {val})} 
                       </Link>
