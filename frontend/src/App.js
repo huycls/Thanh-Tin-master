@@ -45,6 +45,18 @@ import i18n from './i18n';
 import {Navbar, Nav} from 'react-bootstrap';
 import allcategories from './allcategories.js';
 import useScript from './useScript';
+import logo from './images/logo.png';
+import logovn from './images/vnese.png';
+import enlogo from './images/usa.png';
+import alp from './images/alp.png';
+import consort from './images/consort.png';
+import emco from './images/emco.png';
+import kruss from './images/kruss.png';
+import nabertherm from './images/nabertherm.png';
+import gfl from './images/gfl.png';
+import pta from './images/pta.png';
+import pnshar from './images/pnshar.png';
+
 
 
 function App({t}) {
@@ -144,10 +156,10 @@ function App({t}) {
             </div>
             <div className="lang">
               <button onClick = {() => handleChangeLang("vn")}>
-                <img src="./images/vnese.png" alt="vietnamese" />
+                <img src={logovn} alt="vietnamese" />
               </button>
               <button onClick = {() => handleChangeLang("en")}>
-                <img src="./images/usa.png" alt="english" />
+                <img src={enlogo} alt="english" />
               </button>
             </div>
           </div>
@@ -156,7 +168,7 @@ function App({t}) {
           <div className="lower-nav">
             <div>
               <Link className="brand" to="/">
-                <img src="./images/logo.png" alt="Công-ty-TNHH-Thành-Tín" />
+                <img src={logo} alt="Công-ty-TNHH-Thành-Tín" />
               </Link>
             </div>         
             <div className="search-bar" id="search-bar"> 
@@ -255,24 +267,22 @@ function App({t}) {
               <div className="news-content"  id="myDropdown">
                 <Link onClick={closeDropdown} to="/cong-ty-thanh-tin-la-nha-phan-phoi-chinh-thuc-cho-hang-mettler-toledo">
                   <p className="news-link">
-                    <i className="fas fa-chevron-right"></i>Công ty Thành Tín là nhà phân
-                    phối chính thức cho dòng cân HE/TLE/HE của hãng METTLER TOLEDO (Thụy
-                    Sỹ)
+                    <i className="fas fa-chevron-right"></i><span>{t("news.label1")}</span>
                   </p>
                 </Link>
                 <Link onClick={closeDropdown} to="/thong-bao-thay-doi-ten-giao-dich">
                   <p className="news-link">
-                    <i className="fas fa-chevron-right"></i>Thông báo thay đổi tên giao dịch
+                    <i className="fas fa-chevron-right"></i><span>{t("news.label2")}</span>
                   </p>
                 </Link>
                 <Link onClick={closeDropdown} to="/analytica-viet-nam-2013">
                   <p className="news-link">
-                    <i className="fas fa-chevron-right"></i>ANALYTICA VIETNAM 2013 triển lãm quốc tế lần thứ 3 về công nghệ thí nghiệm,...
+                    <i className="fas fa-chevron-right"></i><span>{t("news.label3")}</span>
                   </p>
                 </Link>
                 <Link onClick={closeDropdown} to="/tuyen-nhan-vien-kinh-doanh">
                   <p className="news-link">
-                    <i className="fas fa-chevron-right"></i>Tuyển nhân viên kinh doanh
+                    <i className="fas fa-chevron-right"></i><span>{t("news.label4")}</span>
                   </p>
                 </Link>        
               </div>
@@ -417,93 +427,99 @@ function App({t}) {
             <div className="marquee--inner">
               <span>          
                 <img
-                  src="./images/alp.png"
+                  src={alp}
                   width="120"
                   height="80"
                   alt="Natural"
                 />
                 <img
-                  src="./images/consort.png"
+                  src={consort}
                   width="120"
                   height="80"
                   alt="Natural"
                 />
                 <img
-                  src="./images/emco.png"
-                  width="120"
-                  height="80"
-                  alt="Natural"
-                />
-              
-                <img
-                  src="./images/kruss.png"
-                  width="120"
-                  height="80"
-                  alt="Natural"
-                />
-                <img
-                  src="./images/nabertherm.png"
-                  width="120"
-                  height="80"
-                  alt="Natural"
-                />
-                <img
-                  src="./images/gfl.png"
-                  width="120"
-                  height="80"
-                  alt="Natural"
-                />
-                <img
-                  src="./images/pta.png"
-                  width="120"
-                  height="80"
-                  alt="Natural"
-                />
-                <img
-                  src="./images/pnshar.png"
-                  width="120"
-                  height="80"
-                  alt="Natural"
-                />
-                <img
-                  src="./images/consort.png"
-                  width="120"
-                  height="80"
-                  alt="Natural"
-                />
-                <img
-                  src="./images/emco.png"
+                  src={emco}
                   width="120"
                   height="80"
                   alt="Natural"
                 />
               
                 <img
-                  src="./images/kruss.png"
+                  src={kruss}
                   width="120"
                   height="80"
                   alt="Natural"
                 />
                 <img
-                  src="./images/nabertherm.png"
+                  src={nabertherm}
                   width="120"
                   height="80"
                   alt="Natural"
                 />
                 <img
-                  src="./images/gfl.png"
+                  src={gfl}
                   width="120"
                   height="80"
                   alt="Natural"
                 />
                 <img
-                  src="./images/pta.png"
+                  src={pta}
                   width="120"
                   height="80"
                   alt="Natural"
                 />
                 <img
-                  src="./images/pnshar.png"
+                  src={pnshar}
+                  width="120"
+                  height="80"
+                  alt="Natural"
+                />
+                <img
+                  src={alp}
+                  width="120"
+                  height="80"
+                  alt="Natural"
+                />
+                <img
+                  src={consort}
+                  width="120"
+                  height="80"
+                  alt="Natural"
+                />
+                <img
+                  src={emco}
+                  width="120"
+                  height="80"
+                  alt="Natural"
+                />
+              
+                <img
+                  src={kruss}
+                  width="120"
+                  height="80"
+                  alt="Natural"
+                />
+                <img
+                  src={nabertherm}
+                  width="120"
+                  height="80"
+                  alt="Natural"
+                />
+                <img
+                  src={gfl}
+                  width="120"
+                  height="80"
+                  alt="Natural"
+                />
+                <img
+                  src={pta}
+                  width="120"
+                  height="80"
+                  alt="Natural"
+                />
+                <img
+                  src={pnshar}
                   width="120"
                   height="80"
                   alt="Natural"
