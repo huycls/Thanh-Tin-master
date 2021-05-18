@@ -300,7 +300,7 @@ function App({t}) {
                         to={`/search/category/${val.urlcategory}`}
                         onClick={closeDropdown2}
                       >
-                       <i class="fas fa-caret-right"></i> {t("switchcategory", {val})} 
+                       <i className="fas fa-caret-right"></i> {t("switchcategory", {val})} 
                       </Link>
                     </li>              
                 ))
