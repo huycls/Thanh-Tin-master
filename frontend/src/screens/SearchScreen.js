@@ -43,8 +43,8 @@ export default withNamespaces() (function SearchScreen( props) {
     const filterCategory = filter.category|| category;
     //  const filterSubcategory = filter.category || category;
     const filterBrand = filter.brand || brand;
-    const filterName = filter.name || name; 
-    return `/search/category/${filterCategory}/brand/${filterBrand}/name/${filterName}`;
+    // const filterName = filter.name || name; 
+    return `/search/category/${filterCategory}/brand/${filterBrand}`;
   };
   function dropdownmenu() {
     document.getElementById("myDropdown3").classList.toggle("show");

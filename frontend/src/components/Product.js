@@ -6,10 +6,24 @@ import { withNamespaces } from 'react-i18next';
 export default withNamespaces((props) => props.namespaces) (function Product(props) {
   const {t} = props;
   const { product } = props;
+  function stringToSlug(str) {
+    // remove accents
+    var from = "àáãảạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệđùúủũụưừứửữựòóỏõọôồốổỗộơờớởỡợìíỉĩịäëïîöüûñçýỳỹỵỷ",
+        to   = "aaaaaaaaaaaaaaaaaeeeeeeeeeeeduuuuuuuuuuuoooooooooooooooooiiiiiaeiiouuncyyyyy";
+    for (var i=0, l=from.length ; i < l ; i++) {
+      str = str.replace(RegExp(from[i], "gi"), to[i]);
+    }
   
+    str = str.toLowerCase()
+          .trim()
+          .replace(/[^a-z0-9\-]/g, '-')
+          .replace(/-+/g, '-');
+  
+    return str;
+  }
   return (
     <div key={product._id} className="card product-card">
-      <Link className="card-header" to={`/san-pham/${product._id}`}>
+      <Link className="card-header" to={`/san-pham/${product._id}?${stringToSlug(product.name)}`}>
         <img className="small" src={product.image} alt={product.name} />
       </Link>
       <div className="card-body">

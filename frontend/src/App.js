@@ -146,6 +146,7 @@ function App({t}) {
     i18n.changeLanguage(lang)
   }
   useScript("https://apps.elfsight.com/p/platform.js");
+  
   return (
     <BrowserRouter>
       <div className="grid-container"> 
@@ -369,19 +370,19 @@ function App({t}) {
               component={SearchScreen}
               exact
             ></Route>
-            <Route
+            {/* <Route
               path="/search/category/:category/brand/:brand/name/:name"
               component={SearchScreen}
               exact
-            ></Route>
+            ></Route> */}
           
             <Fragment>
               <ScrollToTop />
-              <Route
+              {/* <Route
               path="/search/category/:category/brand/:brand/name/:name/pageNumber/:pageNumber"
               component={SearchScreen}
               exact
-              ></Route>
+              ></Route> */}
             </Fragment>
                    
             <PrivateRoute
