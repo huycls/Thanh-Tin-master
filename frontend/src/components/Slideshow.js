@@ -6,6 +6,13 @@ export default withNamespaces() (function Slideshow({t}){
     function dropdownmenu() {
         document.getElementById("myDropdown").classList.toggle("show");
       }
+      //Close dropdown menu when click link
+  function closeDropdown(){
+    const dropdown1 = document.querySelector('.news-content'); 
+    if(dropdown1.classList.contains("show")){
+      dropdown1.classList.remove("show");
+    }
+  }
     return  <div className="home-upper">
         <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-inner">
@@ -35,31 +42,29 @@ export default withNamespaces() (function Slideshow({t}){
           </button>
         </div>
         <div className="news"> 
-            <div className="news-title"><Link to="/tat-ca-tin-tuc">{t("news.label")}</Link><button onClick={dropdownmenu} className="resdropdown-btn"><i className="fas fa-sort-down"></i></button></div>
-            <div className="news-content"  id="myDropdown">
-            <Link to="/cong-ty-thanh-tin-la-nha-phan-phoi-chinh-thuc-cho-hang-mettler-toledo">
-                <p className="news-link">
-                <i className="fas fa-chevron-right"></i>Công ty Thành Tín là nhà phân
-                phối chính thức cho dòng cân HE/TLE/HE của hãng METTLER TOLEDO (Thụy
-                Sỹ)
-                </p>
+          <div className="news-title"><Link to="/tat-ca-tin-tuc">{t("news.label")}</Link><button onClick={dropdownmenu} className="resdropdown-btn"><i className="fas fa-sort-down"></i></button></div>
+          <div className="news-content"  id="myDropdown">
+            <Link onClick={closeDropdown} to="/cong-ty-thanh-tin-la-nha-phan-phoi-chinh-thuc-cho-hang-mettler-toledo">
+              <p className="news-link">
+                <i className="fas fa-chevron-right"></i><span>{t("news.label1")}</span>
+              </p>
             </Link>
-            <Link to="/thong-bao-thay-doi-ten-giao-dich">
-                <p className="news-link">
-                <i className="fas fa-chevron-right"></i>Thông báo thay đổi tên giao dịch
-                </p>
+            <Link onClick={closeDropdown} to="/thong-bao-thay-doi-ten-giao-dich">
+              <p className="news-link">
+                <i className="fas fa-chevron-right"></i><span>{t("news.label2")}</span>
+              </p>
             </Link>
-            <Link to="/analytica-viet-nam-2013">
-                <p className="news-link">
-                <i className="fas fa-chevron-right"></i>ANALYTICA VIETNAM 2013 triển lãm quốc tế lần thứ 3 về công nghệ thí nghiệm,...
-                </p>
+            <Link onClick={closeDropdown} to="/analytica-viet-nam-2013">
+              <p className="news-link">
+                <i className="fas fa-chevron-right"></i><span>{t("news.label3")}</span>
+              </p>
             </Link>
-            <Link to="/tuyen-nhan-vien-kinh-doanh">
-                <p className="news-link">
-                <i className="fas fa-chevron-right"></i>Tuyển nhân viên kinh doanh
-                </p>
+            <Link onClick={closeDropdown} to="/tuyen-nhan-vien-kinh-doanh">
+              <p className="news-link">
+                <i className="fas fa-chevron-right"></i><span>{t("news.label4")}</span>
+              </p>
             </Link>        
-            </div>
+          </div>
         </div>
     </div>
 })

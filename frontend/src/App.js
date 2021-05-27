@@ -38,12 +38,9 @@ import IntroScreen from './screens/IntroScreen';
 import Allnews from './screens/AllNews';
 import ScrollToTop from './components/ScrollToTop';
 import { listProductCategories, listProductBrands } from './actions/productActions';
-import LoadingBox from './components/LoadingBox';
-import MessageBox from './components/MessageBox';
 import { withNamespaces } from 'react-i18next';
 import i18n from './i18n';
 import {Navbar, Nav} from 'react-bootstrap';
-import allcategories from './allcategories.js';
 import useScript from './useScript';
 import logo from './images/logo.png';
 import logovn from './images/vnese.png';
@@ -59,9 +56,9 @@ import pnshar from './images/pnshar.png';
 
 
 
+
 function App({t}) {
   
-  // const categories1 = ["Lò nung", "Máy ly tâm", "Máy đo", "Máy hấp tiệt trùng", "Các loại tủ đựng", "Tủ sấy"];
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
   const userSignin = useSelector((state) => state.userSignin);
@@ -84,14 +81,6 @@ function App({t}) {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
-  function dropdownmenu() {
-      document.getElementById("myDropdown").classList.toggle("show");
-    }
-
-    function dropdownmenu2() {
-      document.getElementById("myDropdown2").classList.toggle("show");
-    }
-
   
   function dropSearchbar(){
     document.getElementById("search-bar").classList.toggle("show");
@@ -105,31 +94,8 @@ function App({t}) {
     });
   }
 
-  //   function scrollToTop(){
-  //     const scrollTop = window.setInterval(function() {
-  //     let pos = window.pageYOffset;
-  //     if ( pos > 0 ) {
-  //         window.scrollTo( 0, pos - 20 ); // how far to scroll on each step
-  //     } else {
-  //         window.clearInterval( scrollTop );
-  //     }
-  // }, 6)}
-  //Close navbar when click nav link
   const [expanded, setExpanded] = useState(false);
 
-  //Close dropdown menu when click link
-  function closeDropdown(){
-    const dropdown1 = document.querySelector('.news-content'); 
-    if(dropdown1.classList.contains("show")){
-      dropdown1.classList.remove("show");
-    }
-  }
-  function closeDropdown2(){
-    const dropdown2 = document.querySelector('.category-menu'); 
-    if(dropdown2.classList.contains("show")){
-      dropdown2.classList.remove("show");
-    }
-  }
   window.onload = function(){
     let scrolltotop = document.getElementById('scrolltotop');
     window.onscroll = function() {scrollFunction()};
@@ -262,68 +228,7 @@ function App({t}) {
           </Navbar>
         </header>        
         <main>
-          <aside className="sidebar">
-            <div className="news"> 
-              <div className="news-title"><Link to="/tat-ca-tin-tuc">{t("news.label")}</Link><button onClick={dropdownmenu} className="resdropdown-btn"><i className="fas fa-sort-down"></i></button></div>
-              <div className="news-content"  id="myDropdown">
-                <Link onClick={closeDropdown} to="/cong-ty-thanh-tin-la-nha-phan-phoi-chinh-thuc-cho-hang-mettler-toledo">
-                  <p className="news-link">
-                    <i className="fas fa-chevron-right"></i><span>{t("news.label1")}</span>
-                  </p>
-                </Link>
-                <Link onClick={closeDropdown} to="/thong-bao-thay-doi-ten-giao-dich">
-                  <p className="news-link">
-                    <i className="fas fa-chevron-right"></i><span>{t("news.label2")}</span>
-                  </p>
-                </Link>
-                <Link onClick={closeDropdown} to="/analytica-viet-nam-2013">
-                  <p className="news-link">
-                    <i className="fas fa-chevron-right"></i><span>{t("news.label3")}</span>
-                  </p>
-                </Link>
-                <Link onClick={closeDropdown} to="/tuyen-nhan-vien-kinh-doanh">
-                  <p className="news-link">
-                    <i className="fas fa-chevron-right"></i><span>{t("news.label4")}</span>
-                  </p>
-                </Link>        
-              </div>
-            </div>
-            <strong className="category">{t("category.label")} <button onClick={dropdownmenu2} className="resdropdown-btn"><i className="fas fa-sort-down"></i></button></strong>
-            <ul className="category-menu" id="myDropdown2">
-              {loadingCategories ? (
-                <LoadingBox></LoadingBox>
-              ) : errorCategories ? (
-                <MessageBox variant="danger">{errorCategories}</MessageBox>
-              ) : (
-                allcategories.map((val, key) => (          
-                  <li key={val.category}>
-                      <Link  
-                        to={`/search/category/${val.urlcategory}`}
-                        onClick={closeDropdown2}
-                      >
-                       <i className="fas fa-caret-right"></i> {t("switchcategory", {val})} 
-                      </Link>
-                    </li>              
-                ))
-              )}
-            </ul>
-            
-            <div className="sidebar-title res">
-              <a href="https://www.youtube.com/channel/UCWvi8FoZbVU-PMQHDsYC5pQ/featured" target="_blank" rel="noopener noreferrer">{t("video.label")}</a>
-            </div>
-            <div className="sidebar-content res">
-              <iframe src="https://www.youtube.com/embed/xjndBrxqtzU" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-            </div>
-            <div className="sidebar-title res">
-              <a href="#">{t("support.label")}</a>
-            </div>
-            <div className="sidebar-content res">
-              <h3>Zalo  0988 816 815</h3>
-              <img src="./images/hotline.png" alt="hotline"/>           
-            </div>
-          </aside>
-           
-          <div className="main-content">
+            <Route path="/" component={HomeScreen} exact></Route>
             <Route path="/dich-vu-ho-tro-online" component={Service4Screen}></Route>
             <Route path="/dich-vu-hieu-chuan" component={Service3Screen}></Route>
             <Route path="/dich-vu-chuan-doan-va-sua-chua" component={Service2Screen}></Route>
@@ -374,8 +279,8 @@ function App({t}) {
               path="/search/category/:category/brand/:brand/name/:name"
               component={SearchScreen}
               exact
-            ></Route> */}
-          
+            ></Route>
+           */}
             <Fragment>
               <ScrollToTop />
               {/* <Route
@@ -414,9 +319,6 @@ function App({t}) {
               path="/productlist/seller"
               component={ProductListScreen}
             ></SellerRoute>
-         
-            <Route path="/" component={HomeScreen} exact></Route>
-          </div>
           <div className="collect-email">
             <p>{t("collectemail.label")}</p>
             <form id="form"  method="GET" action="https://script.google.com/macros/s/AKfycbyTSr30R7jPcxOqEYFOuxNOjvKeKWCmBqN2tnnRYTrXPnOElveM/exec">

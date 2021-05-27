@@ -1,10 +1,13 @@
 import React from 'react';
 // import {Link} from 'react-router-dom';
 import {Helmet} from 'react-helmet';
+import Sidebar from '../components/Sidebar';
 
 
 function NewsScreen2(props){
-    return <div className="newspage">
+    return <div className="main-content">
+        <Sidebar />
+        <div className="newspage">
     <Helmet>
         <title>ANALYTICA VIETNAM 2013 TRIỂN LÃM QUỐC TẾ LẦN THỨ 3 VỀ CÔNG NGHỆ THÍ NGHIỆM, PHÂN TÍCH, CÔNG NGHỆ SINH HỌC VÀ CHẨN ĐOÁN - Công ty TNHH thiết bị và hóa chất Thành Tín</title>
     </Helmet>
@@ -71,6 +74,7 @@ function NewsScreen2(props){
         <p>   Y HỌC VÀ CHẨN ĐOÁN BỆNH
             </p>
         </div>
+    </div>
     </div>
 }
 export default NewsScreen2;

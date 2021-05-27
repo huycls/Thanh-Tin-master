@@ -10,6 +10,7 @@ import parse from 'html-react-parser';
 import {Helmet} from 'react-helmet';
 import { withNamespaces } from 'react-i18next';
 import {useHistory} from 'react-router-dom';
+import Sidebar from '../components/Sidebar';
 
 export default withNamespaces((props) => props.namespaces) (function ProductScreen(props) {
   const {t} = props;
@@ -45,7 +46,8 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
   }
   const history = useHistory();
   return (
-    <div>  
+    <div className="main-content"> 
+      <Sidebar /> 
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (

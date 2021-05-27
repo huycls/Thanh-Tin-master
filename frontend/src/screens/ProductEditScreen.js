@@ -200,28 +200,31 @@ export default function ProductEditScreen(props) {
             <div>
                 <label htmlFor="category">Category</label>
                 <select id="category" className="form-select" value={category} onChange={(e) => setCategory(e.target.value)} aria-label="Default select example">
-                <option defaultValue="do-luong">Đo lường</option>
-                <option value="be-cach-thuy">Bể cách thủy</option>
-                <option value="khuc-xa-ke">Khúc xạ kế</option>
-                <option value="kem-tra-giay">Kiểm tra giấy</option>
+                <option defaultValue="thiet-bi-nganh-giay">Thiết bị ngành giấy</option>
+                <option value="be-cach-thuy-be-dieu-nhiet">Bể cách thủy/Bể điều nhiệt</option>
+                <option value="khuc-xa-ke">Khúc xạ kế cầm tay/kỹ thuật số</option>
+                <option value="thiet-bi-thu-nghiem-co-ly-tinh">Thiết bị thử nghiệm cơ, lý tính</option>
                 <option value="lo-nung">Lò nung</option>
-                <option value="may-che-tao-mau">Máy chế tạo mẫu</option>
+                <option value="thiet-bi-nganh-nhua-cao-su">Thiết bị ngành nhựa, cao su</option>
                 <option value="may-cat-nuoc">Máy cất nước</option>
-                <option value="may-cat-giay">Máy cắt giấy</option>
+                <option value="camera-may-in">Camera/Máy in</option>
                 <option value="noi-hap-tiet-trung">Nồi hấp tiệt trùng</option>
-                <option value="may-ly-tam">Máy ly tâm</option>
-                <option value="may-lac">Máy lắc</option>
-                <option value="may-nghien">Máy nghiền</option>
-                <option value="may-thu-do-kin">Máy thử độ kín</option>
-                <option value="may-tach-so-soi-bot-giay">Máy tách sơ sợi bột giấy</option>
+                <option value="may-ly-tam-may-lac">Máy ly tâm/Máy lắc</option>
+                <option value="hoa-chat-va-thuoc-thu">Hóa chất và thuốc thử</option>
+                <option value="phan-cuc-ke-ong-phan-cuc">Phân cực kế/Ống phân cực</option>
+                <option value="thiet-bi-do-khi">Thiết bị đo khí</option>
+                <option value="thiet-bi-do-ty-trong">Thiết bị đo tỷ trọng</option>
                 <option value="so-mau">So màu</option>
-                <option value="tu-an-toan-sinh-hoc">Tủ an toàn sinh học</option>
+                <option value="tu-an-toan-sinh-hoc-hoa-chat">Tủ an toàn sinh học/Tủ hóa chất</option>
                 <option value="tu-say">Tủ sấy</option>
-                <option value="tu-dung-hoa-chat">Tủ đựng hóa chất</option>
-                <option value="tu-am">Tủ ấm</option>
+                <option value="kinh-hien-vi">Kính hiển vi</option>
+                <option value="tu-am-lanh">Tủ ấm/Tủ ấm lạnh</option>
+                <option value="may-do-do-nhot">Máy đo độ nhớt</option>
+                <option value="may-do-do-luu-bien">Máy đo độ lưu biến</option>
+                <option value="may-phan-tich-ket-cau">Máy phân tích kết cấu</option>
               </select>
             </div>
-            <div>
+            {/* <div>
               <label htmlFor="encategory">Category (English) </label>
                <input
                 id="encategory"
@@ -231,7 +234,7 @@ export default function ProductEditScreen(props) {
                 onChange={(e) => setEncategory(e.target.value)}
                 ></input>
             </div>
-            
+             */}
             <div>
               <label htmlFor="vnbrand">Hãng sản xuất</label>
               <select id="vnbrand" className="form-select" value={vnbrand} onChange={(e) => setVnbrand(e.target.value)} aria-label="Default select example">
@@ -249,6 +252,7 @@ export default function ProductEditScreen(props) {
                 <option value="HAMILTON - England">HAMILTON - Anh</option>
                 <option value="NOVAPRO - Korea">NOVAPRO - Hàn Quốc</option>
                 <option value="STURDY - Đài loan">STURDY - Đài loan</option>
+                <option value="XRITE - Mỹ">XRITE - Mỹ</option>
                 <option value="ANDREAS HETTICH - Đức">ANDREAS HETTICH - Đức</option>
               </select>
             </div>
@@ -269,6 +273,7 @@ export default function ProductEditScreen(props) {
                 <option value="HAMILTON - England">HAMILTON - England</option>
                 <option value="NOVAPRO - Korea">NOVAPRO - Korea</option>
                 <option value="STURDY - Taiwan">STURDY - Taiwan</option>
+                <option value="XRITE - USA">XRITE - USA</option>
                 <option value="ANDREAS HETTICH - Germany">ANDREAS HETTICH - Germany</option>
               </select>
             </div>

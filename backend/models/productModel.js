@@ -27,7 +27,7 @@ const productSchema = new mongoose.Schema(
     enparameter: { type: String, required: false},
     video: { type: String, required: false },
     catalog: { type: String, required: false },
-    price: { type: String, required: true },
+    price: { type: Number, required: true },
     countInStock: { type: Number, required: true },
     rating: { type: Number, required: true },
     numReviews: { type: Number, required: true },

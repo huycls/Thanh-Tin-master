@@ -5,6 +5,7 @@ import { addToCart, removeFromCart } from '../actions/cartActions';
 import MessageBox from '../components/MessageBox';
 import {Helmet} from 'react-helmet';
 import { withNamespaces } from 'react-i18next';
+import Sidebar from '../components/Sidebar';
 
 export default withNamespaces((props) => props.namespaces) (function CartScreen(props) {
   const {t} = props;
@@ -30,8 +31,9 @@ export default withNamespaces((props) => props.namespaces) (function CartScreen(
     props.history.push('/yeu-cau-bao-gia');
   };
 
-  return (
-    <div className="row top cart-screen">
+  return <div className="main-content">
+      <Sidebar />
+      <div className="row top cart-screen">
       <Helmet>
         <title>
         {t("cart.label")}
@@ -112,5 +114,5 @@ export default withNamespaces((props) => props.namespaces) (function CartScreen(
         </div>
       </div>
     </div>
-  );
+    </div>
 })

@@ -2,12 +2,14 @@ import React from 'react';
 // import { withNamespaces } from 'react-i18next';
 import {Link} from 'react-router-dom';
 import {Helmet} from 'react-helmet';
+import Sidebar from '../components/Sidebar';
 
 export default function Allservices(){
-    return <div className="service-page">
+    return <div className="main-content">
         <Helmet>
             <title>Dịch vụ - Công ty TNHH thiết bị và hóa chất Thành Tín</title>
         </Helmet>
+        <Sidebar />
         <div className="service-container">
             <div className="service-card">
             <Link to="/dich-vu-bao-tri">

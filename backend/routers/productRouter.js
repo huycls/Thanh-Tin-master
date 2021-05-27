@@ -176,7 +176,7 @@ productRouter.post(
       enname: 'sample name ' ,
       seller: req.user._id,
       image: '/images/3.jpg',
-      price: "?",
+      price: "0",
       category: 'Lò nung',
       encategory: 'sample',
       subcategory: '',

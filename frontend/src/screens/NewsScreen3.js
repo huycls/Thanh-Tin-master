@@ -1,9 +1,12 @@
 import React from 'react';
 // import {Link} from 'react-router-dom';
 import {Helmet} from 'react-helmet';
+import Sidebar from '../components/Sidebar';
 
 function NewsScreen3(props){
-    return <div className="newspage">
+    return <div className="main-content">
+        <Sidebar />
+        <div className="newspage">
     <Helmet>
         <title>TUYỂN NHÂN VIÊN KINH DOANH - Công ty TNHH thiết bị và hóa chất Thành Tín</title>
     </Helmet>
@@ -62,6 +65,7 @@ function NewsScreen3(props){
             
            
         </div>
+    </div>
     </div>
 }
 export default NewsScreen3;

@@ -1,8 +1,11 @@
 import React from 'react';
 import {Helmet} from 'react-helmet';
+import Sidebar from '../components/Sidebar';
 
 export default function Service1Screen(){
-    return <div className="service-detail-page">
+    return <div className="main-content">
+        <Sidebar />
+        <div className="service-detail-page">
         <Helmet>
             <title>Dịch vụ bảo trì | Thành Tín Tech</title>
         </Helmet>
@@ -45,5 +48,6 @@ export default function Service1Screen(){
                 <p>3. Thiết lập báo cáo chi tiết, đưa ra các khuyến cáo</p>
             </div>
         </div>
+    </div>
     </div>
 }

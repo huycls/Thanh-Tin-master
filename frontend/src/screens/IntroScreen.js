@@ -1,13 +1,15 @@
 import React from 'react';
 import { withNamespaces } from 'react-i18next';
 import {Helmet} from 'react-helmet';
+import Sidebar from '../components/Sidebar';
 
 function IntroScreen({t}){
-    return <div className="intro-page">
+    return <div className="main-content">
         <Helmet>
             <title>Giới thiệu</title>
         </Helmet>
-        <div className="intro-content">
+        <Sidebar />
+        <div className="intro-content intro-page">
         <h1><img className="intro-image" src="../images/logofavico.jpg" alt="intro"></img>{t("intro.label")}</h1>
         <small>15-1-2020, 4:51 pm</small>
             <p><span><strong className="company-name">{t("company.label")}</strong> {t("intro.p1")}</span></p>

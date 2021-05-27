@@ -1,9 +1,12 @@
 import React from 'react';
 import { withNamespaces } from 'react-i18next';
 import {Helmet} from 'react-helmet';
+import Sidebar from '../components/Sidebar';
 
 export default withNamespaces()(function ContactScreen({t}){
-    return <div className="contact-page">
+    return <div className="main-content">
+        <Sidebar />
+        <div className="contact-page">
         <Helmet>
             <title>Liên hệ - Công ty TNHH thiết bị và hóa chất Thành Tín</title>
         </Helmet>
@@ -22,5 +25,6 @@ export default withNamespaces()(function ContactScreen({t}){
                 <p><strong>{t("tech.label")}: </strong><a href="mailto:service@thanhtin-tech.com">service@thanhtin-tech.com</a></p>
             </div>
         </div>
+    </div>
     </div>
 })

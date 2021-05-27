@@ -1,7 +1,8 @@
 import React from 'react';
 
 function NewsProduct(props){
-    return <div className="newspage">
+    return <div>
+        <div className="newspage">
         <h1>Giải pháp công nghệ tự động</h1>
         <small>15-1-2020, 4:51 pm</small>
         <div className="newsproduct-image">
@@ -21,6 +22,7 @@ function NewsProduct(props){
 
         <p>Sed eget hendrerit metus. Etiam mattis sem molestie diam volutpat, faucibus sodales metus pretium. Integer non quam et nisi imperdiet tristique sit amet elementum mi. Mauris luctus sagittis laoreet. Nulla a sagittis dolor, a maximus metus. Aenean sagittis egestas neque, a sagittis nunc venenatis et. Donec et luctus diam, et aliquam purus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla pellentesque sagittis consequat. Sed lobortis pellentesque erat at gravida. Praesent elit odio, sagittis eget consequat et, accumsan nec massa.</p>
         </div>
+    </div>
     </div>
 }
 export default NewsProduct;

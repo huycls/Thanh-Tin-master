@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-// import { Carousel } from 'react-responsive-carousel';
 import Product from '../components/Product';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { useDispatch, useSelector } from 'react-redux';
 import { listProducts } from '../actions/productActions';
-// import { listTopSellers } from '../actions/userActions';
-// import { Link } from 'react-router-dom';
 import {Helmet} from 'react-helmet';
 import { withNamespaces } from 'react-i18next';
 import Pagination from '../Pagination';
+import Slideshow from '../components/Slideshow';
+import Sidebar from '../components/Sidebar';
 
 
 export default withNamespaces() (function HomeScreen({t}) {
@@ -37,34 +36,9 @@ export default withNamespaces() (function HomeScreen({t}) {
     <Helmet>
       <title>{t("title.label")}</title>
     </Helmet>
-      <div className="upper-content">
-        <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
-          <div className="carousel-inner">
-            <div className="carousel-item active" data-bs-interval="3000">
-              <img src="./images/1.jpg" className="d-block w-100" alt="..." />
-            </div>
-            <div className="carousel-item" data-bs-interval="3000">
-              <img src="./images/2.jpg" className="d-block w-100" alt="..." />
-            </div>
-            <div className="carousel-item" data-bs-interval="3000">
-              <img src="./images/3.jpg" className="d-block w-100" alt="..." />
-            </div>
-            <div className="carousel-item" data-bs-interval="3000">
-              <img src="./images/4.jpg" className="d-block w-100" alt="..." />
-            </div>
-            <div className="carousel-item" data-bs-interval="3000">
-              <img src="./images/5.jpg" className="d-block w-100" alt="..." />
-            </div>
-          </div>
-          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Previous</span>
-          </button>
-          <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Next</span>
-          </button>
-        </div>
+      <Slideshow />
+      <div className="main-content">
+        <Sidebar />
         <div className="product-box">      
           <h1 className="product-banner">{t("newproduct.label")}</h1>
           {loading ? (

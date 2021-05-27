@@ -10,6 +10,7 @@ import Product from '../components/Product';
 import {Helmet} from 'react-helmet';
 import {withNamespaces} from 'react-i18next';
 import Pagination from '../Pagination';
+import Sidebar from '../components/Sidebar';
 
 
 export default withNamespaces() (function SearchScreen( props) {
@@ -62,14 +63,12 @@ export default withNamespaces() (function SearchScreen( props) {
 
   const brandSet = new Set(products && products.map(item => item.brand));
   const brandList = Array.from(brandSet).sort();
-  return (
-    <div className="search-screen">
+  return <div className="main-content">
       <Helmet>
         <title>{t("search.label")}</title>
       </Helmet>
-      <div className="rowe">
-      </div>
-      <div className="row top">       
+      <Sidebar />
+      <div className="search-screen top">       
         <div className="subcategory">
         <h3>{t("brand.label")}<button className="resdropdown-btn dropbrand" onClick={dropdownmenu}><i className="fa fa-caret-down"></i></button></h3>
             {loadingBrands ? (
@@ -129,5 +128,4 @@ export default withNamespaces() (function SearchScreen( props) {
         </div>
       </div>
     </div>
-  );
 })
