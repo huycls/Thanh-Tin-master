@@ -22,6 +22,22 @@ const allcategories = [
     {"category" :"Tủ ấm/ Tủ ấm lạnh","encategory":"Incubator", "urlcategory": "tu-am-lanh", "urlencategory": "incubator"},
     {"category" :"Máy đo độ nhớt","encategory":"Viscometer", "urlcategory": "may-do-do-nhot", "urlencategory": "viscometer"},
     {"category" :"Máy đo độ lưu biến","encategory":"Rheometer", "urlcategory": "may-do-do-luu-bien", "urlencategory": "rheometer"},
-    {"category" :"Máy phân tích kết cấu","encategory":"Texture Analyzer", "urlcategory": "may-phan-tich-ket-cau", "urlencategory": "texture-analyzer"}
- ];
+    {"category" :"Máy phân tích kết cấu","encategory":"Texture Analyzer", "urlcategory": "may-phan-tich-ket-cau", "urlencategory": "texture-analyzer"},
+    {"category" : "Máy đo độ dẫn điện, EC", "encategory": "Conductivity meter, EC", "urlcategory": "may-do-do-dan-dien-ec", "urlencategory": "conductivity-meter-ec"},
+    {"category" : "Máy đo độ pH", "encategory": "pH meter", "urlcategory": "may-do-do-ph", "urlencategory": "ph-meter"},
+    {"category" : "Cân kỹ thuật", "encategory": "Technical scales", "urlcategory": "can-ky-thuat", "urlencategory": "technical-scales"},
+    {"category" : "Cân phân tích", "encategory": "Analytical scales", "urlcategory": "can-phan-tich", "urlencategory": "analytical-scales"},
+    {"category" : "Máy đo nhiệt lượng", "encategory": "Heat Meter", "urlcategory": "may-do-nhiet-luong", "urlencategory": "heat-meter"},
+    {"category" : "Máy khuấy từ", "encategory": "Magnetic Stirrer", "urlcategory": "may-khuay-tu", "urlencategory": "magnetic-stirrer"},
+    {"category" : "Máy khuấy đũa", "encategory": "Overhead Stirrer", "urlcategory": "may-khuay-dua", "urlencategory": "overhead-stirrer"},
+    {"category" : "Máy đồng hóa", "encategory": "Homogenizer", "urlcategory": "may-dong-hoa", "urlencategory": "homogenizer"},
+    {"category" : "Cô quay chân không", "encategory": "Rotary Evaporators", "urlcategory": "co-quay-chan-khong", "urlencategory": "rotary-evaporators"},
+    {"category" : "Tủ vi khí hậu", "encategory": "Humidity chamber", "urlcategory": "tu-vi-khi-hau", "urlencategory": "humidity-chamber"},
+    {"category" : "Quang phổ phân tử", "encategory": "Molecular Spectroscopy", "urlcategory": "quang-pho-phan-tu", "urlencategory": "molecular-spectroscopy"},
+    {"category" : "Phân tích nguyên tố", "encategory": "Elemental analysis", "urlcategory": "phan-tich-nguyen-to", "urlencategory": "elemental-analysis"},
+    {"category" : "Đặc tính bề mặt", "encategory": "Surface Characterization", "urlcategory": "dac-tinh-be-mat", "urlencategory": "surface-chacracterization"},
+    {"category" : "Phân tích hạt", "encategory": "Particle Characterization", "urlcategory": "phan-tich-hat", "urlencategory": "particle-characterization"},
+    {"category" : "Thiết bị môi trường", "encategory": "Environmental equipment", "urlcategory": "thiet-bi-moi-truong", "urlencategory": "environmental-equipment"},
+    {"category" : "Thiết bị khoa học hình sự", "encategory": "Forensics Equipment", "urlcategory": "thiet-bi-khoa-hoc-hinh-su", "urlencategory": "forensics-equipment"}
+];
  export default allcategories;

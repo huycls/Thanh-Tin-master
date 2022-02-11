@@ -1,18 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState }  from 'react';
 import {Link} from 'react-router-dom';
 import { withNamespaces } from 'react-i18next';
+import { listApplications } from '../actions/applicationActions';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
+import { useDispatch, useSelector } from 'react-redux';
+import ApplicationReview from './ApplicationReview'
+import {useHistory} from 'react-router-dom';
 
-export default withNamespaces() (function Slideshow({t}){
-    function dropdownmenu() {
+
+export default withNamespaces() (function Slideshow(props){
+  const {t} = props;
+  const dispatch = useDispatch();
+  function dropdownmenu() {
         document.getElementById("myDropdown").classList.toggle("show");
       }
       //Close dropdown menu when click link
-  function closeDropdown(){
-    const dropdown1 = document.querySelector('.news-content'); 
-    if(dropdown1.classList.contains("show")){
-      dropdown1.classList.remove("show");
-    }
-  }
+      const applicationList = useSelector((state) => state.applicationList);
+      const { loading, error, applications } = applicationList;
+      useEffect(() => {
+        dispatch(listApplications({}));
+        }, [dispatch]); 
+        const history = useHistory();
     return  <div className="home-upper">
         <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-inner">
@@ -42,29 +51,24 @@ export default withNamespaces() (function Slideshow({t}){
           </button>
         </div>
         <div className="news"> 
-          <div className="news-title"><Link to="/tat-ca-tin-tuc">{t("news.label")}</Link><button onClick={dropdownmenu} className="resdropdown-btn"><i className="fas fa-sort-down"></i></button></div>
-          <div className="news-content"  id="myDropdown">
-            <Link onClick={closeDropdown} to="/cong-ty-thanh-tin-la-nha-phan-phoi-chinh-thuc-cho-hang-mettler-toledo">
-              <p className="news-link">
-                <i className="fas fa-chevron-right"></i><span>{t("news.label1")}</span>
-              </p>
-            </Link>
-            <Link onClick={closeDropdown} to="/thong-bao-thay-doi-ten-giao-dich">
-              <p className="news-link">
-                <i className="fas fa-chevron-right"></i><span>{t("news.label2")}</span>
-              </p>
-            </Link>
-            <Link onClick={closeDropdown} to="/analytica-viet-nam-2013">
-              <p className="news-link">
-                <i className="fas fa-chevron-right"></i><span>{t("news.label3")}</span>
-              </p>
-            </Link>
-            <Link onClick={closeDropdown} to="/tuyen-nhan-vien-kinh-doanh">
-              <p className="news-link">
-                <i className="fas fa-chevron-right"></i><span>{t("news.label4")}</span>
-              </p>
-            </Link>        
-          </div>
+          <div className="news-title"><span>{t("News")}</span><button onClick={dropdownmenu} className="resdropdown-btn"><i className="fas fa-sort-down"></i></button></div>
+         
+          {loading ? (
+                    <LoadingBox></LoadingBox>
+                ) : error ? (
+                    <MessageBox variant="danger">{error}</MessageBox>
+                ) : (
+                    <div>
+                        {applications.length === 0 && <MessageBox>{t("noproduct.label")}</MessageBox>}
+                        <div  className="news-content"  id="myDropdown">
+                            {applications.slice(0).reverse().map((application) => (
+                            <ApplicationReview key={application._id} application={application}></ApplicationReview>
+                            ))}
+                        </div>
+                       
+                    </div> 
+                )} 
+          
         </div>
     </div>
 })

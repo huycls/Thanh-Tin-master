@@ -43,7 +43,7 @@
     "buynow.label": "Mua hàng ngay",
     "total.label": "Tổng cộng",
     "productqty.label": "sản phẩm",
-    "submit.label": "Xác nhận sản phẩm cần báo giá",
+    "submit.label": "Xác nhận",
     "instock": "Còn hàng ",
     "outofstock": "Hết hàng",
 
@@ -61,7 +61,7 @@
     "feature.label": "Đặc tính nổi bật",
     "access.label": "Phụ kiện",
     "apply.label": "Ứng dụng",
-    "tocart.label": "Yêu cầu báo giá",
+    "tocart.label": "Thêm vào giỏ hàng báo giá",
     "delete": "Xóa",
     "cartname": "{{item.name}}",
 
@@ -113,9 +113,6 @@
     "newsmenu": "Danh mục tin",
     "solution": "Giải pháp", 
     "Business code": "Mã số kinh doanh",
-    "0311941553 first issued by Ho Chi Minh Authority For Planning And Investment in 22/08/2012": " 0311941553 do Sở Kế Hoạch và Đầu Tư Thành phố Hồ Chí Minh cấp lần đầu ngày 22/08/2012",
-    "title": "{{application.title}}",
-    "content": "{{application.content}}",
-    "switchtype": "{{val.articletype}}"
+    "0311941553 first issued by Ho Chi Minh Authority For Planning And Investment in 22/08/2012": " 0311941553 do Sở Kế Hoạch và Đầu Tư Thành phố Hồ Chí Minh cấp lần đầu ngày 22/08/2012"
     
 }

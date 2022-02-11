@@ -10,9 +10,9 @@ function IntroScreen({t}){
         </Helmet>
         <Sidebar />
         <div className="intro-content intro-page">
-        <h1><img className="intro-image" src="../images/logofavico.jpg" alt="intro"></img>{t("intro.label")}</h1>
-        <small>15-1-2020, 4:51 pm</small>
-            <p><span><strong className="company-name">{t("company.label")}</strong> {t("intro.p1")}</span></p>
+         <h1><img className="intro-image" src="../images/logofavico.jpg" alt="intro"></img>{t("Giới thiệu")}</h1>
+         <small>15-1-2020, 4:51 pm</small>
+            <p><span><strong className="company-name">{t("Thanh Tin Instrument And Chemical Co.LTD")}</strong> {t("intro.p1")}</span></p>
             <ul>
                 <li><i className="fas fa-chevron-right"></i>{t("intro.l1")}</li>
                 <li><i className="fas fa-chevron-right"></i>{t("intro.l2")}</li>
@@ -34,22 +34,22 @@ function IntroScreen({t}){
                 <li><i className="fas fa-chevron-right"></i>{t("intro.li6")}</li>
            </ul>
            <p className="p2">{t("intro.p2")}</p>
-        </div>
-        <div className="introinfo-field">
-        <div className="intro-info">
-            <strong className="company-name">{t("contact.label")}</strong>
-            <p><strong className="office-name">{t("hcm.label")}: </strong>{t("hcmadd.label")}</p>
-            <p><strong>{t("phone.label")}: </strong>(028) 36 360 901</p>
-            <p><span><strong>Fax: </strong>(028) 36 360 902  <strong>{t("mst.label")}</strong>0311941553</span></p>
-            <p><strong>{t("sale.label")}: </strong><a href="mailto:sales@thanhtin-tech.com">sales@thanhtin-tech.com</a>   </p>
-            <p><strong>{t("tech.label")}: </strong><a href="mailto:service@thanhtin-tech.com">service@thanhtin-tech.com</a></p>
-        </div>
-        <div className="intro-info">
-            <p><strong className="office-name">Ha Noi Office (ADANA Complex) : </strong>{t("hnadd.label")}</p>
-            <p><strong>{t("sale.label")}: </strong><a href="mailto:hanoi@thanhtin-tech.com">hanoi@thanhtin-tech.com</a></p>
-            <p><strong>{t("tech.label")}: </strong><a href="mailto:service@thanhtin-tech.com">service@thanhtin-tech.com</a></p>
-        </div>
-        </div>
+         <div className="introinfo-field">
+         <div className="intro-info">
+             <strong className="company-name">{t("Contact Information")}</strong>
+             <p><strong className="office-name">{t("VP HCM")}: </strong>{t("78 1A St, Quater 4, Binh Hung Hoa B Ward, Binh Tan Dist., Ho Chi Minh City, VietNam")}</p>
+             <p><strong>{t("Hotline")}: </strong>(028) 36 360 901</p>
+             <p><span><strong>Fax: </strong>(028) 36 360 902  <strong>{t("MST:")}</strong>0311941553</span></p>
+             <p><strong>{t("Sale Department")}: </strong><a href="mailto:sales@thanhtin-tech.com">sales@thanhtin-tech.com</a>   </p>
+             <p><strong>{t("Technical Department")}: </strong><a href="mailto:service@thanhtin-tech.com">service@thanhtin-tech.com</a></p>
+         </div>
+         <div className="intro-info">
+             <p><strong className="office-name">Ha Noi Office (ADANA Complex) : </strong>{t("Lot 3, A1-A2-A3 Area, Cau Thanh Tri St., Cu Khoi Ward, Long Bien Dist., Ha Noi, VietNam")}</p>
+             <p><strong>{t("Sale Department")}: </strong><a href="mailto:hanoi@thanhtin-tech.com">hanoi@thanhtin-tech.com</a></p>
+             <p><strong>{t("Technical Department")}: </strong><a href="mailto:service@thanhtin-tech.com">service@thanhtin-tech.com</a></p>
+         </div>
+         </div>
+       </div>
     </div>
 }
 export default  withNamespaces()(IntroScreen);

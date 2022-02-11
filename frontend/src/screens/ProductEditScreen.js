@@ -5,9 +5,16 @@ import { detailsProduct, updateProduct } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { PRODUCT_UPDATE_RESET } from '../constants/productConstants';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+// import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+// import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
+// import DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
+import useScript from '../useScript';
 import {CKEditor} from '@ckeditor/ckeditor5-react';
+import Editor from 'ckeditor5-custom-build/build/ckeditor.js';
 import {Helmet} from 'react-helmet';
+import parse from 'html-react-parser';
+
+// import DecoupledDocumentEditor from '@ckeditor/ckeditor5-editor-decoupled/src/decouplededitor.js';
 
 
 
@@ -119,9 +126,74 @@ export default function ProductEditScreen(props) {
       setLoadingUpload(false);
     }
   };
+  // ClassicEditor
+  //   .create( document.querySelector( '#editor' ) )
+  //   .then( editor => {
+  //       console.log( editor );
+  //   } )
+  //   .catch( error => {
+  //       console.error( error );
+  //   } );
+  // Plugins to include in the build.
+  const editorConfiguration = {
+     toolbar: {
+      items: [
+        'code',
+        'heading',
+        '|',
+        'bold',
+        'italic',
+        'link',
+        'bulletedList',
+        'numberedList',
+        '|',
+        'highlight',
+        'fontBackgroundColor',
+        'fontColor',
+        'MathType',
+        'specialCharacters',
+        'fontFamily',
+        'fontSize',
+        'ChemType',
+        '|',
+        'outdent',
+        'indent',
+        '|',
+        'CKFinder',
+        
+        'blockQuote',
+        'insertTable',
+        'imageInsert',
+        'mediaEmbed',
+        'htmlEmbed',
+        '|',
+        'undo',
+        'redo'
+      ]
+    },
+    language: 'vi',
+    image: {
+      toolbar: [
+        'imageTextAlternative',
+        'imageStyle:inline',
+        'imageStyle:block',
+        'imageStyle:side',
+        'linkImage'
+      ]
+    },
+    table: {
+      contentToolbar: [
+        'tableColumn',
+        'tableRow',
+        'mergeTableCells'
+      ]
+    }
+};
+
+  useScript("https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.js");
   return (
     <div>
-      <form className="form" onSubmit={submitHandler}>
+      <form className="form edit-form" onSubmit={submitHandler}>
           <h1>Edit Product id: {productId}</h1>
         {loadingUpdate && <LoadingBox></LoadingBox>}
         {errorUpdate && <MessageBox variant="danger">{errorUpdate}</MessageBox>}
@@ -200,21 +272,22 @@ export default function ProductEditScreen(props) {
             <div>
                 <label htmlFor="category">Category</label>
                 <select id="category" className="form-select" value={category} onChange={(e) => setCategory(e.target.value)} aria-label="Default select example">
-                <option defaultValue="thiet-bi-nganh-giay">Thiết bị ngành giấy</option>
+                <option value="thiet-bi-nganh-giay">Thiết bị ngành giấy</option>
                 <option value="be-cach-thuy-be-dieu-nhiet">Bể cách thủy/Bể điều nhiệt</option>
                 <option value="khuc-xa-ke">Khúc xạ kế cầm tay/kỹ thuật số</option>
                 <option value="thiet-bi-thu-nghiem-co-ly-tinh">Thiết bị thử nghiệm cơ, lý tính</option>
                 <option value="lo-nung">Lò nung</option>
                 <option value="thiet-bi-nganh-nhua-cao-su">Thiết bị ngành nhựa, cao su</option>
-                <option value="may-cat-nuoc">Máy cất nước</option>
+                <option value="may-cat-nuoc">Máy cất nước/ Máy lọc nước</option>
                 <option value="camera-may-in">Camera/Máy in</option>
                 <option value="noi-hap-tiet-trung">Nồi hấp tiệt trùng</option>
-                <option value="may-ly-tam-may-lac">Máy ly tâm/Máy lắc</option>
-                <option value="hoa-chat-va-thuoc-thu">Hóa chất và thuốc thử</option>
+                <option value="may-ly-tam-may-lac">Máy ly tâm/ Máy lắc</option>
+                <option value="hoa-chat-va-thuoc-thu">Thuốc thử</option>
                 <option value="phan-cuc-ke-ong-phan-cuc">Phân cực kế/Ống phân cực</option>
                 <option value="thiet-bi-do-khi">Thiết bị đo khí</option>
                 <option value="thiet-bi-do-ty-trong">Thiết bị đo tỷ trọng</option>
-                <option value="so-mau">So màu</option>
+		            <option value="thiet-bi-do-do-nong-chay">Thiết bị đo độ nóng chảy</option>
+                <option value="so-mau">Thiết bị quan sát nguồn sáng/ Đo màu</option>
                 <option value="tu-an-toan-sinh-hoc-hoa-chat">Tủ an toàn sinh học/Tủ hóa chất</option>
                 <option value="tu-say">Tủ sấy</option>
                 <option value="kinh-hien-vi">Kính hiển vi</option>
@@ -222,6 +295,38 @@ export default function ProductEditScreen(props) {
                 <option value="may-do-do-nhot">Máy đo độ nhớt</option>
                 <option value="may-do-do-luu-bien">Máy đo độ lưu biến</option>
                 <option value="may-phan-tich-ket-cau">Máy phân tích kết cấu</option>
+                <option value="may-do-do-dan-dien-ec">Máy đo độ dẫn điện, EC</option>
+                <option value="may-do-do-ph">Máy đo độ pH</option>
+                <option value="can-ky-thuat">Cân kỹ thuật</option>
+                <option value="can-phan-tich">Cân phân tích</option>
+                <option value="may-khuay-tu">Máy khuấy từ</option>
+                <option value="may-khuay-dua">Máy khuấy đũa</option>
+                <option value="may-lac">Máy lắc</option>
+                <option value="may-dong-hoa">Máy đồng hóa</option>
+                <option value="co-quay-chan-khong">Cô quay chân không</option>
+                <option value="may-do-nhiet-luong">Nhiệt kế</option>
+                <option value="tu-vi-khi-hau">Tủ vi khí hậu</option>
+                <option value="quang-pho-phan-tu">Quang phổ phân tử</option>
+                <option value="phan-tich-nguyen-to">Phân tích nguyên tố</option>
+                <option value="dac-tinh-be-mat">Đặc tính bề mặt</option>
+                <option value="phan-tich-hat">Phân tích hạt</option>
+                <option value="thiet-bi-moi-truong">Thiết bị môi trường</option>
+                <option value="thiet-bi-khoa-hoc-hinh-su">Thiết bị khoa học hình sự</option>
+                <option value="thiet-bi-do-nhiet-do-ap-suat">Thiết bị đo nhiệt độ/ Áp suất</option>
+                <option value="thiet-bi-phan-tich">Thiết bị phân tích</option>
+                <option value="thiet-bi-hap-thu-nguyen-tu">Thiết bị hấp thụ nguyên tử</option>
+                <option value="huynh-quang-nguyen-tu">Huỳnh quang nguyên tử</option>
+                <option value="may-chuan-do">Máy chuẩn độ</option>
+                <option value="may-test-do-hoa-tan">Máy test độ hòa tan</option>
+                <option value="may-do-sac-ky">Máy đo sắc ký</option>
+                <option value="lo-vi-song-pha-mau">Lò vi sóng phá mẫu</option>
+                <option value="may-tao-khi">Máy tạo khí</option>
+                <option value="khoi-pho-ke">Khối phổ kế</option>
+                <option value="do-luong-va-thu-nghiem-xang-dau">Đo lường và thử nghiệm xăng-dầu</option>
+                <option value="may-nghien-bi">Máy nghiền bi</option>
+                <option value="tu-hut-am">Tủ hút ẩm</option>
+                <option value="tu-nuoi-cay-te-bao-thuc-vat-co-lac">Tủ nuôi cấy tế bào thực vật có lắc</option>
+
               </select>
             </div>
             {/* <div>
@@ -254,6 +359,30 @@ export default function ProductEditScreen(props) {
                 <option value="STURDY - Đài loan">STURDY - Đài loan</option>
                 <option value="XRITE - Mỹ">XRITE - Mỹ</option>
                 <option value="ANDREAS HETTICH - Đức">ANDREAS HETTICH - Đức</option>
+                <option value="Mettler Toledo">Mettler Toledo</option>
+                <option value="Labthink">Labthink</option>
+                <option value="Memmert">Memmert</option>
+                <option value="Brookfield">Brookfield</option>
+                <option value="Ika - Đức">Ika - Đức</option>
+                <option value="Hanna Instruments">Hanna Instruments</option>
+                <option value="Binder - Đức">Binder - Đức</option> 
+                <option value="Lamy Rheology">Lamy Rheology</option>
+                <option value="Horiba">Horiba</option>
+                <option value="Technosoft">Technosoft</option>
+                <option value="Testometic">Testometric</option>
+                <option value="Zeuter - Đức">Zeuter - Đức</option>
+                <option value="PG Instruments - Anh">PG Instruments - Anh</option>
+                <option value="Young In - Hàn Quốc">Young In - Hàn Quốc</option>
+                <option value="Soltec - Ý">Soltec - Ý</option>
+                <option value="Koehler Instruments">Koehler Instruments</option>
+                <option value="XS - Instruments">XS - Instruments</option>
+                <option value="Julabo - Đức">Julabo - Đức</option>
+                <option value="Hunterlab - Mỹ">Hunterlab - Mỹ</option>
+                <option value="Xylem - Analytics">Xylem - Analytics</option>
+                <option value="Bettersize - Trung Quốc">Bettersize - Trung Quốc</option>
+                <option value="Metrohm - Thụy Sĩ">Metrohm - Thụy Sĩ</option>
+                <option value="Sh Scientific">Sh Scientific</option>
+  
               </select>
             </div>
             <div>
@@ -275,9 +404,32 @@ export default function ProductEditScreen(props) {
                 <option value="STURDY - Taiwan">STURDY - Taiwan</option>
                 <option value="XRITE - USA">XRITE - USA</option>
                 <option value="ANDREAS HETTICH - Germany">ANDREAS HETTICH - Germany</option>
+                <option value="Mettler Toledo">Mettler Toledo</option>
+                <option value="Labthink">Labthink</option>
+                <option value="Memmert">Memmert</option>
+                <option value="Brookfield">Brookfield</option>
+                <option value="Ika - Germany">Ika - Germany</option>
+                <option value="Hanna Instruments">Hanna Instruments</option> 
+                <option value="Binder - Germany">Binder - Germany</option> 
+                <option value="Lamy Rheology">Lamy Rheology</option>
+                <option value="Horiba">Horiba</option>
+                <option value="Technosoft">Technosoft</option>
+                <option value="Testometic">Testometric</option>
+                <option value="Zeuter - Germany">Zeuter - Germany</option>
+                <option value="PG Instruments - England">PG Instruments - England</option>
+                <option value="Young In - Korea">Young In - Korea</option>  
+                <option value="Soltec - Italy">Soltec - Italy</option>
+                <option value="Koehler Instruments">Koehler Instruments</option>
+                <option value="XS - Instruments">XS - Instruments</option>
+                <option value="Julabo - Germany">Julabo - Germany</option>
+                <option value="Hunterlab - America">Hunterlab - America</option>
+                <option value="Xylem - Analytics">Xylem - Analytics</option>
+                <option value="Bettersize - China">Bettersize - China</option>
+                <option value="Metrohm - Switzerland">Metrohm - Switzerland</option>
+                <option value="Sh Scientific">Sh Scientific</option>
+ 
               </select>
-            </div>
-            
+            </div>       
             <div>
               <label htmlFor="countInStock">Số lượng</label>
               <input
@@ -301,6 +453,7 @@ export default function ProductEditScreen(props) {
             <div>
               <label htmlFor="description">Mô tả:</label>
               <textarea
+                name="description"
                 rows="4"
                 id="description"
                 type="text"
@@ -312,6 +465,7 @@ export default function ProductEditScreen(props) {
             <div>
               <label htmlFor="endescription">Mô tả: (English)</label>
               <textarea
+                name="endescription"
                 rows="4"
                 id="endescription"
                 type="text"
@@ -323,14 +477,14 @@ export default function ProductEditScreen(props) {
             <div>
               <label htmlFor="parameter">Thông số kỹ thuật</label>
               <CKEditor 
-                editor={ClassicEditor}
+                className="parameter"
+                editor={Editor}
+                config={ editorConfiguration }
                 data={parameter}
                 onReady={editor =>{
-
                 }}
-                onChange = {(event, editor) => {
+                onChange={(e,editor)=>{
                   const data1 = editor.getData();
-                  console.log(data1);
                   setParameter(data1);
                 }}
               />
@@ -338,18 +492,21 @@ export default function ProductEditScreen(props) {
             <div>
               <label htmlFor="enparameter">Thông số kỹ thuật (English)</label>
               <CKEditor 
-                editor={ClassicEditor}
+                className="enparameter"
+                editor={Editor}
+                config={ editorConfiguration }
                 data={enparameter}
                 onReady={editor =>{
-
                 }}
-                onChange = {(event, editor1) => {
-                  const data = editor1.getData();
-                  console.log(data);
+                onChange={(e,editor)=>{
+                  const data = editor.getData();
                   setEnparameter(data);
                 }}
               />
             </div>
+            {/* <div id="editor">
+              <p>This is the initial editor content.</p>
+            </div> */}
             <div>
                <label htmlFor="video">Link Video</label>
                <input

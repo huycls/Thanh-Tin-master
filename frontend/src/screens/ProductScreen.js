@@ -9,13 +9,14 @@ import { listProducts } from '../actions/productActions';
 import parse from 'html-react-parser';
 import {Helmet} from 'react-helmet';
 import { withNamespaces } from 'react-i18next';
-import {useHistory} from 'react-router-dom';
+import {useHistory, withRouter} from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
+import {Link} from 'react-router-dom';
 
 export default withNamespaces((props) => props.namespaces) (function ProductScreen(props) {
   const {t} = props;
   const dispatch = useDispatch();
-  const productId = props.match.params.id;
+  const productId =  props.match.params.id;
   const [qty, setQty] = useState(1);
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
@@ -82,15 +83,16 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
                 <li>
                   <h1>{t("productname", {product})}</h1>
                 </li>              
-                <li><strong>{t("price.label")} </strong> {product.price} &#8363;</li>
+                {/* <li><strong>{t("price.label")} </strong> <span className="danger bold">Liên hệ</span></li> */}
+                {/* {product.price} &#8363; */}
                 <li>
-                  <strong>{t("brand.label")}: </strong> {t("productbrand", {product})}
+                  <strong>{t("brand.label")}: </strong> <Link to={`/search/brand/${product.brand}`}>{t("productbrand", {product})}</Link>
                 </li>
                 <li> 
                   <p><strong>Model:</strong> {product.model}</p>
                 </li>
                 <li> 
-                  <p className="description"><strong>{t("description.label")}</strong> {t("key", {product})}</p>
+                  <p className="description"><strong>{t("description.label")}:</strong> {t("key", {product})}</p>
                 </li>
                 <li>
                   <p className="contact-sale"> <strong> {t("emailus.label")}: <a href="mailto:sales@thanhtin-tech.com"> sales@thanhtin-tech.com</a></strong></p>
@@ -103,7 +105,7 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
                   <li>
                     <div className="row">
                       <div className="card-child">{t("price.label")}</div>
-                      <div className="price card-child">{product.price} &#8363;</div>
+                      <div className="price card-child danger"> Liên hệ</div>
                     </div>
                   </li>
                   <li>
@@ -140,12 +142,12 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
                         </div>
                       </li>
                       <li>
-                        <button
+                        {/* <button
                           onClick={addToCartHandler}
                           className="primary block"
                         >
                           {t("tocart.label")}
-                        </button>
+                        </button> */}
                       </li>
                     </>
                   )}
@@ -178,11 +180,11 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
               <div className="tab-pane fade show active" id="pills-parameter" role="tabpanel" aria-labelledby="pills-parameter-tab">
                 {parse(t("parameter.content", {product}))}
               </div>
-              <div className="tab-pane fade" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab"><a href={product.video}>Xem video</a></div>
+              <div className="tab-pane fade" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab">Link video: {product.video}</div>
               <div className="tab-pane fade" id="pills-characteristic" role="tabpanel" aria-labelledby="pills-characteristic-tab">...</div>
               <div className="tab-pane fade" id="pills-application" role="tabpanel" aria-labelledby="pills-application-tab">...</div>
               <div className="tab-pane fade" id="pills-accessories" role="tabpanel" aria-labelledby="pills-accessories-tab">...</div>
-              <div className="tab-pane fade" id="pills-catalog" role="tabpanel" aria-labelledby="pills-catalog-tab"><a href={product.catalog} download>Download</a></div>            
+              <div className="tab-pane fade" id="pills-catalog" role="tabpanel" aria-labelledby="pills-catalog-tab"></div>            
             </div>
           </div>
           <div className="recommend-product">

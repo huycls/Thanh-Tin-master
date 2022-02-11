@@ -1,128 +1,73 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React, { useEffect, useState }  from 'react';
+import {Link, useParams} from 'react-router-dom';
+import { listApplications } from '../actions/applicationActions';
 import {Helmet} from 'react-helmet';
 import { withNamespaces } from 'react-i18next';
 import Sidebar from '../components/Sidebar';
+import Pagination from '../Pagination';
+import Application from '../components/Application';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
+import { useDispatch, useSelector } from 'react-redux';
 
 
-function Allnews({t}){
+export default withNamespaces() (function Allnews(props){
+    const {t} = props;
+    const dispatch = useDispatch();
+    const applicationList = useSelector((state) => state.applicationList);
+    const { loading, error, applications } = applicationList;
+    const {
+        title='all',
+        articletype = 'all',
+    } = useParams();
+    useEffect(() => {
+        dispatch(
+          listApplications({
+            title: title !== 'all' ? title : '',
+            articletype: articletype !== 'all' ? articletype : '',
+            
+          })
+        );
+      }, [  articletype,  dispatch, title]);
+    
+    const [currentPage, setCurrentPage] = useState(1);
+    const [productPerPage] = useState(20);
+
+    //get current products
+    const indexOfLastProduct = currentPage * productPerPage;
+    const inxdexOfFirstProduct = indexOfLastProduct - productPerPage;
+
+    //change page
+    const paginate = (pagehomeNumber) => setCurrentPage(pagehomeNumber);
+    const getFilterUrl = (filter) => {
+        const filterNewstype = filter.articletype|| articletype;
+        return `/tin-tuc/articletype/${filterNewstype}`;
+        };
     return <div className="main-content">
         <Helmet>
             <title>Tin tức - Công ty TNHH thiết bị và hóa chất Thành Tín</title>
         </Helmet>
         <Sidebar />
-        <div className="d-flex align-items-start">
-            <div className="nav flex-column nav-pills me-3 nav-news" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <h3><i class="fas fa-bars"></i>{t("newsmenu")}</h3>
-                <button className="nav-link news-nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">{t("news.label")}</button>
-                <button className="nav-link news-nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">{t("apply.label")}</button>
-                <button className="nav-link news-nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">{t("solution")}</button>
-            </div>
-            <div className="tab-content tab-news" id="v-pills-tabContent">
-                <div className="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                    <div className="news-component">
-                        <div className="newscomponent-content">
-                            <Link className="newscomponent-image" to="/cong-ty-thanh-tin-la-nha-phan-phoi-chinh-thuc-cho-hang-mettler-toledo">
-                                <img src="./images/logo.png" alt="news-bla" />
-                            </Link>   
+        
+           
+                <div>
+                {loading ? (
+                    <LoadingBox></LoadingBox>
+                ) : error ? (
+                    <MessageBox variant="danger">{error}</MessageBox>
+                ) : (
+                    <div>
+                        {applications.length === 0 && <MessageBox>{t("noproduct.label")}</MessageBox>}
+                        <div className="applications">
+                            {applications.slice(0).reverse().slice(inxdexOfFirstProduct, indexOfLastProduct).map((application) => (
+                            <Application key={application._id} application={application}></Application>
+                            ))}
                         </div>
-                        <Link to="/cong-ty-thanh-tin-la-nha-phan-phoi-chinh-thuc-cho-hang-mettler-toledo" className="newscomponent-title">Công ty Thành Tín là nhà phân phối chính thức cho dòng cân HE/TLE/HE của hãng METTLER TOLEDO (Thụy Sỹ)</Link>                 
-                    </div>
-                    <div className="news-component">
-                        <div className="newscomponent-content">
-                            <Link className="newscomponent-image" to="/thong-bao-thay-doi-ten-giao-dich">
-                                <img src="./images/logo.png" alt="news-bla" />
-                            </Link>  
-                        </div>
-                        <Link className="newscomponent-title" to="/thong-bao-thay-doi-ten-giao-dich">Thông báo thay đổi tên giao dịch</Link>                        
-                    </div>
-                    <div className="news-component">
-                        <div className="newscomponent-content">
-                            <Link className="newscomponent-image" to="/analytica-viet-nam-2013">
-                                <img src="./images/logo.png" alt="news-bla" />
-                            </Link>                          
-                        </div>
-                        <Link className="newscomponent-title" to="/analytica-viet-nam-2013">ANALYTICA VIETNAM 2013 TRIỂN LÃM QUỐC TẾ LẦN THỨ 3 VỀ CÔNG NGHỆ THÍ NGHIỆM, PHÂN TÍCH, CÔNG NGHỆ SINH HỌC VÀ CHẨN ĐOÁN</Link>                      
-                    </div>
-                    <div className="news-component">
-                         <div className="newscomponent-content">
-                            <Link className="newscomponent-image" to="/tuyen-nhan-vien-kinh-doanh">
-                                <img src="./images/logo.png" alt="news-bla" />
-                            </Link>  
-                        </div>
-                        <Link className="newscomponent-title" to="/tuyen-nhan-vien-kinh-doanh">TUYỂN NHÂN VIÊN KINH DOANH</Link>                       
-                    </div>
+                        <Pagination productPerPage={productPerPage} totalProduct={applications.length} paginate={paginate} currentPage={currentPage}/>
+                    </div> 
+                )}
                 </div>
-                <div className="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                    <div className="news-component">
-                         <div className="newscomponent-content">
-                            <Link className="newscomponent-image">
-                                <img src="./images/logo.png" alt="news-bla" />
-                            </Link> 
-                        </div>
-                        <Link className="newscomponent-title">{t("solution")}</Link>                      
-                    </div>
-                    <div className="news-component">
-                        <div className="newscomponent-content">
-                            <Link className="newscomponent-image">
-                                <img src="./images/logo.png" alt="news-bla" />
-                            </Link>           
-                        </div>
-                        <Link className="newscomponent-title">...</Link>                     
-                    </div>
-                    <div className="news-component">                    
-                        <div className="newscomponent-content">
-                            <Link className="newscomponent-image" to="/news2">
-                                <img src="./images/logo.png" alt="news-bla" />
-                            </Link>        
-                        </div>
-                        <Link className="newscomponent-title">...</Link>
-                    </div>
-                    <div className="news-component">
-                        <div className="newscomponent-content">
-                            <Link className="newscomponent-image">
-                                <img src="./images/logo.png" alt="news-bla" />
-                            </Link>               
-                        </div>
-                        <Link className="newscomponent-title">...</Link>
-                    </div>                      
-                </div>
-                <div className="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                    <div className="news-component">                      
-                        <div className="newscomponent-content">
-                            <Link className="newscomponent-image">
-                                <img src="./images/logo.png" alt="news-bla" />
-                            </Link>
-                        </div>
-                        <Link className="newscomponent-title">Ứng dụng</Link>
-                    </div>
-                    <div className="news-component">                     
-                        <div className="newscomponent-content">
-                            <Link className="newscomponent-image">
-                                <img src="./images/logo.png" alt="news-bla" />
-                            </Link>              
-                        </div>
-                        <Link className="newscomponent-title">...</Link>
-                    </div>
-                    <div className="news-component">                       
-                        <div className="newscomponent-content">
-                            <Link className="newscomponent-image">
-                                <img src="./images/logo.png" alt="news-bla" />
-                            </Link>               
-                        </div>
-                        <Link className="newscomponent-title">...</Link>
-                    </div>
-                    <div className="news-component">                      
-                        <div className="newscomponent-content">
-                            <Link className="newscomponent-image">
-                                <img src="./images/logo.png" alt="news-bla" />
-                            </Link>               
-                        </div>
-                        <Link className="newscomponent-title">...</Link>
-                    </div>
-                </div>
-            </div>
-        </div>
+            
+        
     </div>
-}
-export default withNamespaces()(Allnews);
+})

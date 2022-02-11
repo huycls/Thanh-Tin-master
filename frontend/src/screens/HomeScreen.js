@@ -34,13 +34,13 @@ export default withNamespaces() (function HomeScreen({t}) {
   return (
     <div>
     <Helmet>
-      <title>{t("title.label")}</title>
+      <title>{t("Products - Applications Thanh Tin Instrument And Chemical Co.LTD")}</title>
     </Helmet>
       <Slideshow />
       <div className="main-content">
         <Sidebar />
         <div className="product-box">      
-          <h1 className="product-banner">{t("newproduct.label")}</h1>
+          <h1 className="product-banner">{t("All Products")}</h1>
           {loading ? (
             <LoadingBox></LoadingBox>
           ) : error ? (

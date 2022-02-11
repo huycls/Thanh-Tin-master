@@ -21,6 +21,15 @@ import {
   productUpdateReducer,
 } from './reducers/productReducers';
 import {
+  applicationCategoryListReducer,
+  applicationCreateReducer,
+  applicationDeleteReducer,
+  applicationDetailsReducer,
+  applicationListReducer,
+  applicationTypeListReducer,
+  applicationUpdateReducer,
+} from './reducers/applicationReducers';
+import {
   userAddressMapReducer,
   userDeleteReducer,
   userDetailsReducer,
@@ -74,6 +83,13 @@ const reducer = combineReducers({
   productBrandList: productBrandListReducer,
   productReviewCreate: productReviewCreateReducer,
   userAddressMap: userAddressMapReducer,
+  applicationList: applicationListReducer,
+  applicationDetails: applicationDetailsReducer,
+  applicationCategoryList: applicationCategoryListReducer,
+  applicationTypeList: applicationTypeListReducer,
+  applicationCreate: applicationCreateReducer,
+  applicationUpdate: applicationUpdateReducer,
+  applicationDelete: applicationDeleteReducer,
 });
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(

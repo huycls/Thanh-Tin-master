@@ -86,5 +86,23 @@ const data = {
       description: 'high quality product',
     },
   ],
+  applications: [
+    {
+      title: 'Tuyển nhân viên kinh doanh',
+      entitle: 'Tuyển nhân viên kinh doanh',
+      content: 'tuyển nhân viên kinh doanh số lượng lớn',
+      encontent: 'tuyển nhân viên kinh doanh số lượng lớn',
+      articlecategory: 'tin tuc',
+      enarticlecategory: 'tin tuc',
+    },
+    {
+      title: 'Tuyển nhân viên kinh doanh',
+      entitle: 'Tuyển nhân viên kinh doanh',
+      content: 'tuyển nhân viên kinh doanh số lượng lớn',
+      encontent: 'tuyển nhân viên kinh doanh số lượng lớn',
+      articlecategory: 'tin tuc',
+      enarticlecategory: 'tin tuc',
+    }
+  ]
 };
 export default data;

@@ -10,6 +10,9 @@ import HomeScreen from './screens/HomeScreen';
 // import OrderScreen from './screens/OrderScreen';
 // import PaymentMethodScreen from './screens/PaymentMethodScreen';
 // import PlaceOrderScreen from './screens/PlaceOrderScreen';
+import ApplicationEditScreen from './screens/ApplicationEditScreen';
+import ApplicationListScreen from './screens/ApplicationListScreen';
+import ApplicationScreen from './screens/ApplicationScreen';
 import ProductListScreen from './screens/ProductListScreen';
 import ProductScreen from './screens/ProductScreen';
 import ProfileScreen from './screens/ProfileScreen';
@@ -28,6 +31,7 @@ import NewsScreen from './screens/NewsScreen';
 import NewsScreen1 from './screens/NewsScreen1';
 import NewsScreen2 from './screens/NewsScreen2';
 import NewsScreen3 from './screens/NewsScreen3';
+import NewsScreen4 from './screens/NewsScreen4';
 import Allservices from './screens/Allservices';
 import Service1Screen from './screens/Service1Screen';
 import Service2Screen from './screens/Service2Screen';
@@ -53,6 +57,13 @@ import nabertherm from './images/nabertherm.png';
 import gfl from './images/gfl.png';
 import pta from './images/pta.png';
 import pnshar from './images/pnshar.png';
+import chinhsachbaomat from './screens/chinhsachbaomat';
+import chinhsachbaohanh from './screens/chinhsachbaohanh';
+import phuongthucthanhtoan from './screens/phuongthucthanhtoan';
+import huongdanmuahang from './screens/huongdanmuahang';
+import $ from 'jquery';
+import SearchNewsScreen from './screens/SearchNewsScreen';
+import articletypes from './articletypes';
 
 
 
@@ -86,12 +97,8 @@ function App({t}) {
     document.getElementById("search-bar").classList.toggle("show");
   }
   
-  function scrollToTop(){
-    window.scroll({ 
-      top: 0, // could be negative value
-      left: 0, 
-      behavior: 'smooth' 
-    });
+   function topFunction() {
+      $('html, body').animate({scrollTop:0}, 'slow');
   }
 
   const [expanded, setExpanded] = useState(false);
@@ -130,7 +137,7 @@ function App({t}) {
               </button>
             </div>
           </div>
-        <button id="scrolltotop" onClick={scrollToTop}><i className="fas fa-chevron-up"></i></button>
+        <button id="scrolltotop" onClick={topFunction}><i className="fas fa-chevron-up"></i></button>
         <header className="nav-bar" id="navbar">      
           <div className="lower-nav">
             <div>
@@ -169,13 +176,13 @@ function App({t}) {
                     </li>
                     <li>
                       <Link to="#signout" onClick={signoutHandler}>
-                        {t("logout.label")}
+                        {t("Log out")}
                       </Link>
                     </li>
                   </ul>
                 </div>
               ) : (
-                <Link to="/dang-nhap">{t("signin.label")}</Link>
+                <Link to="/dang-nhap">{t("Sign in")}</Link>
               )}
               {userInfo && userInfo.isSeller && (
                 <div className="dropdown">
@@ -202,6 +209,9 @@ function App({t}) {
                       <Link to="/dashboard">Dashboard</Link>
                     </li>
                     <li>
+                      <Link to="/applicationlist">Applications</Link>
+                    </li>
+                    <li>
                       <Link to="/productlist">Products</Link>
                     </li>
                     <li>
@@ -219,10 +229,19 @@ function App({t}) {
             <Navbar.Toggle onClick={() => setExpanded(expanded ? false : "expanded")} aria-controls="basic-navbar-nav"  />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav  className="mr-auto">
-                <Nav.Link onClick={() => setExpanded(false)} as={Link} to="/" className=" mainnav-link"><i className="fas fa-home " aria-current="page" ></i> {t("home.label")}</Nav.Link>
-                <Nav.Link onClick={() => setExpanded(false)} as={Link} to="/gioi-thieu" className="mainnav-link">{t("intro.label")}</Nav.Link>
-                <Nav.Link onClick={() => setExpanded(false)} as={Link} to="/tat-ca-dich-vu" className="mainnav-link">{t("service.label")}</Nav.Link>
-                <Nav.Link onClick={() => setExpanded(false)} as={Link} to="/thong-tin-lien-he" className="mainnav-link">{t("contactnav")}</Nav.Link>
+                <Nav.Link onClick={() => setExpanded(false)} as={Link} to="/" className=" mainnav-link"><i className="fas fa-home " aria-current="page" ></i> {t("Home")}</Nav.Link>
+                <Nav.Link onClick={() => setExpanded(false)} as={Link} to="/gioi-thieu" className="mainnav-link">{t("About us")}</Nav.Link>
+                <Nav.Link onClick={() => setExpanded(false)} as={Link} to="/tat-ca-dich-vu" className="mainnav-link">{t("Services")}</Nav.Link>
+                <ul className='menu-ul'>
+                {
+                  articletypes.map((val, key) => (
+                    <li>
+                    <Nav.Link onClick={() => setExpanded(false)} as={Link} to={`/tin-tuc/articletype/${val.urlarticletype}`} className="mainnav-link">{t("switchtype", {val})}</Nav.Link>
+                    </li>
+                  ))
+                }
+                </ul>
+                <Nav.Link onClick={() => setExpanded(false)} as={Link} to="/thong-tin-lien-he" className="mainnav-link">{t("Contact us")}</Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
@@ -235,7 +254,7 @@ function App({t}) {
             <Route path="/dich-vu-bao-tri" component={Service1Screen}></Route>
             <Route path="/tat-ca-dich-vu" component={Allservices}></Route>
             <Route path="/thong-tin-lien-he" component={ContactScreen}></Route>
-            <Route path="/tat-ca-tin-tuc" component={Allnews}></Route>
+            <Route path="/tin-tuc/articletype/:articletype" component={Allnews} exact></Route>
             <Route path="/gioi-thieu" component={IntroScreen}></Route>
             <Route path="/tin-san-pham-moi" component={NewsProduct}></Route>
             {/* <Route path="/giai-phap" component={SolutionScreen}></Route> */}
@@ -243,8 +262,18 @@ function App({t}) {
             <Route path="/thong-bao-thay-doi-ten-giao-dich" component={NewsScreen1}></Route>
             <Route path="/analytica-viet-nam-2013" component={NewsScreen2}></Route>
             <Route path="/tuyen-nhan-vien-kinh-doanh" component={NewsScreen3}></Route>
+	    <Route path="/may-do-sr-sumet-germany-pta-group" component={NewsScreen4}></Route>
             <Route path="/seller/:id" component={SellerScreen}></Route>
             <Route path="/gio-hang/:id?" component={CartScreen}></Route>
+            <Route path="/chinhsachbaomat" component={chinhsachbaomat}></Route>
+            <Route path="/chinhsachbaohanh" component={chinhsachbaohanh}></Route>
+            <Route path="/phuongthucthanhtoan" component={phuongthucthanhtoan}></Route>
+            <Route path="/huongdanmuahang" component={huongdanmuahang}></Route>
+            <Route 
+              path="/tin-moi/:id" 
+              component={ApplicationScreen} 
+              exact 
+            ></Route>
             <Fragment>
               <ScrollToTop />
               <Route path="/san-pham/:id" component={ProductScreen}
@@ -254,6 +283,11 @@ function App({t}) {
             <Route
               path="/san-pham/:id/edit"
               component={ProductEditScreen}
+              exact
+            ></Route>
+            <Route
+              path="/ung-dung/:id/edit"
+              component={ApplicationEditScreen}
               exact
             ></Route>
             <Route path="/dang-nhap" component={SigninScreen}></Route>
@@ -266,6 +300,11 @@ function App({t}) {
               exact
             ></Route>
             <Route
+              path="/search-news/articlecategory/:articlecategory"
+              component={SearchNewsScreen}
+               exact
+            ></Route>
+            <Route
               path="/search/category/:category"
               component={SearchScreen}
                exact
@@ -275,6 +314,12 @@ function App({t}) {
               component={SearchScreen}
               exact
             ></Route>
+	    <Route
+              path="/search/brand/:brand"
+              component={SearchScreen}
+              exact
+            ></Route>
+
             {/* <Route
               path="/search/category/:category/brand/:brand/name/:name"
               component={SearchScreen}
@@ -300,6 +345,11 @@ function App({t}) {
               component={ProductListScreen}
               exact
             ></AdminRoute>
+            <AdminRoute
+              path="/applicationlist"
+              component={ApplicationListScreen}
+              exact
+            ></AdminRoute>
             <Fragment>
               
               <AdminRoute
@@ -315,15 +365,16 @@ function App({t}) {
               path="/user/:id/edit"
               component={UserEditScreen}
             ></AdminRoute>
+            
             <SellerRoute
               path="/productlist/seller"
               component={ProductListScreen}
             ></SellerRoute>
           <div className="collect-email">
-            <p>{t("collectemail.label")}</p>
+            <p>{t("Enter email to receive latest news from us")}</p>
             <form id="form"  method="GET" action="https://script.google.com/macros/s/AKfycbyTSr30R7jPcxOqEYFOuxNOjvKeKWCmBqN2tnnRYTrXPnOElveM/exec">
               <input id="email" type="email" name="email_user" required/>
-              <button type="submit" id="submit-form" placeholder="Email">{t("send.label")}</button>
+              <button type="submit" id="submit-form" placeholder="Email">{t("Send")}</button>
             </form>
           </div>
           <div className="marquee">
@@ -433,47 +484,51 @@ function App({t}) {
         </main>
         <div className="footer">
               <div className="contact-info footer-child">
-                <h4 className="footer-title">{t("contact.label")}</h4>
-                <h3>{t("company.label")}</h3>
-                <h4><i className="fas fa-chevron-right"></i><Link to="/gioi-thieu">{t("intro.label")}</Link></h4>
+                <h4 className="footer-title">{t("Contact Information")}</h4>
+                <h3>{t("Thanh Tin Instrument And Chemical Co.LTD")}</h3>
+                <h4><i className="fas fa-chevron-right"></i><Link to="/gioi-thieu">{t("About us")}</Link></h4>
+		<p> <strong>Mã số doanh nghiệp:</strong> 0311941553 do Sở Kế Hoạch và Đầu Tư Thành phố Hồ Chí Minh cấp lần đầu ngày 22/08/2012</p>
                 <div className="vphcm ">
-                  <strong>{t("hcm.label")}: </strong><span>{t("hcmadd.label")}</span>
-                  <p><strong>{t("phone.label")}: </strong> <span> (028) 36 360 901 </span></p><p><strong>Fax:</strong> <span>(028) 36 360 902</span></p>
+                  <strong>{t("VP HCM")}: </strong><span>{t("78 1A St, Quater 4, Binh Hung Hoa B Ward, Binh Tan Dist., Ho Chi Minh City, VietNam")}</span>
+                  <p><strong>{t("Hotline")}: </strong> <span> (028) 36 360 901 </span></p><p><strong>Fax:</strong> <span>(028) 36 360 902</span></p>
                 </div>
                 <div className="vphn">
-                  <strong>{t("hn.label")}: </strong><span>{t("hnadd.label")}</span>
-                  <p><strong>{t("mst.label")}: </strong><span>0311941553 -001</span></p><p><strong>Email: </strong><span><a href="mailto:hanoi@thanhtin-tech.com">hanoi@thanhtin-tech.com</a></span></p>
+                  <strong>{t("Ha Noi Office")}: </strong><span>{t("Lot 3, A1-A2-A3 Area, Cau Thanh Tri St., Cu Khoi Ward, Long Bien Dist., Ha Noi, VietNam")}</span>
+                  <p><strong>{t("MST")} </strong><span>0311941553 -001</span></p><p><strong>Email: </strong><span><a href="mailto:hanoi@thanhtin-tech.com">hanoi@thanhtin-tech.com</a></span></p>
                 </div>
               </div>
               <div className=" footer-child">
                 <div className="sale-dept">
-                  <h4 className="footer-title">{t("sale.label")}</h4>
-                  <p><strong>{t("hcmname.label")}: </strong><span><a href="mailto:sales@thanhtin-tech.com">sales@thanhtin-tech.com</a> </span></p>
-                  <p><strong>{t("hnname.label")}: </strong><span><a href="mailto:hanoi@thanhtin-tech.com">hanoi@thanhtin-tech.com</a> </span></p>
+                  <h4 className="footer-title">{t("Sale Department")}</h4>
+                  <p><strong>{t("HCM")}: </strong><span><a href="mailto:sales@thanhtin-tech.com">sales@thanhtin-tech.com</a> </span></p>
+                  <p><strong>{t("Ha Noi")}: </strong><span><a href="mailto:hanoi@thanhtin-tech.com">hanoi@thanhtin-tech.com</a> </span></p>
                 </div>
                 <div className="tech-dept ">
-                  <h4 className="footer-title">{t("tech.label")}</h4>
-                  <p><strong>{t("hcmname.label")}: </strong><span><a href="mailto:service@thanhtin-tech.com">service@thanhtin-tech.com</a> </span></p>
-                  <p><strong>{t("hnname.label")}: </strong><span><a href="mailto:service@thanhtin-tech.com">service@thanhtin-tech.com</a> </span></p>
+                  <h4 className="footer-title">{t("Technical Department")}</h4>
+                  <p><strong>{t("HCM")}: </strong><span><a href="mailto:service@thanhtin-tech.com">service@thanhtin-tech.com</a> </span></p>
+                  <p><strong>{t("Ha Noi")}: </strong><span><a href="mailto:service@thanhtin-tech.com">service@thanhtin-tech.com</a> </span></p>
                 </div>
                                
-              </div>             
+              </div>                   
+              <div className="contact-media footer-child">
+                <h4 className="footer-title">Hướng dẫn và chính sách</h4>
+                <p><Link to="/huongdanmuahang">Hướng dẫn mua hàng</Link></p>
+                <p><Link to="/phuongthucthanhtoan">Phương thức thanh toán</Link></p>
+                <p><Link to="/chinhsachbaohanh">Chính sách bảo hành</Link></p>
+                <p><Link to="/chinhsachbaomat">Chính sách bảo mật</Link></p>
+		<div className="other-social">
+                  <a href="https://www.linkedin.com/in/thanh-tin-tech-co-ltd-43979a205/" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a>
+                  <a href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147/"><i className="fab fa-facebook " target="_blank" rel="noopener noreferrer"></i></a>
+                  <a href="https://www.youtube.com/channel/UCWvi8FoZbVU-PMQHDsYC5pQ" target="_blank" rel="noopener noreferrer"><i className="fab fa-youtube"></i></a>                 
+                </div>
+              </div>              
               <div className="footer-child ">             
                 <div className="counter">
                   <div className="elfsight-app-100c9ba3-780c-4067-b06c-79da05bf0162" id="counter"></div>
                 </div>
               </div>
-              <div className="contact-media footer-child">
-                <div className="fb-page" data-href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" data-tabs="timeline" data-width="300" data-height="200" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147" className="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/C%C3%B4ng-ty-TNHH-Thi%E1%BA%BFt-B%E1%BB%8B-V%C3%A0-Ho%C3%A1-Ch%E1%BA%A5t-Th%C3%A0nh-T%C3%ADn-582804005098147">Công ty TNHH Thiết Bị Và Hoá Chất  Thành Tín</a></blockquote></div>
-                <div className="other-social">
-                  <a href="https://www.linkedin.com/in/thanh-tin-tech-co-ltd-43979a205/" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a>
-                  <a href="#"><i className="fab fa-twitter"></i></a>
-                  <a href="https://www.youtube.com/channel/UCWvi8FoZbVU-PMQHDsYC5pQ" target="_blank" rel="noopener noreferrer"><i className="fab fa-youtube"></i></a>                 
-                </div>
-              </div>              
-              
               <div className="copyright">
-            <div className="copyright-container"><span>COPYRIGHT &copy; 2021</span> <span>{t("company.label")}</span></div>
+            <div className="copyright-container"><span>COPYRIGHT &copy; 2021</span> <span>{t("Products - Applications Thanh Tin Instrument And Chemical Co.LTD")}</span></div>
           </div>  
         </div>  
       </div>

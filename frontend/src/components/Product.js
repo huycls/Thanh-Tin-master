@@ -21,13 +21,16 @@ export default withNamespaces((props) => props.namespaces) (function Product(pro
   
     return str;
   }
+  
   return (
     <div key={product._id} className="card product-card">
-      <Link className="card-header" to={`/san-pham/${product._id}?${stringToSlug(product.name)}`}>
+      <Link className="card-header" 
+        to={`/san-pham/${product._id}`}>
         <img className="small" src={product.image} alt={product.name} />
       </Link>
       <div className="card-body">
-        <Link to={`/san-pham/${product._id}`} className="product-name">
+        <Link className="product-name"
+	      to={`/san-pham/${product._id}`}>
           <h2>{t("cutname", {product}).length > 50 ? t("cutname", {product}).substring(0, 47) + "..." : t("cutname", {product}) }</h2>
         </Link>
         <div className="row">

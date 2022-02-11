@@ -130,7 +130,6 @@ productRouter.get(
   })
 );
 
-
 productRouter.get(
   '/seed',
   expressAsyncHandler(async (req, res) => {
@@ -177,7 +176,7 @@ productRouter.post(
       seller: req.user._id,
       image: '/images/3.jpg',
       price: "0",
-      category: 'Lò nung',
+      category: 'thiet-bi-nganh-giay',
       encategory: 'sample',
       subcategory: '',
       brand: 'ALP - JAPAN',

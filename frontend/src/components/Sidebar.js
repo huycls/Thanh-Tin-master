@@ -30,7 +30,7 @@ export default withNamespaces() (function Sidebar({t}){
     }
   }
     return <aside className="sidebar">      
-            <strong className="category">{t("category.label")} <button onClick={dropdownmenu2} className="resdropdown-btn"><i className="fas fa-sort-down"></i></button></strong>
+            <strong className="category">{t("Categories")} <button onClick={dropdownmenu2} className="resdropdown-btn"><i className="fas fa-sort-down"></i></button></strong>
             <ul className="category-menu" id="myDropdown2">
               {loadingCategories ? (
                 <LoadingBox></LoadingBox>
@@ -51,13 +51,13 @@ export default withNamespaces() (function Sidebar({t}){
             </ul>
            
             <div className="sidebar-title res">
-              <a href="https://www.youtube.com/channel/UCWvi8FoZbVU-PMQHDsYC5pQ/featured" target="_blank" rel="noopener noreferrer">{t("video.label")}</a>
+              <a href="https://www.youtube.com/channel/UCWvi8FoZbVU-PMQHDsYC5pQ/featured" target="_blank" rel="noopener noreferrer">{t("Video channel")}</a>
             </div>
             <div className="sidebar-content res">
               <iframe src="https://www.youtube.com/embed/xjndBrxqtzU" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>
             <div className="sidebar-title res">
-              <a href="#">{t("support.label")}</a>
+              <a href="#">{t("Online Support")}</a>
             </div>
             <div className="sidebar-content res">
               <h3>Zalo  0988 816 815</h3>
