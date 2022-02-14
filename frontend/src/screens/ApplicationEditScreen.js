@@ -100,6 +100,7 @@ export default function ApplicationEditScreen(props){
            'code',
            'heading',
            '|',
+           'alignment',
            'bold',
            'italic',
            'link',

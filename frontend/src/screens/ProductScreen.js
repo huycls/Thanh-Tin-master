@@ -181,9 +181,15 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
                 {parse(t("parameter.content", {product}))}
               </div>
               <div className="tab-pane fade" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab">Link video: {product.video}</div>
-              <div className="tab-pane fade" id="pills-characteristic" role="tabpanel" aria-labelledby="pills-characteristic-tab">...</div>
-              <div className="tab-pane fade" id="pills-application" role="tabpanel" aria-labelledby="pills-application-tab">...</div>
-              <div className="tab-pane fade" id="pills-accessories" role="tabpanel" aria-labelledby="pills-accessories-tab">...</div>
+              <div className="tab-pane fade" id="pills-characteristic" role="tabpanel" aria-labelledby="pills-characteristic-tab">
+                {parse(t("specification.content", {product}))}
+              </div>
+              <div className="tab-pane fade" id="pills-application" role="tabpanel" aria-labelledby="pills-application-tab">
+                {parse(t("apply.content", {product}))}
+              </div>
+              <div className="tab-pane fade" id="pills-accessories" role="tabpanel" aria-labelledby="pills-accessories-tab">
+                {parse(t("accessories.content", {product}))}
+              </div>
               <div className="tab-pane fade" id="pills-catalog" role="tabpanel" aria-labelledby="pills-catalog-tab"></div>            
             </div>
           </div>

@@ -29,6 +29,12 @@ export default function ProductEditScreen(props) {
   const [subcategory, setSubcategory] = useState('');
   const [parameter, setParameter] = useState('');
   const [enparameter, setEnparameter] = useState('');
+  const [specification, setSpecification] = useState('');
+  const [enspecification, setEnspecification] = useState('');
+  const [apply, setApply] = useState('');
+  const [enapply, setEnapply] = useState('');
+  const [accessories, setAccessories] = useState('');
+  const [enaccessories, setEnaccessories] = useState('');
   const [video, setVideo] = useState('');
   const [catalog, setCatalog] = useState('');
   const [countInStock, setCountInStock] = useState('');
@@ -66,6 +72,12 @@ export default function ProductEditScreen(props) {
       setSubcategory(product.subcategory);
       setParameter(product.parameter);
       setEnparameter(product.enparameter);
+      setSpecification(product.specification);
+      setEnspecification(product.enspecification);
+      setApply(product.apply);
+      setEnapply(product.enapply);
+      setAccessories(product.accessories);
+      setEnaccessories(product.enaccessories);
       setVideo(product.video);
       setCatalog(product.catalog);
       setCountInStock(product.countInStock);
@@ -91,6 +103,12 @@ export default function ProductEditScreen(props) {
         subcategory,
         parameter,
         enparameter,
+        specification,
+        enspecification,
+        apply,
+        enapply,
+        accessories,
+        enaccessories,
         model,
         video,
         catalog,
@@ -504,8 +522,89 @@ export default function ProductEditScreen(props) {
                 }}
               />
             </div>
-            {/* <div id="editor">
-              <p>This is the initial editor content.</p>
+            {/* <div>
+              <label htmlFor="specification">Đặc tính nổi bật:</label>
+              <textarea
+                name="specification"
+                rows="4"
+                id="specification"
+                type="text"
+                placeholder="Enter Description"
+                value={specification}
+                onChange={(e) => setSpecification(e.target.value)}
+              ></textarea>
+            </div>
+            <div>
+              <label htmlFor="enspecification">Đặc tính nổi bật (English):</label>
+              <textarea
+                name="enspecification"
+                rows="4"
+                id="enspecification"
+                type="text"
+                placeholder="Enter Enspecification"
+                value={enspecification}
+                onChange={(e) => setEnspecification(e.target.value)}
+              ></textarea>
+            </div>
+            <div>
+              <label htmlFor="apply">Ứng dụng của thiết bị</label>
+              <CKEditor 
+                className="apply"
+                editor={Editor}
+                config={ editorConfiguration }
+                data={apply}
+                onReady={editor =>{
+                }}
+                onChange={(e,editor)=>{
+                  const data4 = editor.getData();
+                  setApply(data4);
+                }}
+              />
+            </div>
+            <div>
+              <label htmlFor="enapply">Ưng dụng của thiết bị (English)</label>
+              <CKEditor 
+                className="parameter"
+                editor={Editor}
+                config={ editorConfiguration }
+                data={enapply}
+                onReady={editor =>{
+                }}
+                onChange={(e,editor)=>{
+                  const data5 = editor.getData();
+                  setEnapply(data5);
+                }}
+              />
+            </div>
+            <div>
+              <label htmlFor="accessories">Phụ kiện</label>
+              <CKEditor 
+                className="accessories"
+                editor={Editor}
+                config={ editorConfiguration }
+                data={accessories}
+                onReady={editor =>{
+                }}
+                onChange={(e,editor)=>{
+                  const data6 = editor.getData();
+                  setAccessories(data6);
+                }}
+              />
+            </div>
+            <div>
+              <label htmlFor="enaccessories">Phụ kiện (English)</label>
+              <CKEditor 
+                className="parameter"
+                editor={Editor}
+                config={ editorConfiguration }
+                data={enaccessories}
+                onReady={editor =>{
+                }}
+                onChange={(e,editor)=>{
+                  const data7 = editor.getData();
+                  setEnaccessories(data7);
+                }}
+              />
             </div> */}
             <div>
                <label htmlFor="video">Link Video</label>

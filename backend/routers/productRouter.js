@@ -24,6 +24,12 @@ productRouter.get(
     const model = req.query.model || '';
     const parameter = req.query.parameter || '';
     const enparameter = req.query.enparameter || '';
+    const specification = req.query.specification || '';
+    const enspecification = req.query.enspecification || '';
+    const apply = req.query.apply || '';
+    const enapply = req.query.enapply || '';
+    const accessories = req.query.accessories || '';
+    const enaccessories = req.query.enaccessories || '';
     const video = req.query.video || '';
     const catalog = req.query.catalog || '';
     const seller = req.query.seller || '';
@@ -49,6 +55,12 @@ productRouter.get(
     const modelFilter = model ? { model } : {};
     const parameterFilter = parameter ? { parameter } : {};
     const enparameterFilter = enparameter ? {enparameter} : {};
+    const specificationFilter = specification ? {specification} : {};
+    const enspecificationFilter = enspecification ? {enspecification} : {};
+    const applyFilter = apply ? {apply} : {};
+    const enapplyFilter = enapply ? {enapply} : {};
+    const accessoriesFilter = accessories ? {accessories} : {};
+    const enaccessoriesFilter = enaccessories ? {enaccessories} : {};
     const videoFilter = video ? { video } : {};
     const catalogFilter = catalog ? { catalog } : {};
     const descriptionFilter = description ? {description} : {};
@@ -73,6 +85,12 @@ productRouter.get(
       ...vnbrandFilter,
       ...parameterFilter,
       ...enparameterFilter,
+      ...specificationFilter,
+      ...enspecificationFilter,
+      ...applyFilter,
+      ...enapplyFilter,
+      ...accessoriesFilter,
+      ...enaccessoriesFilter,
       ...descriptionFilter,
       ...endescriptionFilter,
       ...modelFilter,
@@ -94,6 +112,12 @@ productRouter.get(
       ...modelFilter,
       ...parameterFilter,
       ...enparameterFilter,
+      ...specificationFilter,
+      ...enspecificationFilter,
+      ...applyFilter,
+      ...enapplyFilter,
+      ...accessoriesFilter,
+      ...enaccessoriesFilter,
       ...videoFilter,
       ...catalogFilter,
       ...priceFilter,
@@ -187,10 +211,16 @@ productRouter.post(
       description: 'sample description',
       endescription: 'sample',
       model: 'sample model',
-      parameter: 'sample paremeter',
-      enparameter: 'sample',
-      video: 'sample link',
-      catalog: 'sample catalog',
+      parameter: '...',
+      enparameter: '...',
+      specification: '...',
+      enspecification: '...',
+      apply: '...',
+      enapply: '...',
+      accessories: '...',
+      enaccessories: '...',
+      video: '...',
+      catalog: '...',
     });
     const createdProduct = await product.save();
     res.send({ message: 'Product Created', product: createdProduct });
@@ -214,6 +244,12 @@ productRouter.put(
       product.model = req.body.model;
       product.parameter = req.body.parameter;
       product.enparameter = req.body.enparameter;
+      product.specification = req.body.specification;
+      product.enspecification = req.body.enspecification;
+      product.apply = req.body.apply;
+      product.enapply = req.body.enapply;
+      product.accessories = req.body.accessories;
+      product.enaccessories = req.body.enaccessories;
       product.video = req.body.video;
       product.catalog = req.body.catalog;
       product.brand = req.body.brand;

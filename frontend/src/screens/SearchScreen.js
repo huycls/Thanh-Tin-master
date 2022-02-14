@@ -11,6 +11,7 @@ import {Helmet} from 'react-helmet';
 import {withNamespaces} from 'react-i18next';
 import Pagination from '../Pagination';
 import Sidebar from '../components/Sidebar';
+import allcategories from '../allcategories';
 
 
 export default withNamespaces() (function SearchScreen( props) {
@@ -105,7 +106,7 @@ export default withNamespaces() (function SearchScreen( props) {
         ) : error ? (
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
-          <div className="search-result">{products.length} {t("result.label")}</div>
+          <div className="search-result">{products.length} {t("result.label")}: {category}</div>
         )}
         <div className="search-box">
           {loading ? (
