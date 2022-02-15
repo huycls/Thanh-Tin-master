@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withNamespaces } from 'react-i18next';
+import { generatePath, useParams } from "react-router";
 
 
 export default withNamespaces((props) => props.namespaces) (function Product(props) {
@@ -22,22 +23,25 @@ export default withNamespaces((props) => props.namespaces) (function Product(pro
     return str;
   }
   
+
+  // generatePath('/san-pham/${product._id')
+  
   return (
     <div key={product._id} className="card product-card">
       <Link className="card-header" 
-        to={`/san-pham/${product._id}`}>
+        to={`/san-pham/${product._id}?${stringToSlug(t("productname", {product}))}`}>
         <img className="small" src={product.image} alt={product.name} />
       </Link>
       <div className="card-body">
         <Link className="product-name"
-	      to={`/san-pham/${product._id}`}>
+	      to={`/san-pham/${product._id}?${stringToSlug(t("productname", {product}))}`}>
           <h2>{t("cutname", {product}).length > 50 ? t("cutname", {product}).substring(0, 47) + "..." : t("cutname", {product}) }</h2>
         </Link>
         <div className="row">
           <div className="product-model"><strong>Model: </strong> {product.model}</div>
           <div className="product-brand"><strong>{t("brand.label")}: </strong> {t("productbrand", {product})}</div>
         </div>
-        <Link className="details-btn" to={`/san-pham/${product._id}`}>
+        <Link className="details-btn" to={`/san-pham/${product._id}?${stringToSlug(t("productname", {product}))}`}>
           {t("detailbtn.label")}
         </Link>
       </div>

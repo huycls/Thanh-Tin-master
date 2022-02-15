@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter, Link, Route } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Redirect } from 'react-router-dom';
 import { signout } from './actions/userActions';
 import AdminRoute from './components/AdminRoute';
 import PrivateRoute from './components/PrivateRoute';
@@ -278,7 +278,8 @@ function App({t}) {
               <ScrollToTop />
               <Route path="/san-pham/:id" component={ProductScreen}
               exact
-              ></Route>             
+              ></Route>
+                         
             </Fragment>
             <Route
               path="/san-pham/:id/edit"

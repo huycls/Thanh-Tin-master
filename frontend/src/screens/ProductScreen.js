@@ -12,6 +12,8 @@ import { withNamespaces } from 'react-i18next';
 import {useHistory, withRouter} from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import {Link} from 'react-router-dom';
+import { generatePath, useParams } from "react-router";
+
 
 export default withNamespaces((props) => props.namespaces) (function ProductScreen(props) {
   const {t} = props;
@@ -46,8 +48,11 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
     document.getElementById("myModal").style.display = "none";
   }
   const history = useHistory();
+
+  const {id} = useParams();
+  
   return (
-    <div className="main-content"> 
+    <div className="main-content" > 
       <Sidebar /> 
       {loading ? (
         <LoadingBox></LoadingBox>
