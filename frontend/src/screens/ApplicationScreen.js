@@ -9,7 +9,7 @@ import { listApplications } from '../actions/applicationActions';
 import parse from 'html-react-parser';
 import {Helmet} from 'react-helmet';
 import { withNamespaces } from 'react-i18next';
-import {useHistory, withRouter} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import {Link} from 'react-router-dom';
 
@@ -17,7 +17,6 @@ export default withNamespaces((props) => props.namespaces) (function Application
     const {t} = props;
     const dispatch = useDispatch();
     const applicationId =  props.match.params.id;
-    const [qty, setQty] = useState(1);
     const applicationDetails = useSelector((state) => state.applicationDetails);
     const { loading, error, application } = applicationDetails;
     const applicationList = useSelector((state) => state.applicationList);

@@ -522,7 +522,7 @@ export default function ProductEditScreen(props) {
                 }}
               />
             </div>
-            {/* <div>
+            <div>
               <label htmlFor="specification">Đặc tính nổi bật:</label>
               <textarea
                 name="specification"
@@ -548,64 +548,52 @@ export default function ProductEditScreen(props) {
             </div>
             <div>
               <label htmlFor="apply">Ứng dụng của thiết bị</label>
-              <CKEditor 
-                className="apply"
-                editor={Editor}
-                config={ editorConfiguration }
-                data={apply}
-                onReady={editor =>{
-                }}
-                onChange={(e,editor)=>{
-                  const data4 = editor.getData();
-                  setApply(data4);
-                }}
-              />
+              <textarea
+                name="apply"
+                rows="4"
+                id="apply"
+                type="text"
+                placeholder="Enter Application"
+                value={apply}
+                onChange={(e) => setApply(e.target.value)}
+              ></textarea>
             </div>
             <div>
               <label htmlFor="enapply">Ưng dụng của thiết bị (English)</label>
-              <CKEditor 
-                className="parameter"
-                editor={Editor}
-                config={ editorConfiguration }
-                data={enapply}
-                onReady={editor =>{
-                }}
-                onChange={(e,editor)=>{
-                  const data5 = editor.getData();
-                  setEnapply(data5);
-                }}
-              />
+              <textarea
+                name="enapply"
+                rows="4"
+                id="enapply"
+                type="text"
+                placeholder="Enter Enapplication"
+                value={enapply}
+                onChange={(e) => setEnapply(e.target.value)}
+              ></textarea>
             </div>
             <div>
               <label htmlFor="accessories">Phụ kiện</label>
-              <CKEditor 
-                className="accessories"
-                editor={Editor}
-                config={ editorConfiguration }
-                data={accessories}
-                onReady={editor =>{
-                }}
-                onChange={(e,editor)=>{
-                  const data6 = editor.getData();
-                  setAccessories(data6);
-                }}
-              />
+              <textarea
+                name="accessories"
+                rows="4"
+                id="accessories"
+                type="text"
+                placeholder="Enter Accessories"
+                value={accessories}
+                onChange={(e) => setAccessories(e.target.value)}
+              ></textarea>
             </div>
             <div>
               <label htmlFor="enaccessories">Phụ kiện (English)</label>
-              <CKEditor 
-                className="parameter"
-                editor={Editor}
-                config={ editorConfiguration }
-                data={enaccessories}
-                onReady={editor =>{
-                }}
-                onChange={(e,editor)=>{
-                  const data7 = editor.getData();
-                  setEnaccessories(data7);
-                }}
-              />
-            </div> */}
+              <textarea
+                name="enaccessories"
+                rows="4"
+                id="enaccessories"
+                type="text"
+                placeholder="Enter Enaccessories"
+                value={enaccessories}
+                onChange={(e) => setEnaccessories(e.target.value)}
+              ></textarea>
+            </div>
             <div>
                <label htmlFor="video">Link Video</label>
                <input
