@@ -66,7 +66,7 @@ export default withNamespaces((props) => props.namespaces) (function RegisterScr
           ></input>
         </div>
         <div>
-          <label htmlFor="password">{t("pass.label")}</label>
+          <label htmlFor="password">{t("Password")}</label>
           <input
             type="password"
             id="password"
@@ -88,7 +88,7 @@ export default withNamespaces((props) => props.namespaces) (function RegisterScr
         <div>
           <label />
           <button className="primary" type="submit">
-            {t("submit.label")}
+            {t("register.label")}
           </button>
         </div>
         <div>

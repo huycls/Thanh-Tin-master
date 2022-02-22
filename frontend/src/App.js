@@ -235,7 +235,7 @@ function App({t}) {
                 <ul className='menu-ul'>
                 {
                   articletypes.map((val, key) => (
-                    <li>
+                    <li key={key}>
                     <Nav.Link onClick={() => setExpanded(false)} as={Link} to={`/tin-tuc/articletype/${val.urlarticletype}`} className="mainnav-link">{t("switchtype", {val})}</Nav.Link>
                     </li>
                   ))

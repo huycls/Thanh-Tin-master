@@ -406,10 +406,12 @@ img.large {
 
 .detail-page .card{
   height: 27rem!important;
+ 
 }
 
 .detail-page{
-  padding: 0 5rem;
+  padding: 0;
+  margin:0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
