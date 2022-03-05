@@ -1,3 +1,3 @@
-<p>Project: Thanh Tin Tech Shop</p>
-<p>Description: An E-commerce website provides laboratory equipments.</p>
-<p>Technologies used: ReactJs, Redux, Node & Express, MongoDB, EmailJS</p>
+<p><bold>Project:</bold> Thanh Tin Tech Shop</p>
+<p><bold>Description:</bold> An E-commerce website provides laboratory equipments.</p>
+<p><bold>Technologies used:</bold> ReactJs, Redux, Node & Express, MongoDB, EmailJS</p>
