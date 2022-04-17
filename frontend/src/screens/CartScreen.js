@@ -33,7 +33,7 @@ export default withNamespaces((props) => props.namespaces) (function CartScreen(
 
   return <div className="main-content">
       <Sidebar />
-      <div className="row top cart-screen">
+      <div className=" top cart-screen">
       <Helmet>
         <title>
         {t("cart.label")}

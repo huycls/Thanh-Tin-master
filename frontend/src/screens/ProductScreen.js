@@ -13,6 +13,7 @@ import {useHistory, withRouter} from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import {Link} from 'react-router-dom';
 import { generatePath, useParams } from "react-router";
+import useScript from '../useScript';
 
 
 export default withNamespaces((props) => props.namespaces) (function ProductScreen(props) {
@@ -48,9 +49,6 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
     document.getElementById("myModal").style.display = "none";
   }
   const history = useHistory();
-
-  const {id} = useParams();
-  
   return (
     <div className="main-content" > 
       <Sidebar /> 
@@ -125,6 +123,7 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
                       </div>
                     </div>
                   </li>
+                  
                   {product.countInStock > 0 && (
                     <>
                       <li>
@@ -147,16 +146,17 @@ export default withNamespaces((props) => props.namespaces) (function ProductScre
                         </div>
                       </li>
                       <li>
-                        {/* <button
+                        <button
                           onClick={addToCartHandler}
                           className="primary block"
                         >
                           {t("tocart.label")}
-                        </button> */}
+                        </button>
                       </li>
                     </>
                   )}
                 </ul>
+                
               </div>
             </div>
           </div>

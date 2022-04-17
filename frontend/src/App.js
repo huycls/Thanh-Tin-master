@@ -262,7 +262,7 @@ function App({t}) {
             <Route path="/thong-bao-thay-doi-ten-giao-dich" component={NewsScreen1}></Route>
             <Route path="/analytica-viet-nam-2013" component={NewsScreen2}></Route>
             <Route path="/tuyen-nhan-vien-kinh-doanh" component={NewsScreen3}></Route>
-	    <Route path="/may-do-sr-sumet-germany-pta-group" component={NewsScreen4}></Route>
+	          <Route path="/may-do-sr-sumet-germany-pta-group" component={NewsScreen4}></Route>
             <Route path="/seller/:id" component={SellerScreen}></Route>
             <Route path="/gio-hang/:id?" component={CartScreen}></Route>
             <Route path="/chinhsachbaomat" component={chinhsachbaomat}></Route>
